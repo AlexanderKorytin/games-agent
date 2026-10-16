@@ -40,16 +40,17 @@ remove_service() {
 
 install_service() {  # имя программа доводы расписание
   local file="$AGENTS/local.games-agent.$1.plist"
-  "$UV" run --project "$CODE" python - "$CODE/deploy/служба.plist.in" "$file" "$1" "$2" "$3" "$4" "$UV" "$CODE" "$SEARCH_PATH" "$LOGS" <<'PY'
+  "$UV" run --project "$CODE" python - "$CODE/deploy/служба.plist.in" "$file" "$1" "$2" "$3" "$4" "$UV" "$CODE" "$SEARCH_PATH" "$LOGS" "$APP/Contents/MacOS/games-agent-service" <<'PY'
 import sys
 from xml.sax.saxutils import escape
-шаблон, файл, имя, программа, доводы, расписание, uv, код, путь, журналы = sys.argv[1:]
+шаблон, файл, имя, программа, доводы, расписание, uv, код, путь, журналы, запуск = sys.argv[1:]
 текст = open(шаблон, encoding="utf-8").read()
 # Пути экранируются: `&` или `<` в имени каталога сломали бы файл службы.
 for ключ, значение in {
     "@ИМЯ@": escape("local.games-agent." + имя), "@UV@": escape(uv), "@КОД@": escape(код),
     "@ПРОГРАММА@": escape(программа), "@ПУТЬ@": escape(путь), "@ЖУРНАЛЫ@": escape(журналы),
     "@КОРОТКО@": escape(имя), "@ДОВОДЫ@": доводы, "@РАСПИСАНИЕ@": расписание,
+    "@ЗАПУСК@": escape(запуск),
 }.items():
     текст = текст.replace(ключ, значение)
 open(файл, "w", encoding="utf-8").write(текст)
@@ -60,6 +61,8 @@ PY
 
 services() {
   mkdir -p "$LOGS" "$AGENTS"
+  # Службы запускаются файлом из приложения — без приложения его нет.
+  [[ -x "$APP/Contents/MacOS/games-agent-service" ]] || make_app
   (cd "$CODE" && "$UV" sync -q)
   (cd "$CODE/../../mcp_servers/steam" && "$UV" sync -q)
   for s in "${SERVICES[@]}"; do remove_service "$s"; done
@@ -118,6 +121,13 @@ fi
 exit 0
 SH
   chmod +x "$APP/Contents/MacOS/games-agent"
+  # Запускающий файл служб: `launchd` зовёт его с именем программы агента.
+  cat > "$APP/Contents/MacOS/games-agent-service" <<SH
+#!/bin/bash
+export PATH="$SEARCH_PATH"
+exec "$UV" run --project "$CODE" python "$CODE/\$1" "\${@:2}"
+SH
+  chmod +x "$APP/Contents/MacOS/games-agent-service"
   "$UV" run --project "$CODE" python "$CODE/deploy/значок.py" "$APP/Contents/Resources/значок.icns"
   echo "приложение: $APP"
 }

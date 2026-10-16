@@ -8,8 +8,9 @@
   <key>AssociatedBundleIdentifiers</key><array><string>local.games-agent</string></array>
   <key>ProgramArguments</key>
   <array>
-    <string>@UV@</string><string>run</string><string>--project</string><string>@КОД@</string>
-    <string>python</string><string>@КОД@/@ПРОГРАММА@</string>
+    <!-- Первым идёт запускающий файл внутри «Игровой агент.app», а не `uv`: macOS называет
+         фоновый объект по первому файлу, и иначе в настройках было бы четыре «uv». -->
+    <string>@ЗАПУСК@</string><string>@ПРОГРАММА@</string>
 @ДОВОДЫ@  </array>
   <key>WorkingDirectory</key><string>@КОД@</string>
   <key>EnvironmentVariables</key>
