@@ -264,7 +264,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "myharness", directory = "../../myharness" },
+    { name = "myharness", git = "https://github.com/AlexanderKorytin/ai-challenge-2026?subdirectory=myharness&rev=261a4d5cfc6e24e068fe2e4faf4a81a52c6d854e" },
     { name = "numpy", specifier = ">=2,<3" },
     { name = "pyobjc-framework-cocoa", specifier = ">=11" },
     { name = "starlette", specifier = ">=0.40" },
@@ -566,22 +566,13 @@ wheels = [
 [[package]]
 name = "myharness"
 version = "0.1.0"
-source = { directory = "../../myharness" }
+source = { git = "https://github.com/AlexanderKorytin/ai-challenge-2026?subdirectory=myharness&rev=261a4d5cfc6e24e068fe2e4faf4a81a52c6d854e#261a4d5cfc6e24e068fe2e4faf4a81a52c6d854e" }
 dependencies = [
     { name = "httpx2" },
     { name = "mcp" },
     { name = "openai" },
     { name = "prompt-toolkit" },
     { name = "tokenizers" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "httpx2", specifier = ">=2.12" },
-    { name = "mcp", specifier = ">=2.2,<3" },
-    { name = "openai", specifier = ">=3.6" },
-    { name = "prompt-toolkit", specifier = ">=3.0.47" },
-    { name = "tokenizers", specifier = ">=0.20" },
 ]
 
 [[package]]

@@ -4,9 +4,9 @@
 судом над кандидатом отбор находит самые похожие игры истории и кладёт их в запрос местной
 модели: «похожа на Hades — 120 ч; на Outlast — минус: скучно».
 
-Векторы — `bge-m3` в местной Ollama через `rag/embedder.py`. Файл загружается по пути, а не
-пакетом: пакет `rag` целиком тянет `sentence-transformers` и `torch`, а `embedder.py` зависит
-только от `httpx2` и `numpy`, и в нём уже учтены грабли Ollama с `num_batch`.
+Векторы — `bge-m3` в местной Ollama через `embedder.py` рядом. Файл перенесён из проекта `rag/`
+репозитория челленджа AI SDLC при выделении агента: он зависит только от `httpx2` и `numpy`, и в
+нём учтены грабли Ollama с `num_batch`.
 
 Индекс — `$GAMES_DATA_DIR/similar.sqlite`: документ на игру, вектор нормирован. Игр истории —
 сотни, поэтому поиск — перебором косинуса в памяти, отдельного индекса ближайших соседей не нужно.
@@ -14,7 +14,6 @@
 
 from __future__ import annotations
 
-import importlib.util
 import sqlite3
 from collections.abc import Callable
 from dataclasses import dataclass
@@ -25,24 +24,16 @@ import numpy as np
 import games_db
 from steam_store import Игра
 
-ВЛОЖЕНИЕ = Path(__file__).resolve().parents[2] / "rag" / "embedder.py"
 # Число похожих — K₂ дня 23 (замер поиска проекта), своё здесь не подбирается.
 ПОХОЖИХ = 5
 
 Считать = Callable[[list[str]], np.ndarray]
 
 
-def _эмбеддер():
-    спец = importlib.util.spec_from_file_location("games_embedder", ВЛОЖЕНИЕ)
-    if спец is None or спец.loader is None:
-        raise RuntimeError(f"нет модуля векторов {ВЛОЖЕНИЕ}")
-    модуль = importlib.util.module_from_spec(спец)
-    спец.loader.exec_module(модуль)
-    return модуль
-
-
 def векторы_bge(тексты: list[str]) -> np.ndarray:
-    return _эмбеддер().эмбеддинги(тексты)
+    import embedder
+
+    return embedder.эмбеддинги(тексты)
 
 
 @dataclass(frozen=True)
