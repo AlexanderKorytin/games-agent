@@ -19,9 +19,10 @@ dependencies = [
 
 [tool.uv.sources]
 # Пути — те же, что у `agents/digest`: агент лежит в репозитории рядом с библиотекой и сервером.
-# `myharness` — библиотека из репозитория челленджа AI SDLC, закреплена на фиксации: обновление
-# библиотеки — осознанная смена `rev`, а не тихий сдвиг.
-myharness = { git = "https://github.com/AlexanderKorytin/ai-challenge-2026", subdirectory = "myharness", rev = "261a4d5cfc6e24e068fe2e4faf4a81a52c6d854e" }
+# `myharness` — библиотека из репозитория челленджа AI SDLC, ветка `main`. Точную фиксацию держит
+# `uv.lock`: правка `myharness` в челлендже сама агента не меняет. Взять новую версию —
+# `uv lock --upgrade-package myharness`, затем проверки.
+myharness = { git = "https://github.com/AlexanderKorytin/ai-challenge-2026", subdirectory = "myharness", branch = "main" }
 steam-mcp = { path = "../../mcp_servers/steam", editable = true }
 
 [dependency-groups]

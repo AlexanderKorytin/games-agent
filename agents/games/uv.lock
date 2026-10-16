@@ -264,7 +264,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "myharness", git = "https://github.com/AlexanderKorytin/ai-challenge-2026?subdirectory=myharness&rev=261a4d5cfc6e24e068fe2e4faf4a81a52c6d854e" },
+    { name = "myharness", git = "https://github.com/AlexanderKorytin/ai-challenge-2026?subdirectory=myharness&branch=main" },
     { name = "numpy", specifier = ">=2,<3" },
     { name = "pyobjc-framework-cocoa", specifier = ">=11" },
     { name = "starlette", specifier = ">=0.40" },
@@ -566,7 +566,7 @@ wheels = [
 [[package]]
 name = "myharness"
 version = "0.1.0"
-source = { git = "https://github.com/AlexanderKorytin/ai-challenge-2026?subdirectory=myharness&rev=261a4d5cfc6e24e068fe2e4faf4a81a52c6d854e#261a4d5cfc6e24e068fe2e4faf4a81a52c6d854e" }
+source = { git = "https://github.com/AlexanderKorytin/ai-challenge-2026?subdirectory=myharness&branch=main#d00e43c4322d1ebc23feabc63c77fddb2640ba89" }
 dependencies = [
     { name = "httpx2" },
     { name = "mcp" },

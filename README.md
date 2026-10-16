@@ -52,4 +52,4 @@
 Агент родился как задание дня 35 челленджа AI SDLC
 ([ai-challenge-2026](https://github.com/AlexanderKorytin/ai-challenge-2026)) и выделен в
 отдельный проект с историей фиксаций. Библиотека агента `myharness` берётся из репозитория
-челленджа, закреплённой фиксацией (`agents/games/pyproject.toml`).
+челленджа, с ветки `main`; точную фиксацию держит `agents/games/uv.lock`.
