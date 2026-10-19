@@ -156,7 +156,9 @@ async def _тело(request: Request) -> dict[str, Any]:
 
 
 async def главная(request: Request) -> Response:
-    return FileResponse(ЗДЕСЬ / "index.html")
+    # `no-cache`: копия страницы в браузере сверяется с вебом перед каждым показом (ETag), иначе
+    # после обновления кода браузер показывал старую страницу из кэша.
+    return FileResponse(ЗДЕСЬ / "index.html", headers={"Cache-Control": "no-cache"})
 
 
 # ---- состояние ----
