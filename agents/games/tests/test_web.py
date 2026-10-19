@@ -235,19 +235,6 @@ def test_вкус_ждёт_подтверждения(клиент):
     assert клиент.get("/api/state").json()["вкус_подтверждён"] is True
 
 
-def test_выключатель_eshop(клиент):
-    с = games_db.открыть()
-    assert клиент.get("/api/state").json()["настройка"]["eshop"] is True
-    assert клиент.post("/api/stores", json={"eshop": "нет"}).status_code == 400
-    ответ = клиент.post("/api/stores", json={"eshop": False})
-    assert ответ.status_code == 200 and ответ.json() == {"итог": "eShop выключен"}
-    assert games_db.eshop_включён(с) is False
-    assert клиент.get("/api/state").json()["настройка"]["eshop"] is False
-    assert клиент.post("/api/stores", json={"eshop": True}).json() == {"итог": "eShop включён"}
-    assert games_db.eshop_включён(с) is True
-    с.close()
-
-
 def _разрешено():
     import json
 
@@ -256,16 +243,19 @@ def _разрешено():
 
 
 def test_выключатель_eshop_переписывает_разрешения_советника(клиент):
+    """Выключатель eShop — «Не использовать» в выборе страны eShop (`/api/regions`): выключение и
+    включение прежней страны идут сразу и переписывают разрешения советника."""
     # Страны eShop нет — `eshop_find` не разрешён и при включённом eShop.
     assert "mcp__steam__eshop_find" not in _разрешено()
-    с = games_db.открыть()
-    games_db.задать_страны(с, eshop="US")
-    с.close()
-    клиент.post("/api/stores", json={"eshop": True})
+    клиент.post("/api/regions", json={"steam": "KZ", "eshop": "US"})
     assert "mcp__steam__eshop_find" in _разрешено()
-    клиент.post("/api/stores", json={"eshop": False})
+    ответ = клиент.post("/api/regions", json={"steam": "KZ", "eshop": None})
+    assert ответ.status_code == 200
+    assert клиент.get("/api/state").json()["настройка"]["eshop"] is False
     assert "mcp__steam__eshop_find" not in _разрешено()
-    клиент.post("/api/stores", json={"eshop": True})
+    ответ = клиент.post("/api/regions", json={"steam": "KZ", "eshop": "US"})
+    assert ответ.status_code == 200
+    assert клиент.get("/api/state").json()["настройка"]["eshop"] is True
     assert "mcp__steam__eshop_find" in _разрешено()
 
 
@@ -319,7 +309,7 @@ def test_выключенный_eshop_прячет_игры_и_пары(клие
     assert "eshop-70010000000002@" in клиент.get("/calendar.ics").text
     assert 70010000000001 in {з["номер"] for з in д["предложения"]}
 
-    клиент.post("/api/stores", json={"eshop": False})
+    games_db.включить_eshop(с, False)
     д = клиент.get("/api/state").json()
     assert {з["номер"] for з in д["предложения"]} == {11, 367520}
     assert {з["номер"] for з in д["желаемое"]} == {12}
@@ -335,7 +325,7 @@ def test_выключенный_eshop_прячет_игры_и_пары(клие
     assert "eshop-" not in текст and "steam-367520@" in текст and "steam-5@" in текст
 
     # Снова включили — записи eShop и поля пары вернулись.
-    клиент.post("/api/stores", json={"eshop": True})
+    games_db.включить_eshop(с, True)
     д = клиент.get("/api/state").json()
     assert {з["номер"] for з in д["предложения"]} == {11, 70010000000011, 367520, 70010000000001}
     assert {з["номер"] for з in д["желаемое"]} == {12, 70010000000012}

@@ -519,25 +519,6 @@ async def мастер_готов(request: Request) -> Response:
     return JSONResponse({"итог": "настройка пройдена"})
 
 
-async def магазины(request: Request) -> Response:
-    """Выключатель eShop из мастера и «Настроек»: выключение ничего не удаляет."""
-    try:
-        тело = await _тело(request)
-    except ValueError as exc:
-        return _ошибка(str(exc))
-    вкл = тело.get("eshop")
-    if not isinstance(вкл, bool):
-        return _ошибка("eshop — true или false")
-    с = games_db.открыть()
-    try:
-        games_db.включить_eshop(с, вкл)
-    finally:
-        с.close()
-    # Разрешения советника — по выключателю: `eshop_find` есть, только пока eShop включён.
-    advisor.подготовить_каталог(каталог())
-    return JSONResponse({"итог": "eShop включён" if вкл else "eShop выключен"})
-
-
 async def _идёт_задание() -> str | None:
     """Почему «регион» сейчас не начать: идёт задание из кнопки веба или в службе. `None` —
     ничто не идёт."""
@@ -1051,7 +1032,6 @@ app = Starlette(
         Route("/api/models/choose", модель_выбрать, methods=["POST"]),
         Route("/api/logout", выйти_из_steam, methods=["POST"]),
         Route("/api/setup/done", мастер_готов, methods=["POST"]),
-        Route("/api/stores", магазины, methods=["POST"]),
         Route("/api/regions", регионы, methods=["POST"]),
         Route("/api/intro/draft", черновик_знакомства, methods=["POST"]),
         Route("/api/taste/confirm", вкус_подтвердить, methods=["POST"]),
