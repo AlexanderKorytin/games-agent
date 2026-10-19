@@ -8,6 +8,7 @@ from datetime import date
 import pytest
 
 import games_db as db
+from eshop_store import НАЧАЛО_НОМЕРОВ
 from steam_store import Игра, Отзывы
 
 
@@ -449,7 +450,7 @@ def _файл_версии_3(файл) -> None:
     сырое.close()
 
 
-def test_переход_3_в_4(каталог):
+def test_переход_3_в_5(каталог):
     _файл_версии_3(db.путь())
     with pytest.raises(db.НоваяСхема, match="версия схемы 3"):
         db.открыть(только_чтение=True)
@@ -457,7 +458,7 @@ def test_переход_3_в_4(каталог):
     try:
         assert с.execute(
             "SELECT значение FROM meta WHERE ключ = 'версия_схемы'"
-        ).fetchone()[0] == "4"
+        ).fetchone()[0] == "5"
         игра = db.игра(с, 367520)
         assert игра["имя"] == "Hollow Knight" and игра["цена"] == 46500
         assert игра["обложка"] == "https://x/h.jpg"
@@ -466,27 +467,93 @@ def test_переход_3_в_4(каталог):
         колонки = {с_[1] for с_ in с.execute("PRAGMA table_info(games)")}
         assert {"адрес", "объект", "скидка_до"} <= колонки
         таблицы = {с_[0] for с_ in с.execute("SELECT name FROM sqlite_master WHERE type = 'table'")}
-        assert {"pairs", "price_history"} <= таблицы
+        assert {"pairs", "price_history", "switch_owned"} <= таблицы
     finally:
         с.close()
     db.открыть().close()
 
 
-def test_новый_файл_сразу_версии_4(с):
+def test_новый_файл_сразу_версии_5(с):
     assert с.execute(
         "SELECT значение FROM meta WHERE ключ = 'версия_схемы'"
-    ).fetchone()[0] == "4"
+    ).fetchone()[0] == "5"
     колонки = {с_[1] for с_ in с.execute("PRAGMA table_info(games)")}
     assert {"обложка", "адрес", "объект", "скидка_до"} <= колонки
     таблицы = {с_[0] for с_ in с.execute("SELECT name FROM sqlite_master WHERE type = 'table'")}
-    assert {"pairs", "price_history"} <= таблицы
+    assert {"pairs", "price_history", "switch_owned"} <= таблицы
 
 
-def test_файл_версии_5_отвергнут(с):
-    с.execute("UPDATE meta SET значение = '5' WHERE ключ = 'версия_схемы'")
+def test_файл_версии_6_отвергнут(с):
+    с.execute("UPDATE meta SET значение = '6' WHERE ключ = 'версия_схемы'")
     с.close()
-    with pytest.raises(db.НоваяСхема, match="версия схемы 5, этот код знает только 4"):
+    with pytest.raises(db.НоваяСхема, match="версия схемы 6, этот код знает только 5"):
         db.открыть()
+
+
+# ---- схема 5 ----
+
+# Добавка версии 4 — дословно как её писал код версии 4; копия по той же причине, что `СХЕМА_1`.
+СХЕМА_4_КОПИЯ = """
+ALTER TABLE games ADD COLUMN адрес TEXT;
+ALTER TABLE games ADD COLUMN объект TEXT;
+ALTER TABLE games ADD COLUMN скидка_до TEXT;
+CREATE TABLE IF NOT EXISTS pairs (
+    номер INTEGER PRIMARY KEY,
+    пара INTEGER,
+    сверено TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS price_history (
+    номер INTEGER NOT NULL,
+    цена INTEGER NOT NULL,
+    валюта TEXT NOT NULL,
+    отмечено TEXT NOT NULL,
+    PRIMARY KEY (номер, отмечено)
+);
+"""
+
+
+def _файл_версии_4(файл) -> None:
+    """Файл ровно таким, каким его оставлял код версии 4: четыре части схемы, версия 4, данные."""
+    файл.parent.mkdir(parents=True, exist_ok=True)
+    сырое = sqlite3.connect(файл)
+    for часть in (СХЕМА_1, СХЕМА_2_КОПИЯ, СХЕМА_3_КОПИЯ, СХЕМА_4_КОПИЯ):
+        сырое.executescript(часть)
+    сырое.execute("INSERT INTO meta VALUES ('версия_схемы', '4')")
+    сырое.execute(
+        "INSERT INTO games (номер, имя, цена, валюта, обновлено, адрес) VALUES "
+        "(70010000000001, 'Hollow Knight', 1999, 'USD', '2026-10-01', 'https://x/hk')"
+    )
+    сырое.execute(
+        "INSERT INTO suggestions (номер, причина, предложено) "
+        "VALUES (70010000000001, 'метроидвания', '2026-10-01')"
+    )
+    сырое.execute("INSERT INTO played VALUES (400, 1, '2026-10-02')")
+    сырое.execute("INSERT INTO pairs VALUES (70010000000001, 367520, '2026-10-01')")
+    сырое.execute("INSERT INTO price_history VALUES (70010000000001, 1999, 'USD', '2026-10-01')")
+    сырое.commit()
+    сырое.close()
+
+
+def test_переход_4_в_5(каталог):
+    _файл_версии_4(db.путь())
+    with pytest.raises(db.НоваяСхема, match="версия схемы 4"):
+        db.открыть(только_чтение=True)
+    с = db.открыть()
+    try:
+        assert с.execute(
+            "SELECT значение FROM meta WHERE ключ = 'версия_схемы'"
+        ).fetchone()[0] == "5"
+        [предложение] = db.предложения(с)
+        assert предложение["номер"] == 70010000000001 and предложение["имя"] == "Hollow Knight"
+        assert предложение["пара"] == 367520 and предложение["на_switch"] is False
+        assert db.показанные(с) == {70010000000001, 400}
+        assert db.минимум_наблюдений(с, 70010000000001)["цена"] == 1999
+        assert db.на_switch(с) == set()
+        db.есть_на_switch(с, 70010000000001, True)
+        assert db.на_switch(с) == {70010000000001}
+    finally:
+        с.close()
+    db.открыть().close()
 
 
 def test_игра_eshop_поля(с):
@@ -731,6 +798,8 @@ def _игра_во_всех_таблицах(с, номер: int, имя: str) -
     db.отметить_цену(с, номер, 1000, 0, валюта="USD")
     db.запомнить_отказ(с, номер, "отпечаток")
     db.уже_играл(с, номер, True)
+    if номер >= НАЧАЛО_НОМЕРОВ:
+        db.есть_на_switch(с, номер, True)
     db.поставить_отметку(с, f"выход_сообщён:{номер}", "2026-10-19")
 
 
@@ -740,6 +809,7 @@ def _строки(с, таблица: str, номер: int) -> int:
 
 ТАБЛИЦЫ_ИГРЫ = (
     "games", "suggestions", "calendar", "prices", "price_history", "pairs", "refusals", "played",
+    "switch_owned",
 )
 
 
@@ -759,7 +829,7 @@ def test_удалить_игру(с):
     assert db.список_steam(с) == {367520}
     # Другая игра цела.
     for таблица in ТАБЛИЦЫ_ИГРЫ:
-        if таблица != "pairs":
+        if таблица not in ("pairs", "switch_owned"):
             assert _строки(с, таблица, 400) == 1, таблица
     assert db.игра(с, 400)["имя"] == "Portal"
     assert db.отметка(с, "выход_сообщён:400") == "2026-10-19"
@@ -774,7 +844,7 @@ def test_забыть_карточку_отказы_и_решения_целы(�
     # Пара — с обеих сторон: строка игры Steam тоже забыта, её поищут заново.
     assert not db.пара_сверена(с, ESHOP_США) and not db.пара_сверена(с, 367520)
     # Отказ модели и решения человека не трогаются.
-    for таблица in ("refusals", "suggestions", "calendar", "played"):
+    for таблица in ("refusals", "suggestions", "calendar", "played", "switch_owned"):
         assert _строки(с, таблица, ESHOP_США) == 1, таблица
 
 
@@ -801,6 +871,7 @@ def test_заменить_номер(с):
         "SELECT причина FROM calendar WHERE номер = ?", (ESHOP_ЕВРОПА,)
     ).fetchone()[0] == "ждёт Hollow Knight"
     assert _строки(с, "played", ESHOP_ЕВРОПА) == 1
+    assert db.на_switch(с) == {ESHOP_ЕВРОПА}
     assert db.отметка(с, f"выход_сообщён:{ESHOP_ЕВРОПА}") == "2026-10-19"
     assert db.отметка(с, f"выход_сообщён:{ESHOP_США}") is None
     # Прежний номер исчез отовсюду.
@@ -817,11 +888,13 @@ def test_заменить_номер_не_затирает_строки_ново
     db.предложить(с, ESHOP_США, "старое предложение")
     db.в_календарь(с, ESHOP_США, "старый календарь")
     db.уже_играл(с, ESHOP_США, False)
+    db.есть_на_switch(с, ESHOP_США, True)
     db.поставить_отметку(с, f"выход_сообщён:{ESHOP_США}", "старая")
     db.предложить(с, ESHOP_ЕВРОПА, "новое предложение")
     db.оценить(с, ESHOP_ЕВРОПА, True, "новая оценка")
     db.в_календарь(с, ESHOP_ЕВРОПА, "новый календарь")
     db.уже_играл(с, ESHOP_ЕВРОПА, True)
+    db.есть_на_switch(с, ESHOP_ЕВРОПА, True)
     db.поставить_отметку(с, f"выход_сообщён:{ESHOP_ЕВРОПА}", "новая")
     db.заменить_номер(с, ESHOP_США, ESHOP_ЕВРОПА)
     assert tuple(с.execute(
@@ -834,15 +907,17 @@ def test_заменить_номер_не_затирает_строки_ново
         "SELECT понравилась FROM played WHERE номер = ?", (ESHOP_ЕВРОПА,)
     ).fetchone()[0] == 1
     assert db.отметка(с, f"выход_сообщён:{ESHOP_ЕВРОПА}") == "новая"
-    for таблица in ("suggestions", "calendar", "played"):
+    for таблица in ("suggestions", "calendar", "played", "switch_owned"):
         assert _строки(с, таблица, ESHOP_США) == 0, таблица
+    assert db.на_switch(с) == {ESHOP_ЕВРОПА}
     assert db.отметка(с, f"выход_сообщён:{ESHOP_США}") is None
 
 
 def test_заменить_номер_на_себя_ничего_не_меняет(с):
     _игра_во_всех_таблицах(с, ESHOP_США, "Hollow Knight")
     db.заменить_номер(с, ESHOP_США, ESHOP_США)
-    for таблица in ("games", "suggestions", "calendar", "prices", "price_history", "refusals", "played"):
+    for таблица in ("games", "suggestions", "calendar", "prices", "price_history", "refusals", "played",
+                    "switch_owned"):
         assert _строки(с, таблица, ESHOP_США) == 1, таблица
 
 
@@ -851,7 +926,7 @@ def test_заменить_номер_одной_транзакцией(с):
     с.execute("CREATE TEMP TRIGGER сбой BEFORE DELETE ON refusals BEGIN SELECT RAISE(ABORT, 'сбой'); END")
     with pytest.raises(sqlite3.IntegrityError):
         db.заменить_номер(с, ESHOP_США, ESHOP_ЕВРОПА)
-    for таблица in ("suggestions", "calendar", "played", "games", "prices"):
+    for таблица in ("suggestions", "calendar", "played", "switch_owned", "games", "prices"):
         assert _строки(с, таблица, ESHOP_США) == 1, таблица
         assert _строки(с, таблица, ESHOP_ЕВРОПА) == 0, таблица
 
@@ -899,8 +974,8 @@ def test_сбросить_пары(с):
 def _снимок(с) -> dict:
     return {
         т: sorted(tuple(р) for р in с.execute(f"SELECT * FROM {т}").fetchall())
-        for т in ("games", "suggestions", "calendar", "played", "prices", "price_history",
-                  "pairs", "refusals", "marks", "feed")
+        for т in ("games", "suggestions", "calendar", "played", "switch_owned", "prices",
+                  "price_history", "pairs", "refusals", "marks", "feed")
     }
 
 
@@ -953,6 +1028,14 @@ def test_транзакция_не_пишет_после_выхода(с):
         т.удалить_игру(400)
 
 
+def test_транзакция_снять_из_работы_снимает_switch(с):
+    _игра_во_всех_таблицах(с, ESHOP_США, "Hollow Knight")
+    with db.транзакция(с) as т:
+        т.снять_из_работы(ESHOP_США)
+    assert db.на_switch(с) == set()
+    assert db.игра(с, ESHOP_США)["имя"] == "Hollow Knight"
+
+
 def test_транзакция_снять_из_работы_и_стереть_цену(с):
     _игра_во_всех_таблицах(с, 367520, "Hollow Knight")
     db.записать_пару(с, 367520, ESHOP_США)
@@ -968,3 +1051,109 @@ def test_транзакция_снять_из_работы_и_стереть_ц�
     assert запись["имя"] == "Hollow Knight" and db.пара(с, 367520) == ESHOP_США
     assert (запись["цена"], запись["цена_без_скидки"], запись["скидка"], запись["валюта"],
             запись["скидка_до"]) == (None, None, 0, "", None)
+
+
+# ---- есть на Switch ----
+
+
+def test_есть_на_switch_отметка_и_снятие(с):
+    db.есть_на_switch(с, ESHOP_США, True)
+    db.есть_на_switch(с, ESHOP_США, True)  # повтор — та же одна строка
+    assert db.на_switch(с) == {ESHOP_США}
+    assert с.execute("SELECT отмечено FROM switch_owned").fetchone()[0]
+    db.есть_на_switch(с, ESHOP_США, False)
+    assert db.на_switch(с) == set()
+    db.есть_на_switch(с, ESHOP_США, False)  # снятой нет — ничего не делает
+    assert db.на_switch(с) == set()
+
+
+def test_есть_на_switch_только_eshop(с):
+    with pytest.raises(ValueError):
+        db.есть_на_switch(с, 367520, True)
+    assert db.на_switch(с) == set()
+
+
+def test_на_switch_нет_в_выдачах(с):
+    _пара_hollow_knight(с)
+    pikmin = 70010000000002
+    db.предложить(с, pikmin, "игры Nintendo")
+    db.в_календарь(с, pikmin, "ждёт")
+    db.оценить(с, pikmin, True, "хочу")
+    db.предложить(с, 10, "другая")
+    assert db.открытых(с) == 1  # pikmin с оценкой, открыта только 10
+    db.снять_оценку(с, pikmin)
+    db.предложить(с, pikmin, "снова")
+    db.в_календарь(с, pikmin, "ждёт")
+    assert db.открытых(с) == 2
+    db.есть_на_switch(с, pikmin, True)
+    assert [з["номер"] for з in db.предложения(с)] == [10]
+    assert db.календарь(с) == []
+    assert db.открытых(с) == 1  # место освободилось
+    db.оценить(с, pikmin, True, "хочу")
+    assert db.желаемое(с) == []
+    # Не предлагается снова и переезжает при смене региона.
+    assert pikmin in db.показанные(с)
+    assert pikmin in db.номера_в_работе(с)
+
+
+def test_на_switch_в_показанных_и_в_работе_без_предложения(с):
+    db.есть_на_switch(с, ESHOP_США, True)
+    assert ESHOP_США in db.показанные(с)
+    assert db.номера_в_работе(с) == [ESHOP_США]
+
+
+def test_игра_steam_с_парой_на_switch(с):
+    _пара_hollow_knight(с)
+    db.предложить(с, 367520, "метроидвания")
+    db.в_календарь(с, 367520, "ждёт")
+    [до] = db.предложения(с)
+    assert до["на_switch"] is False and до["пара"] == 70010000000001
+    db.есть_на_switch(с, 70010000000001, True)
+    for выдача in (db.предложения(с), db.календарь(с)):
+        [запись] = выдача
+        assert запись["номер"] == 367520 and запись["на_switch"] is True
+        assert запись["магазины"] == ["steam"]
+        assert "пара" not in запись
+        assert not any(к.startswith("пара_") for к in запись)
+        assert запись["ссылка"] == "https://store.steampowered.com/app/367520/"
+    db.оценить(с, 367520, True, "хочу")
+    [запись] = db.желаемое(с)
+    assert запись["на_switch"] is True and запись["магазины"] == ["steam"] and "пара" not in запись
+    assert db.игра(с, 367520)["на_switch"] is True
+    # Снятие возвращает пару.
+    db.есть_на_switch(с, 70010000000001, False)
+    [запись] = db.желаемое(с)
+    assert запись["на_switch"] is False and запись["пара"] == 70010000000001
+    assert запись["магазины"] == ["steam", "eshop"]
+
+
+def test_без_eshop_с_парой_на_switch(с):
+    _пара_hollow_knight(с)
+    db.предложить(с, 367520, "метроидвания")
+    db.есть_на_switch(с, 70010000000001, True)
+    [запись] = db.без_eshop(db.предложения(с))
+    assert запись["на_switch"] is True and запись["магазины"] == ["steam"]
+
+
+def test_библиотека_switch(с):
+    _пара_hollow_knight(с)
+    db.запомнить_игру(с, Игра(номер=70010000000003, имя="Celeste", цена=1999, валюта="USD",
+                              адрес="https://x/celeste"))
+    db.есть_на_switch(с, 70010000000001, True)
+    db.есть_на_switch(с, 70010000000003, True)
+    db.есть_на_switch(с, ESHOP_США, True)  # карточки нет
+    записи = db.библиотека_switch(с)
+    assert [з["номер"] for з in записи] == [70010000000003, 70010000000001, ESHOP_США]
+    celeste, hk, без_карточки = записи
+    assert celeste["имя"] == "Celeste" and celeste["ссылка"] == "https://x/celeste"
+    assert celeste["магазин"] == "eshop" and celeste["на_switch"] is True
+    assert celeste["отмечено"]
+    assert hk["ссылка"] == АДРЕС_ESHOP and hk["магазины"] == ["steam", "eshop"]
+    assert без_карточки["имя"] is None and без_карточки["магазин"] == "eshop"
+
+
+def test_удалить_игру_снимает_switch(с):
+    db.запомнить_игру(с, Игра(номер=ESHOP_США, имя="Hollow Knight"))
+    db.есть_на_switch(с, ESHOP_США, True)
+    db.удалить_игру(с, ESHOP_США)
+    assert db.на_switch(с) == set()

@@ -440,8 +440,8 @@ def test_steam_сменился_цены_eshop_целы():
 def _снимок(с) -> dict:
     return {
         т: sorted(tuple(р) for р in с.execute(f"SELECT * FROM {т}").fetchall())
-        for т in ("games", "suggestions", "calendar", "played", "prices", "price_history",
-                  "pairs", "marks", "feed")
+        for т in ("games", "suggestions", "calendar", "played", "switch_owned", "prices",
+                  "price_history", "pairs", "marks", "feed")
     }
 
 
