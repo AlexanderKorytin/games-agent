@@ -225,3 +225,69 @@ def test_список_желаемого_с_ключом():
 
     assert желаемое(steam, КЛЮЧ) == []
     assert parse_qs(запросы[0].url.query.decode())["key"] == [КЛЮЧ]
+
+
+# --- страна профиля ---
+# Образца нет: ответ GetPlayerSummaries требует ключа человека. Вид ответа — из документации
+# Steam Web API (`response.players[].loccountrycode`); живьём не проверено.
+
+def страна(обработчик):
+    async def ход():
+        async with клиент(обработчик) as к:
+            return await sa.страна_профиля(к, КЛЮЧ, "76561197960287930")
+    return выполнить(ход())
+
+
+def игроки(*записи):
+    return lambda з: httpx2.Response(200, json={"response": {"players": list(записи)}})
+
+
+def test_страна_профиля_и_доводы():
+    запросы = []
+
+    def steam(запрос):
+        запросы.append(запрос)
+        return httpx2.Response(200, json={"response": {"players": [
+            {"steamid": "76561197960287930", "personaname": "x", "loccountrycode": "KZ"}]}})
+
+    assert страна(steam) == "KZ"
+    assert запросы[0].url.path == "/ISteamUser/GetPlayerSummaries/v2/"
+    д = {к: в[0] for к, в in parse_qs(запросы[0].url.query.decode()).items()}
+    assert д == {"key": КЛЮЧ, "steamids": "76561197960287930"}
+
+
+def test_страна_профиля_не_указана():
+    assert страна(игроки({"steamid": "76561197960287930"})) is None
+
+
+def test_страна_профиля_пустой_список():
+    assert страна(игроки()) is None
+
+
+def test_страна_профиля_пустой_response():
+    assert страна(lambda з: httpx2.Response(200, json={"response": {}})) is None
+
+
+@pytest.mark.parametrize("код", ["kz", "KAZ", "K", "", "K1", 7, None, "КЗ"])
+def test_страна_профиля_негодный_код(код):
+    assert страна(игроки({"steamid": "76561197960287930", "loccountrycode": код})) is None
+
+
+def test_страна_профиля_запись_не_словарь():
+    assert страна(игроки("KZ")) is None
+
+
+@pytest.mark.parametrize("код", [401, 403])
+def test_страна_профиля_ключ_не_принят_без_ключа_в_тексте(код):
+    with pytest.raises(sa.КлючНеПринят) as беда:
+        страна(lambda з: httpx2.Response(код, text=f"<html>key={КЛЮЧ}</html>"))
+    assert КЛЮЧ not in str(беда.value)
+
+
+def test_страна_профиля_обрыв_без_адреса_в_тексте():
+    def обрыв(запрос):
+        raise httpx2.ConnectError(f"не достучался до {запрос.url}", request=запрос)
+    with pytest.raises(sa.ОшибкаSteam) as беда:
+        страна(обрыв)
+    assert КЛЮЧ not in str(беда.value)
+    assert беда.value.__context__ is None and беда.value.__cause__ is None
