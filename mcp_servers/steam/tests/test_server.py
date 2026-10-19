@@ -13,12 +13,12 @@ import server
 import steam_store as ss
 
 ИМЕНА = {
-    "steam_tags", "steam_search", "steam_find", "steam_game", "eshop_find",
+    "steam_tags", "steam_search", "steam_find", "steam_game", "eshop_find", "eshop_game",
     "list_suggestions", "list_wishlist", "list_calendar", "list_library", "list_feed",
 }
 
 
-def test_десять_инструментов_и_пустое_хранилище(tmp_path, monkeypatch):
+def test_одиннадцать_инструментов_и_пустое_хранилище(tmp_path, monkeypatch):
     monkeypatch.setenv("GAMES_DATA_DIR", str(tmp_path))
 
     async def прогон():
@@ -178,3 +178,190 @@ def test_тексты_для_модели_без_зашитой_страны():
         assert "США" not in текст and "рубл" not in текст and "доллар" not in текст, текст
     eshop_find = next(и for и in asyncio.run(прогон()).tools if и.name == "eshop_find")
     assert "eShop страны пользователя" in eshop_find.description
+
+
+НОМЕР_ESHOP = 70010000003208
+
+
+def _игра_eshop(tmp_path, monkeypatch, *, страна="MX", объект="70010000003208", включён=True,
+                отзывы=ss.НЕТ_ОТЗЫВОВ):
+    """Хранилище со страной eShop и записью игры eShop."""
+    _страны(tmp_path, monkeypatch, eshop_=страна)
+    с = games_db.открыть()
+    games_db.запомнить_игру(с, ss.Игра(НОМЕР_ESHOP, "Hollow Knight", объект=объект, отзывы=отзывы))
+    games_db.включить_eshop(с, включён)
+    с.close()
+
+
+def _не_звать_eshop(monkeypatch):
+    async def не_звать(*доводы, **поля):
+        raise AssertionError("eShop не зовётся")
+
+    monkeypatch.setattr(eshop, "игра", не_звать)
+
+
+def test_eshop_game_отдаёт_сведения(tmp_path, monkeypatch):
+    _игра_eshop(tmp_path, monkeypatch)
+
+    async def подделка(к, регион, объект):
+        assert регион == eshop.регион("MX")
+        assert объект == "70010000003208"
+        return ss.Игра(
+            НОМЕР_ESHOP, "Hollow Knight",
+            адрес="https://www.nintendo.com/us/store/products/hollow-knight-switch/",
+            цена=1500, валюта="USD", платформы=("Nintendo Switch",),
+            описание="Подземное королевство жуков.", жанры=("Action", "Platformer"),
+            дата_текст="Jun 12, 2018", дата=date(2018, 6, 12), вышла=True, скидка=33,
+        )
+
+    monkeypatch.setattr(eshop, "игра", подделка)
+    итог = _вызов("eshop_game", {"nsuid": НОМЕР_ESHOP})
+    assert not итог.is_error
+    ожидание = server._игра_словарём(ss.Игра(
+        НОМЕР_ESHOP, "Hollow Knight",
+        адрес="https://www.nintendo.com/us/store/products/hollow-knight-switch/",
+        цена=1500, валюта="USD", описание="Подземное королевство жуков.",
+        жанры=("Action", "Platformer"), дата_текст="Jun 12, 2018", дата=date(2018, 6, 12),
+        вышла=True, скидка=33,
+    ))
+    assert итог.structured_content == {
+        **ожидание, "платформы": ["Nintendo Switch"],
+        "оценка_пользователей": "игроки Metacritic: отзывов нет",
+    }
+    assert итог.structured_content["магазин"] == "eshop"
+    assert итог.structured_content["цена"] == 15.0
+
+
+@pytest.mark.parametrize("свежие, ожидание", [
+    (ss.НЕТ_ОТЗЫВОВ, "игроки Metacritic: Очень положительные, 90 % из 1 000"),
+    (ss.Отзывы("Положительные", 70, 100), "игроки Metacritic: Положительные, 70 % из 100"),
+])
+def test_eshop_game_оценка_игроков_metacritic(tmp_path, monkeypatch, свежие, ожидание):
+    """Свежая запись каталога без оценки — оценка из хранилища; с оценкой — её."""
+    _игра_eshop(tmp_path, monkeypatch, отзывы=ss.Отзывы("Очень положительные", 900, 1000))
+
+    async def подделка(к, регион, объект):
+        return ss.Игра(НОМЕР_ESHOP, "Hollow Knight", отзывы=свежие)
+
+    monkeypatch.setattr(eshop, "игра", подделка)
+    итог = _вызов("eshop_game", {"nsuid": НОМЕР_ESHOP})
+    assert not итог.is_error
+    assert итог.structured_content["оценка_пользователей"] == ожидание
+
+
+@pytest.mark.parametrize("хранилище", [False, True])
+def test_eshop_game_выключен_раньше_неизвестной(tmp_path, monkeypatch, хранилище):
+    """eShop выключен и игры нет в хранилище (или нет и файла) — ответ «выключен»."""
+    monkeypatch.setenv("GAMES_DATA_DIR", str(tmp_path))
+    if хранилище:
+        с = games_db.открыть()
+        games_db.включить_eshop(с, False)
+        с.close()
+    _не_звать_eshop(monkeypatch)
+    итог = _вызов("eshop_game", {"nsuid": НОМЕР_ESHOP})
+    assert итог.is_error
+    текст = итог.content[0].text
+    if хранилище:
+        assert "eShop выключен в настройках агента" in текст
+    else:
+        # Без файла хранилища выключателя нет: eShop включён, игра агенту неизвестна.
+        assert f"игра eShop {НОМЕР_ESHOP} неизвестна агенту" in текст
+
+
+def test_steam_game_номер_eshop_ошибка(tmp_path, monkeypatch):
+    _страны(tmp_path, monkeypatch, steam="KZ")
+
+    async def не_звать(*доводы, **поля):
+        raise AssertionError("номер eShop в Steam не шлётся")
+
+    monkeypatch.setattr(ss, "игра", не_звать)
+    итог = _вызов("steam_game", {"appid": НОМЕР_ESHOP})
+    assert итог.is_error
+    assert f"номер {НОМЕР_ESHOP} — eShop: сведения — eshop_game" in итог.content[0].text
+
+
+def test_eshop_game_номер_steam_ошибка(tmp_path, monkeypatch):
+    _игра_eshop(tmp_path, monkeypatch)
+    _не_звать_eshop(monkeypatch)
+    итог = _вызов("eshop_game", {"nsuid": 620})
+    assert итог.is_error
+    assert "620" in итог.content[0].text and "steam_game" in итог.content[0].text
+
+
+@pytest.mark.parametrize("хранилище", [False, True])
+def test_eshop_game_неизвестна_агенту(tmp_path, monkeypatch, хранилище):
+    if хранилище:
+        _страны(tmp_path, monkeypatch, eshop_="MX")
+    else:
+        monkeypatch.setenv("GAMES_DATA_DIR", str(tmp_path))
+    _не_звать_eshop(monkeypatch)
+    итог = _вызов("eshop_game", {"nsuid": НОМЕР_ESHOP})
+    assert итог.is_error
+    assert f"игра eShop {НОМЕР_ESHOP} неизвестна агенту" in итог.content[0].text
+    assert хранилище or not (tmp_path / "games.sqlite").exists()
+
+
+def test_eshop_game_без_объекта_ошибка(tmp_path, monkeypatch):
+    _игра_eshop(tmp_path, monkeypatch, объект="")
+    _не_звать_eshop(monkeypatch)
+    итог = _вызов("eshop_game", {"nsuid": НОМЕР_ESHOP})
+    assert итог.is_error
+    assert f"у игры eShop {НОМЕР_ESHOP} нет записи каталога" in итог.content[0].text
+
+
+@pytest.mark.parametrize("страна, текст", [
+    (None, "страна eShop не выбрана — укажите в настройках агента"),
+    ("RU", "eShop страны RU не поддержан"),
+])
+def test_eshop_game_нет_страны_ошибка(tmp_path, monkeypatch, страна, текст):
+    _игра_eshop(tmp_path, monkeypatch, страна=страна)
+    _не_звать_eshop(monkeypatch)
+    итог = _вызов("eshop_game", {"nsuid": НОМЕР_ESHOP})
+    assert итог.is_error
+    assert текст in итог.content[0].text
+
+
+def test_eshop_game_eshop_выключен_ошибка(tmp_path, monkeypatch):
+    _игра_eshop(tmp_path, monkeypatch, включён=False)
+    _не_звать_eshop(monkeypatch)
+    итог = _вызов("eshop_game", {"nsuid": НОМЕР_ESHOP})
+    assert итог.is_error
+    assert "eShop выключен в настройках агента" in итог.content[0].text
+
+
+def test_eshop_game_нет_в_каталоге_страны(tmp_path, monkeypatch):
+    _игра_eshop(tmp_path, monkeypatch)
+
+    async def подделка(к, регион, объект):
+        return None
+
+    monkeypatch.setattr(eshop, "игра", подделка)
+    итог = _вызов("eshop_game", {"nsuid": НОМЕР_ESHOP})
+    assert итог.is_error
+    assert f"игры eShop {НОМЕР_ESHOP} нет в каталоге eShop страны MX" in итог.content[0].text
+
+
+def test_eshop_game_сбой_магазина_ошибка(tmp_path, monkeypatch):
+    _игра_eshop(tmp_path, monkeypatch)
+
+    async def подделка(к, регион, объект):
+        raise ss.ОшибкаМагазина("магазин недоступен")
+
+    monkeypatch.setattr(eshop, "игра", подделка)
+    итог = _вызов("eshop_game", {"nsuid": НОМЕР_ESHOP})
+    assert итог.is_error
+    assert "магазин недоступен" in итог.content[0].text
+
+
+def test_eshop_game_описание():
+    async def прогон():
+        async with Client(server.srv) as к:
+            return await к.list_tools()
+
+    инструмент = next(и for и in asyncio.run(прогон()).tools if и.name == "eshop_game")
+    assert " ".join((инструмент.description or "").split()) == (
+        "Сведения об игре Nintendo eShop по номеру (eShop страны пользователя): жанры, дата, "
+        "цена, описание, оценка игроков Metacritic, если агент её знает. Номер — eShop, "
+        "не Steam: Steam — steam_game."
+    )
+    assert "eshop_game" in (server.srv.instructions or "")

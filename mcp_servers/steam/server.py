@@ -7,7 +7,8 @@
 Способ передачи — stdio: сервер поднимает `myharness` процессом из `.mcp.json` каталога агента.
 Хранилище — `games_db` (`$GAMES_DATA_DIR/games.sqlite`), открывается только на чтение. Из него
 же — страны магазинов, выбранные человеком: инструменты Steam ходят в магазин страны Steam,
-`eshop_find` — в eShop страны eShop. Страны нет — ошибка инструмента, а не магазин наугад.
+`eshop_find` и `eshop_game` — в eShop страны eShop. Страны нет — ошибка инструмента, а не
+магазин наугад.
 """
 
 from __future__ import annotations
@@ -30,7 +31,8 @@ srv = MCPServer(
         "steam_tags — метки магазина с номерами; "
         "steam_search — номера игр по метке; steam_find — номер игры по названию; "
         "steam_game — сведения об игре с ценой и оценкой "
-        "пользователей; eshop_find — игра в Nintendo eShop страны пользователя по названию. "
+        "пользователей; eshop_find — игра в Nintendo eShop страны пользователя по названию; "
+        "eshop_game — сведения об игре eShop по её номеру из eshop_find или списков агента. "
         "list_* — предложения, желаемое, календарь выпусков, библиотека Steam "
         "с часами игры и лента агента. "
         "Все инструменты только читают."
@@ -141,6 +143,8 @@ async def steam_game(
 ) -> dict[str, Any]:
     """Сведения об игре: жанры, дата выхода, цена и скидка в валюте страны, оценка пользователей
     Steam."""
+    if es.это_eshop(appid):
+        raise ToolError(f"номер {appid} — eShop: сведения — eshop_game")
     страна = _страна_steam()
     try:
         async with ss.клиент() as к:
@@ -181,6 +185,46 @@ async def eshop_find(
         }
         for и in игры
     ]}
+
+
+@srv.tool()
+async def eshop_game(
+    nsuid: Annotated[int, Field(description="Номер игры Nintendo eShop (nsuid)")],
+) -> dict[str, Any]:
+    """Сведения об игре Nintendo eShop по номеру (eShop страны пользователя): жанры, дата, цена,
+    описание, оценка игроков Metacritic, если агент её знает. Номер — eShop, не Steam: Steam —
+    steam_game."""
+    if not es.это_eshop(nsuid):
+        raise ToolError(f"номер {nsuid} — не eShop: сведения об игре Steam — steam_game")
+    запись, включён = _прочесть(
+        lambda с: (games_db.игра(с, nsuid), games_db.eshop_включён(с)), нет=(None, True)
+    )
+    if not включён:
+        raise ToolError("eShop выключен в настройках агента")
+    if запись is None:
+        raise ToolError(f"игра eShop {nsuid} неизвестна агенту")
+    объект = запись.get("объект")
+    if not объект:
+        raise ToolError(f"у игры eShop {nsuid} нет записи каталога — сведения взять неоткуда")
+    регион = _регион_eshop()
+    try:
+        async with eshop.клиент() as к:
+            игра = await eshop.игра(к, регион, объект)
+    except ss.ОшибкаМагазина as exc:
+        raise ToolError(str(exc)) from exc
+    if игра is None:
+        raise ToolError(f"игры eShop {nsuid} нет в каталоге eShop страны {регион.страна}")
+    # У игр eShop оценка — игроков Metacritic: свежая запись каталога её не несёт, она
+    # в хранилище, куда её кладут задания.
+    отзывы = игра.отзывы if игра.отзывы.всего > 0 else ss.Отзывы(
+        запись.get("отзывы_сводка") or "", запись.get("отзывы_положительных") or 0,
+        запись.get("отзывы_всего") or 0,
+    )
+    return {
+        **_игра_словарём(игра),
+        "платформы": list(игра.платформы),
+        "оценка_пользователей": f"игроки Metacritic: {отзывы.текст()}",
+    }
 
 
 @srv.tool()
