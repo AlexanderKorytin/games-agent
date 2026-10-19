@@ -250,14 +250,14 @@ async def состояние(request: Request) -> Response:
             "библиотека": games_db.библиотека(с),
             "лента": games_db.лента(с),
             # Идут — и из кнопки веба, и по расписанию в службе: служба видна по замку задания.
-            "ход_заданий": {р: х for р in ("day", "week") if (х := jobs.ход_задания(с, р)) is not None},
+            "ход_заданий": {р: х for р in jobs.РОДЫ if (х := jobs.ход_задания(с, р)) is not None},
             "задания_идут": sorted(
                 {р for р, з in ПРИЛОЖЕНИЕ.задания.items() if not з.done()}
-                | {р for р in ("day", "week") if jobs.ход_задания(с, р) is not None}
+                | {р for р in jobs.РОДЫ if jobs.ход_задания(с, р) is not None}
             ),
             # Догоняющий запуск — для значка: опрос не пройден — заданий нет вовсе.
             "догнать": [
-                р for р in ("week", "day")
+                р for р in jobs.РОДЫ
                 if taste.опрос_пройден(каталог()) and games_db.отметка(с, "вкус_подтверждён") and jobs.нужен_догоняющий(с, р)
             ],
             "разговор": [{"вопрос": в, "ответ": о} for в, о in ПРИЛОЖЕНИЕ.пары],
@@ -726,8 +726,8 @@ async def модель_выбрать(request: Request) -> Response:
 
 async def запустить(request: Request) -> Response:
     род = request.path_params["kind"]
-    if род not in ("week", "day"):
-        return _ошибка("задание — week или day")
+    if род not in jobs.РОДЫ:
+        return _ошибка("задание — day, week или month")
     идущее = ПРИЛОЖЕНИЕ.задания.get(род)
     if идущее is not None and not идущее.done():
         return _ошибка("уже идёт", 409)
@@ -742,7 +742,7 @@ async def запустить(request: Request) -> Response:
         try:
             await jobs.запустить(род, каталог())
         except jobs.УжеИдёт:
-            jobs.в_ленту_итог(f"Задание «{'неделя' if род == 'week' else 'день'}» уже идёт в службе — дождитесь его итога")
+            jobs.в_ленту_итог(f"Задание «{jobs.ИМЕНА[род]}» уже идёт в службе — дождитесь его итога")
         except Exception:  # noqa: BLE001 — уже в ленте
             pass
 

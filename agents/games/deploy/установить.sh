@@ -4,9 +4,10 @@
 #   установить.sh приложение — «Игровой агент.app» в ~/Applications. Первый запуск приложения
 #                              поднимает значок и веб; после опроса вкуса значок сам вызывает
 #                              режим «службы».
-#   установить.sh службы     — четыре службы launchd: веб и значок (держатся живыми, стартуют при
-#                              входе в систему), задание недели (понедельник 10:00) и задание
-#                              дня (каждый день 11:00). Пропущенный за сон Мака запуск по
+#   установить.sh службы     — пять служб launchd: веб и значок (держатся живыми, стартуют при
+#                              входе в систему), задание дня (каждый день 11:00: Steam, скидки,
+#                              выходы), недели (пятница 14:00: подбор игр) и месяца (1-е
+#                              число 10:00: календарь). Пропущенный за сон Мака запуск по
 #                              календарю launchd делает при пробуждении. Повтор переставляет.
 #   установить.sh снять      — снять службы и приложение.
 set -euo pipefail
@@ -25,7 +26,7 @@ if [[ -z "$UV" ]]; then
 fi
 SEARCH_PATH="$(dirname "$UV"):/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 DOMAIN="gui/$(id -u)"
-SERVICES=(web menubar week day)
+SERVICES=(web menubar month week day)
 
 remove_service() {
   launchctl bootout "$DOMAIN/local.games-agent.$1" 2>/dev/null || true
@@ -71,17 +72,22 @@ services() {
 "
   install_service web web.py "" "$KEEP"
   install_service menubar menubar.py "" "$KEEP"
+  # Часы — те же, что в `jobs.ВРЕМЯ_*` (по ним идёт догоняющий запуск).
+  install_service month jobs.py "    <string>month</string>
+" "  <key>StartCalendarInterval</key>
+  <dict><key>Day</key><integer>1</integer><key>Hour</key><integer>10</integer><key>Minute</key><integer>0</integer></dict>
+"
   install_service week jobs.py "    <string>week</string>
 " "  <key>StartCalendarInterval</key>
-  <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>10</integer><key>Minute</key><integer>0</integer></dict>
+  <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>14</integer><key>Minute</key><integer>0</integer></dict>
 "
   install_service day jobs.py "    <string>day</string>
 " "  <key>StartCalendarInterval</key>
   <dict><key>Hour</key><integer>11</integer><key>Minute</key><integer>0</integer></dict>
 "
-  # Первые предложения — сразу, а не в 11:00 завтра: их запускает догоняющий запуск значка
+  # Первые предложения — сразу, а не в пятницу: их запускает догоняющий запуск значка
   # (`jobs.нужен_догоняющий`), раз выполнения после срока ещё не было. Здесь не запускаем:
-  # переустановка служб иначе гоняла бы день и неделю заново.
+  # переустановка служб иначе гоняла бы задания заново.
   echo "службы поставлены; веб — http://127.0.0.1:8791, журналы — $LOGS"
 }
 
