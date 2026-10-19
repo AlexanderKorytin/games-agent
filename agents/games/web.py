@@ -38,6 +38,7 @@ from starlette.responses import FileResponse, JSONResponse, RedirectResponse, Re
 from starlette.routing import Route
 
 import eshop
+import eshop_store
 import games_db
 import itad
 import secrets_store
@@ -262,6 +263,8 @@ async def состояние(request: Request) -> Response:
             "желаемое": _с_оценкой(выдача(games_db.желаемое(с))),
             "календарь": выдача(games_db.календарь(с)),
             "библиотека": games_db.библиотека(с),
+            # Игры eShop с отметкой «Есть на Switch»; eShop выключен — раздела нет.
+            "библиотека_switch": games_db.библиотека_switch(с) if включён else [],
             "лента": games_db.лента(с),
             # Идут — и из кнопки веба, и по расписанию в службе: служба видна по замку задания.
             "ход_заданий": {р: х for р in jobs.РОДЫ if (х := jobs.ход_задания(с, р)) is not None},
@@ -757,6 +760,35 @@ async def уже_играл(request: Request) -> Response:
     return JSONResponse({"итог": f"«{игра.имя}» — отмечена как пройденная", **await _пересмотр(игра, причина, род)})
 
 
+async def есть_на_switch(request: Request) -> Response:
+    """«Есть на Switch»: игра eShop куплена — уходит из предложений, желаемого и календаря;
+    `есть: false` возвращает её. Вкус не пересматривается: это не оценка, а факт о покупке."""
+    try:
+        тело = await _тело(request)
+        номер = _номер(тело)
+    except ValueError as exc:
+        return _ошибка(str(exc))
+    есть = тело.get("есть")
+    if not isinstance(есть, bool):
+        return _ошибка("«есть» — true или false")
+    if not eshop_store.это_eshop(номер):
+        return _ошибка(f"номер {номер} — не игра eShop: на Switch отмечаются только игры eShop")
+    с = games_db.открыть()
+    try:
+        if not games_db.eshop_включён(с):
+            return _ошибка("eShop выключен: включите страну eShop в настройках, чтобы отмечать игры Switch", 409)
+        запись = games_db.игра(с, номер)
+        # Снять можно и без карточки: её могла забыть смена страны, а отметка осталась.
+        if запись is None and есть:
+            return _ошибка(f"игры {номер} нет в хранилище", 404)
+        games_db.есть_на_switch(с, номер, есть)
+    finally:
+        с.close()
+    имя = (запись or {}).get("имя") or str(номер)
+    return JSONResponse({"итог": f"«{имя}» — есть на Switch, больше не предлагается" if есть
+                         else f"«{имя}» — отметка «Есть на Switch» снята"})
+
+
 async def снять_запрет(request: Request) -> Response:
     try:
         номер = _номер(await _тело(request))
@@ -1025,6 +1057,7 @@ app = Starlette(
         Route("/api/ask", вопрос, methods=["POST"]),
         Route("/api/rate", оценка, methods=["POST"]),
         Route("/api/played", уже_играл, methods=["POST"]),
+        Route("/api/switch", есть_на_switch, methods=["POST"]),
         Route("/api/unban", снять_запрет, methods=["POST"]),
         # Имя довода пути — латиницей: Starlette иного не принимает и маршрут молча отдавал 404.
         Route("/api/run/{kind}", запустить, methods=["POST"]),

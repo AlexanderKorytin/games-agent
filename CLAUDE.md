@@ -35,6 +35,7 @@
 | Значок в строке меню | `menubar.py` |
 | Установка и службы launchd | `deploy/установить.sh`, `deploy/служба.plist.in` |
 | Хранилище SQLite, схема, транзакция | `mcp_servers/steam/games_db.py`: `открыть`, `транзакция` |
+| Есть на Switch | `games_db.есть_на_switch`, `на_switch`, `библиотека_switch`; веб `/api/switch`; `list_library` — поле `switch` |
 | Инструменты MCP | `mcp_servers/steam/server.py` |
 | Steam: поиск, игра, страна | `steam_store.найти_с_отзывами`, `steam_store.игра`; профиль — `steam_account.py` |
 | eShop: зоны Америки и Европа | `eshop.py` — единая точка (`витрина`, `игра`, `цены`, `найти_в_steam`); `eshop_store.py`, `eshop_eu.py` |

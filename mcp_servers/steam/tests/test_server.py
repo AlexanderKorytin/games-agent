@@ -411,6 +411,27 @@ def test_списки_выключенный_eshop_прячет_игры_и_па
     с.close()
 
 
+def test_list_library_игры_switch(tmp_path, monkeypatch):
+    """Библиотека — Steam и Switch (отметка «Есть на Switch»); eShop выключен — Switch пуст."""
+    monkeypatch.setenv("GAMES_DATA_DIR", str(tmp_path))
+    с = games_db.открыть()
+    games_db.задать_страны(с, steam="KZ", eshop="US")
+    games_db.запомнить_игру(с, ss.Игра(70010000000007, "Игра Switch", адрес="https://example.test/switch"))
+    games_db.есть_на_switch(с, 70010000000007, True)
+
+    итог = _вызов("list_library", {})
+    assert not итог.is_error
+    switch = итог.structured_content["switch"]
+    assert [з["имя"] for з in switch] == ["Игра Switch"]
+    assert set(switch[0]) == {"имя", "ссылка", "отмечено"}
+    assert switch[0]["ссылка"] == "https://example.test/switch"
+    assert "библиотека" in итог.structured_content
+
+    games_db.включить_eshop(с, False)
+    assert _вызов("list_library", {}).structured_content["switch"] == []
+    с.close()
+
+
 def test_eshop_game_нет_в_каталоге_страны(tmp_path, monkeypatch):
     _игра_eshop(tmp_path, monkeypatch)
 

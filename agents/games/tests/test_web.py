@@ -107,6 +107,103 @@ def test_уже_играл_не_понравилась_запрет(клиент
     assert клиент.get("/api/state").json()["предложения"] == [] and 9 in taste.запреты(web.каталог())
 
 
+def test_есть_на_switch_отметка_снятие_и_выдача(клиент):
+    """`/api/switch`: отметка убирает игру eShop из предложений и желаемого, раздел библиотеки
+    её показывает, снятие возвращает; у игры Steam с отмеченной парой пары в выдаче нет."""
+    с = games_db.открыть()
+    steam, пара, одна = 367520, 70010000000001, 70010000000002
+    games_db.запомнить_игру(с, ss.Игра(номер=steam, имя="Hollow Knight"))
+    games_db.запомнить_игру(с, ss.Игра(номер=пара, имя="Hollow Knight", цена=1999, валюта="USD",
+        адрес="https://www.nintendo.com/us/store/products/hollow-knight-switch/"))
+    games_db.записать_пару(с, пара, steam)
+    games_db.запомнить_игру(с, ss.Игра(номер=одна, имя="Pikmin 4", цена=5999, валюта="USD",
+        адрес="https://www.nintendo.com/us/store/products/pikmin-4-switch/"))
+    games_db.записать_пару(с, одна, None)
+    games_db.предложить(с, steam, "")
+    games_db.предложить(с, одна, "")
+    games_db.запомнить_игру(с, ss.Игра(номер=70010000000003, имя="Kirby"))
+    games_db.записать_пару(с, 70010000000003, None)
+    games_db.предложить(с, 70010000000003, "")
+    клиент.post("/api/rate", json={"номер": 70010000000003, "плюс": True})
+
+    д = клиент.get("/api/state").json()
+    assert д["библиотека_switch"] == []
+    assert {з["номер"] for з in д["предложения"]} == {steam, одна}
+    assert any(к == "пара" for к in next(з for з in д["предложения"] if з["номер"] == steam))
+
+    ответ = клиент.post("/api/switch", json={"номер": одна, "есть": True})
+    assert ответ.status_code == 200 and "Pikmin 4" in ответ.json()["итог"]
+    ответ = клиент.post("/api/switch", json={"номер": пара, "есть": True})
+    assert ответ.status_code == 200
+    ответ = клиент.post("/api/switch", json={"номер": 70010000000003, "есть": True})
+    assert ответ.status_code == 200
+    д = клиент.get("/api/state").json()
+    assert {з["номер"] for з in д["предложения"]} == {steam}
+    assert д["желаемое"] == []
+    карточка = д["предложения"][0]
+    assert карточка["на_switch"] is True and карточка["магазины"] == ["steam"]
+    assert not any(к == "пара" or к.startswith("пара_") for к in карточка)
+    assert {з["номер"] for з in д["библиотека_switch"]} == {одна, пара, 70010000000003}
+    pikmin = next(з for з in д["библиотека_switch"] if з["номер"] == одна)
+    assert pikmin["имя"] == "Pikmin 4" and pikmin["ссылка"].startswith("https://www.nintendo.com/")
+    assert pikmin["отмечено"] and pikmin["магазин"] == "eshop"
+
+    # Повтор безвреден; снятие возвращает игру в выдачу.
+    assert клиент.post("/api/switch", json={"номер": одна, "есть": True}).status_code == 200
+    ответ = клиент.post("/api/switch", json={"номер": одна, "есть": False})
+    assert ответ.status_code == 200 and "снята" in ответ.json()["итог"]
+    assert клиент.post("/api/switch", json={"номер": пара, "есть": False}).status_code == 200
+    assert клиент.post("/api/switch", json={"номер": 70010000000003, "есть": False}).status_code == 200
+    д = клиент.get("/api/state").json()
+    assert д["библиотека_switch"] == []
+    assert {з["номер"] for з in д["предложения"]} == {steam, одна}
+    assert {з["номер"] for з in д["желаемое"]} == {70010000000003}
+    assert next(з for з in д["предложения"] if з["номер"] == steam)["на_switch"] is False
+    с.close()
+
+
+def test_есть_на_switch_отказы(клиент):
+    с = games_db.открыть()
+    games_db.запомнить_игру(с, игра(5))
+    games_db.запомнить_игру(с, ss.Игра(номер=70010000000002, имя="Pikmin 4"))
+    games_db.записать_пару(с, 70010000000002, None)
+    # Номер Steam — не игра eShop.
+    ответ = клиент.post("/api/switch", json={"номер": 5, "есть": True})
+    assert ответ.status_code == 400 and "не игра eShop" in ответ.json()["error"]
+    assert games_db.на_switch(с) == set()
+    # Нет номера или он не число; нет игры в хранилище.
+    assert клиент.post("/api/switch", json={"есть": True}).status_code == 400
+    assert клиент.post("/api/switch", json={"номер": "x", "есть": True}).status_code == 400
+    assert клиент.post("/api/switch", json={"номер": 70010000999999, "есть": True}).status_code == 404
+    # Чужая страница записать не может.
+    assert клиент.post("/api/switch", json={"номер": 70010000000002, "есть": True},
+                       headers={"Origin": "http://evil.example"}).status_code == 403
+    # eShop выключен — отметка не пишется, раздел библиотеки пуст даже при старой отметке.
+    games_db.есть_на_switch(с, 70010000000002, True)
+    assert клиент.get("/api/state").json()["библиотека_switch"] != []
+    games_db.включить_eshop(с, False)
+    ответ = клиент.post("/api/switch", json={"номер": 70010000000002, "есть": False})
+    assert ответ.status_code == 409 and "eShop выключен" in ответ.json()["error"]
+    assert games_db.на_switch(с) == {70010000000002}
+    assert клиент.get("/api/state").json()["библиотека_switch"] == []
+    games_db.включить_eshop(с, True)
+    assert [з["номер"] for з in клиент.get("/api/state").json()["библиотека_switch"]] == [70010000000002]
+    с.close()
+
+
+def test_есть_на_switch_снятие_без_карточки_и_строгое_есть(клиент):
+    """Карточку игры забыла смена страны (`games_db.забыть_карточку`), отметка осталась — снять её
+    можно. Поставить отметку игре без карточки нельзя. «есть» — только true/false."""
+    с = games_db.открыть()
+    games_db.есть_на_switch(с, 70010000000003, True)
+    assert клиент.post("/api/switch", json={"номер": 70010000000003, "есть": True}).status_code == 404
+    ответ = клиент.post("/api/switch", json={"номер": 70010000000003, "есть": False})
+    assert ответ.status_code == 200 and games_db.на_switch(с) == set()
+    for плохое in ("false", 1, None):
+        assert клиент.post("/api/switch", json={"номер": 70010000000003, "есть": плохое}).status_code == 400
+    с.close()
+
+
 def test_вход_подделка_и_повтор(клиент, monkeypatch):
     async def проверить(к, доводы, возврат):
         return "76561197960287930" if доводы.get("openid.sig") == "годна" else None

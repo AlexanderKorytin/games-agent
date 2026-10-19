@@ -249,14 +249,22 @@ function карточка(и, оценивать = true) {
   const сыграл = $("span", { style: "display:none;gap:6px" },
     $("button", { textContent: "понравилась", onclick: стоп(() => играл(и, true, причина.value)) }),
     $("button", { textContent: "не понравилась", onclick: стоп(() => играл(и, false, причина.value)) }));
+  // «Есть на Switch» — только на вкладке eShop при включённом eShop: у игры eShop её номер, у игры
+  // Steam с парой в eShop — номер пары. Нужна и в «Желаемом», где оценок нет.
+  const номер_switch = это_eshop(и) ? и.номер : и.пара;
+  const есть_кнопка = с.настройка.eshop && магазин === "eshop" && номер_switch != null
+    ? $("button", { textContent: "Есть на Switch", title: "Игра уже куплена на Switch: больше не предлагать",
+        onclick: стоп(() => на_switch(и, номер_switch, true)) }) : null;
   // Причина отказа — рядом с «Нет», во всю ширину, подсказка видна целиком (живой сценарий).
   const кнопки = оценивать ? $("div", { style: "display:flex;flex-direction:column;gap:6px;margin-top:auto" },
     $("div", { класс: "кнопки" },
       $("button", { класс: "плюс", textContent: "👍 Хочу", onclick: стоп(() => оценить(и, true, "")) }),
       $("button", { textContent: "Уже играл", onclick: стоп(() => { сыграл.style.display = "inline-flex"; }) }),
+      есть_кнопка,
       сыграл),
     $("div", { класс: "кнопки" }, причина,
-      $("button", { класс: "минус", textContent: "👎 Нет", onclick: стоп(() => оценить(и, false, причина.value)) }))) : null;
+      $("button", { класс: "минус", textContent: "👎 Нет", onclick: стоп(() => оценить(и, false, причина.value)) })))
+    : есть_кнопка ? $("div", { класс: "кнопки", style: "margin-top:auto" }, есть_кнопка) : null;
   const на_сайт = (адрес, текст) => $("a", { href: адрес, target: "_blank", rel: "noopener", класс: "тихо", textContent: текст, onclick: е => е.stopPropagation() });
   const eshop = это_eshop(и), пара = !eshop && и.пара != null;
   // Нажатие на плашку открывает игру Steam в клиенте Steam (решение пользователя), игру eShop —
@@ -276,7 +284,8 @@ function карточка(и, оценивать = true) {
         "пользователи Steam: ", $("b", {}, и.отзывы || "отзывов нет")),
     и.вышла === false ? дата_выхода(и) : null,
     $("div", {}, пара ? ["Steam: ", цена(и) || "цены нет", " · eShop: ", цена_пары(и)] : цена(и),
-      и.источник === "steam" ? $("span", { класс: "тихо" }, " · из списка желаемого Steam") : null),
+      и.источник === "steam" ? $("span", { класс: "тихо" }, " · из списка желаемого Steam") : null,
+      !eshop && и.на_switch ? $("span", { класс: "тихо" }, " · есть на Switch") : null),
     и.причина ? $("div", { класс: "тихо" }, "Почему: " + и.причина) : null,
     кнопки);
 }
@@ -285,6 +294,13 @@ async function играл(и, понравилась, причина) {
     весть(`Отмечаю «${и.имя}» и пересматриваю вкус…`);
     const д = await послать("/api/played", { номер: и.номер, понравилась, причина });
     весть(д.итог + (д.пересмотр ? "\n\n" + без_сверки(д.пересмотр) : ""));
+  } catch (e) { весть("Не вышло: " + e.message); }
+  обновить();
+}
+// Отметка «Есть на Switch» (`есть: true`) и её снятие; `номер` — номер игры в eShop.
+async function на_switch(и, номер, есть) {
+  try {
+    весть((await послать("/api/switch", { номер, есть })).итог);
   } catch (e) { весть("Не вышло: " + e.message); }
   обновить();
 }
@@ -366,9 +382,18 @@ function вкус() {
       : $("div", { класс: "тихо" }, "Запретов нет."));
 }
 function библиотека() {
-  return с.библиотека.length ? $("ul", { класс: "лента" }, с.библиотека.map(и => $("li", { style: "cursor:pointer", onclick: () => { location.href = "steam://store/" + и.номер; } },
+  const steam = с.библиотека.length ? $("ul", { класс: "лента" }, с.библиотека.map(и => $("li", { style: "cursor:pointer", onclick: () => { location.href = "steam://store/" + и.номер; } },
     $("b", {}, и.имя), " — ", `${Math.round(и.часы)} ч`, и.часы_2нед ? $("span", { класс: "тихо" }, ` · ${Math.round(и.часы_2нед)} ч за две недели`) : null)))
     : $("div", { класс: "пусто" }, "Библиотека пуста: нужен ключ Steam (вкладка «Настройки»), затем задание дня.");
+  const switch_ = с.библиотека_switch || [];
+  if (!switch_.length) return steam;
+  // Игры eShop с отметкой «Есть на Switch»: имя — ссылка на страницу eShop, отметка снимается.
+  return $("div", {},
+    $("h2", {}, "Steam"), steam,
+    $("h2", {}, "Switch"),
+    $("ul", { класс: "лента" }, switch_.map(и => $("li", {},
+      и.имя ? $("a", { href: и.ссылка, target: "_blank", rel: "noopener", textContent: и.имя }) : $("b", {}, "игра " + и.номер), " ",
+      $("button", { textContent: "Нет на Switch", onclick: () => на_switch(и, и.номер, false) })))));
 }
 function отметка(есть) { return $("span", { класс: есть ? "готово" : "нет" }, есть ? "✓ готово" : "— нет"); }
 function поле_ключа(имя, заголовок, обязателен, шаги) {
