@@ -1,0 +1,49 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 0,
+  "params": {
+   "q": "*",
+   "fl": "title,nsuid_txt,fs_id,type,playable_on_txt,date_from,pretty_date_s,pretty_game_categories_txt,excerpt,product_catalog_description_s,image_url,image_url_h2x1_s,image_url_sq_s,wishlist_email_banner460w_image_url_s,url,downloads_rank_i,eshop_removed_b",
+   "fq": [
+    "fs_id:1125772",
+    "type:GAME"
+   ],
+   "wt": "json"
+  }
+ },
+ "response": {
+  "numFound": 1,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "fs_id": "1125772",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Hollow-Knight-1125772.html",
+    "type": "GAME",
+    "pretty_date_s": "12/06/2018",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/wii_u_download_software_3/SQ_WiiUDS_HollowKnight_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/wii_u_download_software_3/SQ_WiiUDS_HollowKnight_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/wiiu_download_software_5/H2x1_WiiUDS_HollowKnight_image500w.jpg",
+    "excerpt": "Descend into darkness and brave the depths of a forgotten kingdom in Hollow Knight, an atmospheric action-adventure for Nintendo eShop on Nintendo Switch.",
+    "nsuid_txt": [
+     "70010000003207"
+    ],
+    "date_from": "2018-06-12T00:00:00Z",
+    "product_catalog_description_s": "Descend into darkness and brave the depths of a forgotten kingdom in Hollow Knight, an atmospheric action-adventure for Nintendo eShop on Nintendo Switch.",
+    "title": "Hollow Knight",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/wiiu_download_software_5/H2x1_WiiUDS_HollowKnight_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 223
+   }
+  ]
+ }
+}

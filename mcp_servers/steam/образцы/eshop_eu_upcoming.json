@@ -1,0 +1,2532 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 0,
+  "params": {
+   "q": "*",
+   "fl": "title,nsuid_txt,fs_id,type,playable_on_txt,date_from,pretty_date_s,pretty_game_categories_txt,excerpt,product_catalog_description_s,image_url,image_url_h2x1_s,image_url_sq_s,wishlist_email_banner460w_image_url_s,url,downloads_rank_i,eshop_removed_b",
+   "start": "0",
+   "fq": [
+    "date_from:[NOW TO *]",
+    "playable_on_txt:(HAC OR BEE)",
+    "type:GAME"
+   ],
+   "sort": "date_from asc",
+   "rows": "200",
+   "wt": "json"
+  }
+ },
+ "response": {
+  "numFound": 105,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "fs_id": "3112375",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/FINAL-FANTASY-RESONANCE-3112375.html",
+    "type": "GAME",
+    "pretty_date_s": "22/10/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/finalfantasyresonance/1x1_FinalFantasyResonance_image500w.jpg",
+    "excerpt": "Hope resonates within the crystals",
+    "nsuid_txt": [
+     "70070000035974",
+     "70010000117101"
+    ],
+    "date_from": "2026-10-22T00:00:00Z",
+    "product_catalog_description_s": "Hope resonates within the crystals",
+    "title": "FINAL FANTASY RESONANCE",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/finalfantasyresonance/16x9_FinalFantasyResonance_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 117
+   },
+   {
+    "fs_id": "3112390",
+    "url": "/en-gb/Games/Nintendo-Switch-games/FINAL-FANTASY-RESONANCE-3112390.html",
+    "type": "GAME",
+    "pretty_date_s": "22/10/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/finalfantasyresonance_1/1x1_FinalFantasyResonance_image500w.jpg",
+    "excerpt": "Hope resonates within the crystals",
+    "nsuid_txt": [
+     "70070000035968",
+     "70010000117094"
+    ],
+    "date_from": "2026-10-22T00:00:00Z",
+    "product_catalog_description_s": "Hope resonates within the crystals",
+    "title": "FINAL FANTASY RESONANCE",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/finalfantasyresonance_1/16x9_FinalFantasyResonance_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 533
+   },
+   {
+    "fs_id": "3115652",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Nintendo-Switch-Sports-Resort-3115652.html",
+    "type": "GAME",
+    "pretty_date_s": "22/10/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/nintendoswitchsportsresort/1x1_NSwitch2_NintendoSwitchSportsResort_image500w.jpg",
+    "excerpt": "More sports, more moves, more fun for everyone in Nintendo Switch Sports Resort, only on Nintendo Switch 2.",
+    "nsuid_txt": [
+     "70010000125146"
+    ],
+    "date_from": "2026-10-22T00:00:00Z",
+    "product_catalog_description_s": "More sports, more moves, more fun for everyone in Nintendo Switch Sports Resort, only on Nintendo Switch 2.",
+    "title": "Nintendo Switch Sports Resort",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Party",
+     "Sports"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/nintendoswitchsportsresort/16x9_NSwitch2_NintendoSwitchSportsResort_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 27
+   },
+   {
+    "fs_id": "3211965",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Calcium-Chaos-3211965.html",
+    "type": "GAME",
+    "pretty_date_s": "22/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/z9sn9zhacm5iyty2n6n9",
+    "excerpt": "Combine unconventional items into weapons to save the world!",
+    "nsuid_txt": [
+     "70010000115519"
+    ],
+    "date_from": "2026-10-22T00:00:00Z",
+    "product_catalog_description_s": "Combine unconventional items into weapons to save the world!",
+    "title": "Calcium Chaos",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "Arcade",
+     "Party"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/ffql1e5a1tcudvl0v6tl",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3193950",
+    "url": "/en-gb/Games/Nintendo-Switch-games/DEMONS-NIGHT-FEVER-3193950.html",
+    "type": "GAME",
+    "pretty_date_s": "22/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/m0nfzbsiho2khj00vptj",
+    "excerpt": "Exhaust all forms of evil by fighting with the brutal Peon Exploitation System!",
+    "nsuid_txt": [
+     "70010000135055"
+    ],
+    "date_from": "2026-10-22T00:00:00Z",
+    "product_catalog_description_s": "Exhaust all forms of evil by fighting with the brutal Peon Exploitation System!",
+    "title": "DEMONS' NIGHT FEVER",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG",
+     "Strategy"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/fskfjemw3bhgssecflp8",
+    "downloads_rank_i": 5129
+   },
+   {
+    "fs_id": "3183536",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/FATAL-FURY-City-of-the-Wolves-STANDARD-Edition-3183536.html",
+    "type": "GAME",
+    "pretty_date_s": "22/10/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/fatalfurycityofthewolvesstandardedition/1x1_FatalFuryCityOfTheWolvesStandardEdition_image500w.jpg",
+    "excerpt": "The latest in the series—FATAL FURY: City of the Wolves—is set to arrive on Nintendo Switch 2 !",
+    "nsuid_txt": [
+     "70010000107234"
+    ],
+    "date_from": "2026-10-22T00:00:00Z",
+    "product_catalog_description_s": "The latest in the series—FATAL FURY: City of the Wolves—is set to arrive on Nintendo Switch 2 !",
+    "title": "FATAL FURY: City of the Wolves - STANDARD Edition",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Fighting"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/fatalfurycityofthewolvesstandardedition/16x9_FatalFuryCityOfTheWolvesStandardEdition_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 3414
+   },
+   {
+    "fs_id": "3110851",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/ONE-PIECE-Grand-Gourmet-3110851.html",
+    "type": "GAME",
+    "pretty_date_s": "23/10/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/onepiecegrandgourmet_1/1x1_OnePieceGrandGourmet_image500w.jpg",
+    "excerpt": "ONE PIECE comes to life as a restaurant management sim game!",
+    "nsuid_txt": [
+     "70010000110966"
+    ],
+    "date_from": "2026-10-23T00:00:00Z",
+    "product_catalog_description_s": "ONE PIECE comes to life as a restaurant management sim game!",
+    "title": "ONE PIECE: Grand Gourmet",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Simulation"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/onepiecegrandgourmet_1/16x9_OnePieceGrandGourmet_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3186554",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Warrior-Cats-Clans-of-the-Forest-3186554.html",
+    "type": "GAME",
+    "pretty_date_s": "23/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/paa44qposwyb1ujqvg0s",
+    "excerpt": "Forge your destiny, defend your Clan, and live the life of a true Warrior Cat.",
+    "nsuid_txt": [
+     "70010000130301"
+    ],
+    "date_from": "2026-10-23T00:00:00Z",
+    "product_catalog_description_s": "Forge your destiny, defend your Clan, and live the life of a true Warrior Cat.",
+    "title": "Warrior Cats: Clans of the Forest",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Fighting"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/mujrbk8rqs0esv4ftxdx",
+    "downloads_rank_i": 1459
+   },
+   {
+    "fs_id": "3186566",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Warrior-Cats-Clans-of-the-Forest-3186566.html",
+    "type": "GAME",
+    "pretty_date_s": "23/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/lvljrkrkn7qyazmyggoo",
+    "excerpt": "Forge your destiny, defend your Clan, and live the life of a true Warrior Cat.",
+    "nsuid_txt": [
+     "70010000130092"
+    ],
+    "date_from": "2026-10-23T00:00:00Z",
+    "product_catalog_description_s": "Forge your destiny, defend your Clan, and live the life of a true Warrior Cat.",
+    "title": "Warrior Cats: Clans of the Forest",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Fighting"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/zq6sbwwfgnwatud86bq2",
+    "downloads_rank_i": 1324
+   },
+   {
+    "fs_id": "3110869",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/ONE-PIECE-Grand-Gourmet-3110869.html",
+    "type": "GAME",
+    "pretty_date_s": "23/10/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/onepiecegrandgourmet/1x1_OnePieceGrandGourmet_image500w.jpg",
+    "excerpt": "ONE PIECE comes to life as a restaurant management sim game!",
+    "nsuid_txt": [
+     "70010000110984"
+    ],
+    "date_from": "2026-10-23T00:00:00Z",
+    "product_catalog_description_s": "ONE PIECE comes to life as a restaurant management sim game!",
+    "title": "ONE PIECE: Grand Gourmet",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Simulation"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/onepiecegrandgourmet/16x9_OnePieceGrandGourmet_banner_image_wishlist_460w.jpg"
+   },
+   {
+    "fs_id": "3171056",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Village-in-the-Shade-3171056.html",
+    "type": "GAME",
+    "pretty_date_s": "27/10/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/villageintheshade/1x1_VillageInTheShade_image500w.jpg",
+    "excerpt": "Quiet countryside living…as long as you follow the rules.",
+    "nsuid_txt": [
+     "70010000123451"
+    ],
+    "date_from": "2026-10-27T00:00:00Z",
+    "product_catalog_description_s": "Quiet countryside living…as long as you follow the rules.",
+    "title": "Village in the Shade",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Simulation"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/villageintheshade/16x9_VillageInTheShade_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3171181",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Village-in-the-Shade-3171181.html",
+    "type": "GAME",
+    "pretty_date_s": "27/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/ktfczeyukxjf5mreoeop",
+    "excerpt": "Quiet countryside living…as long as you follow the rules.",
+    "nsuid_txt": [
+     "70010000123453"
+    ],
+    "date_from": "2026-10-27T00:00:00Z",
+    "product_catalog_description_s": "Quiet countryside living…as long as you follow the rules.",
+    "title": "Village in the Shade",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Simulation"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/ui6jcin9c5nystqcgfsr",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3212505",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Minecraft-3212505.html",
+    "type": "GAME",
+    "pretty_date_s": "27/10/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/minecraftns2/minecraft/1x1_Minecraft_image500w.jpg",
+    "excerpt": "CREATE. EXPLORE. SURVIVE. Build anything you can imagine, uncover mysteries, and face thrilling foes in an infinite world that’s unique in every playthrough. There’s no wrong way to play!",
+    "nsuid_txt": [
+     "70010000119401"
+    ],
+    "date_from": "2026-10-27T00:00:00Z",
+    "product_catalog_description_s": "CREATE. EXPLORE. SURVIVE. Build anything you can imagine, uncover mysteries, and face thrilling foes in an infinite world that’s unique in every playthrough. There’s no wrong way to play!",
+    "title": "Minecraft",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/minecraftns2/minecraft/16x9_Minecraft_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3192698",
+    "url": "/en-gb/Games/Nintendo-Switch-games/9-R-I-P-sequel-3192698.html",
+    "type": "GAME",
+    "pretty_date_s": "27/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/pizf3chde7z24qvhjav2",
+    "excerpt": "Whether we are alive or dead, he and I still stand on fragile glass. If it shatters, we fall to darkness...",
+    "nsuid_txt": [
+     "70010000119008"
+    ],
+    "date_from": "2026-10-27T00:00:00Z",
+    "product_catalog_description_s": "Whether we are alive or dead, he and I still stand on fragile glass. If it shatters, we fall to darkness...",
+    "title": "9 R.I.P. sequel",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG",
+     "Simulation"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/ve98ryaijotcn4olqr4w",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3198450",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Dog-Man-Bark-in-Action-3198450.html",
+    "type": "GAME",
+    "pretty_date_s": "27/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/cp9hig7cfhnlj1lsesxf",
+    "excerpt": "Join Dog Man and his Supa Buddies for a supa-new adventure! Packed with boss fights, awesome gadgets and up to 10 playable characters, each with unique abilities. ",
+    "nsuid_txt": [
+     "70010000125589"
+    ],
+    "date_from": "2026-10-27T00:00:00Z",
+    "product_catalog_description_s": "Join Dog Man and his Supa Buddies for a supa-new adventure! Packed with boss fights, awesome gadgets and up to 10 playable characters, each with unique abilities. ",
+    "title": "Dog Man: Bark in Action",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Arcade",
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/ubm4kpsawxu5rao2yqeq",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3183794",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/The-Seance-of-Blake-Manor-3183794.html",
+    "type": "GAME",
+    "pretty_date_s": "27/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/lxo1obgyttohoo4tekzx",
+    "excerpt": "Investigate a remote hotel full of secrets and other-worldly occurrences",
+    "nsuid_txt": [
+     "70010000116132"
+    ],
+    "date_from": "2026-10-27T00:00:00Z",
+    "product_catalog_description_s": "Investigate a remote hotel full of secrets and other-worldly occurrences",
+    "title": "The Séance of Blake Manor",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "Puzzle"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/sawf466r4vuc9v13ohq5",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3202733",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Remothered-Red-Nun-s-Legacy-3202733.html",
+    "type": "GAME",
+    "pretty_date_s": "27/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/bebletcqd3r4e6mmr3fe",
+    "excerpt": "KEY FEATURES Survive horrific Stalkers Challenge your survival instinct to escape murderous enemies: hide, evade and fight back in critical moments. Every mistake can be fatal.",
+    "nsuid_txt": [
+     "70010000131093"
+    ],
+    "date_from": "2026-10-27T00:00:00Z",
+    "product_catalog_description_s": "KEY FEATURES Survive horrific Stalkers Challenge your survival instinct to escape murderous enemies: hide, evade and fight back in critical moments. Every mistake can be fatal.",
+    "title": "Remothered: Red Nun's Legacy",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/ckajpuzg1srlcplz2sgj",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3104819",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/ANOMALITH-3104819.html",
+    "type": "GAME",
+    "pretty_date_s": "28/10/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/anomalith/1x1_Anomalith_image500w.jpg",
+    "excerpt": "Anomalies × Mutating Girl × Survival TPS",
+    "nsuid_txt": [
+     "70070000036673",
+     "70010000099502"
+    ],
+    "date_from": "2026-10-28T00:00:00Z",
+    "product_catalog_description_s": "Anomalies × Mutating Girl × Survival TPS",
+    "title": "ANOMALITH",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Shooter"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/anomalith/16x9_Anomalith_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3216776",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/SN-Ultimate-Freeriding-3216776.html",
+    "type": "GAME",
+    "pretty_date_s": "28/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/ps2w2g8nzryuyj6ug06x",
+    "excerpt": "A free-skiing game set on endless snow-covered mountains.",
+    "nsuid_txt": [
+     "70010000132571"
+    ],
+    "date_from": "2026-10-28T00:00:00Z",
+    "product_catalog_description_s": "A free-skiing game set on endless snow-covered mountains.",
+    "title": "SNØ: Ultimate Freeriding",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Sports"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/z7p2meyi4jwvcajocqnw",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "2840377",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Pardon-My-French-Toast-2840377.html",
+    "type": "GAME",
+    "pretty_date_s": "29/10/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/pardonmyfrenchtoast/1x1_PardonMyFrenchToast_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/pardonmyfrenchtoast/2x1_PardonMyFrenchToast_image500w.jpg",
+    "excerpt": "Have a taste of this new 3D platformer featuring a toast who can spread sweets on his face to get funny abilities!",
+    "nsuid_txt": [
+     "70010000094827"
+    ],
+    "date_from": "2026-10-29T00:00:00Z",
+    "product_catalog_description_s": "Have a taste of this new 3D platformer featuring a toast who can spread sweets on his face to get funny abilities!",
+    "title": "Pardon My French Toast",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/pardonmyfrenchtoast/2x1_PardonMyFrenchToast_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3147419",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Hello-Kitty-Party-Land-3147419.html",
+    "type": "GAME",
+    "pretty_date_s": "29/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/rxvnwbdxlwjo5sjwjmzu",
+    "excerpt": "Together with heart.",
+    "nsuid_txt": [
+     "70010000118152"
+    ],
+    "date_from": "2026-10-29T00:00:00Z",
+    "product_catalog_description_s": "Together with heart.",
+    "title": "Hello Kitty Party Land",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Communication",
+     "Music",
+     "Party"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/qgfpsfnmbd51u3qwwdou",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3147443",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Hello-Kitty-Party-Land-3147443.html",
+    "type": "GAME",
+    "pretty_date_s": "29/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/syqa6jcjhfjxxv5susvr",
+    "excerpt": "Together with heart.",
+    "nsuid_txt": [
+     "70010000118147"
+    ],
+    "date_from": "2026-10-29T00:00:00Z",
+    "product_catalog_description_s": "Together with heart.",
+    "title": "Hello Kitty Party Land",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Communication",
+     "Music",
+     "Party"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/hmvxchqfoq8mcicw7zog",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3156218",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/STEINS-GATE-RE-BOOT-3156218.html",
+    "type": "GAME",
+    "pretty_date_s": "29/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/ffetk0rjwi5ydk2ygoiz",
+    "excerpt": "Deceive the world yet again.",
+    "nsuid_txt": [
+     "70010000127299"
+    ],
+    "date_from": "2026-10-29T00:00:00Z",
+    "product_catalog_description_s": "Deceive the world yet again.",
+    "title": "STEINS;GATE RE:BOOT",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/of0rkl02vlpjz1ug7dbs",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3156274",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/STEINS-GATE-RE-BOOT-3156274.html",
+    "type": "GAME",
+    "pretty_date_s": "29/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/rizlln8phjsijrhmnnnp",
+    "excerpt": "Deceive the world yet again.",
+    "nsuid_txt": [
+     "70010000127392"
+    ],
+    "date_from": "2026-10-29T00:00:00Z",
+    "product_catalog_description_s": "Deceive the world yet again.",
+    "title": "STEINS;GATE RE:BOOT",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/wxng0h5jeg6y75dree4f",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3209630",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Kowloon-s-Gate-Suzaku-3209630.html",
+    "type": "GAME",
+    "pretty_date_s": "29/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/jjl5er1ptqfsz6ibyrtf",
+    "excerpt": "The legendary, surreal Asian-gothic game set in a Kowloon-inspired world is reborn on Nintendo Switch™.",
+    "nsuid_txt": [
+     "70010000103088"
+    ],
+    "date_from": "2026-10-29T00:00:00Z",
+    "product_catalog_description_s": "The legendary, surreal Asian-gothic game set in a Kowloon-inspired world is reborn on Nintendo Switch™.",
+    "title": "Kowloon's Gate Suzaku",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/w1pvqdjwep6sk7kzmcje",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3205732",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/The-Last-Cat-in-the-Universe-3205732.html",
+    "type": "GAME",
+    "pretty_date_s": "29/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/u7hmp4ctjfvrnle3pxtc",
+    "excerpt": "Scavenge the remains of a dying space station to build a cozy home for the last cat in the universe. A short narrative incremental game about finding peace amidst the darkness.",
+    "nsuid_txt": [
+     "70010000134835"
+    ],
+    "date_from": "2026-10-29T00:00:00Z",
+    "product_catalog_description_s": "Scavenge the remains of a dying space station to build a cozy home for the last cat in the universe. A short narrative incremental game about finding peace amidst the darkness.",
+    "title": "The Last Cat in the Universe",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "Puzzle",
+     "RPG",
+     "Strategy"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/ocbvhj25tnmm0tey832l",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3207066",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Meiji-Tokyo-Renka-Twilight-Kiss-3207066.html",
+    "type": "GAME",
+    "pretty_date_s": "29/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/eju4juihspyrnpcqhqfc",
+    "excerpt": "\"Meiji Tokyo Renka\" (also known as \"Meikoi\") is a historical romance fantasy game in which the main character travels back in time to the Meiji era and meets—and falls in love with—great figures from history.",
+    "nsuid_txt": [
+     "70010000122300"
+    ],
+    "date_from": "2026-10-29T00:00:00Z",
+    "product_catalog_description_s": "\"Meiji Tokyo Renka\" (also known as \"Meikoi\") is a historical romance fantasy game in which the main character travels back in time to the Meiji era and meets—and falls in love with—great figures from history.",
+    "title": "Meiji Tokyo Renka Twilight Kiss",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/hhhrgdkhgma6tt8jtlou",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3110607",
+    "url": "/en-gb/Games/Nintendo-Switch-games/The-Cat-in-the-Hat-Rainy-Day-Mayhem-3110607.html",
+    "type": "GAME",
+    "pretty_date_s": "30/10/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/thecatinthehatrainydaymayhem/1x1_TheCatInTheHatRainyDayMayhem_GBen_image500w.jpg",
+    "excerpt": "Join your favorite Dr. Seuss characters in 18 exciting minigames and challenges. Your house is about to be full of giggles, groans, and glorious mayhem.",
+    "nsuid_txt": [
+     "70010000093188"
+    ],
+    "date_from": "2026-10-30T00:00:00Z",
+    "product_catalog_description_s": "Join your favorite Dr. Seuss characters in 18 exciting minigames and challenges. Your house is about to be full of giggles, groans, and glorious mayhem.",
+    "title": "The Cat in the Hat: Rainy Day Mayhem",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Party"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/thecatinthehatrainydaymayhem/16x9_TheCatInTheHatRainyDayMayhem_GBen_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3101065",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Goodboy-Galaxy-3101065.html",
+    "type": "GAME",
+    "pretty_date_s": "30/10/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/goodboygalaxy/1x1_GoodboyGalaxy_image500w.jpg",
+    "excerpt": "Help Maxwell explore unfamiliar worlds, make strange new friends and contend with mysterious forces.",
+    "nsuid_txt": [
+     "70010000096681"
+    ],
+    "date_from": "2026-10-30T00:00:00Z",
+    "product_catalog_description_s": "Help Maxwell explore unfamiliar worlds, make strange new friends and contend with mysterious forces.",
+    "title": "Goodboy Galaxy",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/goodboygalaxy/16x9_GoodboyGalaxy_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3211820",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Queen-s-Domain-3211820.html",
+    "type": "GAME",
+    "pretty_date_s": "30/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/tlumpjgfs1zrkwyo3q0n",
+    "excerpt": "Queen’s Domain is a retro-fantasy action RPG. Washed up on the shores of the Isle of Neasied, you set out to find your father and uncover the dark heart of this mysterious isle.",
+    "nsuid_txt": [
+     "70010000129933"
+    ],
+    "date_from": "2026-10-30T00:00:00Z",
+    "product_catalog_description_s": "Queen’s Domain is a retro-fantasy action RPG. Washed up on the shores of the Isle of Neasied, you set out to find your father and uncover the dark heart of this mysterious isle.",
+    "title": "Queen's Domain",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/queensdomain/16x9_QueensDomain_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3190661",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Pinballoid-Crush-3190661.html",
+    "type": "GAME",
+    "pretty_date_s": "30/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/oq1ygvxf2nzplkylmr5r",
+    "excerpt": "In Pinballoid Crush, classic pinball evolves into an arcade experience with adventure and strategy elements.",
+    "nsuid_txt": [
+     "70010000131669"
+    ],
+    "date_from": "2026-10-30T00:00:00Z",
+    "product_catalog_description_s": "In Pinballoid Crush, classic pinball evolves into an arcade experience with adventure and strategy elements.",
+    "title": "Pinballoid Crush",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Arcade",
+     "Shooter",
+     "Simulation"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/pinballoidcrush/16x9_PinballoidCrush_new_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3185728",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Tarot-Tokens-3185728.html",
+    "type": "GAME",
+    "pretty_date_s": "01/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/fh65f1owlo4tvhlfcayv",
+    "excerpt": "The Fools Journey",
+    "nsuid_txt": [
+     "70010000130599"
+    ],
+    "date_from": "2026-11-01T00:00:00Z",
+    "product_catalog_description_s": "The Fools Journey",
+    "title": "Tarot Tokens",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Board Game",
+     "Strategy"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/oqzr2a0zgy8itfonpbvz",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3171829",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Let-s-Sing-2027-3171829.html",
+    "type": "GAME",
+    "pretty_date_s": "03/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/nhklsmmyg4clkg2n2tev",
+    "excerpt": "Sing your heart out with your friends on your favorite songs in our 1 to 4 players karaoke game.",
+    "nsuid_txt": [
+     "70010000111796"
+    ],
+    "date_from": "2026-11-03T00:00:00Z",
+    "product_catalog_description_s": "Sing your heart out with your friends on your favorite songs in our 1 to 4 players karaoke game.",
+    "title": "Let's Sing 2027",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/c4vmjki4fwed2cw6gust",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3171841",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Let-s-Sing-2027-3171841.html",
+    "type": "GAME",
+    "pretty_date_s": "03/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/livgg5b3sazcfher7m6i",
+    "excerpt": "Sing your heart out with your friends on your favorite songs in our 1 to 4 players karaoke game.",
+    "nsuid_txt": [
+     "70010000111804"
+    ],
+    "date_from": "2026-11-03T00:00:00Z",
+    "product_catalog_description_s": "Sing your heart out with your friends on your favorite songs in our 1 to 4 players karaoke game.",
+    "title": "Let's Sing 2027",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/ojhsb6lmer6yaaumjsmy",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3171854",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Let-s-Sing-ABBA-3171854.html",
+    "type": "GAME",
+    "pretty_date_s": "03/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/codo5ksqxxbzxrflqxbr",
+    "excerpt": "Sing with your favorite band!",
+    "nsuid_txt": [
+     "70010000117967"
+    ],
+    "date_from": "2026-11-03T00:00:00Z",
+    "product_catalog_description_s": "Sing with your favorite band!",
+    "title": "Let´s Sing ABBA",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/knsoh8n4oubn80afnai9",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3183745",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Godzilla-Destroy-All-Monsters-Melee-Remastered-3183745.html",
+    "type": "GAME",
+    "pretty_date_s": "03/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/usialmigaesmruhanyxv",
+    "excerpt": "The ultimate Godzilla arena brawler is back, completely remastered.",
+    "nsuid_txt": [
+     "70010000116350"
+    ],
+    "date_from": "2026-11-03T00:00:00Z",
+    "product_catalog_description_s": "The ultimate Godzilla arena brawler is back, completely remastered.",
+    "title": "Godzilla: Destroy All Monsters Melee Remastered",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/ocubwhusavwjpeqrtb5j"
+   },
+   {
+    "fs_id": "3199777",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/CRYMELIGHT-3199777.html",
+    "type": "GAME",
+    "pretty_date_s": "04/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/dpalq0bx9axnt2db2dpi",
+    "excerpt": "A roguelike action game where you face your sins. The greater your penance, the stronger you become.",
+    "nsuid_txt": [
+     "70010000125082"
+    ],
+    "date_from": "2026-11-04T00:00:00Z",
+    "product_catalog_description_s": "A roguelike action game where you face your sins. The greater your penance, the stronger you become.",
+    "title": "CRYMELIGHT",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Other",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/hvis9q6akwxa4tfwdulg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3115664",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/The-Legend-of-Zelda-Ocarina-of-Time-3115664.html",
+    "type": "GAME",
+    "pretty_date_s": "05/11/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/thelegendofzeldaocarinaoftime/banners/1x1_NSwitch2_TloZOcarinaOfTime_UK_en_image500w.jpg",
+    "excerpt": "Discover an adventure for the ages in The Legend of Zelda: Ocarina of Time for Nintendo Switch 2, a classic quest remade for a whole new era.",
+    "nsuid_txt": [
+     "70010000130793"
+    ],
+    "date_from": "2026-11-05T00:00:00Z",
+    "product_catalog_description_s": "Discover an adventure for the ages in The Legend of Zelda: Ocarina of Time for Nintendo Switch 2, a classic quest remade for a whole new era.",
+    "title": "The Legend of Zelda: Ocarina of Time",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/thelegendofzeldaocarinaoftime/banners/16x9_PDP_NSwitch2_TloZOcarinaOfTime_AnniLogo_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3192144",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/MANIC-MINER-3192144.html",
+    "type": "GAME",
+    "pretty_date_s": "05/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/xrwi50jwtvxijggrm1ld",
+    "excerpt": "The legendary platforming classic is back!\nJump, collect, survive - Rediscover one of the greatest and most challenging video game classics of all time!",
+    "nsuid_txt": [
+     "70010000131565"
+    ],
+    "date_from": "2026-11-05T00:00:00Z",
+    "product_catalog_description_s": "The legendary platforming classic is back!\nJump, collect, survive - Rediscover one of the greatest and most challenging video game classics of all time!",
+    "title": "MANIC MINER",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Arcade",
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/bx2sabjgyswitnvfdldi",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3199668",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Chivalware-3199668.html",
+    "type": "GAME",
+    "pretty_date_s": "05/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/dua9zygykpx9jyyraqiz",
+    "excerpt": "Chivalware is a fast-paced action roguelite with tactical tile-matching mechanics. ",
+    "nsuid_txt": [
+     "70010000134879"
+    ],
+    "date_from": "2026-11-05T00:00:00Z",
+    "product_catalog_description_s": "Chivalware is a fast-paced action roguelite with tactical tile-matching mechanics. ",
+    "title": "Chivalware",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Arcade",
+     "Puzzle"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/kjjfbgbizwp3yia0d092",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3201109",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/The-Slormancer-3201109.html",
+    "type": "GAME",
+    "pretty_date_s": "05/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/cekxg3b3p9wg7pzbtdrr",
+    "excerpt": "Fight hordes of enemies in an absurd yet epic Action RPG! ",
+    "nsuid_txt": [
+     "70010000095056"
+    ],
+    "date_from": "2026-11-05T00:00:00Z",
+    "product_catalog_description_s": "Fight hordes of enemies in an absurd yet epic Action RPG! ",
+    "title": "The Slormancer ",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Arcade",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/qdv2yosagrdliebqnn9c",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3214539",
+    "url": "/en-gb/Games/Nintendo-Switch-games/K-Pop-Rising-Dream-to-Shine-3214539.html",
+    "type": "GAME",
+    "pretty_date_s": "05/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/ucndwbcwox8m04kofjva",
+    "excerpt": "Make your dream come true and become a K-Pop Star in this exciting life sim and rhythm game! ",
+    "nsuid_txt": [
+     "70010000125180"
+    ],
+    "date_from": "2026-11-05T00:00:00Z",
+    "product_catalog_description_s": "Make your dream come true and become a K-Pop Star in this exciting life sim and rhythm game! ",
+    "title": "K-Pop Rising - Dream to Shine",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Lifestyle",
+     "Music",
+     "Simulation"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/mhxuhdqmc2osfaiagris",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3183514",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Stellar-Blade-Complete-Edition-3183514.html",
+    "type": "GAME",
+    "pretty_date_s": "05/11/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/stellarbladecompleteedition/1x1_StellarBladeCompleteEdition_image500w.jpg",
+    "excerpt": "Reclaim Earth for Humankind in this stylish fast-paced Action Adventure.",
+    "nsuid_txt": [
+     "70010000123389"
+    ],
+    "date_from": "2026-11-05T00:00:00Z",
+    "product_catalog_description_s": "Reclaim Earth for Humankind in this stylish fast-paced Action Adventure.",
+    "title": "Stellar Blade™ Complete Edition",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/stellarbladecompleteedition/16x9_StellarBladeCompleteEdition_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3183805",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Marvel-s-Guardians-of-the-Galaxy-Encore-Edition-3183805.html",
+    "type": "GAME",
+    "pretty_date_s": "05/11/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/marvelsguardiansofthegalaxyencoreedition/1x1_MarvelsGuardiansOfTheGalaxyEncoreEdition_image500w.jpg",
+    "excerpt": "The critically-acclaimed, story-driven Marvel adventure, now optimized for Nintendo Switch™ 2",
+    "nsuid_txt": [
+     "70010000119218"
+    ],
+    "date_from": "2026-11-05T00:00:00Z",
+    "product_catalog_description_s": "The critically-acclaimed, story-driven Marvel adventure, now optimized for Nintendo Switch™ 2",
+    "title": "Marvel's Guardians of the Galaxy: Encore Edition",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/marvelsguardiansofthegalaxyencoreedition/16x9_MarvelsGuardiansOfTheGalaxyEncoreEdition_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3201397",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Kingdom-of-Night-3201397.html",
+    "type": "GAME",
+    "pretty_date_s": "05/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/xti7cxua7c8tj9ymclqf",
+    "excerpt": "Friday night just became the end of the world.",
+    "nsuid_txt": [
+     "70010000129451"
+    ],
+    "date_from": "2026-11-05T00:00:00Z",
+    "product_catalog_description_s": "Friday night just became the end of the world.",
+    "title": "Kingdom of Night",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "Arcade",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/seios8xtbpydia8eaeb2",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3202697",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Next-of-Kin-Epiphany-3202697.html",
+    "type": "GAME",
+    "pretty_date_s": "05/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/yy9cecr8r0h6xsxn8rq1",
+    "excerpt": "Do you have what it takes to catch \"The Epiphany Killer\"?",
+    "nsuid_txt": [
+     "70010000110008"
+    ],
+    "date_from": "2026-11-05T00:00:00Z",
+    "product_catalog_description_s": "Do you have what it takes to catch \"The Epiphany Killer\"?",
+    "title": "Next of Kin: Epiphany",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "Other"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/ria8jjvlwityw6fzwlbu",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3157482",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Hasbro-Games-Junior-Collection-3157482.html",
+    "type": "GAME",
+    "pretty_date_s": "06/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/vfck24u7xrt7cyrly54v",
+    "excerpt": "Play Monopoly Jr., Cluedo Jr., and The Game of Life Jr. Customize your avatar, unlock rewards, and enjoy local multiplayer fun for up to 4 players.",
+    "nsuid_txt": [
+     "70010000121957"
+    ],
+    "date_from": "2026-11-06T00:00:00Z",
+    "product_catalog_description_s": "Play Monopoly Jr., Cluedo Jr., and The Game of Life Jr. Customize your avatar, unlock rewards, and enjoy local multiplayer fun for up to 4 players.",
+    "title": "Hasbro Games™ Junior Collection",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/v2gbaawjpmzyomup2czv",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3157672",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Hasbro-Games-Junior-Collection-3157672.html",
+    "type": "GAME",
+    "pretty_date_s": "06/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/rmemrucq0gjpycwyy0xm",
+    "excerpt": "Play Monopoly Jr., Cluedo Jr., and The Game of Life Jr. Customize your avatar, unlock rewards, and enjoy local multiplayer fun for up to 4 players.",
+    "nsuid_txt": [
+     "70010000119533"
+    ],
+    "date_from": "2026-11-06T00:00:00Z",
+    "product_catalog_description_s": "Play Monopoly Jr., Cluedo Jr., and The Game of Life Jr. Customize your avatar, unlock rewards, and enjoy local multiplayer fun for up to 4 players.",
+    "title": "Hasbro Games™ Junior Collection",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/ykpqvnbnb2llbpbzrkll",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3201158",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Unpetrified-Echoes-of-Nature-3201158.html",
+    "type": "GAME",
+    "pretty_date_s": "09/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/csbsrsjpajpjqjwgs5sw",
+    "excerpt": "Be a stone Golem and try to save Nature with the help of an adorable Fox!",
+    "nsuid_txt": [
+     "70010000100546"
+    ],
+    "date_from": "2026-11-09T00:00:00Z",
+    "product_catalog_description_s": "Be a stone Golem and try to save Nature with the help of an adorable Fox!",
+    "title": "Unpetrified: Echoes of Nature",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "Education",
+     "Other",
+     "Puzzle"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/c32tw9j5zuqxjnawufpx",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3193577",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Prinny-Party-Going-Overboard--3193577.html",
+    "type": "GAME",
+    "pretty_date_s": "11/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/lw2qylxixdvz1nbzkoor",
+    "excerpt": "Where there's a Prinny, there's a party!",
+    "nsuid_txt": [
+     "70010000126213"
+    ],
+    "date_from": "2026-11-11T00:00:00Z",
+    "product_catalog_description_s": "Where there's a Prinny, there's a party!",
+    "title": "Prinny Party: Going Overboard!",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Party",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/ycxunwnscmtnezf6j8si",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3185680",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Metaphor-ReFantazio-3185680.html",
+    "type": "GAME",
+    "pretty_date_s": "12/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/d6kyyxinjvk3u9e6dsg2",
+    "excerpt": "From the creators of Persona 3, 4, and 5 comes Metaphor: ReFantazio, an award-winning RPG, coming to Nintendo Switch™ 2! ",
+    "nsuid_txt": [
+     "70010000105916"
+    ],
+    "date_from": "2026-11-12T00:00:00Z",
+    "product_catalog_description_s": "From the creators of Persona 3, 4, and 5 comes Metaphor: ReFantazio, an award-winning RPG, coming to Nintendo Switch™ 2! ",
+    "title": "Metaphor: ReFantazio",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/r8xw7pafioo8ffyrbrg3",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3188744",
+    "url": "/en-gb/Games/Nintendo-Switch-2-Edition/Pikmin-4-Nintendo-Switch-2-Edition-Dandori-Academy-3188744.html",
+    "type": "GAME",
+    "pretty_date_s": "12/11/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/pikmin4nintendoswitch2editiondandoriacademy/1x1_Pikmin4NS2EditionDandoriAcademy_EN_image500w.jpg",
+    "excerpt": "Give Oatchi commands using your voice and put your Dandori skills to the test in Pikmin 4 – Nintendo Switch 2 Edition + Dandori Academy. ",
+    "nsuid_txt": [
+     "70050000080798",
+     "70010000135060"
+    ],
+    "date_from": "2026-11-12T00:00:00Z",
+    "product_catalog_description_s": "Give Oatchi commands using your voice and put your Dandori skills to the test in Pikmin 4 – Nintendo Switch 2 Edition + Dandori Academy. ",
+    "title": "Pikmin 4 – Nintendo Switch 2 Edition + Dandori Academy",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/pikmin4nintendoswitch2editiondandoriacademy/16x9_Pikmin4NS2EditionDandoriAcademy_EN_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3199656",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Whirlight-No-Time-To-Trip-3199656.html",
+    "type": "GAME",
+    "pretty_date_s": "12/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/nwtidxt8ffbwtayrx4pm",
+    "excerpt": "Two heroes. Different eras. One destiny to change.",
+    "nsuid_txt": [
+     "70010000099401"
+    ],
+    "date_from": "2026-11-12T00:00:00Z",
+    "product_catalog_description_s": "Two heroes. Different eras. One destiny to change.",
+    "title": "Whirlight - No Time To Trip",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "Puzzle"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/az0b8tv4stzwbuzcsitf",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3198821",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/The-Binding-of-Isaac-Repentance-3198821.html",
+    "type": "GAME",
+    "pretty_date_s": "19/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/oczzvepy8643zvjyrxk5",
+    "excerpt": "The Binding of Isaac: Repentance+ is the most complete and up-to-date version of the game that redefined the modern roguelike genre.",
+    "nsuid_txt": [
+     "70010000106370"
+    ],
+    "date_from": "2026-11-19T00:00:00Z",
+    "product_catalog_description_s": "The Binding of Isaac: Repentance+ is the most complete and up-to-date version of the game that redefined the modern roguelike genre.",
+    "title": "The Binding of Isaac: Repentance+",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/u0qf53ah8wsrb1czkykr",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3207382",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Lost-Sock-Simulator-3000-3207382.html",
+    "type": "GAME",
+    "pretty_date_s": "19/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/pve4aa8zfznjto3yi5al",
+    "excerpt": "Find socks, buy weird sock generators and build an incomprehensible hosiery empire. An idle clicker about humanity's oldest unsolved mystery. And yes, there's an ending.",
+    "nsuid_txt": [
+     "70010000125892"
+    ],
+    "date_from": "2026-11-19T00:00:00Z",
+    "product_catalog_description_s": "Find socks, buy weird sock generators and build an incomprehensible hosiery empire. An idle clicker about humanity's oldest unsolved mystery. And yes, there's an ending.",
+    "title": "Lost Sock Simulator 3000",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Other",
+     "Simulation"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/deqwv5zmhwwngyafljy5",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3150492",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Marupoyo-The-Round-Chick-s-Adventure-3150492.html",
+    "type": "GAME",
+    "pretty_date_s": "26/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/uguekynu8llypnvr66zc",
+    "excerpt": "A tilt-based platformer game for everyone. Players control Marupoyo’s momentum as he rolls through 120 vibrant levels, avoiding obstacles, exploring, and rescuing his lost siblings.",
+    "nsuid_txt": [
+     "70010000129139"
+    ],
+    "date_from": "2026-11-26T00:00:00Z",
+    "product_catalog_description_s": "A tilt-based platformer game for everyone. Players control Marupoyo’s momentum as he rolls through 120 vibrant levels, avoiding obstacles, exploring, and rescuing his lost siblings.",
+    "title": "Marupoyo: The Round Chick's Adventure",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/cnnmlveebxyobr1cd420",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3172743",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Marupoyo-The-Round-Chick-s-Adventure-3172743.html",
+    "type": "GAME",
+    "pretty_date_s": "26/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/s4hbgo8xts10cg11m8xo",
+    "excerpt": "A tilt-based platformer game for everyone. Control Marupoyo as he rolls through levels, avoiding obstacles and rescuing his lost siblings.",
+    "nsuid_txt": [
+     "70010000100155"
+    ],
+    "date_from": "2026-11-26T00:00:00Z",
+    "product_catalog_description_s": "A tilt-based platformer game for everyone. Control Marupoyo as he rolls through levels, avoiding obstacles and rescuing his lost siblings.",
+    "title": "Marupoyo: The Round Chick's Adventure",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Arcade",
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/uc2ni2j7bsasr6zkirap",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3199745",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/PixelHeroScramble-Plus-3199745.html",
+    "type": "GAME",
+    "pretty_date_s": "30/11/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/saqnlle9afznlvi5micu",
+    "excerpt": "Intercept the surging waves of pixels with a variety of units!",
+    "nsuid_txt": [
+     "70010000107171"
+    ],
+    "date_from": "2026-11-30T00:00:00Z",
+    "product_catalog_description_s": "Intercept the surging waves of pixels with a variety of units!",
+    "title": "PixelHeroScramble Plus",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Simulation",
+     "Strategy"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/nl48whknzx0hboa8bqfw",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3187785",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/DRAGON-QUEST-MONSTERS-The-Withered-World-3187785.html",
+    "type": "GAME",
+    "pretty_date_s": "01/12/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/lj0i4doah9ic7lvjved9",
+    "excerpt": "Make The Whole World Bloom",
+    "nsuid_txt": [
+     "70070000035521",
+     "70010000111168"
+    ],
+    "date_from": "2026-12-01T00:00:00Z",
+    "product_catalog_description_s": "Make The Whole World Bloom",
+    "title": "DRAGON QUEST MONSTERS: The Withered World",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/dm7qjzclt7zcjy1sp9ln",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3188000",
+    "url": "/en-gb/Games/Nintendo-Switch-games/DRAGON-QUEST-MONSTERS-The-Withered-World-3188000.html",
+    "type": "GAME",
+    "pretty_date_s": "01/12/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/cljbmowybdltwzf4gdv9",
+    "excerpt": "Make The Whole World Bloom",
+    "nsuid_txt": [
+     "70070000035534",
+     "70010000092409"
+    ],
+    "date_from": "2026-12-01T00:00:00Z",
+    "product_catalog_description_s": "Make The Whole World Bloom",
+    "title": "DRAGON QUEST MONSTERS: The Withered World",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/bzw24bf5kk9qvkwefmlm",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3110638",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Rayman-Legends-Retold-3110638.html",
+    "type": "GAME",
+    "pretty_date_s": "03/12/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/raymanlegendsretold/1x1_RaymanLegendsRetold_image500w.jpg",
+    "excerpt": "Embark on a bold reimagining of the acclaimed platformer, filled with new content and narrative twists.",
+    "nsuid_txt": [
+     "70010000111543"
+    ],
+    "date_from": "2026-12-03T00:00:00Z",
+    "product_catalog_description_s": "Embark on a bold reimagining of the acclaimed platformer, filled with new content and narrative twists.",
+    "title": "Rayman Legends Retold",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "Multiplayer",
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/raymanlegendsretold/16x9_RaymanLegendsRetold_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3116255",
+    "url": "/en-gb/Games/Nintendo-Switch-2-Edition/Xenoblade-Chronicles-3-Nintendo-Switch-2-Edition-3116255.html",
+    "type": "GAME",
+    "pretty_date_s": "03/12/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/xenobladechronicles3nintendoswitch2edition/1x1_XenobladeChronicles3_NS2Edition_image500w.jpg",
+    "excerpt": "Discover a tale of life, tying past to future in Xenoblade Chronicles 3 – Nintendo Switch 2 Edition.",
+    "nsuid_txt": [
+     "70050000074399",
+     "70010000122697"
+    ],
+    "date_from": "2026-12-03T00:00:00Z",
+    "product_catalog_description_s": "Discover a tale of life, tying past to future in Xenoblade Chronicles 3 – Nintendo Switch 2 Edition.",
+    "title": "Xenoblade Chronicles 3 – Nintendo Switch 2 Edition",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/xenobladechronicles3nintendoswitch2edition/16x9_XenobladeChronicles3_NS2Edition_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3189295",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Fall-Up-3189295.html",
+    "type": "GAME",
+    "pretty_date_s": "03/12/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/d2bczpzuie6nablg41k7",
+    "excerpt": "Leap, warp, and uncover the secrets of a lost mechanical world with the adorable Labi!",
+    "nsuid_txt": [
+     "70010000098134"
+    ],
+    "date_from": "2026-12-03T00:00:00Z",
+    "product_catalog_description_s": "Leap, warp, and uncover the secrets of a lost mechanical world with the adorable Labi!",
+    "title": "Fall Up",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/og8jnyhb7sjfnj70dfjv",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3183709",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Monster-Hunter-Wilds-3183709.html",
+    "type": "GAME",
+    "pretty_date_s": "04/12/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/monsterhunterwilds/1x1_MonsterHunterWilds_image500w.jpg",
+    "excerpt": "Monster Hunter Wilds arrives on Nintendo Switch™ 2 !",
+    "nsuid_txt": [
+     "70010000102603"
+    ],
+    "date_from": "2026-12-04T00:00:00Z",
+    "product_catalog_description_s": "Monster Hunter Wilds arrives on Nintendo Switch™ 2 !",
+    "title": "Monster Hunter Wilds",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/monsterhunterwilds/16x9_MonsterHunterWilds_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3182760",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Aeruta-3182760.html",
+    "type": "GAME",
+    "pretty_date_s": "09/12/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/awuadpqpthkggthjs5p4",
+    "excerpt": "A bread revolution across the world now begins!",
+    "nsuid_txt": [
+     "70010000080761"
+    ],
+    "date_from": "2026-12-09T00:00:00Z",
+    "product_catalog_description_s": "A bread revolution across the world now begins!",
+    "title": "Aeruta",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "RPG",
+     "Simulation"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/rbd2kr0szuyskv0rncty",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "2339757",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Professor-Layton-and-the-New-World-of-Steam-2339757.html",
+    "type": "GAME",
+    "product_catalog_description_s": "From a series with over 18 million units sold worldwide. Solve epic riddles as you progress through the story of this puzzle/fantasy adventure.",
+    "pretty_date_s": "10/12/2026",
+    "title": "Professor Layton and the New World of Steam",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/1x1_NSwitch_ProfessorLaytonAndTheNewWorldOfSteam_enGB_image500w.jpg",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "eshop_removed_b": false,
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_ProfessorLaytonAndTheNewWorldOfSteam_enGB_image500w.jpg",
+    "excerpt": "From a series with over 18 million units sold worldwide. Solve epic riddles as you progress through the story of this puzzle/fantasy adventure.",
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_ProfessorLaytonAndTheNewWorldOfSteam_enGB_banner_image_wishlist_460w.jpg",
+    "date_from": "2026-12-10T00:00:00Z"
+   },
+   {
+    "fs_id": "3129387",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Power-Racing-Bundle-4-3129387.html",
+    "type": "GAME",
+    "pretty_date_s": "25/12/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/powerracingbundle4/1x1_PowerRacingBundle4_image500w.jpg",
+    "excerpt": "Enjoy 4 games in 1 with this irresistible games pack!",
+    "nsuid_txt": [
+     "70010000118682"
+    ],
+    "date_from": "2026-12-25T00:00:00Z",
+    "product_catalog_description_s": "Enjoy 4 games in 1 with this irresistible games pack!",
+    "title": "Power Racing Bundle 4",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Racing",
+     "Simulation",
+     "Sports"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/powerracingbundle4/16x9_PowerRacingBundle4_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "2339325",
+    "url": "/en-gb/Games/Nintendo-Switch-games/DECAPOLICE-2339325.html",
+    "type": "GAME",
+    "product_catalog_description_s": "A mysterious detective story with investigations in a virtual world.",
+    "pretty_date_s": "2026",
+    "title": "DECAPOLICE",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/1x1_NSwitch_Decapolice_image500w.jpg",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "eshop_removed_b": false,
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_Decapolice_image500w.jpg",
+    "excerpt": "A mysterious detective story with investigations in a virtual world.",
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_Decapolice_banner_image_wishlist_460w.jpg",
+    "date_from": "2026-12-31T00:00:00Z"
+   },
+   {
+    "fs_id": "2789410",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/The-Duskbloods-2789410.html",
+    "type": "GAME",
+    "pretty_date_s": "2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/theduskbloods/1x1_NSwitch2_TheDuskbloods_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/theduskbloods/2x1_NSwitch2_TheDuskbloods_image500w.jpg",
+    "excerpt": "The moontears will flow for one and one alone.",
+    "nsuid_txt": [
+     "70010000098072"
+    ],
+    "date_from": "2026-12-31T00:00:00Z",
+    "product_catalog_description_s": "The moontears will flow for one and one alone.",
+    "title": "The Duskbloods",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/theduskbloods/2x1_NSwitch2_TheDuskbloods_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3017622",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Kyoto-Xanadu-3017622.html",
+    "type": "GAME",
+    "pretty_date_s": "2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/kyotoxanadu/1x1_KyotoXanadu_image500w.jpg",
+    "excerpt": "An Adventure Through Kyoto and Xanadu: the Otherworld",
+    "nsuid_txt": [
+     "70010000119010"
+    ],
+    "date_from": "2026-12-31T00:00:00Z",
+    "product_catalog_description_s": "An Adventure Through Kyoto and Xanadu: the Otherworld",
+    "title": "Kyoto Xanadu",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/kyotoxanadu/16x9_KyotoXanadu_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3050873",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Pocket-Wheels-3050873.html",
+    "type": "GAME",
+    "pretty_date_s": "2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/pocketwheels/1x1_PocketWheels_image500w.jpg",
+    "excerpt": "Pocket Wheels isn't just a racing game, it's an objective-based 3D platformer. Take a seat and explore a house full of themed rooms filled with collectibles, objectives, and race tracks!",
+    "nsuid_txt": [
+     "70010000078758"
+    ],
+    "date_from": "2026-12-31T00:00:00Z",
+    "product_catalog_description_s": "Pocket Wheels isn't just a racing game, it's an objective-based 3D platformer. Take a seat and explore a house full of themed rooms filled with collectibles, objectives, and race tracks!",
+    "title": "Pocket Wheels",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Arcade",
+     "Platformer",
+     "Puzzle",
+     "Racing"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/pocketwheels/16x9_PocketWheels_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3111545",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Lords-of-the-Fallen-II-3111545.html",
+    "type": "GAME",
+    "pretty_date_s": "2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/lordsofthefallenii/1x1_LordsOfTheFallenII_image500w.jpg",
+    "excerpt": "A hero must rise, for a God to fall.",
+    "nsuid_txt": [
+     "70010000120142"
+    ],
+    "date_from": "2026-12-31T00:00:00Z",
+    "product_catalog_description_s": "A hero must rise, for a God to fall.",
+    "title": "Lords of the Fallen II",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Multiplayer",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/lordsofthefallenii/16x9_LordsOfTheFallenII_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3144011",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Gennady-3144011.html",
+    "type": "GAME",
+    "pretty_date_s": "2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/gennady/1x1_Gennady_image500w.jpg",
+    "excerpt": "Gennady is a dynamic roguelike platformer, where you must fight your way through shifting corridors filled with chthonic creatures, and death only makes you stronger. ",
+    "nsuid_txt": [
+     "70010000127217"
+    ],
+    "date_from": "2026-12-31T00:00:00Z",
+    "product_catalog_description_s": "Gennady is a dynamic roguelike platformer, where you must fight your way through shifting corridors filled with chthonic creatures, and death only makes you stronger. ",
+    "title": "Gennady",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "Arcade",
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/gennady/16x9_Gennady_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3210879",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Sturmjager-3210879.html",
+    "type": "GAME",
+    "pretty_date_s": "14/01/2027",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/ycobtqstzuy4csx1n3zq",
+    "excerpt": "Sturmjäger is a sci-fi shoot 'em up for everyone who wants to skip the cinematic fluff and dive straight into unadulterated, chaotic, and adrenaline-fueled arcade action.",
+    "nsuid_txt": [
+     "70010000118101"
+    ],
+    "date_from": "2027-01-14T00:00:00Z",
+    "product_catalog_description_s": "Sturmjäger is a sci-fi shoot 'em up for everyone who wants to skip the cinematic fluff and dive straight into unadulterated, chaotic, and adrenaline-fueled arcade action.",
+    "title": "Sturmjäger",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Arcade",
+     "Shooter"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/eggeuhutmotlsxl9rg6h",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3188729",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Metroid-Ravenous-3188729.html",
+    "type": "GAME",
+    "pretty_date_s": "28/01/2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/metroidravenous/1x1_MetroidRavenous_image500w.jpg",
+    "excerpt": "The latest game in the 2D Metroid series, is coming to Nintendo Switch 2.",
+    "nsuid_txt": [
+     "70010000135072"
+    ],
+    "date_from": "2027-01-28T00:00:00Z",
+    "product_catalog_description_s": "The latest game in the 2D Metroid series, is coming to Nintendo Switch 2.",
+    "title": "Metroid Ravenous",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Shooter"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/metroidravenous/16x9_PDP_NSwitch2_MetroidRavenous_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3184584",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Tomb-Raider-Legacy-of-Atlantis-3184584.html",
+    "type": "GAME",
+    "pretty_date_s": "10/02/2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/tombraiderlegacyofatlantis/1x1_TombRaiderLegacyOfAtlantis_image500w.jpg",
+    "excerpt": "A stunning reimagining of Lara Croft's 1996 debut adventure.",
+    "nsuid_txt": [
+     "70070000040099",
+     "70010000120171"
+    ],
+    "date_from": "2027-02-10T00:00:00Z",
+    "product_catalog_description_s": "A stunning reimagining of Lara Croft's 1996 debut adventure.",
+    "title": "Tomb Raider: Legacy of Atlantis",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/tombraiderlegacyofatlantis/16x9_TombRaiderLegacyOfAtlantis_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3192156",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Astonishia-Story-3192156.html",
+    "type": "GAME",
+    "pretty_date_s": "11/02/2027",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/seidkmxobmzf10tbu71q",
+    "excerpt": "Reclaim Your Honor!",
+    "nsuid_txt": [
+     "70010000129971"
+    ],
+    "date_from": "2027-02-11T00:00:00Z",
+    "product_catalog_description_s": "Reclaim Your Honor!",
+    "title": "Astonishia Story ",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG",
+     "Strategy"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/syy0gu2atkesnujiz3gk",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3184771",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Romancing-SaGa-3-Destinies-United-3184771.html",
+    "type": "GAME",
+    "pretty_date_s": "16/02/2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/romancingsaga3destiniesunited/1x1_RomancingSaGa3DestiniesUnited_image500w.jpg",
+    "excerpt": "A remake of Romancing SaGa 3! Choose from eight heroes in this turn-based RPG.",
+    "nsuid_txt": [
+     "70010000114054"
+    ],
+    "date_from": "2027-02-16T00:00:00Z",
+    "product_catalog_description_s": "A remake of Romancing SaGa 3! Choose from eight heroes in this turn-based RPG.",
+    "title": "Romancing SaGa 3: Destinies United",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/romancingsaga3destiniesunited/16x9_RomancingSaGa3DestiniesUnited_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3184785",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Romancing-SaGa-3-Destinies-United-3184785.html",
+    "type": "GAME",
+    "pretty_date_s": "16/02/2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/romancingsaga3destiniesunited_1/1x1_RomancingSaGa3DestiniesUnited_image500w.jpg",
+    "excerpt": "A remake of Romancing SaGa 3! Choose from eight heroes in this turn-based RPG.",
+    "nsuid_txt": [
+     "70010000114003"
+    ],
+    "date_from": "2027-02-16T00:00:00Z",
+    "product_catalog_description_s": "A remake of Romancing SaGa 3! Choose from eight heroes in this turn-based RPG.",
+    "title": "Romancing SaGa 3: Destinies United",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/romancingsaga3destiniesunited_1/16x9_RomancingSaGa3DestiniesUnited_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3184806",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Yu-Gi-Oh-TAG-FORCE-GX-3184806.html",
+    "type": "GAME",
+    "pretty_date_s": "16/02/2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/yugiohtagforcegx/1x1_YuGiOhTagForceGx_image500w.jpg",
+    "excerpt": "Duel Alongside Your Partner and Forge Your Own Future!",
+    "nsuid_txt": [
+     "70010000120388"
+    ],
+    "date_from": "2027-02-16T00:00:00Z",
+    "product_catalog_description_s": "Duel Alongside Your Partner and Forge Your Own Future!",
+    "title": "Yu-Gi-Oh! TAG FORCE GX",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "RPG",
+     "Strategy"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/yugiohtagforcegx/16x9_YuGiOhTagForceGx_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3184820",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Yu-Gi-Oh-TAG-FORCE-GX-3184820.html",
+    "type": "GAME",
+    "pretty_date_s": "16/02/2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/yugiohtagforcegx_1/1x1_YuGiOhTagForceGx_image500w.jpg",
+    "excerpt": "Duel Alongside Your Partner and Forge Your Own Future!",
+    "nsuid_txt": [
+     "70010000120382"
+    ],
+    "date_from": "2027-02-16T00:00:00Z",
+    "product_catalog_description_s": "Duel Alongside Your Partner and Forge Your Own Future!",
+    "title": "Yu-Gi-Oh! TAG FORCE GX",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "RPG",
+     "Strategy"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/yugiohtagforcegx_1/16x9_YuGiOhTagForceGx_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3188822",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Hyrule-Warriors-Age-of-Calamity-Definitive-Edition-3188822.html",
+    "type": "GAME",
+    "pretty_date_s": "25/02/2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/hyrulewarriorsageofcalamitydefinitiveedition/1x1_NSwitch2_HyruleWarriorsAOCDE_UK_en_image500w.jpg",
+    "excerpt": "Experience the events of the Great Calamity with higher resolution visuals and smoother performance on Nintendo Switch 2!",
+    "nsuid_txt": [
+     "70010000133215"
+    ],
+    "date_from": "2027-02-25T00:00:00Z",
+    "product_catalog_description_s": "Experience the events of the Great Calamity with higher resolution visuals and smoother performance on Nintendo Switch 2!",
+    "title": "Hyrule Warriors: Age of Calamity – Definitive Edition",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/hyrulewarriorsageofcalamitydefinitiveedition/16x9_HyruleWarriorsAgeOfCalamityDefinitiveEdition_EN_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "2792136",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/007-First-Light-Deluxe-Edition-2792136.html",
+    "type": "GAME",
+    "pretty_date_s": "18/03/2027",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/gyxrdlnmtbuvfvqn7uuj",
+    "excerpt": "Earn The Number",
+    "nsuid_txt": [
+     "70010000099814"
+    ],
+    "date_from": "2027-03-18T00:00:00Z",
+    "product_catalog_description_s": "Earn The Number",
+    "title": "007 First Light - Deluxe Edition",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/mnadnan5ueusagl1nkza",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3127503",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/FINAL-FANTASY-VII-REVELATION-3127503.html",
+    "type": "GAME",
+    "pretty_date_s": "07/04/2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/finalfantasyviirevelation/1x1_FinalFantasyVIIRevelation_image500w.jpg",
+    "excerpt": "A vast planet awaits. Everything leads here.",
+    "nsuid_txt": [
+     "70070000038339",
+     "70070000038148",
+     "70010000130408"
+    ],
+    "date_from": "2027-04-07T00:00:00Z",
+    "product_catalog_description_s": "A vast planet awaits. Everything leads here.",
+    "title": "FINAL FANTASY VII REVELATION",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/finalfantasyviirevelation/16x9_FinalFantasyVIIRevelation_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3017602",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Turok-Origins-3017602.html",
+    "type": "GAME",
+    "pretty_date_s": "2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/turokorigins/1x1_TurokOrigins_image500w.jpg",
+    "excerpt": "Embark on a high-stakes adventure — solo or with friends — to unravel mysteries that hold the key to saving humanity.",
+    "nsuid_txt": [
+     "70010000103783"
+    ],
+    "date_from": "2027-12-31T00:00:00Z",
+    "product_catalog_description_s": "Embark on a high-stakes adventure — solo or with friends — to unravel mysteries that hold the key to saving humanity.",
+    "title": "Turok: Origins",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/turokorigins/16x9_TurokOrigins_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3039085",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Pokemon-Winds-3039085.html",
+    "type": "GAME",
+    "pretty_date_s": "2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/pokemonwindswaves/1x1_NSwitch2_PokemonWinds_GB_en_image500w.jpg",
+    "excerpt": "Pokémon Winds is coming to Nintendo Switch 2 in 2027!",
+    "nsuid_txt": [
+     "70010000122036"
+    ],
+    "date_from": "2027-12-31T00:00:00Z",
+    "product_catalog_description_s": "Pokémon Winds is coming to Nintendo Switch 2 in 2027!",
+    "title": "Pokémon Winds",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/pokemonwindswaves/16x9_NSwitch2_PokemonWinds_GBen_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3039100",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Pokemon-Waves-3039100.html",
+    "type": "GAME",
+    "pretty_date_s": "2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/pokemonwindswaves/1x1_NSwitch2_PokemonWaves_GB_en_image500w.jpg",
+    "excerpt": "Pokémon Waves is coming to Nintendo Switch 2 in 2027!",
+    "nsuid_txt": [
+     "70010000122029"
+    ],
+    "date_from": "2027-12-31T00:00:00Z",
+    "product_catalog_description_s": "Pokémon Waves is coming to Nintendo Switch 2 in 2027!",
+    "title": "Pokémon Waves",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/pokemonwindswaves/16x9_NSwitch2_PokemonWaves_GBen_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3110623",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Pikuniku-2-3110623.html",
+    "type": "GAME",
+    "pretty_date_s": "2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/pikuniku2/1x1_Pikuniku2_image500w.jpg",
+    "excerpt": "Absurd puzzle-exploration adventure Pikuniku 2 brings the whimsy!",
+    "nsuid_txt": [
+     "70010000123249"
+    ],
+    "date_from": "2027-12-31T00:00:00Z",
+    "product_catalog_description_s": "Absurd puzzle-exploration adventure Pikuniku 2 brings the whimsy!",
+    "title": "Pikuniku 2",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "Platformer",
+     "Puzzle"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/pikuniku2/16x9_Pikuniku2_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3112504",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/KINGDOM-HEARTS-IV-3112504.html",
+    "type": "GAME",
+    "pretty_date_s": "2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/kingdomheartsiv/1x1_KingdomHeartsIV_image500w.jpg",
+    "excerpt": "An action-packed new addition to the KINGDOM HEARTS series.",
+    "nsuid_txt": [
+     "70010000126832"
+    ],
+    "date_from": "2027-12-31T00:00:00Z",
+    "product_catalog_description_s": "An action-packed new addition to the KINGDOM HEARTS series.",
+    "title": "KINGDOM HEARTS IV",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/kingdomheartsiv/16x9_KingdomHeartsIV_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3115567",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Spyro-A-Realm-Beyond-3115567.html",
+    "type": "GAME",
+    "pretty_date_s": "2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/spyroarealmbeyond/1x1_SpyroARealmBeyond_image500w.jpg",
+    "excerpt": "Wishlist now and get ready for Spyro™’s bold new adventure.",
+    "nsuid_txt": [
+     "70010000128120"
+    ],
+    "date_from": "2027-12-31T00:00:00Z",
+    "product_catalog_description_s": "Wishlist now and get ready for Spyro™’s bold new adventure.",
+    "title": "Spyro™: A Realm Beyond",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/spyroarealmbeyond/16x9_SpyroARealmBeyond_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3116253",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Xenoblade-Genesis-3116253.html",
+    "type": "GAME",
+    "pretty_date_s": "2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/xenobladegenesis/1x1_NSwitch2_XenobladeGenesis_LogoAndBG_image500w.jpg",
+    "excerpt": "A new beginning is dawning.",
+    "nsuid_txt": [
+     "70010000130290"
+    ],
+    "date_from": "2027-12-31T00:00:00Z",
+    "product_catalog_description_s": "A new beginning is dawning.",
+    "title": "Xenoblade Genesis",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/xenobladegenesis/16x9_NSwitch2_XenobladeGenesis_LogoAndBG_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3134568",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Resident-Evil-Veronica-3134568.html",
+    "type": "GAME",
+    "pretty_date_s": "2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/residentevilveronica/1x1_ResidentEvilVeronica_image500w.jpg",
+    "excerpt": "Survive the Deranged Terror",
+    "nsuid_txt": [
+     "70010000130415"
+    ],
+    "date_from": "2027-12-31T00:00:00Z",
+    "product_catalog_description_s": "Survive the Deranged Terror",
+    "title": "Resident Evil Veronica",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/residentevilveronica/16x9_ResidentEvilVeronica_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3188542",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Kirby-and-the-World-Beyond-3188542.html",
+    "type": "GAME",
+    "pretty_date_s": "2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/kirbyandtheworldbeyond/1x1_NSwitch2_KirbyATWB_image500w.jpg",
+    "excerpt": "Get ready to freely explore the World Beyond using Copy Abilities in Kirby and the World Beyond, the latest 3D Kirby adventure!",
+    "nsuid_txt": [
+     "70010000135066"
+    ],
+    "date_from": "2027-12-31T00:00:00Z",
+    "product_catalog_description_s": "Get ready to freely explore the World Beyond using Copy Abilities in Kirby and the World Beyond, the latest 3D Kirby adventure!",
+    "title": "Kirby and the World Beyond",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/kirbyandtheworldbeyond/16x9_NSwitch2_KirbyATWB_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3197787",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Stage-Fright-3197787.html",
+    "type": "GAME",
+    "pretty_date_s": "2027",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/nnw29dys64tjnptjysh2",
+    "excerpt": "From the makers of OVERCOOKED! comes an all new co-operative experience.",
+    "nsuid_txt": [
+     "70010000102462"
+    ],
+    "date_from": "2027-12-31T00:00:00Z",
+    "product_catalog_description_s": "From the makers of OVERCOOKED! comes an all new co-operative experience.",
+    "title": "Stage Fright",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Puzzle"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/l00capsk2ohyzwbfmypj",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3181063",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/LEGO-Skylines-3181063.html",
+    "type": "GAME",
+    "pretty_date_s": "2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/legoskylines/1x1_LegoSkylines_image500w.jpg",
+    "excerpt": "Build a city where everything just clicks",
+    "nsuid_txt": [
+     "70010000119236"
+    ],
+    "date_from": "2027-12-31T00:00:00Z",
+    "product_catalog_description_s": "Build a city where everything just clicks",
+    "title": "LEGO® Skylines",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Simulation"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/legoskylines/16x9_LegoSkylines_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3184269",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Cairn-3184269.html",
+    "type": "GAME",
+    "pretty_date_s": "2027",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/cairn/1x1_Cairn_image500w.jpg",
+    "excerpt": "Climb anywhere and achieve the ascent of a lifetime",
+    "nsuid_txt": [
+     "70010000126641"
+    ],
+    "date_from": "2027-12-31T00:00:00Z",
+    "product_catalog_description_s": "Climb anywhere and achieve the ascent of a lifetime",
+    "title": "Cairn",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "Simulation",
+     "Sports"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/cairn/16x9_Cairn_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "1742943",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Quantum-League--1742943.html",
+    "type": "GAME",
+    "pretty_date_s": "TBD",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/SQ_NSwitchDS_QuantumLeague_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/SQ_NSwitchDS_QuantumLeague_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_QuantumLeague_image500w.jpg",
+    "excerpt": "Tactically team up with your past and future selves in intense 1v1 or 2v2 online FPS battles in Quantum League for Nintendo Switch.",
+    "date_from": "2050-12-31T00:00:00Z",
+    "product_catalog_description_s": "Tactically team up with your past and future selves in intense 1v1 or 2v2 online FPS battles in Quantum League for Nintendo Switch.",
+    "title": "Quantum League ®",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "First-Person Shooter"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_QuantumLeague_banner_image_wishlist_460w.jpg"
+   },
+   {
+    "fs_id": "1436858",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Samurai-Gunn-2-1436858.html",
+    "type": "GAME",
+    "pretty_date_s": "TBD",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/SQ_NSwitchDS_SamuraiGunn2_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/SQ_NSwitchDS_SamuraiGunn2_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_SamuraiGunn2_image500w.jpg",
+    "excerpt": "Fight or fly past your foes to discover the mystery behind Gunn City's ghostly threat in Samurai Gunn 2 for Nintendo Switch.",
+    "date_from": "2050-12-31T00:00:00Z",
+    "product_catalog_description_s": "Fight or fly past your foes to discover the mystery behind Gunn City's ghostly threat in Samurai Gunn 2 for Nintendo Switch.",
+    "title": "Samurai Gunn 2",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Fighting"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_SamuraiGunn2_banner_image_wishlist_460w.jpg"
+   },
+   {
+    "fs_id": "1436983",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Bullet-Age-1436983.html",
+    "type": "GAME",
+    "pretty_date_s": "TBD",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/SQ_NSwitchDS_BulletAge_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/SQ_NSwitchDS_BulletAge_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_BulletAge_image500w.jpg",
+    "excerpt": "Slash and blast your way through a fantasy wasteland in Bullet Age for Nintendo Switch.",
+    "date_from": "2050-12-31T00:00:00Z",
+    "product_catalog_description_s": "Slash and blast your way through a fantasy wasteland in Bullet Age for Nintendo Switch.",
+    "title": "Bullet Age",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_BulletAge_banner_image_wishlist_460w.jpg"
+   },
+   {
+    "fs_id": "1823604",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/She-Dreams-Elsewhere-1823604.html",
+    "type": "GAME",
+    "pretty_date_s": "TBD",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/SQ_NSwitchDS_SheDreamsElsewhere_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/SQ_NSwitchDS_SheDreamsElsewhere_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_SheDreamsElsewhere_image500w.jpg",
+    "excerpt": "Welcome to your coma - enjoy your stay!",
+    "date_from": "2050-12-31T00:00:00Z",
+    "product_catalog_description_s": "Welcome to your coma - enjoy your stay!",
+    "title": "She Dreams Elsewhere",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_SheDreamsElsewhere_banner_image_wishlist_460w.jpg"
+   },
+   {
+    "fs_id": "2799387",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Enter-the-Gungeon-2-2799387.html",
+    "type": "GAME",
+    "product_catalog_description_s": "Experience the reloaded sequel to the iconic bullet dungeon crawler on Nintendo Switch 2.",
+    "pretty_date_s": "TBD",
+    "title": "Enter the Gungeon 2",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/enterthegungeon2/1x1_NSwitch2_EnterTheGungeon2_image500w.jpg",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/enterthegungeon2/2x1_NSwitch2_EnterTheGungeon2_image500w.jpg",
+    "excerpt": "Experience the reloaded sequel to the iconic bullet dungeon crawler on Nintendo Switch 2.",
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/enterthegungeon2/2x1_NSwitch2_EnterTheGungeon2_banner_image_wishlist_460w.jpg",
+    "date_from": "2050-12-31T00:00:00Z"
+   },
+   {
+    "fs_id": "1948885",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Thief-s-Shelter-1948885.html",
+    "type": "GAME",
+    "pretty_date_s": "TBD",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/SQ_NSwitchDS_ThiefsShelter_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/SQ_NSwitchDS_ThiefsShelter_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_ThiefsShelter_image500w.jpg",
+    "excerpt": "3D Point & Click hybrid storytelling game",
+    "nsuid_txt": [
+     "70010000039845"
+    ],
+    "date_from": "2050-12-31T00:00:00Z",
+    "product_catalog_description_s": "3D Point & Click hybrid storytelling game",
+    "title": "Thief's Shelter",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Puzzle"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_ThiefsShelter_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "2426529",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/NED-2426529.html",
+    "type": "GAME",
+    "pretty_date_s": "TBD",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/1x1_NSwitchDS_NED_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_1x1_NSwitchDS_NED_image500w.jpg",
+    "excerpt": "Blast your way through hordes of enemies in Ned! An action-packed adventure platformer set in the rich history of the Aussie outback.",
+    "nsuid_txt": [
+     "70010000065392"
+    ],
+    "date_from": "2050-12-31T00:00:00Z",
+    "product_catalog_description_s": "Blast your way through hordes of enemies in Ned! An action-packed adventure platformer set in the rich history of the Aussie outback.",
+    "title": "NED",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_1x1_NSwitchDS_NED_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "2817441",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/TIC-TAC-Twelve-o-clock-2817441.html",
+    "type": "GAME",
+    "pretty_date_s": "TBD",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/tictactwelveoclock/1x1_TicTacTwelveOclock_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/tictactwelveoclock/2x1_TicTacTwelveOclock_image500w.jpg",
+    "excerpt": "Survive the Night in an Abandoned School!",
+    "nsuid_txt": [
+     "70010000096227"
+    ],
+    "date_from": "2050-12-31T00:00:00Z",
+    "product_catalog_description_s": "Survive the Night in an Abandoned School!",
+    "title": "TIC-TAC: Twelve o'clock",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Strategy"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/tictactwelveoclock/2x1_TicTacTwelveOclock_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   },
+   {
+    "fs_id": "3037122",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/GRIDbeat--3037122.html",
+    "type": "GAME",
+    "pretty_date_s": "TBD",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/gridbeat/1x1_Gridbeat_image500w.jpg",
+    "excerpt": "Welcome to GRIDbeat! A rhythm-fueled cyber-dungeon crawler where every move must match the music or risk total system shutdown. You just breached Knoss.",
+    "nsuid_txt": [
+     "70010000111808"
+    ],
+    "date_from": "2050-12-31T00:00:00Z",
+    "product_catalog_description_s": "Welcome to GRIDbeat! A rhythm-fueled cyber-dungeon crawler where every move must match the music or risk total system shutdown. You just breached Knoss.",
+    "title": "GRIDbeat!",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Music",
+     "Other"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/gridbeat/16x9_Gridbeat_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 999999
+   }
+  ]
+ }
+}

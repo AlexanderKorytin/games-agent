@@ -1,0 +1,1277 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 3,
+  "params": {
+   "q": "*",
+   "fl": "title,nsuid_txt,fs_id,type,playable_on_txt,date_from,pretty_date_s,pretty_game_categories_txt,excerpt,product_catalog_description_s,image_url,image_url_h2x1_s,image_url_sq_s,wishlist_email_banner460w_image_url_s,url,downloads_rank_i,eshop_removed_b",
+   "start": "0",
+   "fq": [
+    "downloads_rank_i:[1 TO *]",
+    "playable_on_txt:(HAC OR BEE)",
+    "type:GAME"
+   ],
+   "sort": "downloads_rank_i asc",
+   "rows": "50",
+   "wt": "json"
+  }
+ },
+ "response": {
+  "numFound": 19836,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "fs_id": "2915498",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Fire-Emblem-Fortune-s-Weave-2915498.html",
+    "type": "GAME",
+    "pretty_date_s": "17/09/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/fireemblemfortunesweave/1x1_NSwitch2_FireEmblemFortunesWeave_image500w.jpg",
+    "excerpt": "Fight for victory and make your wish in Fire Emblem: Fortune’s Weave on Nintendo Switch 2.",
+    "nsuid_txt": [
+     "70010000126930",
+     "70070000040993"
+    ],
+    "date_from": "2026-09-17T00:00:00Z",
+    "product_catalog_description_s": "Fight for victory and make your wish in Fire Emblem: Fortune’s Weave on Nintendo Switch 2.",
+    "title": "Fire Emblem: Fortune's Weave ",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG",
+     "Simulation"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/fireemblemfortunesweave/16x9_NSwitch2_FireEmblemFortunesWeave_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 3
+   },
+   {
+    "fs_id": "3147152",
+    "url": "/en-gb/Games/Nintendo-Switch-games/EA-SPORTS-FC-27-3147152.html",
+    "type": "GAME",
+    "pretty_date_s": "25/09/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/easportsfc27_1/1x1_EASPORTSFC27_202608_image500w.jpg",
+    "excerpt": "The World's Game\n",
+    "nsuid_txt": [
+     "70010000110118",
+     "70070000036466"
+    ],
+    "date_from": "2026-09-25T00:00:00Z",
+    "product_catalog_description_s": "The World's Game\n",
+    "title": "EA SPORTS FC™ 27",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/easportsfc27_1/16x9_EASPORTSFC27_202608_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 5
+   },
+   {
+    "fs_id": "3147060",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/EA-SPORTS-FC-27-3147060.html",
+    "type": "GAME",
+    "pretty_date_s": "25/09/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/easportsfc27/1x1_EASPORTSFC27_20260821_image500w.jpg",
+    "excerpt": "The World's Game",
+    "nsuid_txt": [
+     "70070000036533",
+     "70010000110124"
+    ],
+    "date_from": "2026-09-25T00:00:00Z",
+    "product_catalog_description_s": "The World's Game",
+    "title": "EA SPORTS FC™ 27",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/easportsfc27/16x9_EASPORTSFC27_20260821_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 7
+   },
+   {
+    "fs_id": "1386505",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Minecraft-1386505.html",
+    "type": "GAME",
+    "pretty_date_s": "21/06/2018",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/SQ_NSwitch_Minecraft_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/05_packshots/games_13/nintendo_switch_8/PS_NSwitch_Minecraft_enGB_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_Minecraft_image500w.jpg",
+    "excerpt": "Explore randomly generated worlds and build amazing things.",
+    "nsuid_txt": [
+     "70010000000963",
+     "70070000016615"
+    ],
+    "date_from": "2018-06-21T00:00:00Z",
+    "product_catalog_description_s": "Explore randomly generated worlds and build amazing things.",
+    "title": "Minecraft",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_Minecraft_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 10
+   },
+   {
+    "fs_id": "3111530",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/KINGDOM-HEARTS-Collection-I-III--3111530.html",
+    "type": "GAME",
+    "pretty_date_s": "08/10/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/kingdomheartscollectioni_iii/1x1_KingdomHeartsCollectionI_III_image500w.jpg",
+    "excerpt": "Play KINGDOM HEARTS I–III together in one unforgettable collection.",
+    "nsuid_txt": [
+     "70070000036431"
+    ],
+    "date_from": "2026-10-08T00:00:00Z",
+    "product_catalog_description_s": "Play KINGDOM HEARTS I–III together in one unforgettable collection.",
+    "title": "KINGDOM HEARTS Collection [I～III]",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/kingdomheartscollectioni_iii/16x9_KingdomHeartsCollectionI_III_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 13
+   },
+   {
+    "fs_id": "2790000",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Mario-Kart-World-2790000.html",
+    "type": "GAME",
+    "pretty_date_s": "05/06/2025",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/mariokartworld/1x1_NSwitch2_MarioKartWorld_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/mariokartworld/2x1_NSwitch2_MarioKartWorld_image500w.jpg",
+    "excerpt": "Start your engines and race across a sprawling world in Mario Kart World for Nintendo Switch 2!",
+    "nsuid_txt": [
+     "70010000096802"
+    ],
+    "date_from": "2025-06-05T00:00:00Z",
+    "product_catalog_description_s": "Start your engines and race across a sprawling world in Mario Kart World for Nintendo Switch 2!",
+    "title": "Mario Kart World",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Party",
+     "Racing"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/mariokartworld/16x9_MarioKartWorld_banner_image_wishlist_460w.png",
+    "downloads_rank_i": 14
+   },
+   {
+    "fs_id": "3056370",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Minecraft-Dungeons-II-3056370.html",
+    "type": "GAME",
+    "pretty_date_s": "29/09/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/minecraftdungeonsii_1/1x1_MinecraftDungeonsII_image500w.jpg",
+    "excerpt": "A new threat descends upon the Overworld...",
+    "nsuid_txt": [
+     "70070000034458",
+     "70010000110906"
+    ],
+    "date_from": "2026-09-29T00:00:00Z",
+    "product_catalog_description_s": "A new threat descends upon the Overworld...",
+    "title": "Minecraft Dungeons II",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/minecraftdungeonsii_1/16x9_MinecraftDungeonsII_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 15
+   },
+   {
+    "fs_id": "3196404",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Diablo-IV-Age-of-Hatred-Collection-3196404.html",
+    "type": "GAME",
+    "pretty_date_s": "15/09/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/zne8g74zy0mg5wtdwulo",
+    "excerpt": "Embark on a sweeping dark fantasy campaign where unlikely heroes arise, ancient foes stir, and no soul is safe.",
+    "nsuid_txt": [
+     "70010000104365"
+    ],
+    "date_from": "2026-09-15T00:00:00Z",
+    "product_catalog_description_s": "Embark on a sweeping dark fantasy campaign where unlikely heroes arise, ancient foes stir, and no soul is safe.",
+    "title": "Diablo® IV: Age of Hatred Collection",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Party",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/g0c8hovypvhodxhgjnei",
+    "downloads_rank_i": 16
+   },
+   {
+    "fs_id": "2786386",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Tomodachi-Life-Living-the-Dream-2786386.html",
+    "type": "GAME",
+    "pretty_date_s": "16/04/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/tomodachilifelivingthedream/1x1_NSwitch_TomodachiLiveLTD_BASE_UK_image500w.jpg",
+    "excerpt": "Become the caretaker of an island full of silliness, drama, love and other surprises in Tomodachi Life: Living the Dream for Nintendo Switch! ",
+    "nsuid_txt": [
+     "70010000116664"
+    ],
+    "date_from": "2026-04-16T00:00:00Z",
+    "product_catalog_description_s": "Become the caretaker of an island full of silliness, drama, love and other surprises in Tomodachi Life: Living the Dream for Nintendo Switch! ",
+    "title": "Tomodachi Life: Living the Dream",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Lifestyle",
+     "Simulation"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/tomodachilifelivingthedream/16x9_NSwitch_TomodachiLiveLTD_BASE_UK_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 18
+   },
+   {
+    "fs_id": "1173281",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Mario-Kart-8-Deluxe-1173281.html",
+    "type": "GAME",
+    "pretty_date_s": "28/04/2017",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/SQ_NSwitch_MarioKart8Deluxe_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/05_packshots/games_13/nintendo_switch_8/PS_NSwitch_MarioKart8Deluxe_PEGI_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_MarioKart8Deluxe_image500w.jpg",
+    "excerpt": "With Nintendo Switch, fans can enjoy the definitive version of Mario Kart 8 anywhere, anytime, even with up to eight friends in local wireless multiplayer.",
+    "nsuid_txt": [
+     "70010000000126",
+     "70070000016292"
+    ],
+    "date_from": "2017-04-28T00:00:00Z",
+    "product_catalog_description_s": "With Nintendo Switch, fans can enjoy the definitive version of Mario Kart 8 anywhere, anytime, even with up to eight friends in local wireless multiplayer.",
+    "title": "Mario Kart 8 Deluxe",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Party",
+     "Racing"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_MarioKart8Deluxe_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 19
+   },
+   {
+    "fs_id": "3182096",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/The-Witcher-3-Wild-Hunt-Remastered-3182096.html",
+    "type": "GAME",
+    "pretty_date_s": "29/09/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/m1ebwyuee9dtqpwb3cnu",
+    "excerpt": "This World Doesn’t Need a Hero, It Needs a Professional.",
+    "nsuid_txt": [
+     "70010000128693"
+    ],
+    "date_from": "2026-09-29T00:00:00Z",
+    "product_catalog_description_s": "This World Doesn’t Need a Hero, It Needs a Professional.",
+    "title": "The Witcher 3: Wild Hunt — Remastered",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/f6yrn6uda8hsudcchk91",
+    "downloads_rank_i": 20
+   },
+   {
+    "fs_id": "2591147",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Super-Mario-Party-Jamboree-2591147.html",
+    "type": "GAME",
+    "pretty_date_s": "17/10/2024",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/1x1_NSwitch_SuperMarioPartyJamboree_BASE_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_SuperMarioPartyJamboree_image500w.jpg",
+    "excerpt": "Get ready for the biggest Mario Party yet! Join a jam-packed celebration in Super Mario Party Jamboree for Nintendo Switch.",
+    "nsuid_txt": [
+     "70010000084609"
+    ],
+    "date_from": "2024-10-17T00:00:00Z",
+    "product_catalog_description_s": "Get ready for the biggest Mario Party yet! Join a jam-packed celebration in Super Mario Party Jamboree for Nintendo Switch.",
+    "title": "Super Mario Party Jamboree",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Board Game",
+     "Party"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_SuperMarioPartyJamboree_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 21
+   },
+   {
+    "fs_id": "2915161",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Pokemon-Pokopia-2915161.html",
+    "type": "GAME",
+    "pretty_date_s": "05/03/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/pokemonpokopia/1x1_NSwitch2_PokemonPokopia_image500w.png",
+    "excerpt": "Craft cosy towns alongside your Pokémon friends in Pokémon Pokopia for Nintendo Switch 2.",
+    "nsuid_txt": [
+     "70010000107422"
+    ],
+    "date_from": "2026-03-05T00:00:00Z",
+    "product_catalog_description_s": "Craft cosy towns alongside your Pokémon friends in Pokémon Pokopia for Nintendo Switch 2.",
+    "title": "Pokémon Pokopia",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Simulation"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/pokemonpokopia/16x9_NSwitch2_PokemonPokopia_banner_image_wishlist_460w.png",
+    "downloads_rank_i": 25
+   },
+   {
+    "fs_id": "2168292",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Nintendo-Switch-Sports-2168292.html",
+    "type": "GAME",
+    "pretty_date_s": "29/04/2022",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/1x1_NSwitch_NintendoSwitchSports_2024_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/1x1_NSwitch_NintendoSwitchSports_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_NintendoSwitchSports_2024_image500w.jpg",
+    "excerpt": "Swing, kick and spike your way to victory with Nintendo Switch Sports, a collection of sports for Nintendo Switch that puts you right into the action!",
+    "nsuid_txt": [
+     "70010000049932"
+    ],
+    "date_from": "2022-04-29T00:00:00Z",
+    "product_catalog_description_s": "Swing, kick and spike your way to victory with Nintendo Switch Sports, a collection of sports for Nintendo Switch that puts you right into the action!",
+    "title": "Nintendo Switch Sports",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Football",
+     "Party",
+     "Sports"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_NintendoSwitchSports_2024_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 26
+   },
+   {
+    "fs_id": "3115652",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Nintendo-Switch-Sports-Resort-3115652.html",
+    "type": "GAME",
+    "pretty_date_s": "22/10/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/nintendoswitchsportsresort/1x1_NSwitch2_NintendoSwitchSportsResort_image500w.jpg",
+    "excerpt": "More sports, more moves, more fun for everyone in Nintendo Switch Sports Resort, only on Nintendo Switch 2.",
+    "nsuid_txt": [
+     "70010000125146"
+    ],
+    "date_from": "2026-10-22T00:00:00Z",
+    "product_catalog_description_s": "More sports, more moves, more fun for everyone in Nintendo Switch Sports Resort, only on Nintendo Switch 2.",
+    "title": "Nintendo Switch Sports Resort",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Party",
+     "Sports"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/nintendoswitchsportsresort/16x9_NSwitch2_NintendoSwitchSportsResort_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 27
+   },
+   {
+    "fs_id": "3056368",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Minecraft-Dungeons-II-3056368.html",
+    "type": "GAME",
+    "pretty_date_s": "29/09/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/minecraftdungeonsii/1x1_MinecraftDungeonsII_image500w.jpg",
+    "excerpt": "A new threat descends upon the Overworld...",
+    "nsuid_txt": [
+     "70070000036346",
+     "70010000067527"
+    ],
+    "date_from": "2026-09-29T00:00:00Z",
+    "product_catalog_description_s": "A new threat descends upon the Overworld...",
+    "title": "Minecraft Dungeons II",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/minecraftdungeonsii/16x9_MinecraftDungeonsII_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 31
+   },
+   {
+    "fs_id": "2984554",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/LEGO-Batman-Legacy-of-the-Dark-Knight-2984554.html",
+    "type": "GAME",
+    "pretty_date_s": "18/09/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/legobatmanlegacyofthedarkknight/1x1_LegoBatmanLegacyOfTheDarkKnight_image500w.jpg",
+    "excerpt": "Become the Dark Knight and battle Gotham City’s most infamous DC Super-Villains in an open-world action-adventure.",
+    "nsuid_txt": [
+     "70010000099706",
+     "70070000036663"
+    ],
+    "date_from": "2026-09-18T00:00:00Z",
+    "product_catalog_description_s": "Become the Dark Knight and battle Gotham City’s most infamous DC Super-Villains in an open-world action-adventure.",
+    "title": "LEGO® Batman™: Legacy of the Dark Knight",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/legobatmanlegacyofthedarkknight/16x9_LegoBatmanLegacyOfTheDarkKnight_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 33
+   },
+   {
+    "fs_id": "3183693",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Resident-Evil-4-Gold-Edition-3183693.html",
+    "type": "GAME",
+    "pretty_date_s": "16/10/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/residentevil4goldedition/1x1_ResidentEvil4GoldEdition_image500w.jpg",
+    "excerpt": "Survive the madness.",
+    "nsuid_txt": [
+     "70010000122498"
+    ],
+    "date_from": "2026-10-16T00:00:00Z",
+    "product_catalog_description_s": "Survive the madness.",
+    "title": "Resident Evil 4 Gold Edition",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Shooter"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/residentevil4goldedition/16x9_ResidentEvil4GoldEdition_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 36
+   },
+   {
+    "fs_id": "2466200",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Hogwarts-Legacy-2466200.html",
+    "type": "GAME",
+    "pretty_date_s": "14/11/2023",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/1x1_NSwitch_HogwartsLegacy_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_HogwartsLegacy_image500w.jpg",
+    "excerpt": "Hogwarts Legacy is an immersive, open-world action RPG set in the world first introduced in the Harry Potter books.",
+    "nsuid_txt": [
+     "70070000019472",
+     "70010000062277"
+    ],
+    "date_from": "2023-11-14T00:00:00Z",
+    "product_catalog_description_s": "Hogwarts Legacy is an immersive, open-world action RPG set in the world first introduced in the Harry Potter books.",
+    "title": "Hogwarts Legacy",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_HogwartsLegacy_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 38
+   },
+   {
+    "fs_id": "3108128",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Call-of-Duty-Modern-Warfare-4-3108128.html",
+    "type": "GAME",
+    "pretty_date_s": "16/10/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/callofdutymodernwarfare4/1x1_CallOfDutyModernWarfare4_image500w.jpg",
+    "excerpt": "WARFARE WITHOUT LIMITS",
+    "nsuid_txt": [
+     "70070000038713",
+     "70070000038707"
+    ],
+    "date_from": "2026-10-16T00:00:00Z",
+    "product_catalog_description_s": "WARFARE WITHOUT LIMITS",
+    "title": "Call of Duty®: Modern Warfare® 4",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Shooter"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/callofdutymodernwarfare4/16x9_CallOfDutyModernWarfare4_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 39
+   },
+   {
+    "fs_id": "3110779",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Dragon-s-Dogma-2-Dark-Arisen-3110779.html",
+    "type": "GAME",
+    "pretty_date_s": "09/10/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/dragonsdogma2darkarisen/1x1_DragonsDogma2DarkArisen_image500w.jpg",
+    "excerpt": "Your unwritten epic begins.",
+    "nsuid_txt": [
+     "70010000118032"
+    ],
+    "date_from": "2026-10-09T00:00:00Z",
+    "product_catalog_description_s": "Your unwritten epic begins.",
+    "title": "Dragon's Dogma 2: Dark Arisen",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/dragonsdogma2darkarisen/16x9_DragonsDogma2DarkArisen_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 40
+   },
+   {
+    "fs_id": "1986931",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Mario-Rabbids-Sparks-of-Hope-1986931.html",
+    "type": "GAME",
+    "pretty_date_s": "20/10/2022",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/SQ_NSwitch_MarioAndRabbidsSparksOfHope_enGB_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/SQ_NSwitch_MarioAndRabbidsSparksOfHope_enGB_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_MarioAndRabbidsSparksOfHope_enGB_image500w.jpg",
+    "excerpt": "Team up with Mario, Luigi, Princess Peach, Rabbid Peach, Rabbid Luigi, and their friends on a galactic journey.",
+    "nsuid_txt": [
+     "70070000014382",
+     "70010000035798"
+    ],
+    "date_from": "2022-10-20T00:00:00Z",
+    "product_catalog_description_s": "Team up with Mario, Luigi, Princess Peach, Rabbid Peach, Rabbid Luigi, and their friends on a galactic journey.",
+    "title": "Mario + Rabbids Sparks of Hope",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Strategy"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_MarioAndRabbidsSparksOfHope_enGB_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 42
+   },
+   {
+    "fs_id": "1395713",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Super-Smash-Bros-Ultimate-1395713.html",
+    "type": "GAME",
+    "pretty_date_s": "07/12/2018",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/SQ_NSwitch_SuperSmashBrosUltimate_02_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/05_packshots/games_13/nintendo_switch_8/PS_NSwitch_SuperSmashBrosUltimate_enGB_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperSmashBrosUltimate_02_image500w.jpg",
+    "excerpt": "Legendary game worlds and fighters collide in the ultimate showdown – Super Smash Bros. Ultimate for Nintendo Switch!",
+    "nsuid_txt": [
+     "70010000012331"
+    ],
+    "date_from": "2018-12-07T00:00:00Z",
+    "product_catalog_description_s": "Legendary game worlds and fighters collide in the ultimate showdown – Super Smash Bros. Ultimate for Nintendo Switch!",
+    "title": "Super Smash Bros. Ultimate",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Fighting"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperSmashBrosUltimate_02_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 46
+   },
+   {
+    "fs_id": "3147431",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Castlevania-Belmont-s-Curse-3147431.html",
+    "type": "GAME",
+    "pretty_date_s": "15/10/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/wgfvbnhxegimaihxuhsq",
+    "excerpt": "Crimson Curse —Will Your Fate Bloom in Despair or Salvation",
+    "nsuid_txt": [
+     "70010000116852",
+     "70070000037344"
+    ],
+    "date_from": "2026-10-15T00:00:00Z",
+    "product_catalog_description_s": "Crimson Curse —Will Your Fate Bloom in Despair or Salvation",
+    "title": "Castlevania: Belmont's Curse",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/bt0sclfzgtc9k3nwuk79",
+    "downloads_rank_i": 50
+   },
+   {
+    "fs_id": "1173332",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Super-Mario-Odyssey-1173332.html",
+    "type": "GAME",
+    "pretty_date_s": "27/10/2017",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/SQ_NSwitch_SuperMarioOdyssey_Alt01_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/05_packshots/games_13/nintendo_switch_8/PS_NSwitch_SuperMarioOdyssey_PEGI_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperMarioOdyssey_image500w.jpg",
+    "excerpt": "Join Mario on a massive, globe-trotting 3D adventure and use his incredible new abilities to rescue Princess Peach from Bowser’s wedding plans!",
+    "nsuid_txt": [
+     "70010000000127"
+    ],
+    "date_from": "2017-10-27T00:00:00Z",
+    "product_catalog_description_s": "Join Mario on a massive, globe-trotting 3D adventure and use his incredible new abilities to rescue Princess Peach from Bowser’s wedding plans!",
+    "title": "Super Mario Odyssey",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperMarioOdyssey_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 51
+   },
+   {
+    "fs_id": "3183632",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Resident-Evil-2-Deluxe-Edition-3183632.html",
+    "type": "GAME",
+    "pretty_date_s": "16/10/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/residentevil2deluxeedition/1x1_ResidentEvil2DeluxeEdition_image500w.jpg",
+    "excerpt": "Don't let the tragedy consume you.",
+    "nsuid_txt": [
+     "70010000114443"
+    ],
+    "date_from": "2026-10-16T00:00:00Z",
+    "product_catalog_description_s": "Don't let the tragedy consume you.",
+    "title": "Resident Evil 2 Deluxe Edition",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Shooter"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/residentevil2deluxeedition/16x9_ResidentEvil2DeluxeEdition_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 52
+   },
+   {
+    "fs_id": "2791969",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/ELDEN-RING-Tarnished-Edition-2791969.html",
+    "type": "GAME",
+    "pretty_date_s": "28/08/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/eldenringtarnishededition/1x1_NSwitch2_EldenRing_image500w.jpg",
+    "excerpt": "Rise, Tarnished.",
+    "nsuid_txt": [
+     "70010000097553"
+    ],
+    "date_from": "2026-08-28T00:00:00Z",
+    "product_catalog_description_s": "Rise, Tarnished.",
+    "title": "ELDEN RING Tarnished Edition",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/eldenringtarnishededition/16x9_EldenRingTarnishedEdition_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 53
+   },
+   {
+    "fs_id": "1438640",
+    "url": "/en-gb/Games/Nintendo-Switch-games/New-Super-Mario-Bros-U-Deluxe-1438640.html",
+    "type": "GAME",
+    "pretty_date_s": "11/01/2019",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/SQ_NSwitch_NewSuperMarioBrosUDeluxe_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/05_packshots/games_13/nintendo_switch_8/PS_NSwitch_NewSuperMarioBrosUDeluxe_enGB_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_NewSuperMarioBrosUDeluxe_image500w.jpg",
+    "excerpt": "Enjoy 164 courses for up to four players anytime, anywhere in New Super Mario Bros. U Deluxe on Nintendo Switch!",
+    "nsuid_txt": [
+     "70010000006412"
+    ],
+    "date_from": "2019-01-11T00:00:00Z",
+    "product_catalog_description_s": "Enjoy 164 courses for up to four players anytime, anywhere in New Super Mario Bros. U Deluxe on Nintendo Switch!",
+    "title": "New Super Mario Bros. U Deluxe",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_NewSuperMarioBrosUDeluxe_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 54
+   },
+   {
+    "fs_id": "2404150",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Super-Mario-Bros-Wonder-2404150.html",
+    "type": "GAME",
+    "pretty_date_s": "20/10/2023",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/1x1_NSwitch_SuperMarioBrosWonder_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_SuperMarioBrosWonder_image500w.jpg",
+    "excerpt": "Expect the unexpected in Mario's latest 2D side-scrolling adventure!",
+    "nsuid_txt": [
+     "70010000068689"
+    ],
+    "date_from": "2023-10-20T00:00:00Z",
+    "product_catalog_description_s": "Expect the unexpected in Mario's latest 2D side-scrolling adventure!",
+    "title": "Super Mario Bros. Wonder",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_SuperMarioBrosWonder_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 55
+   },
+   {
+    "fs_id": "2787250",
+    "url": "/en-gb/Games/Nintendo-Switch-2-Edition/The-Legend-of-Zelda-Breath-of-the-Wild-Nintendo-Switch-2-Edition-2787250.html",
+    "type": "GAME",
+    "pretty_date_s": "05/06/2025",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/thelegendofzeldabreathofthewild_nintendoswitch2edition/1x1_NSwitch2_TLoZTBotWNSwitch2Edition_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/thelegendofzeldabreathofthewild_nintendoswitch2edition/2x1_NSwitch2_TLoZTBotWNSwitch2Edition_image500w.jpg",
+    "excerpt": "Explore an even more breathtaking Hyrule with The Legend of Zelda: Breath of the Wild – Nintendo Switch 2 Edition.",
+    "nsuid_txt": [
+     "70010000096818",
+     "70050000056836"
+    ],
+    "date_from": "2025-06-05T00:00:00Z",
+    "product_catalog_description_s": "Explore an even more breathtaking Hyrule with The Legend of Zelda: Breath of the Wild – Nintendo Switch 2 Edition.",
+    "title": "The Legend of Zelda: Breath of the Wild – Nintendo Switch 2 Edition",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/thelegendofzeldabreathofthewild_nintendoswitch2edition/2x1_NSwitch2_TLoZTBotWNSwitch2Edition_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 56
+   },
+   {
+    "fs_id": "2232608",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Disney-Dreamlight-Valley-2232608.html",
+    "type": "GAME",
+    "pretty_date_s": "06/09/2022",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/disneydreamlightvalley/1x1_DisneyDreamlightValley16_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/1x1_NSwitchDS_DisneyDreamlightValley_Winter_image500w.jpg",
+    "excerpt": "Explore a world filled with the magic of Disney! Discover rich stories while building the perfect neighborhood alongside Disney and Pixar Heroes and Villains.",
+    "nsuid_txt": [
+     "70010000033557"
+    ],
+    "date_from": "2022-09-06T00:00:00Z",
+    "product_catalog_description_s": "Explore a world filled with the magic of Disney! Discover rich stories while building the perfect neighborhood alongside Disney and Pixar Heroes and Villains.",
+    "title": "Disney Dreamlight Valley",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "Simulation"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/disneydreamlightvalley/16x9_DisneyDreamlightValley16_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 57
+   },
+   {
+    "fs_id": "2789733",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/FINAL-FANTASY-VII-REMAKE-INTERGRADE-2789733.html",
+    "type": "GAME",
+    "pretty_date_s": "22/01/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/finalfantasyviiremakeintegrade/1x1_NSwitch2_FinalFantasyVIIRemakeI_image500w.jpg",
+    "excerpt": "Once more begins a story that will shape the destiny of the entire world...",
+    "nsuid_txt": [
+     "70010000101699",
+     "70070000030730"
+    ],
+    "date_from": "2026-01-22T00:00:00Z",
+    "product_catalog_description_s": "Once more begins a story that will shape the destiny of the entire world...",
+    "title": "FINAL FANTASY VII REMAKE INTERGRADE",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/finalfantasyviiremakeintegrade/16x9_NSwitch2_FinalFantasyVIIRemakeI_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 58
+   },
+   {
+    "fs_id": "3031207",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Pokemon-FireRed-Version-3031207.html",
+    "type": "GAME",
+    "pretty_date_s": "27/02/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/pokemonfireredleafgreen/1x1_NSwitch_PokemonFireRed_UK_image500w.jpg",
+    "excerpt": "Immerse yourself in the adventure once again in Pokémon FireRed for Nintendo Switch!",
+    "nsuid_txt": [
+     "70010000118614"
+    ],
+    "date_from": "2026-02-27T00:00:00Z",
+    "product_catalog_description_s": "Immerse yourself in the adventure once again in Pokémon FireRed for Nintendo Switch!",
+    "title": "Pokémon FireRed Version",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/pokemonfireredleafgreen/16x9_NSwitch_PokemonFireRed_UK_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 59
+   },
+   {
+    "fs_id": "2265759",
+    "url": "/en-gb/Games/Nintendo-Switch-games/It-Takes-Two-2265759.html",
+    "type": "GAME",
+    "pretty_date_s": "04/11/2022",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/1x1_NSwitch_ItTakesTwo_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/1x1_NSwitch_ItTakesTwo_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_ItTakesTwo_image500w.jpg",
+    "excerpt": "We're Better Together",
+    "nsuid_txt": [
+     "70070000015106",
+     "70070000014920"
+    ],
+    "date_from": "2022-11-04T00:00:00Z",
+    "product_catalog_description_s": "We're Better Together",
+    "title": "It Takes Two",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Platformer",
+     "Puzzle"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_ItTakesTwo_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 60
+   },
+   {
+    "fs_id": "3016562",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/FINAL-FANTASY-VII-REBIRTH-3016562.html",
+    "type": "GAME",
+    "pretty_date_s": "03/06/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/finalfantasyviirebirth/1x1_FinalFantasyVIIRebirth_image500w.jpg",
+    "excerpt": "The Unknown Journey Continues",
+    "nsuid_txt": [
+     "70010000112478",
+     "70070000032076"
+    ],
+    "date_from": "2026-06-03T00:00:00Z",
+    "product_catalog_description_s": "The Unknown Journey Continues",
+    "title": "FINAL FANTASY VII REBIRTH",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/finalfantasyviirebirth/16x9_FinalFantasyVIIRebirth_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 61
+   },
+   {
+    "fs_id": "1438623",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Animal-Crossing-New-Horizons-1438623.html",
+    "type": "GAME",
+    "pretty_date_s": "20/03/2020",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/SQ_NSwitch_AnimalCrossingNewHorizons_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/05_packshots/games_13/nintendo_switch_8/PS_NSwitch_AnimalCrossingNewHorizons_PEGI_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_image500w.jpg",
+    "excerpt": "Start your new life with Nook Inc.'s Deserted Island Getaway Package!",
+    "nsuid_txt": [
+     "70010000027620",
+     "70070000016291"
+    ],
+    "date_from": "2020-03-20T00:00:00Z",
+    "product_catalog_description_s": "Start your new life with Nook Inc.'s Deserted Island Getaway Package!",
+    "title": "Animal Crossing: New Horizons",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Animal Life",
+     "Simulation"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_AnimalCrossingNewHorizons_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 62
+   },
+   {
+    "fs_id": "3110764",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/RuneScape-Dragonwilds-3110764.html",
+    "type": "GAME",
+    "pretty_date_s": "15/09/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/runescapedragonwilds/1x1_RuneScapeDragonwilds_image500w.jpg",
+    "excerpt": "Gather, build, skill and craft in this co-operative RuneScape survival adventure",
+    "nsuid_txt": [
+     "70010000111578",
+     "70070000039976"
+    ],
+    "date_from": "2026-09-15T00:00:00Z",
+    "product_catalog_description_s": "Gather, build, skill and craft in this co-operative RuneScape survival adventure",
+    "title": "RuneScape: Dragonwilds",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/runescapedragonwilds/16x9_RuneScapeDragonwilds_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 64
+   },
+   {
+    "fs_id": "1930510",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Pokemon-Legends-Arceus-1930510.html",
+    "type": "GAME",
+    "pretty_date_s": "28/01/2022",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/SQ_NSwitch_PokemonLegendsArceus_EN_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/SQ_NSwitch_PokemonLegendsArceus_EN_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_PokemonLegendsArceus_EN_image500w.jpg",
+    "excerpt": "Journey into Pokémon’s past and explore a vast untamed wilderness where new discoveries await in Pokémon Legends: Arceus for Nintendo Switch.",
+    "nsuid_txt": [
+     "70010000039946"
+    ],
+    "date_from": "2022-01-28T00:00:00Z",
+    "product_catalog_description_s": "Journey into Pokémon’s past and explore a vast untamed wilderness where new discoveries await in Pokémon Legends: Arceus for Nintendo Switch.",
+    "title": "Pokémon Legends: Arceus",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_PokemonLegendsArceus_EN_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 65
+   },
+   {
+    "fs_id": "2840309",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Wobbly-Life-2840309.html",
+    "type": "GAME",
+    "pretty_date_s": "29/05/2025",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/wobblylife/1x1_WobblyLife_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/wobblylife/2x1_WobblyLife_image500w.jpg",
+    "excerpt": "Grandma has kicked you out into the big wide Wobbly world demanding you go and GET A JOB! She would be so proud if you could earn some money and get your own house one day! It's time to start earning and living your best Wobbly Life!",
+    "nsuid_txt": [
+     "70010000080995"
+    ],
+    "date_from": "2025-05-29T00:00:00Z",
+    "product_catalog_description_s": "Grandma has kicked you out into the big wide Wobbly world demanding you go and GET A JOB! She would be so proud if you could earn some money and get your own house one day! It's time to start earning and living your best Wobbly Life!",
+    "title": "Wobbly Life",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Simulation"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/wobblylife/2x1_WobblyLife_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 66
+   },
+   {
+    "fs_id": "2785804",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Donkey-Kong-Bananza-2785804.html",
+    "type": "GAME",
+    "pretty_date_s": "17/07/2025",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/donkey_kong_bananza/1x1_NSwitch2_DonkeyKongBananza_Launch_image500w.jpg",
+    "excerpt": "Join Donkey Kong and Pauline as they smash their way through a vast underground world in Donkey Kong Bananza – only on Nintendo Switch 2.",
+    "nsuid_txt": [
+     "70010000096810",
+     "70070000030750"
+    ],
+    "date_from": "2025-07-17T00:00:00Z",
+    "product_catalog_description_s": "Join Donkey Kong and Pauline as they smash their way through a vast underground world in Donkey Kong Bananza – only on Nintendo Switch 2.",
+    "title": "Donkey Kong Bananza",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/donkey_kong_bananza/16x9_NSwitch2_DonkeyKongBananza_Launch_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 67
+   },
+   {
+    "fs_id": "3017490",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Orbitals-3017490.html",
+    "type": "GAME",
+    "pretty_date_s": "03/09/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/orbitals/1x1_Orbitals_new_image500w.jpg",
+    "excerpt": "Grab a friend and launch into Orbitals for Nintendo Switch 2, an intergalactic 2-player co-op adventure set in a wholly new retro anime world.",
+    "nsuid_txt": [
+     "70010000098974",
+     "70010000119631"
+    ],
+    "date_from": "2026-09-03T00:00:00Z",
+    "product_catalog_description_s": "Grab a friend and launch into Orbitals for Nintendo Switch 2, an intergalactic 2-player co-op adventure set in a wholly new retro anime world.",
+    "title": "Orbitals",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Puzzle"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/orbitals/16x9_Orbitals_new_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 69
+   },
+   {
+    "fs_id": "2273767",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Assassin-s-Creed-Anniversary-Edition-Mega-Bundle-2273767.html",
+    "type": "GAME",
+    "pretty_date_s": "29/09/2022",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/1x1_NSwitchDS_AssassinsCreedAnniversaryEditionMegaBundle_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/1x1_NSwitchDS_AssassinsCreedAnniversaryEditionMegaBundle_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_AssassinsCreedAnniversaryEditionMegaBundle_image500w.jpg",
+    "excerpt": "The Assassin's Creed Anniversary Edition Mega Bundle includes six action-packed games: Assassin’s Creed®: The Rebel Collection: Includes two action-packed games – Assassin’s Creed® IV Black Flag® and Assassin’s Creed® Rogue – plus all single-p",
+    "nsuid_txt": [
+     "70070000015145"
+    ],
+    "date_from": "2022-09-29T00:00:00Z",
+    "product_catalog_description_s": "The Assassin's Creed Anniversary Edition Mega Bundle includes six action-packed games: Assassin’s Creed®: The Rebel Collection: Includes two action-packed games – Assassin’s Creed® IV Black Flag® and Assassin’s Creed® Rogue – plus all single-p",
+    "title": "Assassin's Creed Anniversary Edition Mega Bundle",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_AssassinsCreedAnniversaryEditionMegaBundle_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 71
+   },
+   {
+    "fs_id": "3182150",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Graveyard-Keeper-2-3182150.html",
+    "type": "GAME",
+    "pretty_date_s": "22/09/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/auqbqpm35yjzsfnfcnrz",
+    "excerpt": "Manage your graveyard, rebuild the Town and lead undead armies into battles!",
+    "nsuid_txt": [
+     "70010000124104"
+    ],
+    "date_from": "2026-09-22T00:00:00Z",
+    "product_catalog_description_s": "Manage your graveyard, rebuild the Town and lead undead armies into battles!",
+    "title": "Graveyard Keeper 2",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG",
+     "Simulation"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/pn5y1ulmn8p8u8qcmkdo",
+    "downloads_rank_i": 72
+   },
+   {
+    "fs_id": "1173609",
+    "url": "/en-gb/Games/Nintendo-Switch-games/The-Legend-of-Zelda-Breath-of-the-Wild-1173609.html",
+    "type": "GAME",
+    "pretty_date_s": "03/03/2017",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/wii_u_20/SQ_WiiU_TheLegendOfZeldaBreathOfTheWild_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/05_packshots/games_13/nintendo_switch_8/PS_NSwitch_TheLegendOfZeldaBreathOfTheWild_PEGI_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/wiiu_14/SI_WiiU_TheLegendOfZeldaBreathOfTheWild_image500w.jpg",
+    "excerpt": "Explore a vast and dangerous land to help Link regain his memories following a 100-year slumber in this critically-acclaimed open-air adventure.",
+    "nsuid_txt": [
+     "70010000000023",
+     "70070000000962"
+    ],
+    "date_from": "2017-03-03T00:00:00Z",
+    "product_catalog_description_s": "Explore a vast and dangerous land to help Link regain his memories following a 100-year slumber in this critically-acclaimed open-air adventure.",
+    "title": "The Legend of Zelda: Breath of the Wild",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/wiiu_14/SI_WiiU_TheLegendOfZeldaBreathOfTheWild_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 74
+   },
+   {
+    "fs_id": "2533423",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Pokemon-Legends-Z-A-2533423.html",
+    "type": "GAME",
+    "pretty_date_s": "16/10/2025",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/pokemonlegendsza/1x1_NSwitch2_PokemonLegendsZA_KV_GB_en_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/pokemonlegendsza/2x1_NSwitch2_PokemonLegendsZA_KV_GB_en_image500w.jpg",
+    "excerpt": "Discover an urban Pokémon adventure with real-time, dynamic Pokémon battles in Pokémon Legends: Z-A for Nintendo Switch!",
+    "nsuid_txt": [
+     "70010000094235"
+    ],
+    "date_from": "2025-10-16T00:00:00Z",
+    "product_catalog_description_s": "Discover an urban Pokémon adventure with real-time, dynamic Pokémon battles in Pokémon Legends: Z-A for Nintendo Switch!",
+    "title": "Pokémon Legends: Z-A",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/pokemonlegendsza/2x1_NSwitch2_PokemonLegendsZA_KV_GB_en_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 75
+   },
+   {
+    "fs_id": "3180902",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Well-Dweller-3180902.html",
+    "type": "GAME",
+    "pretty_date_s": "22/09/2026",
+    "image_url_sq_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto,w_500/wk30tmoq2t6mvfhlo4ee",
+    "excerpt": "Well Dweller is a dark fairy-tale metroidvania, full of charming characters living in a wretched kingdom. Play as Glimmer, a tiny bird armed with a matchstick.",
+    "nsuid_txt": [
+     "70010000100080"
+    ],
+    "date_from": "2026-09-22T00:00:00Z",
+    "product_catalog_description_s": "Well Dweller is a dark fairy-tale metroidvania, full of charming characters living in a wretched kingdom. Play as Glimmer, a tiny bird armed with a matchstick.",
+    "title": "Well Dweller",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Platformer",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://assets.nintendo.eu/image/private/f_auto,q_auto/fl0cdio4dqh1z2jm7jn0",
+    "downloads_rank_i": 78
+   },
+   {
+    "fs_id": "1832228",
+    "url": "/en-gb/Games/Nintendo-Switch-games/Super-Mario-3D-World-Bowser-s-Fury-1832228.html",
+    "type": "GAME",
+    "pretty_date_s": "12/02/2021",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_5/SQ_NSwitch_SuperMario3DWorldAndBowsersFury_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/05_packshots/games_13/nintendo_switch_8/PS_NSwitch_SuperMario3DWorldAndBowsersFury_PEGI_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperMario3DWorldAndBowsersFury_image500w.jpg",
+    "excerpt": "Explore a world of Mario fun together! ",
+    "nsuid_txt": [
+     "70010000034440"
+    ],
+    "date_from": "2021-02-12T00:00:00Z",
+    "product_catalog_description_s": "Explore a world of Mario fun together! ",
+    "title": "Super Mario 3D World + Bowser's Fury",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperMario3DWorldAndBowsersFury_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 79
+   },
+   {
+    "fs_id": "2915501",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Resident-Evil-Requiem-2915501.html",
+    "type": "GAME",
+    "pretty_date_s": "27/02/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/residentevilrequiem/1x1_ResidentEvilRequiem_02_image500w.jpg",
+    "excerpt": "Requiem for the dead. Nightmare for the living.",
+    "nsuid_txt": [
+     "70010000101676",
+     "70070000031399"
+    ],
+    "date_from": "2026-02-27T00:00:00Z",
+    "product_catalog_description_s": "Requiem for the dead. Nightmare for the living.",
+    "title": "Resident Evil Requiem",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/residentevilrequiem/16x9_ResidentEvilRequiem_02_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 83
+   },
+   {
+    "fs_id": "3031229",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Pokemon-Feuerrote-Edition-3031229.html",
+    "type": "GAME",
+    "pretty_date_s": "27/02/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/pokemonfireredleafgreen/1x1_NSwitch_PokemonFireRed_DE_image500w.jpg",
+    "excerpt": "Immerse yourself in the adventure once again in Pokémon Feuerrot for Nintendo Switch!",
+    "nsuid_txt": [
+     "70010000118633"
+    ],
+    "date_from": "2026-02-27T00:00:00Z",
+    "product_catalog_description_s": "Immerse yourself in the adventure once again in Pokémon Feuerrot for Nintendo Switch!",
+    "title": "Pokémon Feuerrote Edition",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/pokemonfireredleafgreen/16x9_NSwitch_PokemonFireRed_DE_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 85
+   },
+   {
+    "fs_id": "2846969",
+    "url": "/en-gb/Games/Nintendo-Switch-2-games/Splatoon-Raiders-2846969.html",
+    "type": "GAME",
+    "pretty_date_s": "23/07/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/splatoonraiders/1x1_NSwitch2_SplatoonRaiders_BASE_image500w.jpg",
+    "excerpt": "Gear up for an ink-flinging treasure hunt in Splatoon Raiders, exclusively on Nintendo Switch 2!",
+    "nsuid_txt": [
+     "70010000122825"
+    ],
+    "date_from": "2026-07-23T00:00:00Z",
+    "product_catalog_description_s": "Gear up for an ink-flinging treasure hunt in Splatoon Raiders, exclusively on Nintendo Switch 2!",
+    "title": "Splatoon Raiders",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Shooter"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/splatoonraiders/16x9_NSwitch2_SplatoonRaiders_BASE_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 86
+   }
+  ]
+ }
+}

@@ -1,0 +1,282 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 1,
+  "params": {
+   "q": "Hollow Knight",
+   "fl": "title,nsuid_txt,fs_id,type,playable_on_txt,date_from,pretty_date_s,pretty_game_categories_txt,excerpt,product_catalog_description_s,image_url,image_url_h2x1_s,image_url_sq_s,wishlist_email_banner460w_image_url_s,url,downloads_rank_i,eshop_removed_b",
+   "fq": [
+    "playable_on_txt:(HAC OR BEE)",
+    "type:GAME"
+   ],
+   "rows": "10",
+   "wt": "json"
+  }
+ },
+ "response": {
+  "numFound": 113,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "fs_id": "1125772",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Hollow-Knight-1125772.html",
+    "type": "GAME",
+    "pretty_date_s": "12/06/2018",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/wii_u_download_software_3/SQ_WiiUDS_HollowKnight_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/wii_u_download_software_3/SQ_WiiUDS_HollowKnight_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/wiiu_download_software_5/H2x1_WiiUDS_HollowKnight_image500w.jpg",
+    "excerpt": "Descend into darkness and brave the depths of a forgotten kingdom in Hollow Knight, an atmospheric action-adventure for Nintendo eShop on Nintendo Switch.",
+    "nsuid_txt": [
+     "70010000003207"
+    ],
+    "date_from": "2018-06-12T00:00:00Z",
+    "product_catalog_description_s": "Descend into darkness and brave the depths of a forgotten kingdom in Hollow Knight, an atmospheric action-adventure for Nintendo eShop on Nintendo Switch.",
+    "title": "Hollow Knight",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/wiiu_download_software_5/H2x1_WiiUDS_HollowKnight_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 223
+   },
+   {
+    "fs_id": "1575920",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Hollow-Knight-Silksong-1575920.html",
+    "type": "GAME",
+    "pretty_date_s": "04/09/2025",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/hollowknightsilksong/1x1_HollowKnightSilksong_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/SQ_NSwitchDS_HollowKnightSilksong_image500w.jpg",
+    "excerpt": "Ascend to the Peak of a Haunted Kingdom",
+    "nsuid_txt": [
+     "70010000020839"
+    ],
+    "date_from": "2025-09-04T00:00:00Z",
+    "product_catalog_description_s": "Ascend to the Peak of a Haunted Kingdom",
+    "title": "Hollow Knight: Silksong",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/hollowknightsilksong/16x9_HollowKnightSilksong_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 230
+   },
+   {
+    "fs_id": "2323464",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Hollow-World-Dark-Knight-2323464.html",
+    "type": "GAME",
+    "pretty_date_s": "05/01/2023",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/1x1_NSwitchDS_HollowWorldDarkKnight_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/1x1_NSwitchDS_HollowWorldDarkKnight_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_HollowWorldDarkKnight_image500w.jpg",
+    "excerpt": "Use various hand-to-hand combat skills to defeat hordes of mystical enemies and save the world!\n",
+    "nsuid_txt": [
+     "70010000059982"
+    ],
+    "date_from": "2023-01-05T00:00:00Z",
+    "product_catalog_description_s": "Use various hand-to-hand combat skills to defeat hordes of mystical enemies and save the world!\n",
+    "title": "Hollow World: Dark Knight",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Other",
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_HollowWorldDarkKnight_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 17966
+   },
+   {
+    "fs_id": "3016593",
+    "url": "/en-gb/Games/Nintendo-Switch-2-Edition/Hollow-Knight-Nintendo-Switch-2-Edition-3016593.html",
+    "type": "GAME",
+    "pretty_date_s": "05/02/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/hollowknightnintendoswitch2edition/1x1_HollowKnightNintendoSwitch2Edition_image500w.jpg",
+    "excerpt": "Brave the depths of a forgotten kingdom, enhanced for Nintendo Switch™ 2.",
+    "nsuid_txt": [
+     "70010000118322",
+     "70050000069198"
+    ],
+    "date_from": "2026-02-05T00:00:00Z",
+    "product_catalog_description_s": "Brave the depths of a forgotten kingdom, enhanced for Nintendo Switch™ 2.",
+    "title": "Hollow Knight – Nintendo Switch 2 Edition",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/hollowknightnintendoswitch2edition/16x9_HollowKnightNintendoSwitch2Edition_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 294
+   },
+   {
+    "fs_id": "1341325",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Hollow-1341325.html",
+    "type": "GAME",
+    "pretty_date_s": "22/02/2018",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/SQ_NSwitchDS_Hollow_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/SQ_NSwitchDS_Hollow_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_Hollow_image500w.jpg",
+    "excerpt": "In Hollow, you are one of the pilots that transports precious resource cargo from the mining ship Shakhter-One down to Earth.",
+    "nsuid_txt": [
+     "70010000001763"
+    ],
+    "date_from": "2018-02-22T00:00:00Z",
+    "product_catalog_description_s": "In Hollow, you are one of the pilots that transports precious resource cargo from the mining ship Shakhter-One down to Earth.",
+    "title": "Hollow",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "First-Person Shooter"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_Hollow_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 5502
+   },
+   {
+    "fs_id": "2908803",
+    "url": "/en-gb/Games/Nintendo-Switch-2-Edition/Hollow-Knight-Silksong-Nintendo-Switch-2-Edition-2908803.html",
+    "type": "GAME",
+    "pretty_date_s": "04/09/2025",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/hollowknightsilksongns2e/1x1_HollowKnightSilksongNS2E_image500w.jpg",
+    "excerpt": "Ascend to the peak of a haunted land, enhanced for Nintendo Switch™ 2.",
+    "nsuid_txt": [
+     "70010000105850",
+     "70050000061851"
+    ],
+    "date_from": "2025-09-04T00:00:00Z",
+    "product_catalog_description_s": "Ascend to the peak of a haunted land, enhanced for Nintendo Switch™ 2.",
+    "title": "Hollow Knight: Silksong – Nintendo Switch 2 Edition",
+    "playable_on_txt": [
+     "BEE"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Platformer"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_2_games/hollowknightsilksongns2e/16x9_HollowKnightSilksongNS2E_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 277
+   },
+   {
+    "fs_id": "2094808",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Hollow-2-2094808.html",
+    "type": "GAME",
+    "pretty_date_s": "30/12/2021",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/SQ_NSwitchDS_Hollow2_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/SQ_NSwitchDS_Hollow2_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_Hollow2_image500w.jpg",
+    "excerpt": "What you have already seen is just about to be explained... Even though more questions will appear with every detail you find in depths of the protagonist's twisted mind. It won't be easy...",
+    "nsuid_txt": [
+     "70010000048426"
+    ],
+    "date_from": "2021-12-30T00:00:00Z",
+    "product_catalog_description_s": "What you have already seen is just about to be explained... Even though more questions will appear with every detail you find in depths of the protagonist's twisted mind. It won't be easy...",
+    "title": "Hollow 2",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure",
+     "First-Person Shooter"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_Hollow2_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 6482
+   },
+   {
+    "fs_id": "2618458",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Hollow-Cocoon-2618458.html",
+    "type": "GAME",
+    "pretty_date_s": "25/07/2024",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/1x1_NSwitchDS_HollowCocoon_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_HollowCocoon_image500w.jpg",
+    "excerpt": "Caged in a cocoon, the silkworm dreams its last dream.\nExplore a recreated Japan of the 80's, and what truth awaits you as you endure the horror...",
+    "nsuid_txt": [
+     "70010000082458"
+    ],
+    "date_from": "2024-07-25T00:00:00Z",
+    "product_catalog_description_s": "Caged in a cocoon, the silkworm dreams its last dream.\nExplore a recreated Japan of the 80's, and what truth awaits you as you endure the horror...",
+    "title": "Hollow Cocoon",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/2x1_NSwitchDS_HollowCocoon_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 6788
+   },
+   {
+    "fs_id": "2887790",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Mina-the-Hollower-2887790.html",
+    "type": "GAME",
+    "pretty_date_s": "29/05/2026",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/minathehollower/1x1_MinaTheHollower_image500w.jpg",
+    "excerpt": "A bone-chilling 8-bit action adventure, refined for the modern era.",
+    "nsuid_txt": [
+     "70010000081413"
+    ],
+    "date_from": "2026-05-29T00:00:00Z",
+    "product_catalog_description_s": "A bone-chilling 8-bit action adventure, refined for the modern era.",
+    "title": "Mina the Hollower",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Action",
+     "Adventure",
+     "Platformer",
+     "RPG"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/assets/nintendo_switch_games/minathehollower/16x9_MinaTheHollower_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 1108
+   },
+   {
+    "fs_id": "1894933",
+    "url": "/en-gb/Games/Nintendo-Switch-download-software/Lily-of-the-Hollow-Resurrection-1894933.html",
+    "type": "GAME",
+    "pretty_date_s": "28/12/2020",
+    "image_url_sq_s": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/SQ_NSwitchDS_LilyOfTheHollowResurrection_image500w.jpg",
+    "image_url": "https://www.nintendo.com/eu/media/images/11_square_images/games_18/nintendo_switch_download_software/SQ_NSwitchDS_LilyOfTheHollowResurrection_image500w.jpg",
+    "image_url_h2x1_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_LilyOfTheHollowResurrection_image500w.jpg",
+    "excerpt": "What is going to be acted before you is——Blossom in the shackles, but deep down in your bone, suspension and romantic.",
+    "nsuid_txt": [
+     "70010000036532"
+    ],
+    "date_from": "2020-12-28T00:00:00Z",
+    "product_catalog_description_s": "What is going to be acted before you is——Blossom in the shackles, but deep down in your bone, suspension and romantic.",
+    "title": "Lily of the Hollow - Resurrection",
+    "playable_on_txt": [
+     "HAC"
+    ],
+    "pretty_game_categories_txt": [
+     "Adventure"
+    ],
+    "eshop_removed_b": false,
+    "wishlist_email_banner460w_image_url_s": "https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_download_software_1/H2x1_NSwitchDS_LilyOfTheHollowResurrection_banner_image_wishlist_460w.jpg",
+    "downloads_rank_i": 18094
+   }
+  ]
+ }
+}

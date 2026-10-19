@@ -1,0 +1,21 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 0,
+  "params": {
+   "q": "*",
+   "fl": "title,nsuid_txt,fs_id,type,playable_on_txt,date_from,pretty_date_s,pretty_game_categories_txt,excerpt,product_catalog_description_s,image_url,image_url_h2x1_s,image_url_sq_s,wishlist_email_banner460w_image_url_s,url,downloads_rank_i,eshop_removed_b",
+   "fq": [
+    "fs_id:999999999",
+    "type:GAME"
+   ],
+   "wt": "json"
+  }
+ },
+ "response": {
+  "numFound": 0,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": []
+ }
+}
