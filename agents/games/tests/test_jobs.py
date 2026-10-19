@@ -1120,3 +1120,290 @@ def test_запрет_по_имени_не_касается_steam(среда, mo
     судимые: list[int] = []
     asyncio.run(jobs.неделя(tmp, магазин({1: игра(1)}), судья(судимые)))
     assert судимые == [1]
+
+
+# ---- задание «регион» ----
+
+
+def _пересборка(monkeypatch, во_время=None):
+    """Подделка `regions.пересобрать`: доводы вызова и взятые магазины; сеть не нужна."""
+    import regions
+
+    вызовы: list[dict] = []
+
+    async def пересобрать(с, магазины, *, steam_сменилась, eshop, страны):
+        вызовы.append({"steam_сменилась": steam_сменилась, "eshop": eshop, "страны": страны,
+                       "магазины": магазины})
+        if во_время:
+            во_время(с)
+        games_db.задать_страны(с, **страны)
+        return regions.Итог(обновлено=["игра"])
+
+    monkeypatch.setattr(regions, "пересобрать", пересобрать)
+    return вызовы
+
+
+def test_регион_первая_установка_только_страны(среда, monkeypatch):
+    tmp, уведомления, _ = среда
+    _без_сети(monkeypatch)
+    вызовы = _пересборка(monkeypatch)
+    с = games_db.открыть()
+    с.execute("DELETE FROM marks WHERE ключ IN ('страна_steam', 'страна_eshop')")
+    итог = asyncio.run(jobs.запустить("region", tmp, новые={"steam": "DE", "eshop": "GB"}))
+    assert вызовы == [] and уведомления == []
+    assert (games_db.страна_steam(с), games_db.страна_eshop(с)) == ("DE", "GB")
+    assert games_db.eshop_включён(с) and итог == "Регион задан: Steam DE, eShop GB"
+    с.close()
+
+
+@pytest.mark.parametrize("новые, прежняя_eshop, ждём", [
+    ({"steam": "DE", "eshop": "US"}, "US", (True, "без_изменений")),
+    ({"steam": "KZ", "eshop": "CA"}, "US", (False, "та_же_зона")),
+    ({"steam": "KZ", "eshop": "GB"}, "US", (False, "другая_зона")),
+    ({"steam": "DE", "eshop": "GB"}, "US", (True, "другая_зона")),
+    ({"steam": "DE", "eshop": None}, "US", (True, "выключен")),
+    # Страны eShop не было: игр eShop нет, пары игр Steam ищутся впервые.
+    ({"steam": "KZ", "eshop": "US"}, None, (False, "другая_зона")),
+])
+def test_регион_доводы_пересборки(среда, monkeypatch, новые, прежняя_eshop, ждём):
+    tmp, _, _ = среда
+    _без_сети(monkeypatch)
+    вызовы = _пересборка(monkeypatch)
+    с = games_db.открыть()
+    if прежняя_eshop is None:
+        с.execute("DELETE FROM marks WHERE ключ = 'страна_eshop'")
+    итог = asyncio.run(jobs.запустить("region", tmp, новые=новые))
+    assert len(вызовы) == 1 and (вызовы[0]["steam_сменилась"], вызовы[0]["eshop"]) == ждём
+    страны = {"steam": новые["steam"], **({"eshop": новые["eshop"]} if новые["eshop"] else {})}
+    assert вызовы[0]["страны"] == страны
+    assert итог.startswith("Регион сменён: обновлено 1")
+    # Страна eShop — вместе с выключателем: `null` выключает eShop, страна — включает.
+    assert games_db.eshop_включён(с) is (новые["eshop"] is not None)
+    с.close()
+
+
+@pytest.mark.parametrize("новые, вкл", [({"steam": "KZ", "eshop": "US"}, True),
+                                         ({"steam": "KZ", "eshop": None}, False)])
+def test_регион_без_перемен_без_пересборки(среда, monkeypatch, новые, вкл):
+    tmp, _, _ = среда
+    _без_сети(monkeypatch)
+    вызовы = _пересборка(monkeypatch)
+    с = games_db.открыть()
+    games_db.включить_eshop(с, not вкл)
+    итог = asyncio.run(jobs.запустить("region", tmp, новые=новые))
+    assert вызовы == [] and итог.startswith("Регион прежний")
+    assert games_db.eshop_включён(с) is вкл
+    assert (games_db.страна_steam(с), games_db.страна_eshop(с)) == ("KZ", "US")
+    с.close()
+
+
+def test_регион_выключенный_eshop_с_новой_страной_пересобирает(среда, monkeypatch):
+    """eShop был выключен, человек выбрал страну eShop: выключатель включается, игры eShop,
+    лежавшие скрытыми под прежней страной, пересобираются — иначе всплыли бы чужой зоны."""
+    tmp, _, _ = среда
+    _без_сети(monkeypatch)
+    вызовы = _пересборка(monkeypatch)
+    с = games_db.открыть()
+    games_db.включить_eshop(с, False)
+    asyncio.run(jobs.запустить("region", tmp, новые={"steam": "KZ", "eshop": "GB"}))
+    assert вызовы[0]["eshop"] == "другая_зона" and games_db.eshop_включён(с)
+    с.close()
+
+
+def test_регион_связывает_магазины(среда, monkeypatch):
+    """Поля `regions.Магазины` — функции `steam_store` и `eshop` новой страны; `прежняя_eshop` —
+    каталог прежней страны eShop."""
+    tmp, _, _ = среда
+    _без_сети(monkeypatch)
+    вызовы = _пересборка(monkeypatch)
+    взятые: list[tuple] = []
+
+    def запись(имя, ответ):
+        async def ф(*доводы, **поля):
+            взятые.append((имя, доводы, поля))
+            return ответ
+        return ф
+
+    monkeypatch.setattr(ss, "игра", запись("игра_steam", None))
+    monkeypatch.setattr(eshop, "игра", запись("игра", None))
+    monkeypatch.setattr(eshop, "найти_по_названию", запись("найти_по_названию", []))
+    monkeypatch.setattr(eshop, "найти_в_eshop", запись("найти_в_eshop", None))
+    asyncio.run(jobs.запустить("region", tmp, новые={"steam": "DE", "eshop": "GB"}))
+    м = вызовы[0]["магазины"]
+    п = ss.Игра(номер=1, имя="и")
+
+    async def все():
+        await м.игра_steam(620)
+        await м.игра_eshop("о1")
+        await м.найти_eshop("Игра")
+        await м.прежняя_eshop("о2")
+        await м.пара_eshop(п)
+
+    asyncio.run(все())
+    assert взятые == [
+        ("игра_steam", (None, 620), {"с_отзывами": False, "страна": "DE"}),
+        ("игра", (None, eshop.регион("GB"), "о1"), {}),
+        ("найти_по_названию", (None, eshop.регион("GB"), "Игра"), {}),
+        ("игра", (None, eshop.регион("US"), "о2"), {}),
+        ("найти_в_eshop", (None, eshop.регион("GB"), п), {}),
+    ]
+
+
+def test_регион_ход_на_странице(среда, monkeypatch):
+    tmp, _, _ = среда
+    _без_сети(monkeypatch)
+    ходы: list = []
+    _пересборка(monkeypatch, во_время=lambda с: ходы.append(jobs.ход_задания(с, "region")))
+    asyncio.run(jobs.запустить("region", tmp, новые={"steam": "DE", "eshop": "US"}))
+    assert ходы[0]["этап"] == "пересобираю данные под новый регион"
+    с = games_db.открыть()
+    assert jobs.ход_задания(с, "region") is None
+    с.close()
+
+
+@pytest.mark.parametrize("род", ["day", "week", "month"])
+def test_регион_не_идёт_вместе_с_заданиями(среда, monkeypatch, род):
+    """Пересборка и отбор пишут одни таблицы: идёт любое задание — «регион» не начинается, идёт
+    «регион» — не начинается ни одно. Догоняющего запуска во время пересборки нет."""
+    tmp, _, _ = среда
+    _без_сети(monkeypatch)
+    вызовы = _пересборка(monkeypatch)
+    замок = jobs._замок(род)
+    try:
+        with pytest.raises(jobs.УжеИдёт):
+            asyncio.run(jobs.запустить("region", tmp, новые={"steam": "DE", "eshop": "US"}))
+    finally:
+        замок.close()
+    assert вызовы == []
+    с = games_db.открыть()
+    assert games_db.страна_steam(с) == "KZ"
+    замок = jobs._замок("region")
+    try:
+        with pytest.raises(jobs.УжеИдёт):
+            asyncio.run(jobs.запустить(род, tmp))
+        assert not jobs.нужен_догоняющий(с, род)
+        # Замок рода не занят пересборкой: на странице задание рода не «идёт».
+        assert jobs.ход_задания(с, род) is None
+    finally:
+        замок.close()
+    с.close()
+
+
+def test_регион_не_по_расписанию(среда):
+    с = games_db.открыть()
+    assert not jobs.нужен_догоняющий(с, "region")
+    с.close()
+    assert "region" in jobs.РОДЫ and jobs.ИМЕНА["region"] == "регион"
+    assert "region" not in jobs.ПО_РАСПИСАНИЮ
+    assert jobs.main(["region"]) == 2
+
+
+@pytest.mark.parametrize("новые", [{"steam": "kz", "eshop": None}, {"steam": "KZ", "eshop": "RU"},
+                                   {"steam": "KZ"}, {"eshop": "US"}])
+def test_регион_неверные_страны(среда, monkeypatch, новые):
+    """Неверные страны — `ValueError` до замка: замок не взят, отметок и строк ленты нет."""
+    tmp, уведомления, _ = среда
+    _без_сети(monkeypatch)
+    вызовы = _пересборка(monkeypatch)
+    замки: list[str] = []
+    прежний = jobs._замок
+    monkeypatch.setattr(jobs, "_замок", lambda род: (замки.append(род), прежний(род))[1])
+    with pytest.raises(ValueError):
+        asyncio.run(jobs.запустить("region", tmp, новые=новые))
+    assert вызовы == [] and уведомления == [] and замки == []
+    с = games_db.открыть()
+    assert not any(games_db.отметка(с, f"region_{к}") for к in ("начато", "выполнено", "сбой"))
+    assert games_db.лента(с) == []
+    с.close()
+
+
+@pytest.mark.parametrize("прежние, новые, ждём", [
+    ((None, None), ("KZ", "US"), None),
+    (("KZ", "US"), ("KZ", "US"), None),
+    (("KZ", "US"), ("KZ", None), None),
+    (("KZ", None), ("KZ", None), None),
+    (("KZ", "US"), ("DE", "US"), (True, "без_изменений")),
+    (("KZ", "US"), ("DE", None), (True, "выключен")),
+    (("KZ", "US"), ("KZ", "CA"), (False, "та_же_зона")),
+    (("KZ", "US"), ("KZ", "GB"), (False, "другая_зона")),
+    (("KZ", None), ("KZ", "US"), (False, "другая_зона")),
+])
+def test_смена_региона(прежние, новые, ждём):
+    """Чистая функция ветвей: `None` — пересборки нет (первая установка или без перемен)."""
+    assert jobs.смена_региона(*прежние, *новые) == ждём
+
+
+def test_своё_задание_дожидается_пробы(среда, monkeypatch):
+    """Проба чужого замка держит его миг: своё задание ждёт замок до `ОЖИДАНИЕ_ЗАМКА_С`, а не
+    пропускает запуск."""
+    import threading
+
+    tmp, _, _ = среда
+    _без_сети(monkeypatch)
+    вызовы = _пересборка(monkeypatch)
+    assert jobs.ОЖИДАНИЕ_ЗАМКА_С == 1.0
+    проба = jobs._замок("region")
+    threading.Timer(0.1, проба.close).start()
+    asyncio.run(jobs.запустить("region", tmp, новые={"steam": "DE", "eshop": "US"}))
+    assert len(вызовы) == 1
+
+
+def test_замок_занят_дольше_ожидания(среда, monkeypatch):
+    tmp, _, _ = среда
+    _без_сети(monkeypatch)
+    monkeypatch.setattr(jobs, "ОЖИДАНИЕ_ЗАМКА_С", 0.05)
+    замок = jobs._замок("region")
+    try:
+        with pytest.raises(jobs.УжеИдёт):
+            asyncio.run(jobs.запустить("region", tmp, новые={"steam": "DE", "eshop": "US"}))
+    finally:
+        замок.close()
+
+
+@pytest.mark.parametrize("род", ["region", "day"])
+def test_чужие_замки_пробуются_при_своём(среда, monkeypatch, род):
+    """Порядок замков: при пробе чужих свой замок уже взят — иначе обе стороны прошли бы."""
+    tmp, _, _ = среда
+    _без_сети(monkeypatch)
+    _пересборка(monkeypatch)
+    своё_взято: list[bool] = []
+
+    async def не_вместе(р):
+        try:
+            jobs._замок(р).close()
+            своё_взято.append(False)
+        except jobs.УжеИдёт:
+            своё_взято.append(True)
+
+    monkeypatch.setattr(jobs, "_не_вместе", не_вместе)
+    новые = {"новые": {"steam": "DE", "eshop": "US"}} if род == "region" else {}
+    asyncio.run(jobs.запустить(род, tmp, **новые))
+    assert своё_взято == [True]
+
+
+def test_служба_пропускает_из_за_региона(среда, monkeypatch):
+    """Пропуск по расписанию из-за пересборки — строка называет её, а не «запущено кнопкой»."""
+    _без_сети(monkeypatch)
+    замок = jobs._замок("region")
+    try:
+        assert jobs.main(["day"]) == 0
+    finally:
+        замок.close()
+    с = games_db.открыть()
+    текст = games_db.лента(с)[0]["текст"]
+    с.close()
+    assert "идёт пересборка региона" in текст and "кнопкой" not in текст
+
+
+def test_проба_чужого_замка_ждёт(среда, monkeypatch):
+    """Чужой замок занят пробой страницы на миг — «регион» дожидается, а не отвечает ложной
+    причиной «идёт задание»."""
+    import threading
+
+    tmp, _, _ = среда
+    _без_сети(monkeypatch)
+    вызовы = _пересборка(monkeypatch)
+    проба = jobs._замок("week")
+    threading.Timer(0.1, проба.close).start()
+    asyncio.run(jobs.запустить("region", tmp, новые={"steam": "DE", "eshop": "US"}))
+    assert len(вызовы) == 1

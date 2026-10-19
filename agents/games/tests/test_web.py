@@ -34,6 +34,8 @@ def клиент(monkeypatch):
 
     monkeypatch.setattr(web, "_в_индекс", в_индекс)
     monkeypatch.setattr(web, "_синхронизировать_сейчас", ничего)
+    # Задания из кнопок — свои у каждой проверки: задача прежней проверки живёт в закрытом цикле.
+    monkeypatch.setattr(web.ПРИЛОЖЕНИЕ, "задания", {})
     with TestClient(web.app, base_url="http://127.0.0.1:8791") as к:
         yield к
 
@@ -382,3 +384,284 @@ def test_кнопка_задания_без_страны_steam(клиент, mon
     assert ответ.status_code == 409
     assert ответ.json()["error"] == "страна Steam не выбрана — укажите в настройках агента"
     assert вызвано == []
+
+
+# ---- регионы ----
+
+
+def _ждать(условие):
+    import time
+
+    for _ in range(100):
+        if условие():
+            return
+        time.sleep(0.02)
+    raise AssertionError("не дождался")
+
+
+def test_регионы_первая_установка_сразу(клиент):
+    assert "mcp__steam__eshop_find" not in _разрешено()
+    ответ = клиент.post("/api/regions", json={"steam": "KZ", "eshop": "US"})
+    assert ответ.status_code == 200 and ответ.json() == {"итог": "Регион задан: Steam KZ, eShop US"}
+    с = games_db.открыть()
+    assert (games_db.страна_steam(с), games_db.страна_eshop(с)) == ("KZ", "US")
+    с.close()
+    assert "region" not in web.ПРИЛОЖЕНИЕ.задания
+    # Разрешения советника — по стране eShop: `eshop_find` появился.
+    assert "mcp__steam__eshop_find" in _разрешено()
+
+
+@pytest.mark.parametrize("тело", [
+    {"steam": "K", "eshop": "US"}, {"steam": "ЖЖ", "eshop": "US"}, {"steam": 5, "eshop": "US"},
+    {"steam": "KZZ", "eshop": None}, {"steam": "KZ", "eshop": "RU"}, {"steam": "KZ", "eshop": 5},
+    {"steam": "KZ"}, {"eshop": "US"}, {"steam": "K1", "eshop": None},
+])
+def test_регионы_неверные_страны(клиент, тело):
+    ответ = клиент.post("/api/regions", json=тело)
+    assert ответ.status_code == 400 and ответ.json()["error"]
+    с = games_db.открыть()
+    assert games_db.страна_steam(с) is None
+    с.close()
+
+
+def test_регионы_смена_запускает_задание(клиент, monkeypatch):
+    import advisor
+    import jobs
+
+    с = games_db.открыть()
+    games_db.задать_страны(с, steam="KZ", eshop="US")
+    с.close()
+    порядок: list = []
+
+    async def задание(род, каталог, *, новые):
+        порядок.append((род, новые))
+        return "Регион сменён: обновлено 0"
+
+    monkeypatch.setattr(jobs, "запустить", задание)
+    monkeypatch.setattr(advisor, "подготовить_каталог", lambda к: порядок.append("разрешения"))
+    ответ = клиент.post("/api/regions", json={"steam": "de", "eshop": None})
+    assert ответ.status_code == 202 and ответ.json() == {"итог": "Пересобираю данные под новый регион…"}
+    _ждать(lambda: "разрешения" in порядок)
+    assert порядок == [("region", {"steam": "DE", "eshop": None}), "разрешения"]
+
+
+def test_регионы_при_идущем_задании(клиент, monkeypatch):
+    import jobs
+
+    с = games_db.открыть()
+    games_db.задать_страны(с, steam="KZ", eshop="US")
+    с.close()
+    вызвано: list = []
+
+    async def задание(*а, **п):
+        вызвано.append(а)
+
+    monkeypatch.setattr(jobs, "запустить", задание)
+    замок = jobs._замок("week")
+    try:
+        ответ = клиент.post("/api/regions", json={"steam": "DE", "eshop": "US"})
+    finally:
+        замок.close()
+    assert ответ.status_code == 409 and "неделя" in ответ.json()["error"]
+    assert вызвано == []
+
+
+def test_регионы_сбой_задания_разрешения_всё_равно(клиент, monkeypatch):
+    """Задание упало (строка сбоя — его дело) — разрешения советника всё равно по хранилищу."""
+    import advisor
+    import jobs
+
+    с = games_db.открыть()
+    games_db.задать_страны(с, steam="KZ", eshop="US")
+    с.close()
+    порядок: list = []
+
+    async def задание(род, каталог, *, новые):
+        raise RuntimeError("магазин упал")
+
+    monkeypatch.setattr(jobs, "запустить", задание)
+    monkeypatch.setattr(advisor, "подготовить_каталог", lambda к: порядок.append("разрешения"))
+    assert клиент.post("/api/regions", json={"steam": "DE", "eshop": "US"}).status_code == 202
+    _ждать(lambda: порядок == ["разрешения"])
+
+
+def test_кнопки_заданий_и_регион(клиент, monkeypatch):
+    import jobs
+
+    с = games_db.открыть()
+    games_db.задать_страны(с, steam="KZ")
+    с.close()
+    assert клиент.post("/api/run/region", json={}).status_code == 400
+    замок = jobs._замок("region")
+    try:
+        ответ = клиент.post("/api/run/day", json={})
+        assert ответ.status_code == 409 and "регион" in ответ.json()["error"]
+        assert "region" in клиент.get("/api/state").json()["задания_идут"]
+    finally:
+        замок.close()
+
+
+def test_состояние_регионов(клиент):
+    import eshop
+
+    н = клиент.get("/api/state").json()["настройка"]
+    assert н["страна_steam"] is None and н["страна_eshop"] is None and н["страна_профиля"] is None
+    assert {"страна": "US", "зона": "америки"} in н["страны_eshop"]
+    assert {"страна": "GB", "зона": "европа"} in н["страны_eshop"]
+    assert len(н["страны_eshop"]) == len(eshop.СТРАНЫ)
+    с = games_db.открыть()
+    games_db.задать_страны(с, steam="KZ", eshop="GB")
+    games_db.поставить_отметку(с, "страна_профиля", "KZ")
+    с.close()
+    н = клиент.get("/api/state").json()["настройка"]
+    assert (н["страна_steam"], н["страна_eshop"], н["страна_профиля"]) == ("KZ", "GB", "KZ")
+
+
+def test_мастер_без_страны_steam_не_пройден(клиент):
+    ответ = клиент.post("/api/setup/done", json={})
+    assert ответ.status_code == 400 and "страну Steam" in ответ.json()["error"]
+    assert клиент.get("/api/state").json()["мастер_пройден"] is False
+    с = games_db.открыть()
+    # Отметка прежней установки без страны: мастер всё равно не пройден.
+    games_db.поставить_отметку(с, "мастер_пройден", "2026-10-01T00:00:00Z")
+    assert клиент.get("/api/state").json()["мастер_пройден"] is False
+    games_db.задать_страны(с, steam="KZ")
+    с.close()
+    assert клиент.get("/api/state").json()["мастер_пройден"] is True
+    assert клиент.post("/api/setup/done", json={}).status_code == 200
+
+
+def test_страна_профиля_один_раз(monkeypatch):
+    """После входа с ключом — страна профиля один раз, отметкой; сбой — подсказки нет, строки в
+    ленте нет, следующий вход спросит снова."""
+    import asyncio
+
+    import jobs
+
+    secrets_store.сохранить(secrets_store.Тайны(steam_ключ="ключ", steamid="7656"))
+    ответы: list = [RuntimeError("Steam молчит"), "KZ"]
+    спрошено: list = []
+
+    async def страна_профиля(к, ключ, steamid):
+        спрошено.append((ключ, steamid))
+        ответ = ответы.pop(0)
+        if isinstance(ответ, Exception):
+            raise ответ
+        return ответ
+
+    async def синхронизировать(с, учётка):
+        return None
+
+    monkeypatch.setattr(steam_account, "страна_профиля", страна_профиля)
+    monkeypatch.setattr(jobs, "_синхронизировать", синхронизировать)
+    asyncio.run(web._синхронизировать_сейчас())
+    с = games_db.открыть()
+    assert games_db.отметка(с, "страна_профиля") is None and games_db.лента(с) == []
+    asyncio.run(web._синхронизировать_сейчас())
+    asyncio.run(web._синхронизировать_сейчас())
+    assert games_db.отметка(с, "страна_профиля") == "KZ"
+    assert спрошено == [("ключ", "7656")] * 2
+    с.close()
+
+
+def test_профиль_без_страны_не_спрашивается_снова(monkeypatch):
+    import asyncio
+
+    import jobs
+
+    secrets_store.сохранить(secrets_store.Тайны(steam_ключ="ключ", steamid="7656"))
+    спрошено: list = []
+
+    async def страна_профиля(к, ключ, steamid):
+        спрошено.append(1)
+        return None
+
+    async def синхронизировать(с, учётка):
+        return None
+
+    monkeypatch.setattr(steam_account, "страна_профиля", страна_профиля)
+    monkeypatch.setattr(jobs, "_синхронизировать", синхронизировать)
+    asyncio.run(web._синхронизировать_сейчас())
+    asyncio.run(web._синхронизировать_сейчас())
+    assert спрошено == [1]
+
+
+class _Идёт:
+    """Задание, идущее в вебе: `ПРИЛОЖЕНИЕ.задания` видит его не законченным."""
+
+    def done(self):
+        return False
+
+
+@pytest.mark.parametrize("род", ["week", "region"])
+def test_регионы_при_задании_в_вебе(клиент, monkeypatch, род):
+    import jobs
+
+    с = games_db.открыть()
+    games_db.задать_страны(с, steam="KZ", eshop="US")
+    с.close()
+    вызвано: list = []
+
+    async def задание(*а, **п):
+        вызвано.append(а)
+
+    monkeypatch.setattr(jobs, "запустить", задание)
+    web.ПРИЛОЖЕНИЕ.задания[род] = _Идёт()
+    try:
+        ответ = клиент.post("/api/regions", json={"steam": "DE", "eshop": "US"})
+        кнопка = клиент.post("/api/run/day", json={})
+    finally:
+        del web.ПРИЛОЖЕНИЕ.задания[род]
+    assert ответ.status_code == 409 and jobs.ИМЕНА[род] in ответ.json()["error"]
+    if род == "region":
+        assert кнопка.status_code == 409 and "регион" in кнопка.json()["error"]
+        assert вызвано == []
+    else:
+        # При идущей «неделе» кнопка дня законно идёт; «регион» не запущен.
+        assert кнопка.status_code == 202
+        assert all(а[:1] != ("region",) for а in вызвано)
+
+
+@pytest.mark.parametrize("тело, итог", [
+    ({"steam": "KZ", "eshop": "US"}, "Регион прежний: Steam KZ, eShop US"),
+    ({"steam": "KZ", "eshop": None}, "Регион прежний: Steam KZ, eShop выключен"),
+])
+def test_регионы_без_перемен_сразу(клиент, тело, итог):
+    """Без смены веб не обещает пересборку: ответ 200 с итогом, фонового задания нет."""
+    с = games_db.открыть()
+    games_db.задать_страны(с, steam="KZ", eshop="US")
+    ответ = клиент.post("/api/regions", json=тело)
+    assert ответ.status_code == 200 and ответ.json() == {"итог": итог}
+    assert "region" not in web.ПРИЛОЖЕНИЕ.задания
+    assert games_db.eshop_включён(с) is (тело["eshop"] is not None)
+    с.close()
+
+
+def test_страна_профиля_после_синхронизации(monkeypatch):
+    import asyncio
+
+    import jobs
+
+    secrets_store.сохранить(secrets_store.Тайны(steam_ключ="ключ", steamid="7656"))
+    порядок: list[str] = []
+
+    async def страна_профиля(к, ключ, steamid):
+        порядок.append("профиль")
+        return "KZ"
+
+    async def синхронизировать(с, учётка):
+        порядок.append("библиотека")
+
+    monkeypatch.setattr(steam_account, "страна_профиля", страна_профиля)
+    monkeypatch.setattr(jobs, "_синхронизировать", синхронизировать)
+    asyncio.run(web._синхронизировать_сейчас())
+    assert порядок == ["библиотека", "профиль"]
+
+
+def test_выход_снимает_страну_профиля(клиент):
+    с = games_db.открыть()
+    games_db.поставить_отметку(с, "страна_профиля", "KZ")
+    assert клиент.post("/api/logout", json={}).status_code == 200
+    assert games_db.отметка(с, "страна_профиля") is None
+    assert клиент.get("/api/state").json()["настройка"]["страна_профиля"] is None
+    с.close()

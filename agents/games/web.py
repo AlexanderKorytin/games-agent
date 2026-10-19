@@ -37,6 +37,7 @@ from starlette.requests import Request
 from starlette.responses import FileResponse, JSONResponse, RedirectResponse, Response, StreamingResponse
 from starlette.routing import Route
 
+import eshop
 import games_db
 import itad
 import secrets_store
@@ -239,8 +240,8 @@ async def состояние(request: Request) -> Response:
     тайны = secrets_store.загрузить()
     с = games_db.открыть()
     try:
-        eshop = games_db.eshop_включён(с)
-        выдача = (lambda з: з) if eshop else _без_eshop
+        включён = games_db.eshop_включён(с)
+        выдача = (lambda з: з) if включён else _без_eshop
         данные = {
             "настройка": {
                 "вошёл": bool(тайны.steamid),
@@ -251,10 +252,18 @@ async def состояние(request: Request) -> Response:
                     "itad": bool(тайны.itad_ключ),
                 },
                 "ollama": await _ollama(),
-                "eshop": eshop,
+                "eshop": включён,
+                "страна_steam": games_db.страна_steam(с),
+                "страна_eshop": games_db.страна_eshop(с),
+                # Список стран для выбора — из таблицы зон eShop (дизайн, «Страна → зона eShop»).
+                "страны_eshop": [{"страна": к, "зона": р.зона} for к, р in eshop.СТРАНЫ.items()],
+                # Подсказка из профиля Steam (`_страна_профиля_один_раз`); нет — `None`.
+                "страна_профиля": games_db.отметка(с, "страна_профиля") or None,
             },
             "опрос_пройден": taste.опрос_пройден(каталог()),
-            "мастер_пройден": bool(games_db.отметка(с, "мастер_пройден")),
+            # Без страны Steam мастер не пройден и при отметке прежней установки (дизайн,
+            # «Настройка»): задания без неё не идут.
+            "мастер_пройден": bool(games_db.отметка(с, "мастер_пройден")) and bool(games_db.страна_steam(с)),
             "черновик_знакомства": _черновик(с),
             # Вкус записан, но человек его ещё не прочёл и не подтвердил — экран проверки; службы
             # и задания ждут подтверждения (живой сценарий пользователя).
@@ -275,7 +284,7 @@ async def состояние(request: Request) -> Response:
             ),
             # Догоняющий запуск — для значка: опрос не пройден — заданий нет вовсе.
             "догнать": [
-                р for р in jobs.РОДЫ
+                р for р in jobs.ПО_РАСПИСАНИЮ
                 if taste.опрос_пройден(каталог()) and games_db.отметка(с, "вкус_подтверждён") and jobs.нужен_догоняющий(с, р)
             ],
             "разговор": [{"вопрос": в, "ответ": о} for в, о in ПРИЛОЖЕНИЕ.пары],
@@ -343,6 +352,25 @@ async def _синхронизировать_сейчас() -> None:
             await jobs._синхронизировать(с, учётка)
         finally:
             с.close()
+        # Подсказка — после библиотеки: опрос ждёт библиотеку, а подсказку — только мастер.
+        await _страна_профиля_один_раз(к, тайны)
+
+
+async def _страна_профиля_один_раз(к: httpx2.AsyncClient, тайны: secrets_store.Тайны) -> None:
+    """Подсказка страны Steam для мастера: страна профиля — один раз после входа с ключом,
+    отметкой «страна_профиля» (пустая — в профиле страны нет, снова не спрашивается). Сбой —
+    подсказки нет, без строки в ленте: это не сбой агента; следующий вход спросит снова."""
+    с = games_db.открыть()
+    try:
+        if games_db.отметка(с, "страна_профиля") is not None:
+            return
+        try:
+            страна = await steam_account.страна_профиля(к, тайны.steam_ключ, тайны.steamid)
+        except Exception:  # noqa: BLE001 — подсказка, не данные: нет ответа — нет подсказки
+            return
+        games_db.поставить_отметку(с, "страна_профиля", страна or "")
+    finally:
+        с.close()
 
 
 async def _проверить_steam(ключ: str, steamid: str) -> str | None:
@@ -483,6 +511,8 @@ async def черновик_знакомства(request: Request) -> Response:
 async def мастер_готов(request: Request) -> Response:
     с = games_db.открыть()
     try:
+        if not games_db.страна_steam(с):
+            return _ошибка("сначала выберите страну Steam: без неё задания не знают, в магазин какой страны ходить")
         games_db.поставить_отметку(с, "мастер_пройден", datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
     finally:
         с.close()
@@ -508,12 +538,80 @@ async def магазины(request: Request) -> Response:
     return JSONResponse({"итог": "eShop включён" if вкл else "eShop выключен"})
 
 
+async def _идёт_задание() -> str | None:
+    """Почему «регион» сейчас не начать: идёт задание из кнопки веба или в службе. `None` —
+    ничто не идёт."""
+    for род, задача in ПРИЛОЖЕНИЕ.задания.items():
+        if not задача.done():
+            return f"идёт задание «{jobs.ИМЕНА[род]}» — дождитесь его итога"
+    try:
+        jobs._замок("region").close()
+        await jobs._не_вместе("region")
+    except jobs.УжеИдёт as exc:
+        return str(exc)
+    return None
+
+
+async def регионы(request: Request) -> Response:
+    """Страны магазинов: `{"steam": "KZ", "eshop": "US" | null}`; `null` — eShop выключен.
+    Первая установка (страны Steam ещё нет) или без перемен (`jobs.смена_региона` — `None`) —
+    сразу, ответ 200 с итогом. Смена — задание «регион» в
+    фоне, как кнопки заданий: пересборка ходит в магазины минутами. После — разрешения
+    советника: `eshop_find` следует за страной eShop и выключателем."""
+    try:
+        тело = await _тело(request)
+        if "steam" not in тело or "eshop" not in тело:
+            raise ValueError("нужны steam и eshop (страна eShop либо null — eShop выключен)")
+        новые = {к: з.upper() if isinstance(з, str) else з for к, з in тело.items() if к in ("steam", "eshop")}
+        jobs._доводы_региона(новые)
+    except ValueError as exc:
+        return _ошибка(str(exc))
+    if (причина := await _идёт_задание()) is not None:
+        return _ошибка(причина, 409)
+    с = games_db.открыть()
+    try:
+        прежние = games_db.страна_steam(с), games_db.страна_eshop(с)
+    finally:
+        с.close()
+    if jobs.смена_региона(*прежние, новые["steam"], новые["eshop"]) is None:
+        # Первая установка или без перемен: пересборки нет, задание пишет страны и выключатель
+        # за миг — ответ сразу, с итогом, а не обещание пересборки.
+        try:
+            итог = await jobs.запустить("region", каталог(), новые=новые)
+        except jobs.УжеИдёт as exc:
+            return _ошибка(str(exc), 409)
+        finally:
+            advisor.подготовить_каталог(каталог())
+        return JSONResponse({"итог": итог})
+
+    async def задание() -> None:
+        # Сбой задание само пишет в ленту (`jobs.запустить`); разрешения — в любом исходе: они
+        # читают хранилище, каким бы оно ни осталось.
+        try:
+            await jobs.запустить("region", каталог(), новые=новые)
+        except jobs.УжеИдёт as exc:
+            jobs.в_ленту_итог(f"Регион не сменён: {exc}")
+        except Exception:  # noqa: BLE001 — уже в ленте
+            pass
+        finally:
+            advisor.подготовить_каталог(каталог())
+
+    ПРИЛОЖЕНИЕ.задания["region"] = asyncio.create_task(задание())
+    return JSONResponse({"итог": "Пересобираю данные под новый регион…"}, status_code=202)
+
+
 async def выйти_из_steam(request: Request) -> Response:
     async with ПРИЛОЖЕНИЕ.замок_тайн:
         тайны = secrets_store.загрузить()
         тайны.steamid = ""
         тайны.steam_ключ = ""
         secrets_store.сохранить(тайны)
+    # Подсказка страны — из профиля прежней учётки: следующий вход спросит свою.
+    с = games_db.открыть()
+    try:
+        games_db.снять_отметку(с, "страна_профиля")
+    finally:
+        с.close()
     return JSONResponse({"итог": "вход в Steam и ключ Steam удалены"})
 
 
@@ -777,7 +875,8 @@ async def модель_выбрать(request: Request) -> Response:
 
 async def запустить(request: Request) -> Response:
     род = request.path_params["kind"]
-    if род not in jobs.РОДЫ:
+    if род not in jobs.ПО_РАСПИСАНИЮ:
+        # «Регион» — только со странами: `/api/regions`.
         return _ошибка("задание — day, week или month")
     идущее = ПРИЛОЖЕНИЕ.задания.get(род)
     if идущее is not None and not идущее.done():
@@ -787,6 +886,13 @@ async def запустить(request: Request) -> Response:
     except jobs.УжеИдёт:
         # Задание идёт в службе — ответ сразу, без строки в ленте на каждое нажатие.
         return _ошибка("уже идёт по расписанию — итог появится в ленте", 409)
+    регион = ПРИЛОЖЕНИЕ.задания.get("region")
+    try:
+        if регион is not None and not регион.done():
+            raise jobs.УжеИдёт(f"идёт задание «регион» — «{jobs.ИМЕНА[род]}» подождёт его итога")
+        await jobs._не_вместе(род)
+    except jobs.УжеИдёт as exc:
+        return _ошибка(str(exc), 409)
     # Страны Steam нет — задание не пойдёт (`jobs.запустить`): человек видит причину в вести
     # сразу, а не тишину.
     if not _страна_steam():
@@ -946,6 +1052,7 @@ app = Starlette(
         Route("/api/logout", выйти_из_steam, methods=["POST"]),
         Route("/api/setup/done", мастер_готов, methods=["POST"]),
         Route("/api/stores", магазины, methods=["POST"]),
+        Route("/api/regions", регионы, methods=["POST"]),
         Route("/api/intro/draft", черновик_знакомства, methods=["POST"]),
         Route("/api/taste/confirm", вкус_подтвердить, methods=["POST"]),
         Route("/api/ask", вопрос, methods=["POST"]),

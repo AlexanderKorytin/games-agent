@@ -559,6 +559,12 @@ def поставить_отметку(с: sqlite3.Connection, ключ: str, з�
         )
 
 
+def снять_отметку(с: sqlite3.Connection, ключ: str) -> None:
+    """Убирает отметку; её нет — ничего не делает (выход из Steam снимает «страна_профиля»)."""
+    with _запись(с):
+        с.execute("DELETE FROM marks WHERE ключ = ?", (ключ,))
+
+
 def _код_страны(код: str) -> str:
     """Код ISO 3166-1: ровно две заглавные латинские буквы; иное — `ValueError`."""
     if not (isinstance(код, str) and len(код) == 2 and all("A" <= б <= "Z" for б in код)):
