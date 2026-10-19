@@ -1,0 +1,8 @@
+{
+  "name": "отбор-игр-mcp",
+  "title": "отбор игр пачкой",
+  "description": "местная модель: пачка игр Steam и Nintendo eShop, сведения — инструментами MCP, вердикт по каждой",
+  "system_file": "отбор-игр-mcp.md",
+  "keep_history": false,
+  "thinking": {"type": "disabled"}
+}
