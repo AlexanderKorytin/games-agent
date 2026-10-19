@@ -1,0 +1,1216 @@
+{
+ "hits": [
+  {
+   "availability": [
+    "Available now"
+   ],
+   "categoryIds": [
+    "games",
+    "nintendo_switch",
+    "nintendo_3ds_family"
+   ],
+   "collectionPriceRange": "$10 - $19.99",
+   "contentDescriptors": [
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Fantasy Violence",
+     "type": "CONTENT_DESCRIPTOR"
+    },
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Mild Blood",
+     "type": "CONTENT_DESCRIPTOR"
+    }
+   ],
+   "contentRating": {
+    "__typename": "ContentRating",
+    "code": "e10",
+    "label": "Everyone 10+",
+    "isCompilation": false,
+    "requiresAgeGate": false,
+    "system": "ESRB"
+   },
+   "contentRatingCode": "E10",
+   "corePlatforms": [
+    "Nintendo Switch"
+   ],
+   "description": null,
+   "exclusive": false,
+   "featuredProduct": false,
+   "franchises": [],
+   "isSalableQty": true,
+   "platform": "Nintendo Switch",
+   "platformCode": "NINTENDO_SWITCH",
+   "platinumPoints": null,
+   "playerCount": "Single player",
+   "playModes": [
+    "TV mode",
+    "Tabletop mode",
+    "Handheld mode"
+   ],
+   "price": {
+    "finalPrice": 15,
+    "regPrice": 15,
+    "discounted": false,
+    "salePrice": null,
+    "amountOff": null,
+    "percentOff": null
+   },
+   "priceRange": "$10 - $19.99",
+   "productImage": "store/software/switch/70010000003208/4643fb058642335c523910f3a7910575f56372f612f7c0c9a497aaae978d3e51",
+   "productGallery": [
+    {
+     "publicId": "/store/software/switch/70010000003208/Video/63526ed42fe0d90808c0d812ae19fc708caf7db6a84fdf13827c586225bdb95b",
+     "resourceType": "video"
+    },
+    {
+     "publicId": "store/software/switch/70010000003208/50162a28f3e73c7e80021d799acce991a0b051105f209565088cd254a2a986d1",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch/70010000003208/208c3efdf8bf7cb5ba1f2154f5508d97af71b7853dc8e7eff302d3b1804bb178",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch/70010000003208/6266f71028d118acbc56f2952106b99b8a81de0c4d80db5729db2f2d8c48b15e",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch/70010000003208/ddcf359a6e8a2bb8b2eabf9fc26b9511b047745320c2d56aeabf24222f0967fc",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch/70010000003208/c9eaec86c13661401717a75546d7e6af55fa0da8b3d3e41e9d58b0c037cc7de7",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch/70010000003208/93309648ca2cf8d7a269da8f3deb386833497d857e8344d339caf3f81fc8a2f1",
+     "resourceType": "image"
+    }
+   ],
+   "releaseDate": "2018-06-12T00:00:00.000Z",
+   "releaseDateDisplay": null,
+   "sku": "7100003208",
+   "stockStatus": "IN_STOCK",
+   "title": "Hollow Knight",
+   "titleKey": "hollow-knight-nintendo-switch-false",
+   "topLevelCategory": "Games",
+   "topLevelCategoryCode": "GAMES",
+   "topLevelFilters": [],
+   "hasDlc": false,
+   "url": "/us/store/products/hollow-knight-switch/",
+   "urlKey": "hollow-knight-switch",
+   "visibleInSearch": true,
+   "demoNsuid": null,
+   "dlcType": null,
+   "editions": [
+    "Digital"
+   ],
+   "eshopDetails": {
+    "__typename": "EshopDetails",
+    "productType": "TITLE",
+    "isPreorderable": false,
+    "isPurchasable": true,
+    "regularPrice": 15,
+    "discountPrice": null,
+    "discountPriceStart": null,
+    "discountPriceEnd": null,
+    "discountPriceEndTimestamp": null,
+    "goldPointOfferType": null,
+    "goldPointOfferValue": null,
+    "goldPoints": 0,
+    "baseGoldPoints": 0,
+    "currency": "USD"
+   },
+   "productImageSquare": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/d6aae7b54581406d84d927795f83eb17_1024",
+   "gameGenreLabels": [
+    "Action"
+   ],
+   "gameFeatureLabels": [
+    "Explore to open up new areas",
+    "Platforming",
+    "Play for the fastest time"
+   ],
+   "isUpgrade": false,
+   "nsoFeatures": [
+    "Save Data Cloud"
+   ],
+   "nsuid": "70010000003208",
+   "softwareDeveloper": "Team Cherry",
+   "softwarePublisher": "Team Cherry",
+   "waysToPlayLabels": [],
+   "gameGenres": [
+    {
+     "label": "Action",
+     "code": "ACTION",
+     "combined": "ACTION::Action"
+    }
+   ],
+   "gameFeatures": [
+    {
+     "label": "Explore to open up new areas",
+     "code": "PIONEERING",
+     "combined": "PIONEERING::Explore to open up new areas"
+    },
+    {
+     "label": "Platforming",
+     "code": "JUMPING",
+     "combined": "JUMPING::Platforming"
+    },
+    {
+     "label": "Play for the fastest time",
+     "code": "TIME_ATTACK",
+     "combined": "TIME_ATTACK::Play for the fastest time"
+    }
+   ],
+   "waysToPlay": [],
+   "_collections": [],
+   "collectionPriceRangeFilter": [
+    "$10 - $19.99"
+   ],
+   "priceRangeFilter": [
+    "$10 - $19.99"
+   ],
+   "productType": [
+    "Games"
+   ],
+   "nsoFeaturesFilter": [
+    "Save Data Cloud"
+   ],
+   "popularityRank": 30,
+   "trendingRank": 39,
+   "notBadScore": 0.14325,
+   "objectID": "7100003208",
+   "_distinctSeqID": 0
+  },
+  {
+   "availability": [
+    "Available now"
+   ],
+   "categoryIds": [
+    "games",
+    "nintendo_switch",
+    "nintendo_3ds_family"
+   ],
+   "collectionPriceRange": "$10 - $19.99",
+   "contentDescriptors": [
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Animated Blood",
+     "type": "CONTENT_DESCRIPTOR"
+    },
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Fantasy Violence",
+     "type": "CONTENT_DESCRIPTOR"
+    },
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Mild Language",
+     "type": "CONTENT_DESCRIPTOR"
+    }
+   ],
+   "contentRating": {
+    "__typename": "ContentRating",
+    "code": "e10",
+    "label": "Everyone 10+",
+    "isCompilation": false,
+    "requiresAgeGate": false,
+    "system": "ESRB"
+   },
+   "contentRatingCode": "E10",
+   "corePlatforms": [
+    "Nintendo Switch"
+   ],
+   "description": null,
+   "exclusive": false,
+   "featuredProduct": false,
+   "franchises": [],
+   "isSalableQty": true,
+   "platform": "Nintendo Switch",
+   "platformCode": "NINTENDO_SWITCH",
+   "platinumPoints": null,
+   "playerCount": "Single player",
+   "playModes": [
+    "TV mode",
+    "Tabletop mode",
+    "Handheld mode"
+   ],
+   "price": {
+    "finalPrice": 19.99,
+    "regPrice": 19.99,
+    "discounted": false,
+    "salePrice": null,
+    "amountOff": null,
+    "percentOff": null
+   },
+   "priceRange": "$10 - $19.99",
+   "productImage": "store/software/switch/70010000020840/60eebc8f7133f685eddbffbe43c8da617ba0a5d699f2008f9c31c6119d1792af",
+   "productGallery": [
+    {
+     "publicId": "/store/software/switch/70010000020840/Video/e73c1107623414a8b5fdb845b3dc81890a4de0c876ee389dcca6381a357773ad",
+     "resourceType": "video"
+    },
+    {
+     "publicId": "store/software/switch/70010000020840/8555f3029e7e4db8f6fdea453721c63f88155650a9e9d13bc2fec9985ce363e1",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch/70010000020840/deeb8d4b03eb16fca0602e7ddca5e8094fd88cd5cb40cea469706c8a530a2a5b",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch/70010000020840/5d202566740a4f411d7de7cab57a52ddff0cd41234a71426bdc12ff1d46fc0f1",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch/70010000020840/664bba2e76ef62a938d9ca5dbcbe8689b6dfc9d78cc7f56b896c1aa2da810013",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch/70010000020840/fab5161dab322089f82471bd9c4173479eaa965eb9bc00252da437292d3bc6c8",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch/70010000020840/9ad186e7d607832211a9a868fa98530c64b31087e533b5754060b662bfff8f11",
+     "resourceType": "image"
+    }
+   ],
+   "releaseDate": "2025-09-04T00:00:00.000Z",
+   "releaseDateDisplay": null,
+   "sku": "7100020840",
+   "stockStatus": "IN_STOCK",
+   "title": "Hollow Knight: Silksong",
+   "titleKey": "hollow-knight-silksong-nintendo-switch-false",
+   "topLevelCategory": "Games",
+   "topLevelCategoryCode": "GAMES",
+   "topLevelFilters": [],
+   "hasDlc": false,
+   "url": "/us/store/products/hollow-knight-silksong-switch/",
+   "urlKey": "hollow-knight-silksong-switch",
+   "visibleInSearch": true,
+   "demoNsuid": null,
+   "dlcType": null,
+   "editions": [
+    "Digital"
+   ],
+   "eshopDetails": {
+    "__typename": "EshopDetails",
+    "productType": "TITLE",
+    "isPreorderable": false,
+    "isPurchasable": true,
+    "regularPrice": 19.99,
+    "discountPrice": null,
+    "discountPriceStart": null,
+    "discountPriceEnd": null,
+    "discountPriceEndTimestamp": null,
+    "goldPointOfferType": null,
+    "goldPointOfferValue": null,
+    "goldPoints": 0,
+    "baseGoldPoints": 0,
+    "currency": "USD"
+   },
+   "productImageSquare": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/25953c3a62574e3280a313ee5e244fe1_1024",
+   "gameGenreLabels": [
+    "Action"
+   ],
+   "gameFeatureLabels": [
+    "Explore to open up new areas",
+    "Platforming"
+   ],
+   "isUpgrade": false,
+   "nsoFeatures": [
+    "Save Data Cloud"
+   ],
+   "nsuid": "70010000020840",
+   "softwareDeveloper": "Team Cherry",
+   "softwarePublisher": "Team Cherry",
+   "waysToPlayLabels": [],
+   "gameGenres": [
+    {
+     "label": "Action",
+     "code": "ACTION",
+     "combined": "ACTION::Action"
+    }
+   ],
+   "gameFeatures": [
+    {
+     "label": "Explore to open up new areas",
+     "code": "PIONEERING",
+     "combined": "PIONEERING::Explore to open up new areas"
+    },
+    {
+     "label": "Platforming",
+     "code": "JUMPING",
+     "combined": "JUMPING::Platforming"
+    }
+   ],
+   "waysToPlay": [],
+   "_collections": [],
+   "collectionPriceRangeFilter": [
+    "$10 - $19.99"
+   ],
+   "priceRangeFilter": [
+    "$10 - $19.99"
+   ],
+   "productType": [
+    "Games"
+   ],
+   "nsoFeaturesFilter": [
+    "Save Data Cloud"
+   ],
+   "popularityRank": 31,
+   "trendingRank": 73,
+   "notBadScore": 0.1041,
+   "objectID": "7100020840",
+   "_distinctSeqID": 0
+  },
+  {
+   "availability": [
+    "Available now"
+   ],
+   "categoryIds": [
+    "games",
+    "nintendo_switch",
+    "nintendo_3ds_family"
+   ],
+   "collectionPriceRange": "$10 - $19.99",
+   "contentDescriptors": [
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Animated Blood",
+     "type": "CONTENT_DESCRIPTOR"
+    },
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Fantasy Violence",
+     "type": "CONTENT_DESCRIPTOR"
+    },
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Mild Language",
+     "type": "CONTENT_DESCRIPTOR"
+    }
+   ],
+   "contentRating": {
+    "__typename": "ContentRating",
+    "code": "e10",
+    "label": "Everyone 10+",
+    "isCompilation": false,
+    "requiresAgeGate": false,
+    "system": "ESRB"
+   },
+   "contentRatingCode": "E10",
+   "corePlatforms": [
+    "Nintendo Switch 2"
+   ],
+   "description": "Explore a vast new kingdom in Hollow Knight: Silksong for Nintendo Switch 2. Master acrobatic combat, face deadly enemies, and uncover hidden secrets.",
+   "exclusive": false,
+   "featuredProduct": false,
+   "franchises": [],
+   "isSalableQty": true,
+   "platform": "Nintendo Switch 2",
+   "platformCode": "NINTENDO_SWITCH_2",
+   "platinumPoints": null,
+   "playerCount": "Single player",
+   "playModes": [
+    "TV mode",
+    "Tabletop mode",
+    "Handheld mode"
+   ],
+   "price": {
+    "finalPrice": 19.99,
+    "regPrice": 19.99,
+    "discounted": false,
+    "salePrice": null,
+    "amountOff": null,
+    "percentOff": null
+   },
+   "priceRange": "$10 - $19.99",
+   "productImage": "store/software/switch2/70010000105851/8787627be7f26ae7984456ffd9af17bea845032cebbf59fe6eeb596dea6bb20e",
+   "productGallery": [
+    {
+     "publicId": "/store/software/switch2/70010000105851/Video/2db2da73e660339848bd4ca9e91f947fd3738538ee19de3b09b3f6f75cd11c1b",
+     "resourceType": "video"
+    },
+    {
+     "publicId": "store/software/switch2/70010000105851/0a2182795ad66d624480d02a256dd175bab55d4b6edb9efffafeefea3874def7",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000105851/d890b91c76f78031bd09f5ef598c2879a882f3db46756c3942559224dd5ae997",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000105851/6f8a1c5ad24373391019d1926ffee093a9b535689943dd0b0a83c5b2a7387f4b",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000105851/66fa053c1e9b6e068556d73469acab78a630856a766a818752121e78cea8507f",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000105851/d9b139de3518b79e04fdccb564ba8616fcbdcee7430d0fcab6577c22096979ea",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000105851/9b4baa4f632ba3ddcab7ea9c68da2ccbbb7fcbef60419efc2d284957c399bea0",
+     "resourceType": "image"
+    }
+   ],
+   "releaseDate": "2025-09-04T00:00:00.000Z",
+   "releaseDateDisplay": null,
+   "sku": "7100105851",
+   "stockStatus": "IN_STOCK",
+   "title": "Hollow Knight: Silksong – Nintendo Switch 2 Edition",
+   "titleKey": "hollow-knight-silksong-nintendo-switch-2-edition-nintendo-switch-2-false",
+   "topLevelCategory": "Games",
+   "topLevelCategoryCode": "GAMES",
+   "topLevelFilters": [],
+   "hasDlc": false,
+   "url": "/us/store/products/hollow-knight-silksong-nintendo-switch-2-edition-switch-2/",
+   "urlKey": "hollow-knight-silksong-nintendo-switch-2-edition-switch-2",
+   "visibleInSearch": true,
+   "demoNsuid": null,
+   "dlcType": null,
+   "editions": [
+    "Digital"
+   ],
+   "eshopDetails": {
+    "__typename": "EshopDetails",
+    "productType": "TITLE",
+    "isPreorderable": false,
+    "isPurchasable": true,
+    "regularPrice": 19.99,
+    "discountPrice": null,
+    "discountPriceStart": null,
+    "discountPriceEnd": null,
+    "discountPriceEndTimestamp": null,
+    "goldPointOfferType": null,
+    "goldPointOfferValue": null,
+    "goldPoints": 0,
+    "baseGoldPoints": 0,
+    "currency": "USD"
+   },
+   "productImageSquare": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/ac6abd2d40be4d86adfefa9585336b0e_1024",
+   "gameGenreLabels": [
+    "Action"
+   ],
+   "gameFeatureLabels": [
+    "Explore to open up new areas",
+    "Platforming"
+   ],
+   "isUpgrade": false,
+   "nsoFeatures": [
+    "Save Data Cloud"
+   ],
+   "nsuid": "70010000105851",
+   "softwareDeveloper": null,
+   "softwarePublisher": "Team Cherry",
+   "waysToPlayLabels": [],
+   "gameGenres": [
+    {
+     "label": "Action",
+     "code": "ACTION",
+     "combined": "ACTION::Action"
+    }
+   ],
+   "gameFeatures": [
+    {
+     "label": "Explore to open up new areas",
+     "code": "PIONEERING",
+     "combined": "PIONEERING::Explore to open up new areas"
+    },
+    {
+     "label": "Platforming",
+     "code": "JUMPING",
+     "combined": "JUMPING::Platforming"
+    }
+   ],
+   "waysToPlay": [],
+   "_collections": [],
+   "collectionPriceRangeFilter": [
+    "$10 - $19.99"
+   ],
+   "priceRangeFilter": [
+    "$10 - $19.99"
+   ],
+   "productType": [
+    "Games"
+   ],
+   "nsoFeaturesFilter": [
+    "Save Data Cloud"
+   ],
+   "popularityRank": 65,
+   "trendingRank": 81,
+   "notBadScore": 0.1041,
+   "objectID": "7100105851",
+   "_distinctSeqID": 0
+  },
+  {
+   "availability": [
+    "Available now"
+   ],
+   "categoryIds": [
+    "games",
+    "nintendo_switch",
+    "nintendo_3ds_family"
+   ],
+   "collectionPriceRange": "$10 - $19.99",
+   "contentDescriptors": [
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Fantasy Violence",
+     "type": "CONTENT_DESCRIPTOR"
+    },
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Mild Blood",
+     "type": "CONTENT_DESCRIPTOR"
+    }
+   ],
+   "contentRating": {
+    "__typename": "ContentRating",
+    "code": "e10",
+    "label": "Everyone 10+",
+    "isCompilation": false,
+    "requiresAgeGate": false,
+    "system": "ESRB"
+   },
+   "contentRatingCode": "E10",
+   "corePlatforms": [
+    "Nintendo Switch 2"
+   ],
+   "description": null,
+   "exclusive": false,
+   "featuredProduct": false,
+   "franchises": [],
+   "isSalableQty": true,
+   "platform": "Nintendo Switch 2",
+   "platformCode": "NINTENDO_SWITCH_2",
+   "platinumPoints": null,
+   "playerCount": "Single player",
+   "playModes": [
+    "TV mode",
+    "Tabletop mode",
+    "Handheld mode"
+   ],
+   "price": {
+    "finalPrice": 15,
+    "regPrice": 15,
+    "discounted": false,
+    "salePrice": null,
+    "amountOff": null,
+    "percentOff": null
+   },
+   "priceRange": "$10 - $19.99",
+   "productImage": "store/software/switch2/70010000117998/39a6c2de074a49a3328f0c4912c5a5b3d6ac071518334c8f26d5bf3c1f119513",
+   "productGallery": [
+    {
+     "publicId": "/store/software/switch2/70010000117998/Video/5c88bfda3673fcb6d5c0d657727e461b5e84174fbd4c8fcc0a85db8abf3e321c",
+     "resourceType": "video"
+    },
+    {
+     "publicId": "store/software/switch2/70010000117998/91af63d01f9fe1a4ccd65d1c8296313d854f50b092f92b9adda2695fac7701a5",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000117998/3ec291b8bd8e57c23b0d87ebfa48eb5d2bcb00b69e43b721b6dc4e9f4af2cd26",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000117998/dcf2e8605c380ca7af5b9a84d693e12ea14cc007f68d695be93be37309ec1077",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000117998/34d96cf299003eda08119667667816396a073d2abfc32d571a055a34875ca120",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000117998/9dbf787e03b8003c78726135b07a00060abdc38ad5dd03b149440653b954cbc6",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000117998/485c25c1401baf8bbd05d09ab412e4b1e30f30bef2d21d204cd45f7d17a3ee07",
+     "resourceType": "image"
+    }
+   ],
+   "releaseDate": "2026-02-05T00:00:00.000Z",
+   "releaseDateDisplay": null,
+   "sku": "7100117998",
+   "stockStatus": "IN_STOCK",
+   "title": "Hollow Knight – Nintendo Switch 2 Edition",
+   "titleKey": "hollow-knight-nintendo-switch-2-edition-nintendo-switch-2-false",
+   "topLevelCategory": "Games",
+   "topLevelCategoryCode": "GAMES",
+   "topLevelFilters": [],
+   "hasDlc": false,
+   "url": "/us/store/products/hollow-knight-nintendo-switch-2-edition-switch-2/",
+   "urlKey": "hollow-knight-nintendo-switch-2-edition-switch-2",
+   "visibleInSearch": true,
+   "demoNsuid": null,
+   "dlcType": null,
+   "editions": [
+    "Digital"
+   ],
+   "eshopDetails": {
+    "__typename": "EshopDetails",
+    "productType": "TITLE",
+    "isPreorderable": false,
+    "isPurchasable": true,
+    "regularPrice": 15,
+    "discountPrice": null,
+    "discountPriceStart": null,
+    "discountPriceEnd": null,
+    "discountPriceEndTimestamp": null,
+    "goldPointOfferType": null,
+    "goldPointOfferValue": null,
+    "goldPoints": 0,
+    "baseGoldPoints": 0,
+    "currency": "USD"
+   },
+   "productImageSquare": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/8c7ec45cfd6c4b359bc97bdbeb46784f_1024",
+   "gameGenreLabels": [
+    "Action"
+   ],
+   "gameFeatureLabels": [
+    "Explore to open up new areas",
+    "Platforming",
+    "Play for the fastest time"
+   ],
+   "isUpgrade": false,
+   "nsoFeatures": [
+    "Save Data Cloud"
+   ],
+   "nsuid": "70010000117998",
+   "softwareDeveloper": "Team Cherry",
+   "softwarePublisher": "Team Cherry",
+   "waysToPlayLabels": [],
+   "gameGenres": [
+    {
+     "label": "Action",
+     "code": "ACTION",
+     "combined": "ACTION::Action"
+    }
+   ],
+   "gameFeatures": [
+    {
+     "label": "Explore to open up new areas",
+     "code": "PIONEERING",
+     "combined": "PIONEERING::Explore to open up new areas"
+    },
+    {
+     "label": "Platforming",
+     "code": "JUMPING",
+     "combined": "JUMPING::Platforming"
+    },
+    {
+     "label": "Play for the fastest time",
+     "code": "TIME_ATTACK",
+     "combined": "TIME_ATTACK::Play for the fastest time"
+    }
+   ],
+   "waysToPlay": [],
+   "_collections": [],
+   "collectionPriceRangeFilter": [
+    "$10 - $19.99"
+   ],
+   "priceRangeFilter": [
+    "$10 - $19.99"
+   ],
+   "productType": [
+    "Games"
+   ],
+   "nsoFeaturesFilter": [
+    "Save Data Cloud"
+   ],
+   "popularityRank": 143,
+   "trendingRank": 75,
+   "notBadScore": 0.14325,
+   "objectID": "7100117998",
+   "_distinctSeqID": 0
+  },
+  {
+   "availability": [
+    "Available now"
+   ],
+   "categoryIds": [
+    "games",
+    "nintendo_switch",
+    "nintendo_3ds_family"
+   ],
+   "collectionPriceRange": "Free to start",
+   "contentDescriptors": [
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Fantasy Violence",
+     "type": "CONTENT_DESCRIPTOR"
+    },
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Mild Blood",
+     "type": "CONTENT_DESCRIPTOR"
+    }
+   ],
+   "contentRating": {
+    "__typename": "ContentRating",
+    "code": "e10",
+    "label": "Everyone 10+",
+    "isCompilation": false,
+    "requiresAgeGate": false,
+    "system": "ESRB"
+   },
+   "contentRatingCode": "E10",
+   "corePlatforms": [
+    "Nintendo Switch 2"
+   ],
+   "description": null,
+   "exclusive": false,
+   "featuredProduct": false,
+   "franchises": [],
+   "isSalableQty": true,
+   "platform": "Nintendo Switch 2",
+   "platformCode": "NINTENDO_SWITCH_2",
+   "platinumPoints": null,
+   "playModes": null,
+   "price": {
+    "finalPrice": 0,
+    "regPrice": 0,
+    "discounted": false,
+    "salePrice": null,
+    "amountOff": null,
+    "percentOff": null
+   },
+   "priceRange": "Free to start",
+   "productImage": "store/software/switch2/70050000069063/29b6b7501b8af9ebb1f81f0f3b34d38c3e7d0b9aae421b63001fdd04341a6276",
+   "productGallery": [
+    {
+     "publicId": "store/software/switch2/70050000069063/91af63d01f9fe1a4ccd65d1c8296313d854f50b092f92b9adda2695fac7701a5",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000069063/3ec291b8bd8e57c23b0d87ebfa48eb5d2bcb00b69e43b721b6dc4e9f4af2cd26",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000069063/dcf2e8605c380ca7af5b9a84d693e12ea14cc007f68d695be93be37309ec1077",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000069063/34d96cf299003eda08119667667816396a073d2abfc32d571a055a34875ca120",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000069063/9dbf787e03b8003c78726135b07a00060abdc38ad5dd03b149440653b954cbc6",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000069063/485c25c1401baf8bbd05d09ab412e4b1e30f30bef2d21d204cd45f7d17a3ee07",
+     "resourceType": "image"
+    }
+   ],
+   "releaseDate": "2026-02-05T00:00:00.000Z",
+   "releaseDateDisplay": null,
+   "sku": "7500069063",
+   "stockStatus": "IN_STOCK",
+   "title": "Hollow Knight – Nintendo Switch 2 Edition upgrade pack",
+   "titleKey": "hollow-knight-nintendo-switch-2-edition-upgrade-pack-nintendo-switch-2-true",
+   "topLevelCategory": "Games",
+   "topLevelCategoryCode": "GAMES",
+   "topLevelFilters": [
+    "Upgrade pack"
+   ],
+   "hasDlc": false,
+   "url": "/us/store/products/hollow-knight-nintendo-switch-2-edition-upgrade-pack-switch-2/",
+   "urlKey": "hollow-knight-nintendo-switch-2-edition-upgrade-pack-switch-2",
+   "visibleInSearch": true,
+   "demoNsuid": null,
+   "dlcType": null,
+   "editions": [
+    "Digital",
+    "Upgrade pack"
+   ],
+   "eshopDetails": {
+    "__typename": "EshopDetails",
+    "productType": "ADD_ON_CONTENT",
+    "isPreorderable": false,
+    "isPurchasable": true,
+    "regularPrice": 0,
+    "discountPrice": null,
+    "discountPriceStart": null,
+    "discountPriceEnd": null,
+    "discountPriceEndTimestamp": null,
+    "goldPointOfferType": null,
+    "goldPointOfferValue": null,
+    "goldPoints": 0,
+    "baseGoldPoints": 0,
+    "currency": "USD"
+   },
+   "productImageSquare": null,
+   "gameGenreLabels": [],
+   "gameFeatureLabels": [],
+   "isUpgrade": true,
+   "nsoFeatures": [],
+   "nsuid": "70050000069063",
+   "softwareDeveloper": null,
+   "softwarePublisher": "Team Cherry",
+   "waysToPlayLabels": [],
+   "gameGenres": [],
+   "gameFeatures": [],
+   "waysToPlay": [],
+   "collectionPriceRangeFilter": [
+    "Free to start",
+    "$0 - $9.99"
+   ],
+   "priceRangeFilter": [
+    "Free to start",
+    "$0 - $4.99"
+   ],
+   "productType": [
+    "Games"
+   ],
+   "nsoFeaturesFilter": [],
+   "popularityRank": null,
+   "trendingRank": null,
+   "notBadScore": null,
+   "objectID": "7500069063",
+   "_distinctSeqID": 0
+  },
+  {
+   "availability": [
+    "Available now"
+   ],
+   "categoryIds": [
+    "games",
+    "nintendo_switch",
+    "nintendo_3ds_family"
+   ],
+   "collectionPriceRange": "Free to start",
+   "contentDescriptors": [
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Animated Blood",
+     "type": "CONTENT_DESCRIPTOR"
+    },
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Fantasy Violence",
+     "type": "CONTENT_DESCRIPTOR"
+    },
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Mild Language",
+     "type": "CONTENT_DESCRIPTOR"
+    }
+   ],
+   "contentRating": {
+    "__typename": "ContentRating",
+    "code": "e10",
+    "label": "Everyone 10+",
+    "isCompilation": false,
+    "requiresAgeGate": false,
+    "system": "ESRB"
+   },
+   "contentRatingCode": "E10",
+   "corePlatforms": [
+    "Nintendo Switch 2"
+   ],
+   "description": null,
+   "exclusive": false,
+   "featuredProduct": false,
+   "franchises": [],
+   "isSalableQty": true,
+   "platform": "Nintendo Switch 2",
+   "platformCode": "NINTENDO_SWITCH_2",
+   "platinumPoints": null,
+   "playModes": null,
+   "price": {
+    "finalPrice": 0,
+    "regPrice": 0,
+    "discounted": false,
+    "salePrice": null,
+    "amountOff": null,
+    "percentOff": null
+   },
+   "priceRange": "Free to start",
+   "productImage": "store/software/switch2/70050000061852/0ad40403ebb3759c545de9704626846967933fedb12565016ef5bb4b31b7791c",
+   "productGallery": [
+    {
+     "publicId": "store/software/switch2/70050000061852/0a2182795ad66d624480d02a256dd175bab55d4b6edb9efffafeefea3874def7",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000061852/d890b91c76f78031bd09f5ef598c2879a882f3db46756c3942559224dd5ae997",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000061852/6f8a1c5ad24373391019d1926ffee093a9b535689943dd0b0a83c5b2a7387f4b",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000061852/66fa053c1e9b6e068556d73469acab78a630856a766a818752121e78cea8507f",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000061852/d9b139de3518b79e04fdccb564ba8616fcbdcee7430d0fcab6577c22096979ea",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000061852/9b4baa4f632ba3ddcab7ea9c68da2ccbbb7fcbef60419efc2d284957c399bea0",
+     "resourceType": "image"
+    }
+   ],
+   "releaseDate": "2025-09-04T00:00:00.000Z",
+   "releaseDateDisplay": null,
+   "sku": "7500061852",
+   "stockStatus": "IN_STOCK",
+   "title": "Hollow Knight: Silksong – Nintendo Switch 2 Edition upgrade pack",
+   "titleKey": "hollow-knight-silksong-nintendo-switch-2-edition-upgrade-pack-nintendo-switch-2-true",
+   "topLevelCategory": "Games",
+   "topLevelCategoryCode": "GAMES",
+   "topLevelFilters": [
+    "Upgrade pack"
+   ],
+   "hasDlc": false,
+   "url": "/us/store/products/hollow-knight-silksong-nintendo-switch-2-edition-upgrade-pack-switch-2/",
+   "urlKey": "hollow-knight-silksong-nintendo-switch-2-edition-upgrade-pack-switch-2",
+   "visibleInSearch": true,
+   "demoNsuid": null,
+   "dlcType": null,
+   "editions": [
+    "Digital",
+    "Upgrade pack"
+   ],
+   "eshopDetails": {
+    "__typename": "EshopDetails",
+    "productType": "ADD_ON_CONTENT",
+    "isPreorderable": false,
+    "isPurchasable": true,
+    "regularPrice": 0,
+    "discountPrice": null,
+    "discountPriceStart": null,
+    "discountPriceEnd": null,
+    "discountPriceEndTimestamp": null,
+    "goldPointOfferType": null,
+    "goldPointOfferValue": null,
+    "goldPoints": 0,
+    "baseGoldPoints": 0,
+    "currency": "USD"
+   },
+   "productImageSquare": null,
+   "gameGenres": [],
+   "gameGenreLabels": [],
+   "gameFeatures": [],
+   "gameFeatureLabels": [],
+   "isUpgrade": true,
+   "nsoFeatures": [],
+   "nsuid": "70050000061852",
+   "softwareDeveloper": null,
+   "softwarePublisher": "Team Cherry",
+   "waysToPlay": [],
+   "waysToPlayLabels": [],
+   "collectionPriceRangeFilter": [
+    "Free to start",
+    "$0 - $9.99"
+   ],
+   "priceRangeFilter": [
+    "Free to start",
+    "$0 - $4.99"
+   ],
+   "productType": [
+    "Games"
+   ],
+   "nsoFeaturesFilter": [],
+   "popularityRank": null,
+   "trendingRank": null,
+   "notBadScore": null,
+   "objectID": "7500061852",
+   "_distinctSeqID": 0
+  },
+  {
+   "availability": [
+    "Available now"
+   ],
+   "categoryIds": [
+    "games",
+    "nintendo_switch",
+    "nintendo_3ds_family"
+   ],
+   "collectionPriceRange": "$0 - $9.99",
+   "contentDescriptors": [
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Violence",
+     "type": "CONTENT_DESCRIPTOR"
+    }
+   ],
+   "contentRating": {
+    "__typename": "ContentRating",
+    "code": "t",
+    "label": "Teen",
+    "isCompilation": false,
+    "requiresAgeGate": false,
+    "system": "ESRB"
+   },
+   "contentRatingCode": "T",
+   "corePlatforms": [
+    "Nintendo Switch"
+   ],
+   "description": null,
+   "exclusive": false,
+   "featuredProduct": false,
+   "franchises": [],
+   "isSalableQty": true,
+   "platform": "Nintendo Switch",
+   "platformCode": "NINTENDO_SWITCH",
+   "platinumPoints": null,
+   "playerCount": "Single player",
+   "playModes": [
+    "TV mode",
+    "Tabletop mode",
+    "Handheld mode"
+   ],
+   "price": {
+    "finalPrice": 7.99,
+    "regPrice": 7.99,
+    "discounted": false,
+    "salePrice": null,
+    "amountOff": null,
+    "percentOff": null
+   },
+   "priceRange": "$5 - $9.99",
+   "productImage": "store/software/switch/70010000059981/d225bca0388b4698338b76e08f0c7e9c925c1daaa1438f5bb74cdfd341ac6e2d",
+   "productGallery": [
+    {
+     "publicId": "store/software/switch/70010000059981/27456c0f8de95c00d2fd278848f2a6941740672f49cd143a21343396f43c63d3",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch/70010000059981/945ab514c534c31f89c67a0b1a740f5db21a4c78e9911812e27a041c1550b271",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch/70010000059981/969c257f224a27567df811c2e6ba4bb6e9badc4d33a9783e842449c527f56cd4",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch/70010000059981/c200ab46a9a958523b3499c5e8227a32497dd32aac95a176a50a28386a9e5e7b",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch/70010000059981/04e2760d5baa334f7761a82bc1dffc57d611060a88981b75b4db0ac04425b9e0",
+     "resourceType": "image"
+    }
+   ],
+   "releaseDate": "2023-01-05T00:00:00.000Z",
+   "releaseDateDisplay": null,
+   "sku": "7100059981",
+   "stockStatus": "IN_STOCK",
+   "title": "Hollow World: Dark Knight",
+   "titleKey": "hollow-world-dark-knight-nintendo-switch-false",
+   "topLevelCategory": "Games",
+   "topLevelCategoryCode": "GAMES",
+   "topLevelFilters": [],
+   "hasDlc": false,
+   "url": "/us/store/products/hollow-world-dark-knight-switch/",
+   "urlKey": "hollow-world-dark-knight-switch",
+   "visibleInSearch": true,
+   "demoNsuid": null,
+   "dlcType": null,
+   "editions": [
+    "Digital"
+   ],
+   "eshopDetails": {
+    "__typename": "EshopDetails",
+    "productType": "TITLE",
+    "isPreorderable": false,
+    "isPurchasable": true,
+    "regularPrice": 7.99,
+    "discountPrice": null,
+    "discountPriceStart": null,
+    "discountPriceEnd": null,
+    "discountPriceEndTimestamp": null,
+    "goldPointOfferType": null,
+    "goldPointOfferValue": null,
+    "goldPoints": 0,
+    "baseGoldPoints": 0,
+    "currency": "USD"
+   },
+   "productImageSquare": "https://assets.nintendo.com/image/fetch/q_auto/f_auto/https://atum-img-lp1.cdn.nintendo.net/i/c/3ab5408ffbda4cd2885a1da7f283c114_1024",
+   "gameGenreLabels": [
+    "Action"
+   ],
+   "gameFeatureLabels": [
+    "Choose your difficulty",
+    "Raise your stats"
+   ],
+   "isUpgrade": false,
+   "nsoFeatures": [
+    "Save Data Cloud"
+   ],
+   "nsuid": "70010000059981",
+   "softwareDeveloper": "T-Bull S.A.",
+   "softwarePublisher": "T-Bull",
+   "waysToPlayLabels": [],
+   "gameGenres": [
+    {
+     "label": "Action",
+     "code": "ACTION",
+     "combined": "ACTION::Action"
+    }
+   ],
+   "gameFeatures": [
+    {
+     "label": "Choose your difficulty",
+     "code": "DIFFICULTY_LEVEL",
+     "combined": "DIFFICULTY_LEVEL::Choose your difficulty"
+    },
+    {
+     "label": "Raise your stats",
+     "code": "GROWTH",
+     "combined": "GROWTH::Raise your stats"
+    }
+   ],
+   "waysToPlay": [],
+   "collectionPriceRangeFilter": [
+    "$0 - $9.99"
+   ],
+   "priceRangeFilter": [
+    "$5 - $9.99"
+   ],
+   "productType": [
+    "Games"
+   ],
+   "nsoFeaturesFilter": [
+    "Save Data Cloud"
+   ],
+   "popularityRank": null,
+   "trendingRank": null,
+   "notBadScore": 0.425,
+   "objectID": "7100059981",
+   "_distinctSeqID": 0
+  }
+ ],
+ "nbHits": 7,
+ "page": 0,
+ "nbPages": 1,
+ "hitsPerPage": 10,
+ "exhaustiveNbHits": true,
+ "exhaustiveTypo": true,
+ "exhaustive": {
+  "nbHits": true,
+  "typo": true
+ },
+ "query": "Hollow Knight",
+ "params": "query=Hollow+Knight&hitsPerPage=10",
+ "renderingContent": {},
+ "processingTimeMS": 3,
+ "processingTimingsMS": {
+  "_request": {
+   "roundTrip": 84
+  },
+  "extensions": 2,
+  "total": 3
+ },
+ "serverTimeMS": 3
+}

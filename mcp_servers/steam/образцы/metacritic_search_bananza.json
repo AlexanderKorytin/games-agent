@@ -1,0 +1,358 @@
+{
+ "data": {
+  "totalResults": 126,
+  "id": "0f2bcae1-15f3-48c9-dd5e-8b69204a7719",
+  "items": [
+   {
+    "id": 1300679044,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Donkey Kong Bananza",
+    "slug": "donkey-kong-bananza",
+    "images": [
+     {
+      "id": "7-1749338783",
+      "filename": "7-1749338783.jpg",
+      "dateCreated": {
+       "date": null,
+       "timezone": null
+      },
+      "alt": null,
+      "credits": null,
+      "path": null,
+      "cropGravity": null,
+      "crop": null,
+      "caption": null,
+      "typeName": "cardImage",
+      "imageUrl": null,
+      "width": 422,
+      "height": 620,
+      "sType": null,
+      "bucketType": "catalog",
+      "bucketPath": "/provider/7/2/7-1749338783.jpg",
+      "mediaType": null,
+      "provider": "7"
+     }
+    ],
+    "criticScoreSummary": {
+     "url": "/game/donkey-kong-bananza/critic-reviews/",
+     "score": 91
+    },
+    "rating": "E10+",
+    "releaseDate": "2025-07-17",
+    "premiereYear": 2025,
+    "genres": [
+     {
+      "id": null,
+      "name": "3D Platformer"
+     }
+    ],
+    "platforms": [
+     {
+      "id": null,
+      "name": "Nintendo Switch 2"
+     }
+    ],
+    "seasonCount": 0,
+    "description": "The big guy is back—and he’s not alone! Explore a vast underground world with Donkey Kong and Pauline—by smashing your way through it! With DK’s brute force and Pauline’s special singing abilities, you can crash through walls, carve tunnels with your fists, punch straight down into the ground, and even tear off chunks of terrain to swing around and throw in groundbreaking exploration. The more you smash, the more areas open up to explore. Join DK and his companion, Pauline, as they delve deep underground—and discover that this subterranean world is a lot more than it seems on the surface. Uncover a variety of environments such as arid canyons, lush forests, and frigid tundra as you peel back the world’s layers. [Nintendo]",
+    "duration": null,
+    "mustSee": true,
+    "mustWatch": true,
+    "mustPlay": true
+   },
+   {
+    "id": 1300702650,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Donkey Kong Bananza: DK Island & Emerald Rush",
+    "slug": "donkey-kong-bananza-dk-island-and-emerald-rush",
+    "images": [
+     {
+      "id": "7-1757971311",
+      "filename": "7-1757971311.jpg",
+      "dateCreated": {
+       "date": null,
+       "timezone": null
+      },
+      "alt": null,
+      "credits": null,
+      "path": null,
+      "cropGravity": null,
+      "crop": null,
+      "caption": null,
+      "typeName": "cardImage",
+      "imageUrl": null,
+      "width": 385,
+      "height": 574,
+      "sType": null,
+      "bucketType": "catalog",
+      "bucketPath": "/provider/7/2/7-1757971311.jpg",
+      "mediaType": null,
+      "provider": "7"
+     }
+    ],
+    "criticScoreSummary": {
+     "url": "/game/donkey-kong-bananza-dk-island-and-emerald-rush/critic-reviews/",
+     "score": 67
+    },
+    "rating": "E10+",
+    "releaseDate": "2025-09-12",
+    "premiereYear": 2025,
+    "genres": [
+     {
+      "id": null,
+      "name": "3D Platformer"
+     }
+    ],
+    "platforms": [
+     {
+      "id": null,
+      "name": "Nintendo Switch 2"
+     }
+    ],
+    "seasonCount": 0,
+    "description": "Take a trip to Donkey Kong’s home and try out the new Emerald Rush mode.",
+    "duration": null,
+    "mustSee": false,
+    "mustWatch": false,
+    "mustPlay": false
+   },
+   {
+    "id": 1300185814,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Donkey Kong Country: Tropical Freeze",
+    "slug": "donkey-kong-country-tropical-freeze",
+    "images": [
+     {
+      "id": "6-1-595279-13",
+      "filename": "6-1-595279-13.jpg",
+      "dateCreated": {
+       "date": null,
+       "timezone": null
+      },
+      "alt": null,
+      "credits": null,
+      "path": null,
+      "cropGravity": null,
+      "crop": null,
+      "caption": null,
+      "typeName": "cardImage",
+      "imageUrl": null,
+      "width": 640,
+      "height": 904,
+      "sType": null,
+      "bucketType": "catalog",
+      "bucketPath": "/provider/6/3/6-1-595279-13.jpg",
+      "mediaType": null,
+      "provider": "6"
+     }
+    ],
+    "criticScoreSummary": {
+     "url": "/game/donkey-kong-country-tropical-freeze/critic-reviews/",
+     "score": 83
+    },
+    "rating": "E",
+    "releaseDate": "2014-02-21",
+    "premiereYear": 2014,
+    "genres": [
+     {
+      "id": null,
+      "name": "2D Platformer"
+     }
+    ],
+    "platforms": [
+     {
+      "id": null,
+      "name": "Wii U"
+     },
+     {
+      "id": null,
+      "name": "Nintendo Switch"
+     }
+    ],
+    "seasonCount": 0,
+    "description": "Donkey Kong Country: Tropical Freeze has players help Donkey Kong and his friends get back their home from Vikings. Swing, swim, leap, and barrel-blast your way through tons of eye-popping levels to save DK Island from a permanent freeze.",
+    "duration": null,
+    "mustSee": false,
+    "mustWatch": false,
+    "mustPlay": false
+   },
+   {
+    "id": 1300079135,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Donkey Kong Country Returns",
+    "slug": "donkey-kong-country-returns",
+    "images": [
+     {
+      "id": "6-1-156778-13",
+      "filename": "6-1-156778-13.jpg",
+      "dateCreated": {
+       "date": null,
+       "timezone": null
+      },
+      "alt": null,
+      "credits": null,
+      "path": null,
+      "cropGravity": null,
+      "crop": null,
+      "caption": null,
+      "typeName": "cardImage",
+      "imageUrl": null,
+      "width": 640,
+      "height": 894,
+      "sType": null,
+      "bucketType": "catalog",
+      "bucketPath": "/provider/6/3/6-1-156778-13.jpg",
+      "mediaType": null,
+      "provider": "6"
+     }
+    ],
+    "criticScoreSummary": {
+     "url": "/game/donkey-kong-country-returns/critic-reviews/",
+     "score": 87
+    },
+    "rating": "E",
+    "releaseDate": "2010-11-21",
+    "premiereYear": 2010,
+    "genres": [
+     {
+      "id": null,
+      "name": "2D Platformer"
+     }
+    ],
+    "platforms": [
+     {
+      "id": null,
+      "name": "Wii"
+     },
+     {
+      "id": null,
+      "name": "3DS"
+     }
+    ],
+    "seasonCount": 0,
+    "description": "The latest installment of the Donkey Kong Country series returns.",
+    "duration": null,
+    "mustSee": false,
+    "mustWatch": false,
+    "mustPlay": false
+   },
+   {
+    "id": 1300000321,
+    "type": "game-title",
+    "typeId": 13,
+    "title": "Donkey Kong 64",
+    "slug": "donkey-kong-64",
+    "images": [
+     {
+      "id": "6-1-1173-13",
+      "filename": "6-1-1173-13.jpg",
+      "dateCreated": {
+       "date": null,
+       "timezone": null
+      },
+      "alt": null,
+      "credits": null,
+      "path": null,
+      "cropGravity": null,
+      "crop": null,
+      "caption": null,
+      "typeName": "cardImage",
+      "imageUrl": null,
+      "width": 500,
+      "height": 700,
+      "sType": null,
+      "bucketType": "catalog",
+      "bucketPath": "/provider/6/3/6-1-1173-13.jpg",
+      "mediaType": null,
+      "provider": "6"
+     }
+    ],
+    "criticScoreSummary": {
+     "url": "/game/donkey-kong-64/critic-reviews/",
+     "score": 90
+    },
+    "rating": "E",
+    "releaseDate": "1999-11-24",
+    "premiereYear": 1999,
+    "genres": [
+     {
+      "id": null,
+      "name": "3D Platformer"
+     }
+    ],
+    "platforms": [
+     {
+      "id": null,
+      "name": "Nintendo 64"
+     }
+    ],
+    "seasonCount": 0,
+    "description": "K. Rool has kidnapped the Kongs! Can Donkey Kong rescue his friends, reclaim the Golden Bananas and save his homeland from certain doom? Take out some Kremlings with Chunky's Pineapple Launcher or Lanky's Trombone. Float through the air using Tiny's Ponytail Twirl. Even rocket to the sky with Diddy's Jetbarrel!",
+    "duration": null,
+    "mustSee": false,
+    "mustWatch": false,
+    "mustPlay": false
+   }
+  ]
+ },
+ "links": {
+  "self": {
+   "href": "https://backend.metacritic.com/finder/metacritic/search/donkey%20kong%20bananza/web?mcoTypeId=13&limit=5",
+   "meta": {
+    "pageNum": 1,
+    "count": 5
+   }
+  },
+  "prev": {
+   "href": null,
+   "meta": null
+  },
+  "next": {
+   "href": "https://backend.metacritic.com/finder/metacritic/search/donkey%20kong%20bananza/web?mcoTypeId=13&limit=5&offset=5",
+   "meta": {
+    "pageNum": 2,
+    "count": 5
+   }
+  },
+  "first": {
+   "href": "https://backend.metacritic.com/finder/metacritic/search/donkey%20kong%20bananza/web?mcoTypeId=13&limit=5&offset=0",
+   "meta": {
+    "pageNum": 1,
+    "count": 5
+   }
+  },
+  "last": {
+   "href": "https://backend.metacritic.com/finder/metacritic/search/donkey%20kong%20bananza/web?mcoTypeId=13&limit=5&offset=125",
+   "meta": {
+    "pageNum": 26,
+    "count": 1
+   }
+  },
+  "sortOptions": [
+   {
+    "label": "Relevance",
+    "href": "https://backend.metacritic.com/finder/metacritic/search/donkey%20kong%20bananza/web?mcoTypeId=13&limit=5&sortBy=&offset=0"
+   },
+   {
+    "label": "Popularity",
+    "href": "https://backend.metacritic.com/finder/metacritic/search/donkey%20kong%20bananza/web?mcoTypeId=13&limit=5&sortBy=REVIEW_COUNT&sortDirection=DESC&offset=0"
+   },
+   {
+    "label": "Metascore",
+    "href": "https://backend.metacritic.com/finder/metacritic/search/donkey%20kong%20bananza/web?mcoTypeId=13&limit=5&sortBy=META_SCORE&sortDirection=DESC&offset=0"
+   },
+   {
+    "label": "Newest Release",
+    "href": "https://backend.metacritic.com/finder/metacritic/search/donkey%20kong%20bananza/web?mcoTypeId=13&limit=5&sortBy=RELEASE_DATE&sortDirection=DESC&offset=0"
+   }
+  ]
+ },
+ "meta": {
+  "componentName": null,
+  "componentDisplayName": null,
+  "componentType": null
+ }
+}

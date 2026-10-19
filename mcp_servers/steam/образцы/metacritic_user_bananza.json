@@ -1,0 +1,25 @@
+{
+ "data": {
+  "item": {
+   "id": "1400828426",
+   "max": 10,
+   "score": 8.9,
+   "reviewCount": 3293,
+   "positiveCount": 2848,
+   "neutralCount": 266,
+   "negativeCount": 179,
+   "sentiment": "Generally favorable",
+   "url": "/game/donkey-kong-bananza/user-reviews/?platform=nintendo-switch-2"
+  }
+ },
+ "links": {
+  "self": {
+   "href": "https://backend.metacritic.com/reviews/metacritic/user/games/donkey-kong-bananza/stats/web?platform=nintendo-switch-2"
+  }
+ },
+ "meta": {
+  "componentName": null,
+  "componentDisplayName": null,
+  "componentType": null
+ }
+}

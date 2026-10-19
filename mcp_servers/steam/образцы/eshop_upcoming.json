@@ -1,0 +1,702 @@
+{
+ "hits": [
+  {
+   "availability": [
+    "Pre-order",
+    "Coming soon"
+   ],
+   "categoryIds": [
+    "games",
+    "nintendo_switch",
+    "nintendo_3ds_family"
+   ],
+   "collectionPriceRange": "$40 - $59.99",
+   "contentDescriptors": [
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Mild Violence",
+     "type": "CONTENT_DESCRIPTOR"
+    }
+   ],
+   "contentRating": {
+    "__typename": "ContentRating",
+    "code": "e10",
+    "label": "Everyone 10+",
+    "isCompilation": false,
+    "requiresAgeGate": false,
+    "system": "ESRB"
+   },
+   "contentRatingCode": "E10",
+   "corePlatforms": [
+    "Nintendo Switch 2"
+   ],
+   "description": "Get moving in Nintendo Switch Sports Resort, a Nintendo Switch 2 exclusive. Play 12 motion-control sports including Bowling, Basketball, and Skateboarding.",
+   "exclusive": false,
+   "featuredProduct": true,
+   "franchises": [],
+   "isSalableQty": true,
+   "platform": "Nintendo Switch 2",
+   "platformCode": "NINTENDO_SWITCH_2",
+   "platinumPoints": null,
+   "playerCount": "4+",
+   "playModes": [
+    "TV mode",
+    "Tabletop mode"
+   ],
+   "price": {
+    "finalPrice": 49.99,
+    "regPrice": 49.99,
+    "discounted": false,
+    "salePrice": null,
+    "amountOff": null,
+    "percentOff": null
+   },
+   "priceRange": "$40+",
+   "productImage": "store/software/switch2/70010000125145/60f801a1d48a78691408a9ed7f51d87cb0279dc7419a616950b18b9016d9dbd0",
+   "productGallery": [
+    {
+     "publicId": "/store/software/switch2/70010000125145/Video/845164260059b7c42e127d1063b59df7d6d67010a442d224d88f922a2dbbd0ae",
+     "resourceType": "video"
+    },
+    {
+     "publicId": "/store/software/switch2/70010000125145/Video/659685c2ac0b61fc54fc82d04e498acaab9a01bd4436d4d1cd5320ce0fab1a67",
+     "resourceType": "video"
+    },
+    {
+     "publicId": "store/software/switch2/70010000125145/7ecd230cdcfb4b058c89270bdd84ee6ece79a18b07063bbc470ab2433def082a",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000125145/f4808a077d8fb54d01c340b1da50f110cfed32c3532ab697fc8bc65ad39344eb",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000125145/6cec9f1c1ed2a941e87df3fed64b9447e5beaac202174ca7bb15f3df228f40c0",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000125145/7d2540874f76a43e36c3d622a9a50e93991ce0518f6c5c96516a3507f60743ca",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000125145/37dd3b5f4900b75529746b2bc02499344642bb095f30bab2b33f47552c065354",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000125145/69469bdc23f91366de3fb457f0e28810d507e3b331b52520f31d5bd7c29feb7e",
+     "resourceType": "image"
+    }
+   ],
+   "releaseDate": "2026-10-22T00:00:00.000Z",
+   "releaseDateDisplay": null,
+   "sku": "7100125145",
+   "stockStatus": "IN_STOCK",
+   "title": "Nintendo Switch Sports Resort™",
+   "titleKey": "nintendo-switch-sports-resort-nintendo-switch-2-false",
+   "topLevelCategory": "Games",
+   "topLevelCategoryCode": "GAMES",
+   "topLevelFilters": [],
+   "hasDlc": false,
+   "url": "/us/store/products/nintendo-switch-sports-resort-switch-2/",
+   "urlKey": "nintendo-switch-sports-resort-switch-2",
+   "visibleInSearch": true,
+   "demoNsuid": null,
+   "dlcType": null,
+   "editions": [
+    "Digital",
+    "Physical"
+   ],
+   "eshopDetails": {
+    "__typename": "EshopDetails",
+    "productType": "TITLE",
+    "isPreorderable": true,
+    "isPurchasable": true,
+    "regularPrice": 49.99,
+    "discountPrice": null,
+    "discountPriceStart": null,
+    "discountPriceEnd": null,
+    "discountPriceEndTimestamp": null,
+    "goldPointOfferType": null,
+    "goldPointOfferValue": null,
+    "goldPoints": 0,
+    "baseGoldPoints": 0,
+    "currency": "USD"
+   },
+   "productImageSquare": "https://assets.nintendo.com/image/upload/q_auto/f_auto/store/software/switch2/70010000125145/15eecec6bb8d870e68bdb5b0d87e4473886c945b2454a7d179de6a89ddddb23b",
+   "gameGenres": [
+    {
+     "label": "Action",
+     "code": "ACTION",
+     "combined": "ACTION::Action"
+    },
+    {
+     "label": "Party",
+     "code": "PARTY",
+     "combined": "PARTY::Party"
+    },
+    {
+     "label": "Sports",
+     "code": "SPORTS",
+     "combined": "SPORTS::Sports"
+    }
+   ],
+   "gameGenreLabels": [
+    "Action",
+    "Party",
+    "Sports"
+   ],
+   "gameFeatures": [
+    {
+     "label": "Character customization",
+     "code": "CHARACTER_CUSTOMIZE",
+     "combined": "CHARACTER_CUSTOMIZE::Character customization"
+    },
+    {
+     "label": "Choose your difficulty",
+     "code": "DIFFICULTY_LEVEL",
+     "combined": "DIFFICULTY_LEVEL::Choose your difficulty"
+    },
+    {
+     "label": "Free roaming",
+     "code": "RUN_AROUND",
+     "combined": "RUN_AROUND::Free roaming"
+    },
+    {
+     "label": "Motion controls",
+     "code": "MOTION_CONTROL",
+     "combined": "MOTION_CONTROL::Motion controls"
+    },
+    {
+     "label": "Play for a high score",
+     "code": "SCORE_ATTACK",
+     "combined": "SCORE_ATTACK::Play for a high score"
+    }
+   ],
+   "gameFeatureLabels": [
+    "Character customization",
+    "Choose your difficulty",
+    "Free roaming",
+    "Motion controls",
+    "Play for a high score"
+   ],
+   "isUpgrade": false,
+   "nsoFeatures": [
+    "Online Play",
+    "Save Data Cloud"
+   ],
+   "nsuid": "70010000125145",
+   "softwareDeveloper": null,
+   "softwarePublisher": "Nintendo",
+   "waysToPlay": [
+    {
+     "label": "Compete online",
+     "code": "ONLINE_BATTLE",
+     "combined": "ONLINE_BATTLE::Compete online"
+    },
+    {
+     "label": "Meet up and play together",
+     "code": "FRIENDS_FAMILY",
+     "combined": "FRIENDS_FAMILY::Meet up and play together"
+    },
+    {
+     "label": "Play online with friends",
+     "code": "FRIEND_MATCHING",
+     "combined": "FRIEND_MATCHING::Play online with friends"
+    },
+    {
+     "label": "Play together on one console",
+     "code": "SHARING",
+     "combined": "SHARING::Play together on one console"
+    }
+   ],
+   "waysToPlayLabels": [
+    "Compete online",
+    "Meet up and play together",
+    "Play online with friends",
+    "Play together on one console"
+   ],
+   "collectionPriceRangeFilter": [
+    "$40 - $59.99"
+   ],
+   "priceRangeFilter": [
+    "$40+"
+   ],
+   "productType": [
+    "Games"
+   ],
+   "nsoFeaturesFilter": [
+    "Online Play",
+    "Save Data Cloud"
+   ],
+   "popularityRank": 233,
+   "trendingRank": 7,
+   "notBadScore": null,
+   "_collections": [
+    "Coming soon games",
+    "Sports Games"
+   ],
+   "objectID": "7100125145",
+   "_distinctSeqID": 0
+  },
+  {
+   "availability": [
+    "Coming soon"
+   ],
+   "categoryIds": [
+    "games",
+    "nintendo_switch",
+    "nintendo_3ds_family"
+   ],
+   "collectionPriceRange": null,
+   "collectionPriceRangeFilter": [],
+   "contentDescriptors": [
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Fantasy Violence",
+     "type": "CONTENT_DESCRIPTOR"
+    }
+   ],
+   "contentRating": {
+    "__typename": "ContentRating",
+    "code": "e10",
+    "label": "Everyone 10+",
+    "isCompilation": false,
+    "requiresAgeGate": false,
+    "system": "ESRB"
+   },
+   "contentRatingCode": "E10",
+   "corePlatforms": [
+    "Nintendo Switch 2"
+   ],
+   "description": null,
+   "exclusive": false,
+   "featuredProduct": true,
+   "franchises": [],
+   "isSalableQty": true,
+   "platform": "Nintendo Switch 2",
+   "platformCode": "NINTENDO_SWITCH_2",
+   "platinumPoints": null,
+   "playModes": null,
+   "price": {
+    "finalPrice": null,
+    "regPrice": null,
+    "discounted": null,
+    "salePrice": null,
+    "amountOff": null,
+    "percentOff": null
+   },
+   "priceRange": null,
+   "priceRangeFilter": [],
+   "productImage": "store/software/switch2/70010000135065/fe13a7b668404d0b6d22b7487db300ec877e75ac158e1b94c48518c1e41d90d9",
+   "productGallery": [
+    {
+     "publicId": "/store/software/switch2/70010000135065/Video/1666bbe757aaac6386110ff94ff7ef78e895fb0340a6072e3458024e9152766a",
+     "resourceType": "video"
+    },
+    {
+     "publicId": "store/software/switch2/70010000135065/2da8d23eca0294229f8cc50efce398891ff864ab05143fcd198b2185b70bc322",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000135065/f4e6b920b83b04f2c0afdcebc689362af0ab2fd5c90cc8058ff78df5215317af",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000135065/c0a4e64c4194dc040c3a3ba89078ce5c297c2b3e23610ee64e20761e084aaf70",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000135065/4f0586f002057bc22b5e7d0ad3ccab1f9c8b6d626ccf365b3310f902cc0e4ef4",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000135065/7e6ce823405fa80dfb6832ac77ae42445680f6569bcd7ed88badf5678e058b32",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000135065/c7f5309e87968509fb048b38d2b716326aa14f7e5ef6c2aae0769dd81e9e0bb9",
+     "resourceType": "image"
+    }
+   ],
+   "productType": [
+    "Games"
+   ],
+   "releaseDate": "2027-12-31T00:00:00.000Z",
+   "releaseDateDisplay": "2027",
+   "sku": "7100135065",
+   "stockStatus": "IN_STOCK",
+   "title": "Kirby™ and the World Beyond",
+   "titleKey": "kirby-and-the-world-beyond-nintendo-switch-2-false",
+   "topLevelCategory": "Games",
+   "topLevelCategoryCode": "GAMES",
+   "topLevelFilters": [],
+   "hasDlc": false,
+   "url": "/us/store/products/kirby-and-the-world-beyond-switch-2/",
+   "urlKey": "kirby-and-the-world-beyond-switch-2",
+   "visibleInSearch": true,
+   "demoNsuid": null,
+   "dlcType": null,
+   "editions": [
+    "Digital"
+   ],
+   "eshopDetails": {
+    "__typename": "EshopDetails",
+    "productType": "TITLE",
+    "isPreorderable": false,
+    "isPurchasable": false,
+    "regularPrice": null,
+    "discountPrice": null,
+    "discountPriceStart": null,
+    "discountPriceEnd": null,
+    "discountPriceEndTimestamp": null,
+    "goldPointOfferType": null,
+    "goldPointOfferValue": null,
+    "goldPoints": null,
+    "baseGoldPoints": null,
+    "currency": null
+   },
+   "productImageSquare": "https://assets.nintendo.com/image/upload/q_auto/f_auto/store/software/switch2/70010000135065/88ada6e0faac29ac9f28684ca24e83cacfaf4be8ab1f7b09e7e0338134658c85",
+   "gameGenres": [],
+   "gameGenreLabels": [],
+   "gameFeatures": [],
+   "gameFeatureLabels": [],
+   "isUpgrade": false,
+   "nsoFeatures": [],
+   "nsoFeaturesFilter": [],
+   "nsuid": "70010000135065",
+   "popularityRank": null,
+   "trendingRank": null,
+   "notBadScore": null,
+   "softwareDeveloper": null,
+   "softwarePublisher": "Nintendo",
+   "waysToPlay": [],
+   "waysToPlayLabels": [],
+   "_collections": [
+    "Coming soon games"
+   ],
+   "objectID": "7100135065",
+   "_distinctSeqID": 0
+  },
+  {
+   "availability": [
+    "Pre-order",
+    "Coming soon"
+   ],
+   "categoryIds": [
+    "games",
+    "nintendo_switch",
+    "nintendo_3ds_family"
+   ],
+   "collectionPriceRange": "$0 - $9.99",
+   "collectionPriceRangeFilter": [
+    "$0 - $9.99"
+   ],
+   "contentDescriptors": [
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Mild Fantasy Violence",
+     "type": "CONTENT_DESCRIPTOR"
+    },
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Users Interact",
+     "type": "INTERACTIVE_ELEMENT"
+    }
+   ],
+   "contentRating": {
+    "__typename": "ContentRating",
+    "code": "e",
+    "label": "Everyone",
+    "isCompilation": false,
+    "requiresAgeGate": false,
+    "system": "ESRB"
+   },
+   "contentRatingCode": "E",
+   "corePlatforms": [
+    "Nintendo Switch 2"
+   ],
+   "description": null,
+   "exclusive": false,
+   "featuredProduct": false,
+   "franchises": [],
+   "isSalableQty": true,
+   "platform": "Nintendo Switch 2",
+   "platformCode": "NINTENDO_SWITCH_2",
+   "platinumPoints": null,
+   "playModes": null,
+   "price": {
+    "finalPrice": 3.99,
+    "regPrice": 3.99,
+    "discounted": false,
+    "salePrice": null,
+    "amountOff": null,
+    "percentOff": null
+   },
+   "priceRange": "$0 - $4.99",
+   "priceRangeFilter": [
+    "$0 - $4.99"
+   ],
+   "productImage": "store/software/switch2/70050000082105/9356251c216cde2b87d1ae9be9cbd9ada89212d926590a463a798ac478d2d212",
+   "productGallery": [
+    {
+     "publicId": "store/software/switch2/70050000082105/e0b807a24c6cf53f97433b541e947e3d5a371b145b6db11d8d4a6403c26fd7fe",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000082105/5c131da6eaeba2976a9bd7209ad29fe98b4978eecc2110d2aa3b53f199a3f006",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000082105/94bdfe62b5ed1bb2fdfd8f5f844ac26ccf98325912e5bab227dee19c203fa733",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000082105/e714d7836b1bf4215fcb5c781b8e4be5ca2849541b186d1b086c0fe8dd5fdcb1",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000082105/aa4edba9dce76c87805a30d94221dd48450ed4599a6ed53b2058e353e8b9ad56",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000082105/642285f2a401055b41dd744c0e41cddf13872c77e20c6477fd26e89031783963",
+     "resourceType": "image"
+    }
+   ],
+   "productType": [
+    "Games"
+   ],
+   "releaseDate": "2026-10-21T00:00:00.000Z",
+   "releaseDateDisplay": null,
+   "sku": "7500082105",
+   "stockStatus": "IN_STOCK",
+   "title": "holoVillage DLC - hololive Summer Swimsuit Set",
+   "titleKey": "holovillage-dlc-hololive-summer-swimsuit-set-nintendo-switch-2-false",
+   "topLevelCategory": "Games",
+   "topLevelCategoryCode": "GAMES",
+   "topLevelFilters": [
+    "DLC"
+   ],
+   "hasDlc": true,
+   "url": "/us/store/products/holovillage-dlc-hololive-summer-swimsuit-set-70050000082105-switch-2/",
+   "urlKey": "holovillage-dlc-hololive-summer-swimsuit-set-70050000082105-switch-2",
+   "visibleInSearch": true,
+   "demoNsuid": null,
+   "dlcType": "Individual",
+   "editions": [
+    "Digital",
+    "DLC"
+   ],
+   "eshopDetails": {
+    "__typename": "EshopDetails",
+    "productType": "ADD_ON_CONTENT",
+    "isPreorderable": true,
+    "isPurchasable": true,
+    "regularPrice": 3.99,
+    "discountPrice": null,
+    "discountPriceStart": null,
+    "discountPriceEnd": null,
+    "discountPriceEndTimestamp": null,
+    "goldPointOfferType": null,
+    "goldPointOfferValue": null,
+    "goldPoints": 0,
+    "baseGoldPoints": 0,
+    "currency": "USD"
+   },
+   "productImageSquare": null,
+   "gameGenres": [],
+   "gameGenreLabels": [],
+   "gameFeatures": [],
+   "gameFeatureLabels": [],
+   "isUpgrade": false,
+   "nsoFeatures": [],
+   "nsoFeaturesFilter": [],
+   "nsuid": "70050000082105",
+   "popularityRank": null,
+   "trendingRank": null,
+   "notBadScore": null,
+   "softwareDeveloper": null,
+   "softwarePublisher": "CCMC",
+   "waysToPlay": [],
+   "waysToPlayLabels": [],
+   "objectID": "7500082105",
+   "_distinctSeqID": 0
+  },
+  {
+   "availability": [
+    "Pre-order",
+    "Coming soon"
+   ],
+   "categoryIds": [
+    "games",
+    "nintendo_switch",
+    "nintendo_3ds_family"
+   ],
+   "collectionPriceRange": "$0 - $9.99",
+   "collectionPriceRangeFilter": [
+    "$0 - $9.99"
+   ],
+   "contentDescriptors": [
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Comic Mischief",
+     "type": "CONTENT_DESCRIPTOR"
+    },
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Fantasy Violence",
+     "type": "CONTENT_DESCRIPTOR"
+    }
+   ],
+   "contentRating": {
+    "__typename": "ContentRating",
+    "code": "e10",
+    "label": "Everyone 10+",
+    "isCompilation": false,
+    "requiresAgeGate": false,
+    "system": "ESRB"
+   },
+   "contentRatingCode": "E10",
+   "corePlatforms": [
+    "Nintendo Switch 2"
+   ],
+   "description": null,
+   "exclusive": false,
+   "featuredProduct": true,
+   "franchises": [],
+   "isSalableQty": true,
+   "platform": "Nintendo Switch 2",
+   "platformCode": "NINTENDO_SWITCH_2",
+   "platinumPoints": null,
+   "playModes": null,
+   "price": {
+    "finalPrice": 9.99,
+    "regPrice": 9.99,
+    "discounted": false,
+    "salePrice": null,
+    "amountOff": null,
+    "percentOff": null
+   },
+   "priceRange": "$5 - $9.99",
+   "priceRangeFilter": [
+    "$5 - $9.99"
+   ],
+   "productImage": "store/software/switch2/70050000081248/c5687664c64e87149d31ca6fadc0a3bfe97540316d06ac5aa3ea45b55fc1bf58",
+   "productGallery": [
+    {
+     "publicId": "/store/software/switch2/70050000081248/Video/a18500e2716b434e50abc5b4cf09c2c897d8bc8a3e080dd84bf68c7f9728a9bb",
+     "resourceType": "video"
+    },
+    {
+     "publicId": "store/software/switch2/70050000081248/137df644ef89884c55808e4a001c3716974afb8c6783fc82d7886722752017e8",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000081248/c0ae5f0edf442120a640cf44272860ec98b19c68d1453935729b22c5b250a80d",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000081248/04326c511d4cd6428ab0fdd61157de38aaef79d0b8d2cb43e99b61c1c672d933",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000081248/b996acba5b80be38b8764c3be9ee88395a2589a9a74662f1f80a1ea6605c4fc4",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000081248/e9872285522859caecbef7ab0ede2ea20d0c57602ac0ca9a0ce52958d09d90c9",
+     "resourceType": "image"
+    }
+   ],
+   "productType": [
+    "Games"
+   ],
+   "releaseDate": "2026-11-12T00:00:00.000Z",
+   "releaseDateDisplay": null,
+   "sku": "7500081248",
+   "stockStatus": "IN_STOCK",
+   "title": "Pikmin™ 4 – Nintendo Switch™ 2 Edition + Dandori Academy Upgrade Pack",
+   "titleKey": "pikmin-4-nintendo-switch-2-edition-dandori-academy-upgrade-pack-nintendo-switch-2-true",
+   "topLevelCategory": "Games",
+   "topLevelCategoryCode": "GAMES",
+   "topLevelFilters": [
+    "Upgrade pack"
+   ],
+   "hasDlc": false,
+   "url": "/us/store/products/pikmin-4-nintendo-switch-2-edition-plus-dandori-academy-upgrade-pack-switch-2/",
+   "urlKey": "pikmin-4-nintendo-switch-2-edition-plus-dandori-academy-upgrade-pack-switch-2",
+   "visibleInSearch": true,
+   "demoNsuid": null,
+   "dlcType": null,
+   "editions": [
+    "Digital",
+    "Physical",
+    "Upgrade pack"
+   ],
+   "eshopDetails": {
+    "__typename": "EshopDetails",
+    "productType": "ADD_ON_CONTENT",
+    "isPreorderable": true,
+    "isPurchasable": true,
+    "regularPrice": 9.99,
+    "discountPrice": null,
+    "discountPriceStart": null,
+    "discountPriceEnd": null,
+    "discountPriceEndTimestamp": null,
+    "goldPointOfferType": null,
+    "goldPointOfferValue": null,
+    "goldPoints": 0,
+    "baseGoldPoints": 0,
+    "currency": "USD"
+   },
+   "productImageSquare": null,
+   "gameGenres": [],
+   "gameGenreLabels": [],
+   "gameFeatures": [],
+   "gameFeatureLabels": [],
+   "isUpgrade": true,
+   "nsoFeatures": [],
+   "nsoFeaturesFilter": [],
+   "nsuid": "70050000081248",
+   "popularityRank": null,
+   "trendingRank": null,
+   "notBadScore": null,
+   "softwareDeveloper": null,
+   "softwarePublisher": "Nintendo",
+   "waysToPlay": [],
+   "waysToPlayLabels": [],
+   "_collections": [
+    "Coming soon games"
+   ],
+   "objectID": "7500081248",
+   "_distinctSeqID": 0
+  }
+ ],
+ "nbHits": 356,
+ "page": 0,
+ "nbPages": 1,
+ "hitsPerPage": 400,
+ "exhaustiveNbHits": true,
+ "exhaustiveTypo": true,
+ "exhaustive": {
+  "nbHits": true,
+  "typo": true
+ },
+ "query": "",
+ "params": "hitsPerPage=400&filters=topLevelCategory%3A%22Games%22+AND+%28availability%3A%22Coming+soon%22+OR+availability%3A%22Pre-order%22%29&optionalFilters=%5B%22softwarePublisher%3ANintendo%3Cscore%3D200%3E%22%2C%22editions%3A-DLC%3Cscore%3D500%3E%22%5D",
+ "renderingContent": {},
+ "processingTimeMS": 2,
+ "processingTimingsMS": {
+  "_request": {
+   "roundTrip": 88
+  },
+  "afterFetch": {
+   "format": {
+    "total": 9
+   }
+  },
+  "extensions": 1,
+  "total": 3
+ },
+ "serverTimeMS": 13
+}

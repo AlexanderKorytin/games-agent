@@ -1,0 +1,99 @@
+{
+ "total": 5,
+ "items": [
+  {
+   "type": "app",
+   "name": "Hollow Knight",
+   "id": 367520,
+   "price": {
+    "currency": "RUB",
+    "initial": 55000,
+    "final": 55000
+   },
+   "tiny_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/fba7289f4c7e90ae9c0caa87e4225f3f9111d7dd/capsule_231x87.jpg?t=1776125684",
+   "metascore": "87",
+   "platforms": {
+    "windows": true,
+    "mac": true,
+    "linux": true
+   },
+   "streamingvideo": false,
+   "controller_support": "full"
+  },
+  {
+   "type": "app",
+   "name": "Hollow Knight: Silksong",
+   "id": 1030300,
+   "price": {
+    "currency": "RUB",
+    "initial": 71000,
+    "final": 71000
+   },
+   "tiny_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030300/b73ec03fbdb9e21e3c59eb7e59966949d0c17f29/capsule_231x87.jpg?t=1776125736",
+   "metascore": "90",
+   "platforms": {
+    "windows": true,
+    "mac": true,
+    "linux": true
+   },
+   "streamingvideo": false,
+   "controller_support": "full"
+  },
+  {
+   "type": "app",
+   "name": "Hollow Knight - Official Soundtrack",
+   "id": 598190,
+   "price": {
+    "currency": "RUB",
+    "initial": 24900,
+    "final": 24900
+   },
+   "tiny_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/598190/capsule_231x87.jpg?t=1581550241",
+   "metascore": "",
+   "platforms": {
+    "windows": true,
+    "mac": true,
+    "linux": true
+   },
+   "streamingvideo": false,
+   "controller_support": "full"
+  },
+  {
+   "type": "app",
+   "name": "Hollow Knight: Silksong - Official Soundtrack",
+   "id": 3928720,
+   "price": {
+    "currency": "RUB",
+    "initial": 46000,
+    "final": 46000
+   },
+   "tiny_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3928720/417c1be792d34dfef62c23cb1f796453c622e760/capsule_231x87.jpg?t=1757298295",
+   "metascore": "",
+   "platforms": {
+    "windows": true,
+    "mac": true,
+    "linux": true
+   },
+   "streamingvideo": false
+  },
+  {
+   "type": "app",
+   "name": "Hollow Knight - Gods & Nightmares",
+   "id": 916000,
+   "price": {
+    "currency": "RUB",
+    "initial": 13300,
+    "final": 13300
+   },
+   "tiny_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/916000/capsule_231x87.jpg?t=1581557931",
+   "metascore": "",
+   "platforms": {
+    "windows": true,
+    "mac": true,
+    "linux": true
+   },
+   "streamingvideo": false,
+   "controller_support": "full"
+  }
+ ]
+}

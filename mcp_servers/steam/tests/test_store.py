@@ -146,6 +146,34 @@ def test_найти_по_названию_адрес():
     assert dict(з.url.params) == {"cc": "ru", "l": "russian", "term": "baldurs gat 3"}
 
 
+def test_ссылка_по_магазину():
+    assert ss.Игра(1086940, "x").ссылка == "https://store.steampowered.com/app/1086940/"
+    адрес = "https://www.nintendo.com/us/store/products/z/"
+    assert ss.Игра(70010000130792, "x", адрес=адрес).ссылка == адрес
+
+
+def test_найти_по_названию_язык():
+    import asyncio
+    запросы = []
+    ответ = образец("steam_storesearch_hollow_knight_en.json")
+    assert ss.разобрать_поиск_по_названию(ответ)[0] == (367520, "Hollow Knight")
+
+    def отвечать(запрос):
+        запросы.append(запрос)
+        return httpx2.Response(200, json=ответ)
+
+    async def прогон():
+        async with httpx2.AsyncClient(base_url=ss.МАГАЗИН, transport=httpx2.MockTransport(отвечать)) as к:
+            найдено = await ss.найти_по_названию(к, "Hollow Knight", язык="english")
+            await ss.найти_по_названию(к, "Hollow Knight")
+            return найдено
+
+    assert asyncio.run(прогон())[0] == (367520, "Hollow Knight")
+    английский, русский = (dict(з.url.params) for з in запросы)
+    assert английский == {"cc": "ru", "l": "english", "term": "Hollow Knight"}
+    assert русский["l"] == "russian"
+
+
 def test_поиск_со_сводкой_отзывов():
     пары = ss.разобрать_поиск_с_отзывами(образец("search_122.json"))
     assert len(пары) == 50 and len({н for н, _ in пары}) == 50
