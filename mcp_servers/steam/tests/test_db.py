@@ -661,3 +661,13 @@ def test_игра_с_парой(с):
     assert запись["пара_цена"] == 1999 and запись["пара_адрес"] == АДРЕС_ESHOP
     запись = db.игра(с, 70010000000002)
     assert запись["магазины"] == ["eshop"] and запись["пара"] is None
+
+
+def test_выключатель_eshop(с):
+    assert db.eshop_включён(с) is True
+    db.включить_eshop(с, False)
+    assert db.eshop_включён(с) is False
+    assert db.отметка(с, "eshop") == "выкл"
+    db.включить_eshop(с, True)
+    assert db.eshop_включён(с) is True
+    assert db.отметка(с, "eshop") == "вкл"

@@ -799,13 +799,18 @@ def календарь_ics(записи: list[dict[str, Any]], сейчас: dat
         if not з.get("дата"):
             continue
         день = date.fromisoformat(з["дата"])
+        # UID Steam прежний (`steam-N`): подписка не задвоит уже известные события.
+        магазин = з.get("магазин") or "steam"
+        имя = з.get("имя") or str(з["номер"])
+        if з.get("магазины") == ["eshop"]:
+            имя += " (Switch)"
         строки += [
             "BEGIN:VEVENT",
-            f"UID:steam-{з['номер']}@games-agent",
+            f"UID:{магазин}-{з['номер']}@games-agent",
             f"DTSTAMP:{штамп}",
             f"DTSTART;VALUE=DATE:{день:%Y%m%d}",
             f"DTEND;VALUE=DATE:{день + timedelta(days=1):%Y%m%d}",
-            f"SUMMARY:{_ics_текст('Выход: ' + (з.get('имя') or str(з['номер'])))}",
+            f"SUMMARY:{_ics_текст('Выход: ' + имя)}",
             f"DESCRIPTION:{_ics_текст((з.get('причина') or '') + ' ' + з['ссылка'])}",
             f"URL:{з['ссылка']}",
             "END:VEVENT",

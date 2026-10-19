@@ -54,6 +54,25 @@ def test_ics_событие_на_дату_и_без_даты_нет():
     assert "DTSTART;VALUE=DATE:20270304" in текст and "SUMMARY:Выход: Игра\\, с запятой" in текст
 
 
+def test_ics_событие_по_магазину():
+    адрес_eshop = "https://www.nintendo.com/us/store/products/igra-switch/"
+    записи = [
+        {"номер": 70010000130792, "магазин": "eshop", "магазины": ["eshop"], "имя": "Игра",
+         "дата": "2027-03-04", "причина": "", "ссылка": адрес_eshop},
+        {"номер": 5, "магазин": "steam", "магазины": ["steam"], "имя": "Стим",
+         "дата": "2027-03-05", "причина": "", "ссылка": "https://store.steampowered.com/app/5/"},
+        {"номер": 70010000000001, "магазин": "eshop", "магазины": ["steam", "eshop"],
+         "имя": "Парная", "дата": "2027-03-06", "причина": "", "ссылка": "https://example/p"},
+    ]
+    текст = web.календарь_ics(записи, datetime(2026, 10, 16, tzinfo=timezone.utc))
+    assert "UID:eshop-70010000130792@games-agent" in текст
+    assert f"URL:{адрес_eshop}" in текст and "SUMMARY:Выход: Игра (Switch)" in текст
+    assert "UID:steam-5@games-agent" in текст
+    assert "SUMMARY:Выход: Стим\r\n" in текст and "Стим (Switch)" not in текст
+    assert "UID:eshop-70010000000001@games-agent" in текст
+    assert "SUMMARY:Выход: Парная\r\n" in текст and "Парная (Switch)" not in текст
+
+
 def test_порядок_по_оценке_и_плюс(клиент):
     с = games_db.открыть()
     for н, доля in ((5, 0.6), (6, 0.97)):
