@@ -1,0 +1,723 @@
+{
+ "hits": [
+  {
+   "availability": [
+    "Reserva",
+    "Próximos lanzamientos"
+   ],
+   "categoryIds": [
+    "games",
+    "nintendo_switch",
+    "nintendo_3ds_family"
+   ],
+   "collectionPriceRange": "$780 - $1,299.99",
+   "contentDescriptors": [
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Violencia moderada",
+     "type": "CONTENT_DESCRIPTOR"
+    }
+   ],
+   "contentRating": {
+    "__typename": "ContentRating",
+    "code": "b",
+    "label": "+12 Años",
+    "isCompilation": false,
+    "requiresAgeGate": false,
+    "system": "SMEC"
+   },
+   "contentRatingCode": "B",
+   "corePlatforms": [
+    "Nintendo Switch 2"
+   ],
+   "description": "Get moving in Nintendo Switch Sports Resort, a Nintendo Switch 2 exclusive. Play 12 motion-control sports including Bowling, Basketball, and Skateboarding.",
+   "exclusive": false,
+   "featuredProduct": true,
+   "franchises": [],
+   "isSalableQty": true,
+   "platform": "Nintendo Switch 2",
+   "platformCode": "NINTENDO_SWITCH_2",
+   "platinumPoints": null,
+   "playerCount": "4+",
+   "playModes": [
+    "TV mode",
+    "Tabletop mode"
+   ],
+   "price": {
+    "finalPrice": 1029,
+    "regPrice": 1029,
+    "discounted": false,
+    "salePrice": null,
+    "amountOff": null,
+    "percentOff": null
+   },
+   "priceRange": "$780 - $1,299.99",
+   "productImage": "store/software/switch2/70010000125145/60f801a1d48a78691408a9ed7f51d87cb0279dc7419a616950b18b9016d9dbd0",
+   "productGallery": [
+    {
+     "publicId": "/store/software/switch2/70010000125145/Video/845164260059b7c42e127d1063b59df7d6d67010a442d224d88f922a2dbbd0ae",
+     "resourceType": "video"
+    },
+    {
+     "publicId": "/store/software/switch2/70010000125145/Video/659685c2ac0b61fc54fc82d04e498acaab9a01bd4436d4d1cd5320ce0fab1a67",
+     "resourceType": "video"
+    },
+    {
+     "publicId": "store/software/switch2/70010000125145/7ecd230cdcfb4b058c89270bdd84ee6ece79a18b07063bbc470ab2433def082a",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000125145/f4808a077d8fb54d01c340b1da50f110cfed32c3532ab697fc8bc65ad39344eb",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000125145/6cec9f1c1ed2a941e87df3fed64b9447e5beaac202174ca7bb15f3df228f40c0",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000125145/7d2540874f76a43e36c3d622a9a50e93991ce0518f6c5c96516a3507f60743ca",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000125145/37dd3b5f4900b75529746b2bc02499344642bb095f30bab2b33f47552c065354",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000125145/69469bdc23f91366de3fb457f0e28810d507e3b331b52520f31d5bd7c29feb7e",
+     "resourceType": "image"
+    }
+   ],
+   "releaseDate": "2026-10-22T00:00:00.000Z",
+   "releaseDateDisplay": null,
+   "sku": "7100125145",
+   "stockStatus": "IN_STOCK",
+   "title": "Nintendo Switch Sports Resort™",
+   "titleKey": "nintendo-switch-sports-resort-nintendo-switch-2-false",
+   "topLevelCategory": "Juegos",
+   "topLevelCategoryCode": "GAMES",
+   "topLevelFilters": [],
+   "hasDlc": false,
+   "url": "/es-mx/store/products/nintendo-switch-sports-resort-switch-2/",
+   "urlKey": "nintendo-switch-sports-resort-switch-2",
+   "visibleInSearch": true,
+   "demoNsuid": null,
+   "dlcType": null,
+   "editions": [
+    "Digital"
+   ],
+   "eshopDetails": {
+    "__typename": "EshopDetails",
+    "productType": "TITLE",
+    "isPreorderable": true,
+    "isPurchasable": true,
+    "regularPrice": 1029,
+    "discountPrice": null,
+    "discountPriceStart": null,
+    "discountPriceEnd": null,
+    "discountPriceEndTimestamp": null,
+    "goldPointOfferType": null,
+    "goldPointOfferValue": null,
+    "goldPoints": 0,
+    "baseGoldPoints": 0,
+    "currency": "MXN"
+   },
+   "productImageSquare": "https://assets.nintendo.com/image/upload/q_auto/f_auto/store/software/switch2/70010000125145/15eecec6bb8d870e68bdb5b0d87e4473886c945b2454a7d179de6a89ddddb23b",
+   "gameGenres": [
+    {
+     "label": "Acción",
+     "code": "ACTION",
+     "combined": "ACTION::Acción"
+    },
+    {
+     "label": "Deportes",
+     "code": "SPORTS",
+     "combined": "SPORTS::Deportes"
+    },
+    {
+     "label": "Fiesta",
+     "code": "PARTY",
+     "combined": "PARTY::Fiesta"
+    }
+   ],
+   "gameGenreLabels": [
+    "Acción",
+    "Deportes",
+    "Fiesta"
+   ],
+   "gameFeatures": [
+    {
+     "label": "Controles por movimiento",
+     "code": "MOTION_CONTROL",
+     "combined": "MOTION_CONTROL::Controles por movimiento"
+    },
+    {
+     "label": "Elige el nivel de dificultad",
+     "code": "DIFFICULTY_LEVEL",
+     "combined": "DIFFICULTY_LEVEL::Elige el nivel de dificultad"
+    },
+    {
+     "label": "Libertad de movimiento",
+     "code": "RUN_AROUND",
+     "combined": "RUN_AROUND::Libertad de movimiento"
+    },
+    {
+     "label": "Personajes personalizables",
+     "code": "CHARACTER_CUSTOMIZE",
+     "combined": "CHARACTER_CUSTOMIZE::Personajes personalizables"
+    },
+    {
+     "label": "Rompe récords",
+     "code": "SCORE_ATTACK",
+     "combined": "SCORE_ATTACK::Rompe récords"
+    }
+   ],
+   "gameFeatureLabels": [
+    "Controles por movimiento",
+    "Elige el nivel de dificultad",
+    "Libertad de movimiento",
+    "Personajes personalizables",
+    "Rompe récords"
+   ],
+   "isUpgrade": false,
+   "nsoFeatures": [
+    "Juego en línea",
+    "Guardado de datos en la nube"
+   ],
+   "nsuid": "70010000125145",
+   "softwareDeveloper": null,
+   "softwarePublisher": "Nintendo",
+   "waysToPlay": [
+    {
+     "label": "Compite en línea",
+     "code": "ONLINE_BATTLE",
+     "combined": "ONLINE_BATTLE::Compite en línea"
+    },
+    {
+     "label": "Juega en línea con amigos",
+     "code": "FRIEND_MATCHING",
+     "combined": "FRIEND_MATCHING::Juega en línea con amigos"
+    },
+    {
+     "label": "Juntos en una consola",
+     "code": "SHARING",
+     "combined": "SHARING::Juntos en una consola"
+    },
+    {
+     "label": "Partidas en grupo",
+     "code": "FRIENDS_FAMILY",
+     "combined": "FRIENDS_FAMILY::Partidas en grupo"
+    }
+   ],
+   "waysToPlayLabels": [
+    "Compite en línea",
+    "Juega en línea con amigos",
+    "Juntos en una consola",
+    "Partidas en grupo"
+   ],
+   "collectionPriceRangeFilter": [
+    "$780 - $1,299.99"
+   ],
+   "priceRangeFilter": [
+    "$780 - $1,299.99"
+   ],
+   "productType": [
+    "Juegos"
+   ],
+   "nsoFeaturesFilter": [
+    "Juego en línea",
+    "Guardado de datos en la nube"
+   ],
+   "popularityRank": 233,
+   "trendingRank": 7,
+   "notBadScore": null,
+   "_collections": [
+    "Sports Games"
+   ],
+   "objectID": "7100125145"
+  },
+  {
+   "availability": [
+    "Próximos lanzamientos"
+   ],
+   "categoryIds": [
+    "games",
+    "nintendo_switch",
+    "nintendo_3ds_family"
+   ],
+   "collectionPriceRange": null,
+   "collectionPriceRangeFilter": [],
+   "contentDescriptors": [
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Violencia de fantasia",
+     "type": "CONTENT_DESCRIPTOR"
+    }
+   ],
+   "contentRating": {
+    "__typename": "ContentRating",
+    "code": "b",
+    "label": "+12 Años",
+    "isCompilation": false,
+    "requiresAgeGate": false,
+    "system": "SMEC"
+   },
+   "contentRatingCode": "B",
+   "corePlatforms": [
+    "Nintendo Switch 2"
+   ],
+   "description": null,
+   "exclusive": false,
+   "featuredProduct": true,
+   "franchises": [],
+   "isSalableQty": true,
+   "platform": "Nintendo Switch 2",
+   "platformCode": "NINTENDO_SWITCH_2",
+   "platinumPoints": null,
+   "playModes": null,
+   "price": {
+    "finalPrice": null,
+    "regPrice": null,
+    "discounted": null,
+    "salePrice": null,
+    "amountOff": null,
+    "percentOff": null
+   },
+   "priceRange": null,
+   "priceRangeFilter": [],
+   "productImage": "store/software/switch2/70010000135065/fe13a7b668404d0b6d22b7487db300ec877e75ac158e1b94c48518c1e41d90d9",
+   "productGallery": [
+    {
+     "publicId": "/store/software/switch2/70010000135065/Video/1666bbe757aaac6386110ff94ff7ef78e895fb0340a6072e3458024e9152766a",
+     "resourceType": "video"
+    },
+    {
+     "publicId": "store/software/switch2/70010000135065/2da8d23eca0294229f8cc50efce398891ff864ab05143fcd198b2185b70bc322",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000135065/f4e6b920b83b04f2c0afdcebc689362af0ab2fd5c90cc8058ff78df5215317af",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000135065/c0a4e64c4194dc040c3a3ba89078ce5c297c2b3e23610ee64e20761e084aaf70",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000135065/4f0586f002057bc22b5e7d0ad3ccab1f9c8b6d626ccf365b3310f902cc0e4ef4",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000135065/7e6ce823405fa80dfb6832ac77ae42445680f6569bcd7ed88badf5678e058b32",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70010000135065/c7f5309e87968509fb048b38d2b716326aa14f7e5ef6c2aae0769dd81e9e0bb9",
+     "resourceType": "image"
+    }
+   ],
+   "productType": [
+    "Juegos"
+   ],
+   "releaseDate": "2027-12-31T00:00:00.000Z",
+   "releaseDateDisplay": "2027",
+   "sku": "7100135065",
+   "stockStatus": "IN_STOCK",
+   "title": "Kirby™ and the World Beyond",
+   "titleKey": "kirby-and-the-world-beyond-nintendo-switch-2-false",
+   "topLevelCategory": "Juegos",
+   "topLevelCategoryCode": "GAMES",
+   "topLevelFilters": [],
+   "hasDlc": false,
+   "url": "/es-mx/store/products/kirby-and-the-world-beyond-switch-2/",
+   "urlKey": "kirby-and-the-world-beyond-switch-2",
+   "visibleInSearch": true,
+   "demoNsuid": null,
+   "dlcType": null,
+   "editions": [
+    "Digital"
+   ],
+   "eshopDetails": {
+    "__typename": "EshopDetails",
+    "productType": "TITLE",
+    "isPreorderable": false,
+    "isPurchasable": false,
+    "regularPrice": null,
+    "discountPrice": null,
+    "discountPriceStart": null,
+    "discountPriceEnd": null,
+    "discountPriceEndTimestamp": null,
+    "goldPointOfferType": null,
+    "goldPointOfferValue": null,
+    "goldPoints": null,
+    "baseGoldPoints": null,
+    "currency": null
+   },
+   "productImageSquare": "https://assets.nintendo.com/image/upload/q_auto/f_auto/store/software/switch2/70010000135065/88ada6e0faac29ac9f28684ca24e83cacfaf4be8ab1f7b09e7e0338134658c85",
+   "gameGenres": [],
+   "gameGenreLabels": [],
+   "gameFeatures": [],
+   "gameFeatureLabels": [],
+   "isUpgrade": false,
+   "nsoFeatures": [],
+   "nsoFeaturesFilter": [],
+   "nsuid": "70010000135065",
+   "popularityRank": null,
+   "trendingRank": null,
+   "notBadScore": null,
+   "softwareDeveloper": null,
+   "softwarePublisher": "Nintendo",
+   "waysToPlay": [],
+   "waysToPlayLabels": [],
+   "objectID": "7100135065"
+  },
+  {
+   "availability": [
+    "Próximos lanzamientos"
+   ],
+   "categoryIds": [
+    "games",
+    "nintendo_switch",
+    "nintendo_3ds_family"
+   ],
+   "collectionPriceRange": null,
+   "collectionPriceRangeFilter": [],
+   "contentDescriptors": [
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Violencia de fantasia",
+     "type": "CONTENT_DESCRIPTOR"
+    },
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Lenguaje moderado",
+     "type": "CONTENT_DESCRIPTOR"
+    },
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Temas insinuantes",
+     "type": "CONTENT_DESCRIPTOR"
+    },
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Uso de alcohol",
+     "type": "CONTENT_DESCRIPTOR"
+    },
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Compras dentro del juego",
+     "type": "INTERACTIVE_ELEMENT"
+    }
+   ],
+   "contentRating": {
+    "__typename": "ContentRating",
+    "code": "b15",
+    "label": "+15 Años",
+    "isCompilation": false,
+    "requiresAgeGate": false,
+    "system": "SMEC"
+   },
+   "contentRatingCode": "B15",
+   "corePlatforms": [
+    "Nintendo Switch 2"
+   ],
+   "description": null,
+   "exclusive": false,
+   "featuredProduct": true,
+   "franchises": [],
+   "isSalableQty": true,
+   "platform": "Nintendo Switch 2",
+   "platformCode": "NINTENDO_SWITCH_2",
+   "platinumPoints": null,
+   "playModes": null,
+   "price": {
+    "finalPrice": null,
+    "regPrice": null,
+    "discounted": null,
+    "salePrice": null,
+    "amountOff": null,
+    "percentOff": null
+   },
+   "priceRange": null,
+   "priceRangeFilter": [],
+   "productImage": "store/software/switch2/70050000082481/c9a3b41b569ad74af8c834b7de39c00c96bf015863933adfcfc7a45f4978956b",
+   "productGallery": [
+    {
+     "publicId": "store/software/switch2/70050000082481/bd6d5de6e2fd9cf5f937ef5f6e1c2fd7a5faea9a3f2dc9e9e5f6a0e081d3b58f",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000082481/fc70924f86955579cd2809801287b695d0340d704f3182f1551b505dd17f4999",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000082481/36803fde6c6223e4849f309a9eaf4b5d024c800dc07bd4782fe383ef1edfabfa",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000082481/a0c02931aabf368739906064aa24369162795db5d2f6d5f037bba218648f2aae",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000082481/ad4beebf63baaf7375daa2a6e12de219abc4d0fdf200a836b386c11b1523a6ad",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000082481/762a121259921ad17dc968faf046325ba76af62f2e712ada495a5f02099191d3",
+     "resourceType": "image"
+    }
+   ],
+   "productType": [
+    "Juegos"
+   ],
+   "releaseDate": "2027-12-31T00:00:00.000Z",
+   "releaseDateDisplay": null,
+   "sku": "7500082481",
+   "stockStatus": "IN_STOCK",
+   "title": "Oleada 3",
+   "titleKey": "oleada-3-nintendo-switch-2-false",
+   "topLevelCategory": "Juegos",
+   "topLevelCategoryCode": "GAMES",
+   "topLevelFilters": [
+    "Contenido descargable"
+   ],
+   "hasDlc": true,
+   "url": "/es-mx/store/products/wave-3-70050000082481-switch-2/",
+   "urlKey": "wave-3-70050000082481-switch-2",
+   "visibleInSearch": true,
+   "demoNsuid": null,
+   "dlcType": "Individual",
+   "editions": [
+    "Digital",
+    "Contenido descargable"
+   ],
+   "eshopDetails": {
+    "__typename": "EshopDetails",
+    "productType": "ADD_ON_CONTENT",
+    "isPreorderable": false,
+    "isPurchasable": false,
+    "regularPrice": null,
+    "discountPrice": null,
+    "discountPriceStart": null,
+    "discountPriceEnd": null,
+    "discountPriceEndTimestamp": null,
+    "goldPointOfferType": null,
+    "goldPointOfferValue": null,
+    "goldPoints": null,
+    "baseGoldPoints": null,
+    "currency": null
+   },
+   "productImageSquare": null,
+   "gameGenres": [],
+   "gameGenreLabels": [],
+   "gameFeatures": [],
+   "gameFeatureLabels": [],
+   "isUpgrade": false,
+   "nsoFeatures": [],
+   "nsoFeaturesFilter": [],
+   "nsuid": "70050000082481",
+   "popularityRank": null,
+   "trendingRank": null,
+   "notBadScore": null,
+   "softwareDeveloper": null,
+   "softwarePublisher": "Nintendo",
+   "waysToPlay": [],
+   "waysToPlayLabels": [],
+   "objectID": "7500082481"
+  },
+  {
+   "availability": [
+    "Reserva",
+    "Próximos lanzamientos"
+   ],
+   "categoryIds": [
+    "games",
+    "nintendo_switch",
+    "nintendo_3ds_family"
+   ],
+   "collectionPriceRange": "$0.01 - $249.99",
+   "contentDescriptors": [
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Lenguaje",
+     "type": "CONTENT_DESCRIPTOR"
+    },
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Bajo contenido de sangre",
+     "type": "CONTENT_DESCRIPTOR"
+    },
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Temas insinuantes",
+     "type": "CONTENT_DESCRIPTOR"
+    },
+    {
+     "__typename": "ContentDescriptor",
+     "label": "Violencia",
+     "type": "CONTENT_DESCRIPTOR"
+    }
+   ],
+   "contentRating": {
+    "__typename": "ContentRating",
+    "code": "b15",
+    "label": "+15 Años",
+    "isCompilation": false,
+    "requiresAgeGate": false,
+    "system": "SMEC"
+   },
+   "contentRatingCode": "B15",
+   "corePlatforms": [
+    "Nintendo Switch 2"
+   ],
+   "description": null,
+   "exclusive": false,
+   "featuredProduct": true,
+   "franchises": [],
+   "isSalableQty": true,
+   "platform": "Nintendo Switch 2",
+   "platformCode": "NINTENDO_SWITCH_2",
+   "platinumPoints": null,
+   "playModes": null,
+   "price": {
+    "finalPrice": 209,
+    "regPrice": 209,
+    "discounted": false,
+    "salePrice": null,
+    "amountOff": null,
+    "percentOff": null
+   },
+   "priceRange": "$0.01 - $249.99",
+   "productImage": "store/software/switch2/70050000075214/f9c705e8b4990d25cd97239bbf8efc941fdcb39730e6fcb193b72eb3bfe38b73",
+   "productGallery": [
+    {
+     "publicId": "/store/software/switch2/70050000075214/Video/fa96e6046e83762b9927f557e657c536b76798f39ee4507eddb6605fb28be90d",
+     "resourceType": "video"
+    },
+    {
+     "publicId": "/store/software/switch2/70050000075214/Video/e084ac27bf4480d13e9a99814e1360cbcf0e7f14773f5e836cf7926a2d361657",
+     "resourceType": "video"
+    },
+    {
+     "publicId": "store/software/switch2/70050000075214/57b97ed3e356610ac7a1f0e3dfe5993306a7b7cb0e788ade7938eedd39fc8dc1",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000075214/d24e7bc8c30c7d2efd4632871a8f48d5518dbed650962f93ae100bd4b832ddcb",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000075214/11bd4a960fbd70e75250786efe4a593c69ab63cb462b05157f600f15e7f070b1",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000075214/8b022ca2e8db0b26daaae2c3165613591f200299249806c4a5395bd42ea37447",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000075214/631835ad19670ccd97e005b7e28d5a45b5f26b8197f5d473f9d4ed6a15f2cd73",
+     "resourceType": "image"
+    },
+    {
+     "publicId": "store/software/switch2/70050000075214/b77dbb87572dcfeeb73624c6a523e2793fe883a7ea1895deee0890a6fadaff88",
+     "resourceType": "image"
+    }
+   ],
+   "releaseDate": "2026-12-03T00:00:00.000Z",
+   "releaseDateDisplay": null,
+   "sku": "7500075214",
+   "stockStatus": "IN_STOCK",
+   "title": "Paquete de mejora Xenoblade Chronicles™ 3 – Nintendo Switch™ 2 Edition",
+   "titleKey": "paquete-de-mejora-xenoblade-chronicles-3-nintendo-switch-2-edition-nintendo-switch-2-true",
+   "topLevelCategory": "Juegos",
+   "topLevelCategoryCode": "GAMES",
+   "topLevelFilters": [
+    "Pase de mejora"
+   ],
+   "hasDlc": false,
+   "url": "/es-mx/store/products/xenoblade-chronicles-3-nintendo-switch-2-edition-upgrade-pack-switch-2/",
+   "urlKey": "xenoblade-chronicles-3-nintendo-switch-2-edition-upgrade-pack-switch-2",
+   "visibleInSearch": true,
+   "demoNsuid": null,
+   "dlcType": null,
+   "editions": [
+    "Digital",
+    "Pase de mejora"
+   ],
+   "eshopDetails": {
+    "__typename": "EshopDetails",
+    "productType": "ADD_ON_CONTENT",
+    "isPreorderable": true,
+    "isPurchasable": true,
+    "regularPrice": 209,
+    "discountPrice": null,
+    "discountPriceStart": null,
+    "discountPriceEnd": null,
+    "discountPriceEndTimestamp": null,
+    "goldPointOfferType": null,
+    "goldPointOfferValue": null,
+    "goldPoints": 0,
+    "baseGoldPoints": 0,
+    "currency": "MXN"
+   },
+   "productImageSquare": null,
+   "gameGenres": [],
+   "gameGenreLabels": [],
+   "gameFeatures": [],
+   "gameFeatureLabels": [],
+   "isUpgrade": true,
+   "nsoFeatures": [],
+   "nsuid": "70050000075214",
+   "softwareDeveloper": null,
+   "softwarePublisher": "Nintendo",
+   "waysToPlay": [],
+   "waysToPlayLabels": [],
+   "collectionPriceRangeFilter": [
+    "$0.01 - $249.99"
+   ],
+   "priceRangeFilter": [
+    "$0.01 - $249.99"
+   ],
+   "productType": [
+    "Juegos"
+   ],
+   "nsoFeaturesFilter": [],
+   "popularityRank": null,
+   "trendingRank": null,
+   "notBadScore": null,
+   "objectID": "7500075214"
+  }
+ ],
+ "nbHits": 358,
+ "page": 0,
+ "nbPages": 1,
+ "hitsPerPage": 400,
+ "exhaustiveNbHits": true,
+ "exhaustiveTypo": true,
+ "exhaustive": {
+  "nbHits": true,
+  "typo": true
+ },
+ "query": "",
+ "params": "hitsPerPage=400&filters=topLevelCategoryCode%3AGAMES+AND+%28availability%3A%22Pr%C3%B3ximos+lanzamientos%22+OR+availability%3A%22Reserva%22%29",
+ "renderingContent": {},
+ "processingTimeMS": 7,
+ "processingTimingsMS": {
+  "_request": {
+   "roundTrip": 82
+  },
+  "afterFetch": {
+   "format": {
+    "total": 9
+   }
+  },
+  "extensions": 3,
+  "getIdx": {
+   "load": {
+    "total": 1
+   },
+   "total": 2
+  },
+  "total": 7
+ },
+ "serverTimeMS": 17
+}
