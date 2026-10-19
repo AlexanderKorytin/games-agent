@@ -228,8 +228,19 @@ def test_пачка_инструмент_не_поднялся(среда):
             return Инструменты([], None, жалоба="MCP steam: сервер не ответил за 30 с")
 
     модель = ПоддельнаяМодель([])
-    with pytest.raises(RuntimeError, match="сервер не ответил"):
+    with pytest.raises(judge.НетИнструментов, match="сервер не ответил"):
         судить(среда, модель, Пустые())
+    assert модель.запросы == []
+
+
+def test_пачка_профиль_не_загружен(среда, monkeypatch):
+    """Профиля пачки нет — повтор не поможет: `НетИнструментов`, обмена нет."""
+    from myharness import profiles
+
+    monkeypatch.setattr(profiles, "load", lambda имя: (profiles.builtin_default(), ["нет файла"]))
+    модель = ПоддельнаяМодель([])
+    with pytest.raises(judge.НетИнструментов, match="не загружен"):
+        судить(среда, модель)
     assert модель.запросы == []
 
 
