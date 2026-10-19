@@ -17,10 +17,10 @@ def образец(имя: str):
     return json.loads((ОБРАЗЦЫ / имя).read_text("utf-8"))["ответ"]
 
 
-def минимум(обработчик, ключ=КЛЮЧ, номер=1086940):
+def минимум(обработчик, ключ=КЛЮЧ, номер=1086940, страна="RU"):
     async def ход():
         async with httpx2.AsyncClient(transport=httpx2.MockTransport(обработчик)) as к:
-            return await itad.минимум(к, ключ, номер)
+            return await itad.минимум(к, ключ, номер, страна=страна)
     return asyncio.run(ход())
 
 
@@ -104,3 +104,31 @@ def test_обрыв_исключение():
     with pytest.raises(itad.ОшибкаITAD) as беда:
         минимум(обрыв)
     assert беда.value.__context__ is None
+
+
+def test_страна_доводом():
+    запросы = []
+    найдено = образец("itad_lookup_found.json")
+    низы = образец("itad_storelow.json")
+    найдено["game"]["id"] = низы[0]["id"]
+
+    def сервер(запрос):
+        запросы.append(запрос)
+        if запрос.url.path == "/games/lookup/v1":
+            return httpx2.Response(200, json=найдено)
+        return httpx2.Response(200, json=низы)
+
+    минимум(сервер, страна="KZ")
+    assert запросы[-1].url.params["country"] == "KZ"
+    import inspect
+    довод = inspect.signature(itad.минимум).parameters["страна"]
+    assert довод.kind is inspect.Parameter.KEYWORD_ONLY and довод.default is inspect.Parameter.empty
+    assert not hasattr(itad, "СТРАНА")
+
+
+@pytest.mark.parametrize("страна", ["", "K", "KAZ", "K1", "ЖК", " KZ"])
+def test_страна_не_код_iso(страна):
+    запросы = []
+    with pytest.raises(ValueError):
+        минимум(lambda з: запросы.append(з), страна=страна)
+    assert запросы == []

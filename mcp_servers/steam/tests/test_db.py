@@ -678,3 +678,186 @@ def test_выключатель_eshop(с):
     db.включить_eshop(с, True)
     assert db.eshop_включён(с) is True
     assert db.отметка(с, "eshop") == "вкл"
+
+
+# ---- регионы магазинов: страны и пересборка ----
+
+ESHOP_США = 70010000003208
+ESHOP_ЕВРОПА = 70010000003207
+
+
+def test_страны_по_умолчанию_нет(с):
+    assert db.страна_steam(с) is None
+    assert db.страна_eshop(с) is None
+
+
+def test_задать_страны(с):
+    db.задать_страны(с, steam="KZ", eshop="US")
+    assert db.страна_steam(с) == "KZ" and db.страна_eshop(с) == "US"
+    assert db.отметка(с, "страна_steam") == "KZ" and db.отметка(с, "страна_eshop") == "US"
+    # `None` — страну этого магазина не трогать.
+    db.задать_страны(с, eshop="DE")
+    assert db.страна_steam(с) == "KZ" and db.страна_eshop(с) == "DE"
+    db.задать_страны(с, steam="TR")
+    assert db.страна_steam(с) == "TR" and db.страна_eshop(с) == "DE"
+
+
+@pytest.mark.parametrize("код", ["kz", "K", "KAZ", "", "K1", "ЖК", " KZ", "Kz"])
+def test_страна_не_код_iso(с, код):
+    db.задать_страны(с, steam="KZ", eshop="US")
+    with pytest.raises(ValueError):
+        db.задать_страны(с, steam=код)
+    with pytest.raises(ValueError):
+        db.задать_страны(с, eshop=код)
+    # Неверный код одного магазина не записывает и верный код другого.
+    with pytest.raises(ValueError):
+        db.задать_страны(с, steam="DE", eshop=код)
+    assert db.страна_steam(с) == "KZ" and db.страна_eshop(с) == "US"
+
+
+def _игра_во_всех_таблицах(с, номер: int, имя: str) -> None:
+    db.запомнить_игру(с, Игра(номер=номер, имя=имя, цена=1000, валюта="USD"))
+    db.предложить(с, номер, f"причина {имя}")
+    db.в_календарь(с, номер, f"ждёт {имя}")
+    db.отметить_цену(с, номер, 1000, 0, валюта="USD")
+    db.запомнить_отказ(с, номер, "отпечаток")
+    db.уже_играл(с, номер, True)
+    db.поставить_отметку(с, f"выход_сообщён:{номер}", "2026-10-19")
+
+
+def _строки(с, таблица: str, номер: int) -> int:
+    return с.execute(f"SELECT count(*) FROM {таблица} WHERE номер = ?", (номер,)).fetchone()[0]
+
+
+ТАБЛИЦЫ_ИГРЫ = (
+    "games", "suggestions", "calendar", "prices", "price_history", "pairs", "refusals", "played",
+)
+
+
+def test_удалить_игру(с):
+    _игра_во_всех_таблицах(с, 367520, "Hollow Knight")
+    _игра_во_всех_таблицах(с, 400, "Portal")
+    db.записать_пару(с, ESHOP_США, 367520)
+    db.обновить_библиотеку(с, [])
+    db.обновить_список_steam(с, [367520])
+    db.удалить_игру(с, 367520)
+    for таблица in ТАБЛИЦЫ_ИГРЫ:
+        assert _строки(с, таблица, 367520) == 0, таблица
+    # Пара — с обеих сторон: строки игры eShop, указывающей на удалённую, тоже нет.
+    assert not db.пара_сверена(с, ESHOP_США)
+    assert db.отметка(с, "выход_сообщён:367520") is None
+    # Список желаемого Steam — данные Steam, не трогается.
+    assert db.список_steam(с) == {367520}
+    # Другая игра цела.
+    for таблица in ТАБЛИЦЫ_ИГРЫ:
+        if таблица != "pairs":
+            assert _строки(с, таблица, 400) == 1, таблица
+    assert db.игра(с, 400)["имя"] == "Portal"
+    assert db.отметка(с, "выход_сообщён:400") == "2026-10-19"
+
+
+def test_удалить_игру_одной_транзакцией(с):
+    _игра_во_всех_таблицах(с, 367520, "Hollow Knight")
+    с.execute("CREATE TEMP TRIGGER сбой BEFORE DELETE ON played BEGIN SELECT RAISE(ABORT, 'сбой'); END")
+    with pytest.raises(sqlite3.IntegrityError):
+        db.удалить_игру(с, 367520)
+    for таблица in ("games", "suggestions", "calendar", "prices", "price_history", "refusals"):
+        assert _строки(с, таблица, 367520) == 1, таблица
+
+
+def test_заменить_номер(с):
+    _игра_во_всех_таблицах(с, ESHOP_США, "Hollow Knight")
+    db.оценить(с, ESHOP_США, True, "нравятся метроидвании")
+    db.записать_пару(с, ESHOP_США, 367520)
+    db.заменить_номер(с, ESHOP_США, ESHOP_ЕВРОПА)
+    # Переносятся: предложение с оценкой, календарь, «уже играл», отметка о выходе.
+    предложение = с.execute(
+        "SELECT причина, оценка, причина_оценки FROM suggestions WHERE номер = ?", (ESHOP_ЕВРОПА,)
+    ).fetchone()
+    assert tuple(предложение) == ("причина Hollow Knight", 1, "нравятся метроидвании")
+    assert с.execute(
+        "SELECT причина FROM calendar WHERE номер = ?", (ESHOP_ЕВРОПА,)
+    ).fetchone()[0] == "ждёт Hollow Knight"
+    assert _строки(с, "played", ESHOP_ЕВРОПА) == 1
+    assert db.отметка(с, f"выход_сообщён:{ESHOP_ЕВРОПА}") == "2026-10-19"
+    assert db.отметка(с, f"выход_сообщён:{ESHOP_США}") is None
+    # Прежний номер исчез отовсюду.
+    for таблица in ТАБЛИЦЫ_ИГРЫ:
+        assert _строки(с, таблица, ESHOP_США) == 0, таблица
+    # Карточка, цены, история, пары и отказы — данные зоны: на новый номер не переносятся.
+    for таблица in ("games", "prices", "price_history", "pairs", "refusals"):
+        assert _строки(с, таблица, ESHOP_ЕВРОПА) == 0, таблица
+    # Пара с обеих сторон: игра Steam снова ищет пару.
+    assert not db.пара_сверена(с, 367520)
+
+
+def test_заменить_номер_не_затирает_строки_нового(с):
+    db.предложить(с, ESHOP_США, "старое предложение")
+    db.в_календарь(с, ESHOP_США, "старый календарь")
+    db.уже_играл(с, ESHOP_США, False)
+    db.поставить_отметку(с, f"выход_сообщён:{ESHOP_США}", "старая")
+    db.предложить(с, ESHOP_ЕВРОПА, "новое предложение")
+    db.оценить(с, ESHOP_ЕВРОПА, True, "новая оценка")
+    db.в_календарь(с, ESHOP_ЕВРОПА, "новый календарь")
+    db.уже_играл(с, ESHOP_ЕВРОПА, True)
+    db.поставить_отметку(с, f"выход_сообщён:{ESHOP_ЕВРОПА}", "новая")
+    db.заменить_номер(с, ESHOP_США, ESHOP_ЕВРОПА)
+    assert tuple(с.execute(
+        "SELECT причина, оценка FROM suggestions WHERE номер = ?", (ESHOP_ЕВРОПА,)
+    ).fetchone()) == ("новое предложение", 1)
+    assert с.execute(
+        "SELECT причина FROM calendar WHERE номер = ?", (ESHOP_ЕВРОПА,)
+    ).fetchone()[0] == "новый календарь"
+    assert с.execute(
+        "SELECT понравилась FROM played WHERE номер = ?", (ESHOP_ЕВРОПА,)
+    ).fetchone()[0] == 1
+    assert db.отметка(с, f"выход_сообщён:{ESHOP_ЕВРОПА}") == "новая"
+    for таблица in ("suggestions", "calendar", "played"):
+        assert _строки(с, таблица, ESHOP_США) == 0, таблица
+    assert db.отметка(с, f"выход_сообщён:{ESHOP_США}") is None
+
+
+def test_заменить_номер_на_себя_ничего_не_меняет(с):
+    _игра_во_всех_таблицах(с, ESHOP_США, "Hollow Knight")
+    db.заменить_номер(с, ESHOP_США, ESHOP_США)
+    for таблица in ("games", "suggestions", "calendar", "prices", "price_history", "refusals", "played"):
+        assert _строки(с, таблица, ESHOP_США) == 1, таблица
+
+
+def test_заменить_номер_одной_транзакцией(с):
+    _игра_во_всех_таблицах(с, ESHOP_США, "Hollow Knight")
+    с.execute("CREATE TEMP TRIGGER сбой BEFORE DELETE ON refusals BEGIN SELECT RAISE(ABORT, 'сбой'); END")
+    with pytest.raises(sqlite3.IntegrityError):
+        db.заменить_номер(с, ESHOP_США, ESHOP_ЕВРОПА)
+    for таблица in ("suggestions", "calendar", "played", "games", "prices"):
+        assert _строки(с, таблица, ESHOP_США) == 1, таблица
+        assert _строки(с, таблица, ESHOP_ЕВРОПА) == 0, таблица
+
+
+def test_сбросить_цены(с):
+    for номер in (367520, ESHOP_США):
+        db.отметить_цену(с, номер, 1000, 0, валюта="USD")
+    db.сбросить_цены(с, eshop=False)
+    assert _строки(с, "prices", 367520) == 0 and _строки(с, "price_history", 367520) == 0
+    assert _строки(с, "prices", ESHOP_США) == 1 and _строки(с, "price_history", ESHOP_США) == 1
+    db.отметить_цену(с, 367520, 1000, 0, валюта="KZT")
+    db.сбросить_цены(с, eshop=True)
+    assert _строки(с, "prices", ESHOP_США) == 0 and _строки(с, "price_history", ESHOP_США) == 0
+    assert _строки(с, "prices", 367520) == 1 and _строки(с, "price_history", 367520) == 1
+
+
+def test_номера_в_работе(с):
+    db.предложить(с, 10, "предложение")
+    db.оценить(с, 20, False, "минус")
+    db.в_календарь(с, 30, "календарь")
+    db.в_календарь(с, 10, "и там, и там")
+    db.предложить(с, 40, "купленная")
+    db.в_календарь(с, ESHOP_США, "eShop")
+
+    class Своя:
+        номер, имя, часы, часы_2нед, последний_запуск = 40, "Купленная", 1, 0, None
+
+    db.обновить_библиотеку(с, [Своя()])
+    db.обновить_список_steam(с, [50])
+    db.запомнить_игру(с, Игра(номер=60, имя="Только карточка"))
+    assert db.номера_в_работе(с) == [10, 20, 30, ESHOP_США]

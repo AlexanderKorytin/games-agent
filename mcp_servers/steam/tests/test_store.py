@@ -117,8 +117,8 @@ def test_найти_доводы_страницы():
 
     async def прогон():
         async with httpx2.AsyncClient(base_url=ss.МАГАЗИН, transport=httpx2.MockTransport(отвечать)) as к:
-            assert await ss.найти(к, 122, будущие=False, страница=2) == [7]
-            await ss.найти(к, 122, будущие=True)
+            assert await ss.найти(к, 122, будущие=False, страница=2, страна="RU") == [7]
+            await ss.найти(к, 122, будущие=True, страна="RU")
 
     asyncio.run(прогон())
     вышедшие, будущие = (dict(з.url.params) for з in запросы)
@@ -138,7 +138,7 @@ def test_найти_по_названию_адрес():
 
     async def прогон():
         async with httpx2.AsyncClient(base_url=ss.МАГАЗИН, transport=httpx2.MockTransport(отвечать)) as к:
-            return await ss.найти_по_названию(к, "baldurs gat 3")
+            return await ss.найти_по_названию(к, "baldurs gat 3", страна="RU")
 
     assert asyncio.run(прогон())[0][0] == 1086940
     [з] = запросы
@@ -164,8 +164,8 @@ def test_найти_по_названию_язык():
 
     async def прогон():
         async with httpx2.AsyncClient(base_url=ss.МАГАЗИН, transport=httpx2.MockTransport(отвечать)) as к:
-            найдено = await ss.найти_по_названию(к, "Hollow Knight", язык="english")
-            await ss.найти_по_названию(к, "Hollow Knight")
+            найдено = await ss.найти_по_названию(к, "Hollow Knight", язык="english", страна="RU")
+            await ss.найти_по_названию(к, "Hollow Knight", страна="RU")
             return найдено
 
     assert asyncio.run(прогон())[0] == (367520, "Hollow Knight")
@@ -180,3 +180,85 @@ def test_поиск_со_сводкой_отзывов():
     с_отзывами = [о for _, о in пары if о.всего > 0]
     assert с_отзывами and all(0 < о.положительных <= о.всего for о in с_отзывами)
     assert ss.разобрать_поиск_с_отзывами({"results_html": '<a data-ds-appid="7"></a>'}) == [(7, ss.НЕТ_ОТЗЫВОВ)]
+
+
+def _доводы_запросов(ход):
+    """Доводы каждого запроса, что `ход(к)` сделал к магазину, по путям."""
+    import asyncio
+    запросы = []
+
+    def отвечать(запрос):
+        запросы.append(запрос)
+        путь = запрос.url.path
+        if путь == "/api/appdetails":
+            return httpx2.Response(200, json=образец("appdetails_1086940.json"))
+        if путь.startswith("/appreviews/"):
+            return httpx2.Response(200, json=образец("appreviews_1086940.json"))
+        if путь == "/api/storesearch/":
+            return httpx2.Response(200, json={"items": []})
+        if путь.startswith("/tagdata/"):
+            return httpx2.Response(200, json=[])
+        return httpx2.Response(200, json={"results_html": '<a data-ds-appid="7"></a>'})
+
+    async def прогон():
+        async with httpx2.AsyncClient(base_url=ss.МАГАЗИН, transport=httpx2.MockTransport(отвечать)) as к:
+            await ход(к)
+
+    asyncio.run(прогон())
+    return [(з.url.path, dict(з.url.params)) for з in запросы]
+
+
+def test_страна_доводом_у_всех_запросов():
+    """Страна — довод вызывающего: `cc` берётся из него строчными, язык остаётся русским."""
+    async def ход(к):
+        await ss.игра(к, 1086940, страна="KZ")
+        await ss.найти(к, 122, будущие=False, страна="KZ")
+        await ss.найти_с_отзывами(к, 122, будущие=True, страна="KZ")
+        await ss.найти_по_названию(к, "Hollow Knight", страна="KZ")
+        await ss.найти_по_названию(к, "Hollow Knight", язык="english", страна="KZ")
+
+    запросы = _доводы_запросов(ход)
+    пути = [путь for путь, _ in запросы]
+    assert пути == [
+        "/api/appdetails", "/appreviews/1086940", "/search/results/", "/search/results/",
+        "/api/storesearch/", "/api/storesearch/",
+    ]
+    for путь, доводы in запросы:
+        if путь.startswith("/appreviews/"):
+            # Отзывы — по всем языкам и без страны: сводка от страны не зависит.
+            assert "cc" not in доводы
+            continue
+        assert доводы["cc"] == "kz", путь
+    assert [д["l"] for п, д in запросы if not п.startswith("/appreviews/")] == [
+        "russian", "russian", "russian", "russian", "english",
+    ]
+
+
+def test_страна_обязательна():
+    import inspect
+    for функция in (ss.игра, ss.найти, ss.найти_с_отзывами, ss.найти_по_названию):
+        довод = inspect.signature(функция).parameters["страна"]
+        assert довод.kind is inspect.Parameter.KEYWORD_ONLY, функция.__name__
+        assert довод.default is inspect.Parameter.empty, функция.__name__
+    # Страны в модуле нет: зашитый регион убран.
+    assert not hasattr(ss, "РЕГИОН")
+
+
+def test_метки_без_страны():
+    """Список меток — только язык в адресе, страна ему не нужна."""
+    async def ход(к):
+        await ss.метки(к)
+
+    [(путь, доводы)] = _доводы_запросов(ход)
+    assert путь == "/tagdata/populartags/russian" and доводы == {}
+
+
+@pytest.mark.parametrize("страна", ["", "K", "KAZ", "K1", "ЖК", " KZ", "kz "])
+def test_страна_не_код_iso(страна):
+    """Пустой `cc` магазин молча заменяет страной по адресу — такое не должно уйти в запрос."""
+    with pytest.raises(ValueError):
+        ss._доводы(страна)
+
+
+def test_страна_код_iso_любого_регистра():
+    assert ss._доводы("KZ") == ss._доводы("kz") == {"cc": "kz", "l": "russian"}
