@@ -179,21 +179,6 @@ def _запреты() -> list[dict[str, Any]]:
     ]
 
 
-def _без_eshop(записи: list[dict]) -> list[dict]:
-    """Выдача при выключенном eShop: игр eShop нет (и с парой в Steam, найденной позже), у игр
-    Steam с парой — ни пары, ни её цен, магазин один Steam. Хранилище не меняется: включение
-    возвращает всё как было."""
-    итог = []
-    for з in записи:
-        if з.get("магазин") == "eshop":
-            continue
-        if з.get("пара") is not None:
-            з = {к: з_ for к, з_ in з.items() if к != "пара" and not к.startswith("пара_")}
-            з["магазины"] = ["steam"]
-        итог.append(з)
-    return итог
-
-
 def _с_оценкой(записи: list[dict]) -> list[dict]:
     """Оценка SteamDB числом и порядок по ней: лучшие первыми, без отзывов — в конце."""
     for з in записи:
@@ -241,7 +226,7 @@ async def состояние(request: Request) -> Response:
     с = games_db.открыть()
     try:
         включён = games_db.eshop_включён(с)
-        выдача = (lambda з: з) if включён else _без_eshop
+        выдача = (lambda з: з) if включён else games_db.без_eshop
         данные = {
             "настройка": {
                 "вошёл": bool(тайны.steamid),
@@ -965,7 +950,7 @@ async def ics(request: Request) -> Response:
     с = games_db.открыть()
     try:
         записи = games_db.календарь(с)
-        текст = календарь_ics(записи if games_db.eshop_включён(с) else _без_eshop(записи))
+        текст = календарь_ics(записи if games_db.eshop_включён(с) else games_db.без_eshop(записи))
     finally:
         с.close()
     return Response(текст, media_type="text/calendar; charset=utf-8")

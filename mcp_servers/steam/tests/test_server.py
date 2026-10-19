@@ -329,6 +329,88 @@ def test_eshop_game_eshop_выключен_ошибка(tmp_path, monkeypatch):
     assert "eShop выключен в настройках агента" in итог.content[0].text
 
 
+def test_eshop_find_eshop_выключен_ошибка(tmp_path, monkeypatch):
+    """Страна eShop при выключении сохраняется, но в Nintendo инструмент не ходит."""
+    _игра_eshop(tmp_path, monkeypatch, включён=False)
+
+    async def не_звать(*доводы, **поля):
+        raise AssertionError("при выключенном eShop сеть не зовётся")
+
+    def не_открывать(*доводы, **поля):
+        raise AssertionError("при выключенном eShop соединение не открывается")
+
+    monkeypatch.setattr(eshop, "найти_по_названию", не_звать)
+    monkeypatch.setattr(eshop, "клиент", не_открывать)
+    итог = _вызов("eshop_find", {"name": "hollow knight"})
+    assert итог.is_error
+    assert "eShop выключен в настройках агента" in итог.content[0].text
+
+
+def _хранилище_со_списками(tmp_path, monkeypatch):
+    """Steam с парой eShop, одиночные eShop и Steam — в предложениях, желаемом и календаре."""
+    monkeypatch.setenv("GAMES_DATA_DIR", str(tmp_path))
+    с = games_db.открыть()
+    games_db.запомнить_игру(с, ss.Игра(номер=367520, имя="Hollow Knight", вышла=False,
+                                       дата=date(2027, 3, 4), цена=46500, валюта="RUB"))
+    games_db.запомнить_игру(с, ss.Игра(номер=70010000000001, имя="Hollow Knight", цена=1999,
+                                       валюта="USD"))
+    games_db.записать_пару(с, 70010000000001, 367520)
+    games_db.запомнить_игру(с, ss.Игра(номер=70010000000002, имя="Pikmin 4", вышла=False,
+                                       дата=date(2027, 3, 5), цена=5999, валюта="USD"))
+    games_db.записать_пару(с, 70010000000002, None)
+    games_db.запомнить_игру(с, ss.Игра(номер=5, имя="Пять", вышла=False, дата=date(2027, 3, 6)))
+    for н in (367520, 70010000000002, 5):
+        games_db.в_календарь(с, н, "")
+    for н in (11, 70010000000011, 12, 70010000000012):
+        games_db.запомнить_игру(с, ss.Игра(номер=н, имя=f"игра {н}"))
+        games_db.предложить(с, н, "")
+    for н in (12, 70010000000012):
+        games_db.оценить(с, н, True, "")
+    games_db.предложить(с, 367520, "")
+    games_db.оценить(с, 367520, True, "")
+    games_db.предложить(с, 70010000000001, "")
+    return с
+
+
+def _номера(итог, ключ):
+    return {з["номер"] for з in итог.structured_content[ключ]}
+
+
+def test_списки_выключенный_eshop_прячет_игры_и_пары(tmp_path, monkeypatch):
+    с = _хранилище_со_списками(tmp_path, monkeypatch)
+    for инструмент, ключ in (
+        ("list_suggestions", "предложения"), ("list_wishlist", "желаемое"),
+        ("list_calendar", "календарь"),
+    ):
+        итог = _вызов(инструмент, {})
+        assert any(з["магазин"] == "eshop" for з in итог.structured_content[ключ]), инструмент
+        assert any(к == "пара" for з in итог.structured_content[ключ] for к in з), инструмент
+
+    games_db.включить_eshop(с, False)
+    предложения = _вызов("list_suggestions", {})
+    желаемое = _вызов("list_wishlist", {})
+    календарь = _вызов("list_calendar", {})
+    assert _номера(предложения, "предложения") == {11, 12, 367520}
+    assert _номера(желаемое, "желаемое") == {12, 367520}
+    assert _номера(календарь, "календарь") == {367520, 5}
+    for итог, ключ in ((предложения, "предложения"), (желаемое, "желаемое"), (календарь, "календарь")):
+        for з in итог.structured_content[ключ]:
+            assert з["магазин"] == "steam"
+            assert з["магазины"] == ["steam"]
+            assert з.get("пара") is None
+            assert all(v is None for к, v in з.items() if к.startswith("пара_")), з
+            if з["номер"] == 367520:
+                assert not any(к == "пара" or к.startswith("пара_") for к in з), з
+
+    # Хранилище не менялось: включение возвращает всё как было.
+    games_db.включить_eshop(с, True)
+    assert 70010000000002 in _номера(_вызов("list_calendar", {}), "календарь")
+    hk = next(з for з in _вызов("list_calendar", {}).structured_content["календарь"]
+              if з["номер"] == 367520)
+    assert hk["магазины"] == ["steam", "eshop"] and hk["пара"] == 70010000000001
+    с.close()
+
+
 def test_eshop_game_нет_в_каталоге_страны(tmp_path, monkeypatch):
     _игра_eshop(tmp_path, monkeypatch)
 

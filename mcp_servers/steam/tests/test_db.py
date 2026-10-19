@@ -765,6 +765,19 @@ def test_удалить_игру(с):
     assert db.отметка(с, "выход_сообщён:400") == "2026-10-19"
 
 
+def test_забыть_карточку_отказы_и_решения_целы(с):
+    _игра_во_всех_таблицах(с, ESHOP_США, "Hollow Knight")
+    db.записать_пару(с, 367520, ESHOP_США)
+    with db.транзакция(с) as т:
+        т.забыть_карточку(ESHOP_США)
+    assert db.игра(с, ESHOP_США) is None
+    # Пара — с обеих сторон: строка игры Steam тоже забыта, её поищут заново.
+    assert not db.пара_сверена(с, ESHOP_США) and not db.пара_сверена(с, 367520)
+    # Отказ модели и решения человека не трогаются.
+    for таблица in ("refusals", "suggestions", "calendar", "played"):
+        assert _строки(с, таблица, ESHOP_США) == 1, таблица
+
+
 def test_удалить_игру_одной_транзакцией(с):
     _игра_во_всех_таблицах(с, 367520, "Hollow Knight")
     с.execute("CREATE TEMP TRIGGER сбой BEFORE DELETE ON played BEGIN SELECT RAISE(ABORT, 'сбой'); END")
