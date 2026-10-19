@@ -7,6 +7,7 @@ from types import SimpleNamespace
 
 import pytest
 
+import eshop
 import eshop_store as es
 import games_db
 import jobs
@@ -27,6 +28,10 @@ def среда(tmp_path, monkeypatch):
         уведомления.append(текст)
 
     monkeypatch.setattr(jobs, "уведомить", уведомить)
+    # Страны выбраны: задания идут, ветви eShop открыты (выключатель решает сам).
+    с = games_db.открыть()
+    games_db.задать_страны(с, steam="KZ", eshop="US")
+    с.close()
     return tmp_path, уведомления, вкус
 
 
@@ -36,7 +41,7 @@ def отзывы(доля, всего=1000):
 
 def игра(номер, *, вышла=True, род="game", цена=100000, скидка=0, доля=0.9, дата=None):
     return ss.Игра(номер=номер, имя=f"игра {номер}", вышла=вышла, род=род, цена=цена,
-                   цена_без_скидки=100000, скидка=скидка, отзывы=отзывы(доля), дата=дата)
+                   цена_без_скидки=100000, скидка=скидка, отзывы=отзывы(доля), дата=дата, валюта="RUB")
 
 
 def магазин(игры: dict[int, ss.Игра], страницы: list[list[int]] | None = None):
@@ -676,15 +681,25 @@ def test_текст_скидки_steam(среда):
     games_db.запомнить_игру(с, игра(7))
     games_db.оценить(с, 7, True, "")
     asyncio.run(jobs.день(магазин({7: игра(7, цена=50000, скидка=50)})))
-    assert [у for у in уведомления if у.startswith("Скидка")] == ["Скидка 50 % на «игра 7» в Steam: 500 руб. вместо 1000 руб."]
+    assert [у for у in уведомления if у.startswith("Скидка")] == ["Скидка 50 % на «игра 7» в Steam: 500 руб. вместо 1 000 руб."]
 
 
-def test_запустить_связывает_поля_eshop(среда, monkeypatch):
+@pytest.mark.parametrize("страна, страна_steam", [("US", "KZ"), ("DE", "DE")])
+def test_запустить_связывает_поля_eshop(среда, monkeypatch, страна, страна_steam):
     """Настоящий запуск без сети: клиенты и функции магазинов подменены, проверяется только
-    связка полей `Магазин` с функциями `eshop_store` и `metacritic`."""
+    связка полей `Магазин` с функциями `eshop`, `steam_store`, `itad` и `metacritic` — со
+    странами из хранилища."""
     import contextlib
 
+    import itad
     import metacritic
+    import secrets_store
+
+    с = games_db.открыть()
+    games_db.задать_страны(с, steam=страна_steam, eshop=страна)
+    с.close()
+    регион = eshop.регион(страна)
+    monkeypatch.setattr(secrets_store, "загрузить", lambda: secrets_store.Тайны(itad_ключ="ключ-itad"))
 
     def клиент(имя):
         @contextlib.asynccontextmanager
@@ -693,7 +708,7 @@ def test_запустить_связывает_поля_eshop(среда, monkey
         return к
 
     monkeypatch.setattr(ss, "клиент", клиент("steam"))
-    monkeypatch.setattr(es, "клиент", клиент("eshop"))
+    monkeypatch.setattr(eshop, "клиент", клиент("eshop"))
     monkeypatch.setattr(metacritic, "клиент", клиент("metacritic"))
     вызовы: list[tuple] = []
 
@@ -703,16 +718,21 @@ def test_запустить_связывает_поля_eshop(среда, monkey
             return ответ
         return ф
 
-    monkeypatch.setattr(es, "витрина", запись("витрина", []))
-    monkeypatch.setattr(es, "игра", запись("игра", None))
-    monkeypatch.setattr(es, "найти_в_steam", запись("найти_в_steam", None))
-    monkeypatch.setattr(es, "найти_в_eshop", запись("найти_в_eshop", None))
-    monkeypatch.setattr(es, "цены", запись("цены", {}))
+    monkeypatch.setattr(eshop, "витрина", запись("витрина", []))
+    monkeypatch.setattr(eshop, "игра", запись("игра", None))
+    monkeypatch.setattr(eshop, "найти_в_steam", запись("найти_в_steam", None))
+    monkeypatch.setattr(eshop, "найти_в_eshop", запись("найти_в_eshop", None))
+    monkeypatch.setattr(eshop, "цены", запись("цены", {}))
     monkeypatch.setattr(metacritic, "отзывы", запись("отзывы", ss.НЕТ_ОТЗЫВОВ))
+    monkeypatch.setattr(ss, "найти_с_отзывами", запись("найти_с_отзывами", []))
+    monkeypatch.setattr(ss, "игра", запись("игра_steam", None))
+    monkeypatch.setattr(itad, "минимум", запись("минимум", None))
     взятый: list[jobs.Магазин] = []
+    минимум: list = []
 
-    async def день(магазин, учётка=None, минимум=None):
+    async def день(магазин, учётка=None, минимум_=None):
         взятый.append(магазин)
+        минимум.append(минимум_)
         return "день"
 
     monkeypatch.setattr(jobs, "день", день)
@@ -727,15 +747,21 @@ def test_запустить_связывает_поля_eshop(среда, monkey
         await м.найти_в_eshop(п)
         await м.отзывы_eshop(п)
         await м.цены_eshop([ЕШОП])
+        await м.найти(122, False, 1)
+        await м.игра(620)
+        await минимум[0](620)
 
     asyncio.run(все())
     assert вызовы == [
-        ("витрина", ("eshop",), {"будущие": True, "страница": 2}),
-        ("игра", ("eshop", "о1"), {}),
-        ("найти_в_steam", ("steam", п), {}),
-        ("найти_в_eshop", ("eshop", п), {}),
+        ("витрина", ("eshop", регион), {"будущие": True, "страница": 2}),
+        ("игра", ("eshop", регион, "о1"), {}),
+        ("найти_в_steam", ("steam", п), {"страна_steam": страна_steam}),
+        ("найти_в_eshop", ("eshop", регион, п), {}),
         ("отзывы", ("metacritic", п), {}),
-        ("цены", ("eshop", [ЕШОП]), {}),
+        ("цены", ("eshop", регион, [ЕШОП]), {}),
+        ("найти_с_отзывами", ("steam", 122), {"будущие": False, "страница": 1, "страна": страна_steam}),
+        ("игра_steam", ("steam", 620), {"с_отзывами": False, "страна": страна_steam}),
+        ("минимум", ("steam", "ключ-itad", 620), {"страна": страна_steam}),
     ]
 
 
@@ -977,3 +1003,120 @@ def test_выключенный_eshop_скрытая_пара_не_блокир�
         assert 1 in [з["номер"] for з in games_db.предложения(с)]
     finally:
         с.close()
+
+
+# ---- регионы ----
+
+
+def _без_сети(monkeypatch):
+    """Клиенты магазинов без сети и задания-подделки: проверяется только сам `запустить`."""
+    import contextlib
+
+    import metacritic
+
+    @contextlib.asynccontextmanager
+    async def клиент():
+        yield None
+
+    for модуль in (ss, eshop, metacritic):
+        monkeypatch.setattr(модуль, "клиент", клиент)
+    взятый: list[jobs.Магазин] = []
+
+    async def день(магазин, учётка=None, минимум=None):
+        взятый.append(магазин)
+        return "день"
+
+    monkeypatch.setattr(jobs, "день", день)
+    return взятый
+
+
+def test_без_страны_steam_задание_не_идёт(среда, monkeypatch):
+    """Страны Steam нет — задание не идёт: одна строка в ленте на все запуски, без уведомления
+    и без отметки сбоя; итог говорит, что делать. Страна появилась — отметка снята."""
+    tmp, уведомления, _ = среда
+    взятый = _без_сети(monkeypatch)
+    с = games_db.открыть()
+    с.execute("DELETE FROM marks WHERE ключ = 'страна_steam'")
+    for _ in range(2):
+        итог = asyncio.run(jobs.запустить("day", tmp))
+        assert итог == "Задание «день» не выполнено: страна Steam не выбрана — укажите в настройках агента"
+    assert взятый == [] and уведомления == []
+    assert sum("Укажите страну Steam в настройках" in з["текст"] for з in games_db.лента(с)) == 1
+    assert not games_db.отметка(с, "day_сбой")
+    # Не начато — значок не перезапускает задание раз в минуту.
+    assert not games_db.отметка(с, "day_начато")
+    assert not any(jobs.нужен_догоняющий(с, р) for р in jobs.РОДЫ)
+    games_db.задать_страны(с, steam="KZ")
+    assert asyncio.run(jobs.запустить("day", tmp)) == "день"
+    assert not games_db.отметка(с, "нет_страны_steam")
+    с.close()
+
+
+@pytest.mark.parametrize("страна", [None, "RU"])
+def test_без_страны_eshop_ветви_закрыты(среда, monkeypatch, страна):
+    """Страны eShop нет или eShop в ней не поддержан — поля eShop пусты, ветви заданий закрыты,
+    хотя выключатель включён."""
+    tmp, _, _ = среда
+    взятый = _без_сети(monkeypatch)
+    с = games_db.открыть()
+    с.execute("DELETE FROM marks WHERE ключ = 'страна_eshop'")
+    if страна:
+        games_db.задать_страны(с, eshop=страна)
+    assert games_db.eshop_включён(с) and not jobs._ходить_в_eshop(с)
+    assert asyncio.run(jobs.запустить("day", tmp)) == "день"
+    пустой = jobs.Магазин(найти=None, игра=None)
+    assert взятый[0].витрина is пустой.витрина and взятый[0].цены_eshop is пустой.цены_eshop
+    счёт = Счётчик()
+    м = магазин({1: игра(1)})
+    asyncio.run(jobs.неделя(tmp, jobs.Магазин(найти=м.найти, игра=м.игра, **счёт.поля()), судья([])))
+    assert счёт.вызовы == []
+    с.close()
+
+
+def test_кандидат_eshop_с_запрещённым_именем_не_судится(среда, monkeypatch):
+    """Запрет человека по имени переживает смену зоны eShop: номер в новой зоне другой."""
+    tmp, _, _ = среда
+    monkeypatch.setattr(taste, "запреты_по_имени", lambda к: {es.сравнимое("Hollow Knight")})
+    е = Ешоп([[игра_eshop(ЕШОП, имя="Hollow Knight™"), игра_eshop(ЕШОП + 1, имя="Celeste")]])
+    м = магазин({})
+    м = jobs.Магазин(найти=м.найти, игра=м.игра, **е.поля())
+    судимые: list[int] = []
+    asyncio.run(jobs.неделя(tmp, м, судья(судимые)))
+    assert судимые == [ЕШОП + 1]
+    assert ЕШОП not in е.в_steam  # и пара запрещённой не ищется
+
+
+@pytest.mark.parametrize("сотые, валюта, текст", [
+    (55000, "RUB", "550 руб."),
+    (410000, "KZT", "4 100 ₸"),
+    (1999, "USD", "19.99 USD"),
+    (2000, "USD", "20 USD"),
+    (1999, "EUR", "19.99 €"),
+    (123456, "GBP", "1 234.56 £"),
+    (100000, "RUB", "1 000 руб."),
+    (99900, "BRL", "999 BRL"),
+    (1999, "", "19.99"),
+    (410000, "", "4 100"),
+])
+def test_сумма_в_валюте_страны(сотые, валюта, текст):
+    assert jobs._сумма(сотые, валюта) == текст
+
+
+def test_минимум_не_сравнивается_с_ценой_без_валюты():
+    """Валюта цены не известна — с минимумом в рублях не сравнивать: прежний `or "RUB"` был
+    зашитой страной."""
+    async def минимум(номер):
+        return SimpleNamespace(цена=30000, валюта="RUB", когда="2026-06-01T00:00:00Z")
+
+    без_валюты = replace(игра(7, цена=20000), валюта="")
+    assert asyncio.run(jobs._про_минимум(минимум, без_валюты)) == ""
+    assert asyncio.run(jobs._про_минимум(минимум, игра(7, цена=20000))) == "; это исторический минимум"
+
+
+def test_запрет_по_имени_не_касается_steam(среда, monkeypatch):
+    """Запрет по имени — только для кандидатов eShop: игра Steam держится запретом по номеру."""
+    tmp, _, _ = среда
+    monkeypatch.setattr(taste, "запреты_по_имени", lambda к: {es.сравнимое("игра 1")})
+    судимые: list[int] = []
+    asyncio.run(jobs.неделя(tmp, магазин({1: игра(1)}), судья(судимые)))
+    assert судимые == [1]

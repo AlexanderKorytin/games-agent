@@ -860,4 +860,72 @@ def test_номера_в_работе(с):
     db.обновить_библиотеку(с, [Своя()])
     db.обновить_список_steam(с, [50])
     db.запомнить_игру(с, Игра(номер=60, имя="Только карточка"))
-    assert db.номера_в_работе(с) == [10, 20, 30, ESHOP_США]
+    # «Уже играл» — решение человека: игра тоже переезжает при смене зоны.
+    db.уже_играл(с, 70, False)
+    assert db.номера_в_работе(с) == [10, 20, 30, 70, ESHOP_США]
+
+
+def test_сбросить_пары(с):
+    db.записать_пару(с, 367520, ESHOP_США)
+    db.записать_пару(с, 400, None)
+    db.отметить_цену(с, 367520, 1000, 0, валюта="USD")
+    db.сбросить_пары(с)
+    assert с.execute("SELECT count(*) FROM pairs").fetchone()[0] == 0
+    assert _строки(с, "prices", 367520) == 1
+
+
+def _снимок(с) -> dict:
+    return {
+        т: sorted(tuple(р) for р in с.execute(f"SELECT * FROM {т}").fetchall())
+        for т in ("games", "suggestions", "calendar", "played", "prices", "price_history",
+                  "pairs", "refusals", "marks", "feed")
+    }
+
+
+def _пересборка(т) -> None:
+    т.запомнить_игру(Игра(номер=ESHOP_ЕВРОПА, имя="Hollow Knight", цена=900, валюта="EUR"))
+    т.заменить_номер(ESHOP_США, ESHOP_ЕВРОПА)
+    т.удалить_игру(400)
+    т.сбросить_цены(eshop=False)
+    т.сбросить_пары()
+    т.записать_пару(367520, None)
+    т.задать_страны(steam="KZ", eshop="DE")
+    т.в_ленту("итог", "Регион сменён")
+
+
+def test_транзакция_применяет_всё(с):
+    _игра_во_всех_таблицах(с, ESHOP_США, "Hollow Knight")
+    _игра_во_всех_таблицах(с, 400, "Portal")
+    db.запомнить_игру(с, Игра(номер=367520, имя="Hollow Knight"))
+    db.отметить_цену(с, 367520, 1000, 0, валюта="RUB")
+    db.записать_пару(с, 367520, ESHOP_США)
+    with db.транзакция(с) as т:
+        _пересборка(т)
+    assert db.игра(с, ESHOP_ЕВРОПА)["валюта"] == "EUR" and db.игра(с, ESHOP_США) is None
+    assert _строки(с, "suggestions", ESHOP_ЕВРОПА) == 1 and db.игра(с, 400) is None
+    assert _строки(с, "prices", 367520) == 0
+    assert db.пара_сверена(с, 367520) and db.пара(с, 367520) is None
+    assert (db.страна_steam(с), db.страна_eshop(с)) == ("KZ", "DE")
+    assert db.лента(с, 1)[0]["текст"] == "Регион сменён"
+
+
+def test_транзакция_откатывается_целиком(с):
+    _игра_во_всех_таблицах(с, ESHOP_США, "Hollow Knight")
+    _игра_во_всех_таблицах(с, 400, "Portal")
+    db.запомнить_игру(с, Игра(номер=367520, имя="Hollow Knight"))
+    db.записать_пару(с, 367520, ESHOP_США)
+    db.задать_страны(с, steam="RU", eshop="US")
+    до = _снимок(с)
+    with pytest.raises(RuntimeError, match="обрыв"):
+        with db.транзакция(с) as т:
+            _пересборка(т)
+            raise RuntimeError("обрыв")
+    assert _снимок(с) == до
+    assert not с.in_transaction
+
+
+def test_транзакция_не_пишет_после_выхода(с):
+    with db.транзакция(с) as т:
+        pass
+    with pytest.raises(RuntimeError):
+        т.удалить_игру(400)

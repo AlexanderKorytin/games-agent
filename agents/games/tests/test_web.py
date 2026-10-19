@@ -167,6 +167,10 @@ def test_чужой_сайт_не_пишет(клиент):
 def test_кнопка_задания(клиент, monkeypatch):
     import jobs
 
+    с = games_db.открыть()
+    games_db.задать_страны(с, steam="KZ")
+    с.close()
+
     async def задание(род, каталог):
         raise jobs.УжеИдёт("задание «day» уже идёт")
 
@@ -250,6 +254,12 @@ def _разрешено():
 
 
 def test_выключатель_eshop_переписывает_разрешения_советника(клиент):
+    # Страны eShop нет — `eshop_find` не разрешён и при включённом eShop.
+    assert "mcp__steam__eshop_find" not in _разрешено()
+    с = games_db.открыть()
+    games_db.задать_страны(с, eshop="US")
+    с.close()
+    клиент.post("/api/stores", json={"eshop": True})
     assert "mcp__steam__eshop_find" in _разрешено()
     клиент.post("/api/stores", json={"eshop": False})
     assert "mcp__steam__eshop_find" not in _разрешено()
@@ -269,7 +279,7 @@ def старый_файл(request):
 
 def test_веб_поднимается_на_старом_файле(старый_файл, клиент):
     assert клиент.get("/api/state").status_code == 200
-    assert "mcp__steam__eshop_find" in _разрешено()
+    assert "mcp__steam__eshop_find" not in _разрешено()  # в старом файле страны eShop нет
     с = games_db.открыть(только_чтение=True)
     assert с.execute("SELECT значение FROM meta WHERE ключ = 'версия_схемы'").fetchone()[0] == str(games_db.ВЕРСИЯ_СХЕМЫ)
     с.close()
@@ -332,3 +342,43 @@ def test_выключенный_eshop_прячет_игры_и_пары(клие
     assert any(к == "пара" or к.startswith("пара_") for к in hk) and hk["магазины"] != ["steam"]
     assert "eshop-70010000000002@" in клиент.get("/calendar.ics").text
     с.close()
+
+
+def test_проверка_ключа_itad_в_стране_steam(monkeypatch):
+    """Проверка ключа IsThereAnyDeal — запрос минимума в стране Steam из хранилища; страны нет —
+    понятная жалоба без запроса."""
+    import asyncio
+
+    import itad
+
+    страны: list[str] = []
+
+    async def минимум(к, ключ, номер, *, страна):
+        страны.append(страна)
+        return None
+
+    monkeypatch.setattr(itad, "минимум", минимум)
+    assert asyncio.run(web._проверить_itad("ключ")) == "страна Steam не выбрана — укажите в настройках агента"
+    assert страны == []
+    с = games_db.открыть()
+    games_db.задать_страны(с, steam="KZ")
+    с.close()
+    assert asyncio.run(web._проверить_itad("ключ")) is None
+    assert страны == ["KZ"]
+
+
+def test_кнопка_задания_без_страны_steam(клиент, monkeypatch):
+    """Страны Steam нет — кнопка не молчит: ответ с понятным текстом, задание не запускается."""
+    import jobs
+
+    вызвано: list[str] = []
+
+    async def задание(род, каталог):
+        вызвано.append(род)
+        return "итог"
+
+    monkeypatch.setattr(jobs, "запустить", задание)
+    ответ = клиент.post("/api/run/week", json={})
+    assert ответ.status_code == 409
+    assert ответ.json()["error"] == "страна Steam не выбрана — укажите в настройках агента"
+    assert вызвано == []

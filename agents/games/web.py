@@ -370,10 +370,24 @@ async def _проверить_deepseek(ключ: str) -> str | None:
         await клиент.aclose()
 
 
+def _страна_steam() -> str | None:
+    """Страна магазина Steam, выбранная человеком (`games_db.страна_steam`)."""
+    с = games_db.открыть()
+    try:
+        return games_db.страна_steam(с)
+    finally:
+        с.close()
+
+
 async def _проверить_itad(ключ: str) -> str | None:
+    """Ключ проверяется запросом минимума в стране Steam человека: своей страны у ключа нет, а
+    зашивать её нельзя. Страны ещё нет — жалоба, ключ не ложится."""
+    страна = _страна_steam()
+    if not страна:
+        return jobs.НЕТ_СТРАНЫ_STEAM
     try:
         async with httpx2.AsyncClient(timeout=30) as к:
-            await itad.минимум(к, ключ, 1086940)
+            await itad.минимум(к, ключ, 1086940, страна=страна)
     except itad.КлючНеПринят:
         return "ключ IsThereAnyDeal не принят"
     except Exception as exc:  # noqa: BLE001
@@ -773,6 +787,10 @@ async def запустить(request: Request) -> Response:
     except jobs.УжеИдёт:
         # Задание идёт в службе — ответ сразу, без строки в ленте на каждое нажатие.
         return _ошибка("уже идёт по расписанию — итог появится в ленте", 409)
+    # Страны Steam нет — задание не пойдёт (`jobs.запустить`): человек видит причину в вести
+    # сразу, а не тишину.
+    if not _страна_steam():
+        return _ошибка(jobs.НЕТ_СТРАНЫ_STEAM, 409)
 
     async def задание() -> None:
         # Сбой и отмену задание само пишет в ленту (`jobs.запустить`).

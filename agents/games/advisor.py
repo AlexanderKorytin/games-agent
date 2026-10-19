@@ -65,21 +65,23 @@ def подготовить_каталог(каталог: Path) -> None:
 
 
 def разрешения() -> list[str]:
-    """`РАЗРЕШЕНИЯ` по выключателю eShop: выключен — без `eshop_find`. Хранилища ещё нет или
-    схема в нём не та (переход делает открытие на запись) — отметки нет, eShop включён, как в
-    `games_db.eshop_включён`."""
+    """`РАЗРЕШЕНИЯ`, а `eshop_find` — только при регионе eShop: eShop включён, страна eShop выбрана
+    и в ней eShop поддержан (`eshop.регион`). Иначе инструмент ответит ошибкой, и модель тратила
+    бы на него ход. Хранилища ещё нет или схема в нём не та (переход делает открытие на запись) —
+    страны не прочесть: без `eshop_find`."""
+    import eshop
     import games_db
 
+    без_eshop = [р for р in РАЗРЕШЕНИЯ if р != "mcp__steam__eshop_find"]
     try:
         с = games_db.открыть(только_чтение=True)
     except (FileNotFoundError, games_db.НоваяСхема):
-        return list(РАЗРЕШЕНИЯ)
+        return без_eshop
     try:
-        if games_db.eshop_включён(с):
-            return list(РАЗРЕШЕНИЯ)
+        страна = games_db.страна_eshop(с) if games_db.eshop_включён(с) else None
     finally:
         с.close()
-    return [р for р in РАЗРЕШЕНИЯ if р != "mcp__steam__eshop_find"]
+    return list(РАЗРЕШЕНИЯ) if страна and eshop.регион(страна) is not None else без_eshop
 
 
 def профиль() -> profiles.Profile:

@@ -6,6 +6,11 @@ import advisor
 
 
 def test_каталог_агента_разрешения_и_сервер(tmp_path):
+    import games_db
+
+    с = games_db.открыть()
+    games_db.задать_страны(с, steam="KZ", eshop="US")
+    с.close()
     advisor.подготовить_каталог(tmp_path)
     mcp = json.loads((tmp_path / ".mcp.json").read_text("utf-8"))
     assert mcp["mcpServers"]["steam"]["env"]["GAMES_DATA_DIR"] == str(tmp_path)
@@ -47,26 +52,35 @@ def _разрешено(каталог):
     return json.loads((каталог / ".claude" / "settings.json").read_text("utf-8"))["permissions"]["allow"]
 
 
-def test_включённый_eshop_с_eshop_find(tmp_path):
+@pytest.mark.parametrize("вкл, страна, есть", [
+    (True, "US", True), (True, "DE", True), (True, None, False), (True, "RU", False), (False, "US", False),
+])
+def test_eshop_find_только_с_регионом_eshop(tmp_path, вкл, страна, есть):
+    """`eshop_find` разрешён, только если eShop включён, страна выбрана и в ней eShop есть:
+    иначе инструмент всё равно ответит ошибкой, а модель тратила бы на него ход."""
     import games_db
 
     с = games_db.открыть()
-    games_db.включить_eshop(с, True)
+    games_db.включить_eshop(с, вкл)
+    if страна:
+        games_db.задать_страны(с, eshop=страна)
     с.close()
     advisor.подготовить_каталог(tmp_path)
-    assert "mcp__steam__eshop_find" in _разрешено(tmp_path)
+    assert ("mcp__steam__eshop_find" in _разрешено(tmp_path)) is есть
 
 
-def test_хранилища_нет_eshop_включён(tmp_path):
+def test_хранилища_нет_без_eshop_find(tmp_path):
+    """Хранилища нет — страны eShop нет: `eshop_find` не разрешён."""
     import games_db
 
     advisor.подготовить_каталог(tmp_path)
-    assert "mcp__steam__eshop_find" in _разрешено(tmp_path)
+    assert "mcp__steam__eshop_find" not in _разрешено(tmp_path)
+    assert "mcp__steam__steam_find" in _разрешено(tmp_path)
     assert not games_db.путь().exists()  # разрешения хранилища не создают
 
 
 @pytest.mark.parametrize("файл", ["версия 3", "пустой"])
-def test_старая_схема_eshop_включён(tmp_path, файл):
+def test_старая_схема_без_eshop_find(tmp_path, файл):
     import games_db
 
     if файл == "версия 3":
@@ -74,7 +88,7 @@ def test_старая_схема_eshop_включён(tmp_path, файл):
     else:
         games_db.путь().write_bytes(b"")
     advisor.подготовить_каталог(tmp_path)
-    assert "mcp__steam__eshop_find" in _разрешено(tmp_path)
+    assert "mcp__steam__eshop_find" not in _разрешено(tmp_path)
 
 
 def файл_версии_3(путь):
