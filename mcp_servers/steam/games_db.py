@@ -695,15 +695,17 @@ def отказано(с: sqlite3.Connection, отпечаток: str) -> set[int
     return {с_[0] for с_ in строки}
 
 
-def открытых(с: sqlite3.Connection) -> int:
-    """Число открытых предложений: без оценки, не купленных, не «уже играл»."""
-    return с.execute(
+def открытых(с: sqlite3.Connection, без_eshop: bool = False) -> int:
+    """Число открытых предложений: без оценки, не купленных, не «уже играл». `без_eshop` —
+    без записей eShop (`это_eshop`): при выключенном eShop их не видно, мест они не занимают."""
+    номера = с.execute(
         """
-        SELECT count(*) FROM suggestions
+        SELECT номер FROM suggestions
         WHERE оценка IS NULL
             AND номер NOT IN (SELECT номер FROM library UNION SELECT номер FROM played)
         """
-    ).fetchone()[0]
+    ).fetchall()
+    return sum(1 for (н,) in номера if not (без_eshop and это_eshop(н)))
 
 
 def библиотека(с: sqlite3.Connection) -> list[dict]:

@@ -845,3 +845,135 @@ def test_пара_с_отказом_модели_не_занята(среда, �
     судимые: list[int] = []
     asyncio.run(jobs.неделя(tmp, магазин_с_парой({1: игра(1)}, найти_в_eshop), судья(судимые)))
     assert судимые == [1]
+
+
+class Счётчик:
+    """Все поля eShop `Магазин` — со счётчиком вызовов на каждое."""
+
+    def __init__(self):
+        self.вызовы: list[str] = []
+
+    def поле(self, имя, ответ):
+        async def ф(*_):
+            self.вызовы.append(имя)
+            return ответ() if callable(ответ) else ответ
+        return ф
+
+    def поля(self):
+        return dict(
+            витрина=self.поле("витрина", lambda: [игра_eshop(ЕШОП + 5)] if self.вызовы.count("витрина") == 1 else []),
+            игра_eshop=self.поле("игра_eshop", None),
+            найти_в_steam=self.поле("найти_в_steam", None),
+            найти_в_eshop=self.поле("найти_в_eshop", None),
+            отзывы_eshop=self.поле("отзывы_eshop", ss.НЕТ_ОТЗЫВОВ),
+            цены_eshop=self.поле("цены_eshop", {}),
+        )
+
+
+@pytest.mark.parametrize("вкл", [True, False])
+def test_выключатель_eshop_неделя_и_день(среда, вкл):
+    """Выключенный eShop — ни одного запроса к Nintendo и Metacritic: ни отбор недели, ни
+    скидки дня не зовут ни одно поле eShop `Магазин`."""
+    tmp, _, _ = среда
+    с = games_db.открыть()
+    games_db.включить_eshop(с, вкл)
+    games_db.запомнить_игру(с, игра_eshop(ЕШОП))
+    games_db.оценить(с, ЕШОП, True, "")
+    games_db.запомнить_игру(с, игра(7))
+    games_db.оценить(с, 7, True, "")
+    счёт = Счётчик()
+    м = магазин({1: игра(1), 7: игра(7)})
+    м = jobs.Магазин(найти=м.найти, игра=м.игра, **счёт.поля())
+    asyncio.run(jobs.неделя(tmp, м, судья([])))
+    недели = list(счёт.вызовы)
+    учётка = jobs.Учётка(библиотека=lambda: asyncio.sleep(0, []), список_желаемого=lambda: asyncio.sleep(0, [7]))
+    asyncio.run(jobs.день(м, учётка))
+    дня = счёт.вызовы[len(недели):]
+    с.close()
+    if вкл:
+        assert "витрина" in недели and "найти_в_eshop" in недели
+        assert "цены_eshop" in дня
+    else:
+        assert недели == [] and дня == []
+
+
+def test_запустить_без_eshop_полей_не_ставит(среда, monkeypatch):
+    """Выключенный eShop — в `Магазин` запуска поля eShop остаются пустыми, по умолчанию."""
+    import contextlib
+
+    import metacritic
+
+    @contextlib.asynccontextmanager
+    async def клиент():
+        yield None
+
+    for модуль in (ss, es, metacritic):
+        monkeypatch.setattr(модуль, "клиент", клиент)
+    с = games_db.открыть()
+    games_db.включить_eshop(с, False)
+    с.close()
+    взятый: list[jobs.Магазин] = []
+
+    async def день(магазин, учётка=None, минимум=None):
+        взятый.append(магазин)
+        return "день"
+
+    monkeypatch.setattr(jobs, "день", день)
+    assert asyncio.run(jobs.запустить("day", среда[0])) == "день"
+    пустой = jobs.Магазин(найти=None, игра=None)
+    м = взятый[0]
+    assert (м.витрина, м.игра_eshop, м.найти_в_steam, м.найти_в_eshop, м.отзывы_eshop, м.цены_eshop) == (
+        пустой.витрина, пустой.игра_eshop, пустой.найти_в_steam, пустой.найти_в_eshop,
+        пустой.отзывы_eshop, пустой.цены_eshop)
+
+
+def test_выключенный_eshop_скрытые_предложения_мест_не_занимают(среда):
+    """Скрытые открытые предложения eShop не видны человеку — из десяти мест не вычитаются."""
+    tmp, _, _ = среда
+    с = games_db.открыть()
+    try:
+        for н in range(3):
+            games_db.запомнить_игру(с, игра_eshop(ЕШОП + 20 + н))
+            games_db.предложить(с, ЕШОП + 20 + н, "")
+        for н in range(100, 107):
+            games_db.запомнить_игру(с, игра(н))
+            games_db.предложить(с, н, "")
+        games_db.включить_eshop(с, False)
+    finally:
+        с.close()
+    итог = asyncio.run(jobs.неделя(tmp, магазин({}), судья([])))
+    assert итог.нужно == 3
+
+
+def test_месяц_без_eshop_не_уточняет_игру_eshop_календаря(среда):
+    tmp, _, _ = среда
+    с = games_db.открыть()
+    try:
+        games_db.запомнить_игру(с, игра_eshop(ЕШОП, вышла=False))
+        games_db.в_календарь(с, ЕШОП, "")
+        games_db.включить_eshop(с, False)
+    finally:
+        с.close()
+    счёт = Счётчик()
+    м = jobs.Магазин(найти=lambda *_: asyncio.sleep(0, []), игра=lambda н: asyncio.sleep(0, None), **счёт.поля())
+    asyncio.run(jobs.месяц(tmp, м, судья([])))
+    assert счёт.вызовы == []
+
+
+def test_выключенный_eshop_скрытая_пара_не_блокирует_steam(среда):
+    """Версия eShop показана и не оценена, eShop выключен — её не видно, игра Steam судится и
+    предлагается."""
+    tmp, _, _ = среда
+    с = games_db.открыть()
+    try:
+        games_db.запомнить_игру(с, игра_eshop(ЕШОП))
+        games_db.предложить(с, ЕШОП, "")
+        games_db.запомнить_игру(с, игра(1))
+        games_db.записать_пару(с, 1, ЕШОП)
+        games_db.включить_eshop(с, False)
+        судимые: list[int] = []
+        итог = asyncio.run(jobs.неделя(tmp, магазин({1: игра(1)}), судья(судимые)))
+        assert судимые == [1] and итог.подошло == ["игра 1"]
+        assert 1 in [з["номер"] for з in games_db.предложения(с)]
+    finally:
+        с.close()

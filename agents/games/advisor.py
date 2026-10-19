@@ -60,8 +60,26 @@ def подготовить_каталог(каталог: Path) -> None:
     }
     (каталог / ".mcp.json").write_text(json.dumps(mcp, ensure_ascii=False, indent=1), "utf-8")
     (каталог / ".claude" / "settings.json").write_text(
-        json.dumps({"permissions": {"allow": РАЗРЕШЕНИЯ}}, ensure_ascii=False, indent=1), "utf-8"
+        json.dumps({"permissions": {"allow": разрешения()}}, ensure_ascii=False, indent=1), "utf-8"
     )
+
+
+def разрешения() -> list[str]:
+    """`РАЗРЕШЕНИЯ` по выключателю eShop: выключен — без `eshop_find`. Хранилища ещё нет или
+    схема в нём не та (переход делает открытие на запись) — отметки нет, eShop включён, как в
+    `games_db.eshop_включён`."""
+    import games_db
+
+    try:
+        с = games_db.открыть(только_чтение=True)
+    except (FileNotFoundError, games_db.НоваяСхема):
+        return list(РАЗРЕШЕНИЯ)
+    try:
+        if games_db.eshop_включён(с):
+            return list(РАЗРЕШЕНИЯ)
+    finally:
+        с.close()
+    return [р for р in РАЗРЕШЕНИЯ if р != "mcp__steam__eshop_find"]
 
 
 def профиль() -> profiles.Profile:

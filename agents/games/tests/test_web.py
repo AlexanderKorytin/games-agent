@@ -227,3 +227,108 @@ def test_вкус_ждёт_подтверждения(клиент):
     assert клиент.get("/api/state").json()["вкус_подтверждён"] is False
     assert клиент.post("/api/taste/confirm", json={}).status_code == 200
     assert клиент.get("/api/state").json()["вкус_подтверждён"] is True
+
+
+def test_выключатель_eshop(клиент):
+    с = games_db.открыть()
+    assert клиент.get("/api/state").json()["настройка"]["eshop"] is True
+    assert клиент.post("/api/stores", json={"eshop": "нет"}).status_code == 400
+    ответ = клиент.post("/api/stores", json={"eshop": False})
+    assert ответ.status_code == 200 and ответ.json() == {"итог": "eShop выключен"}
+    assert games_db.eshop_включён(с) is False
+    assert клиент.get("/api/state").json()["настройка"]["eshop"] is False
+    assert клиент.post("/api/stores", json={"eshop": True}).json() == {"итог": "eShop включён"}
+    assert games_db.eshop_включён(с) is True
+    с.close()
+
+
+def _разрешено():
+    import json
+
+    файл = web.каталог() / ".claude" / "settings.json"
+    return json.loads(файл.read_text("utf-8"))["permissions"]["allow"]
+
+
+def test_выключатель_eshop_переписывает_разрешения_советника(клиент):
+    assert "mcp__steam__eshop_find" in _разрешено()
+    клиент.post("/api/stores", json={"eshop": False})
+    assert "mcp__steam__eshop_find" not in _разрешено()
+    клиент.post("/api/stores", json={"eshop": True})
+    assert "mcp__steam__eshop_find" in _разрешено()
+
+
+@pytest.fixture(params=["версия 3", "пустой"])
+def старый_файл(request):
+    from test_advisor import файл_версии_3
+
+    if request.param == "версия 3":
+        файл_версии_3(games_db.путь())
+    else:
+        games_db.путь().write_bytes(b"")
+
+
+def test_веб_поднимается_на_старом_файле(старый_файл, клиент):
+    assert клиент.get("/api/state").status_code == 200
+    assert "mcp__steam__eshop_find" in _разрешено()
+    с = games_db.открыть(только_чтение=True)
+    assert с.execute("SELECT значение FROM meta WHERE ключ = 'версия_схемы'").fetchone()[0] == str(games_db.ВЕРСИЯ_СХЕМЫ)
+    с.close()
+
+
+def test_выключенный_eshop_прячет_игры_и_пары(клиент):
+    с = games_db.открыть()
+    # Steam с парой eShop, одиночная eShop и одиночная Steam — в каждом из трёх списков.
+    games_db.запомнить_игру(с, ss.Игра(номер=367520, имя="Hollow Knight", вышла=False,
+                                       дата=date(2027, 3, 4), цена=46500, валюта="RUB"))
+    games_db.запомнить_игру(с, ss.Игра(
+        номер=70010000000001, имя="Hollow Knight", цена=1999, валюта="USD",
+        адрес="https://www.nintendo.com/us/store/products/hollow-knight-switch/"))
+    games_db.записать_пару(с, 70010000000001, 367520)
+    games_db.запомнить_игру(с, ss.Игра(
+        номер=70010000000002, имя="Pikmin 4", вышла=False, дата=date(2027, 3, 5), цена=5999,
+        валюта="USD", адрес="https://www.nintendo.com/us/store/products/pikmin-4-switch/"))
+    games_db.записать_пару(с, 70010000000002, None)
+    games_db.запомнить_игру(с, игра(5, вышла=False, дата=date(2027, 3, 6)))
+    for н in (367520, 70010000000002, 5):
+        games_db.в_календарь(с, н, "")
+    for н in (11, 70010000000011):
+        games_db.запомнить_игру(с, ss.Игра(номер=н, имя=f"п {н}"))
+        games_db.предложить(с, н, "")
+    games_db.предложить(с, 367520, "")
+    # Игра eShop, пару которой в Steam нашли позже, — при выключенном не видна.
+    games_db.предложить(с, 70010000000001, "")
+    for н in (12, 70010000000012):
+        games_db.запомнить_игру(с, ss.Игра(номер=н, имя=f"ж {н}"))
+        games_db.предложить(с, н, "")
+        клиент.post("/api/rate", json={"номер": н, "плюс": True})
+
+    д = клиент.get("/api/state").json()
+    assert {з["номер"] for з in д["календарь"]} == {367520, 70010000000002, 5}
+    assert "eshop-70010000000002@" in клиент.get("/calendar.ics").text
+    assert 70010000000001 in {з["номер"] for з in д["предложения"]}
+
+    клиент.post("/api/stores", json={"eshop": False})
+    д = клиент.get("/api/state").json()
+    assert {з["номер"] for з in д["предложения"]} == {11, 367520}
+    assert {з["номер"] for з in д["желаемое"]} == {12}
+    assert {з["номер"] for з in д["календарь"]} == {367520, 5}
+    for список in ("предложения", "желаемое", "календарь"):
+        for з in д[список]:
+            assert з["магазины"] == ["steam"]
+            if з["номер"] == 367520:
+                assert not any(к == "пара" or к.startswith("пара_") for к in з), з
+            else:
+                assert з.get("пара") is None
+    текст = клиент.get("/calendar.ics").text
+    assert "eshop-" not in текст and "steam-367520@" in текст and "steam-5@" in текст
+
+    # Снова включили — записи eShop и поля пары вернулись.
+    клиент.post("/api/stores", json={"eshop": True})
+    д = клиент.get("/api/state").json()
+    assert {з["номер"] for з in д["предложения"]} == {11, 70010000000011, 367520, 70010000000001}
+    assert {з["номер"] for з in д["желаемое"]} == {12, 70010000000012}
+    assert {з["номер"] for з in д["календарь"]} == {367520, 70010000000002, 5}
+    hk = next(з for з in д["календарь"] if з["номер"] == 367520)
+    assert any(к == "пара" or к.startswith("пара_") for к in hk) and hk["магазины"] != ["steam"]
+    assert "eshop-70010000000002@" in клиент.get("/calendar.ics").text
+    с.close()

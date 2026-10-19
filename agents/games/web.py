@@ -178,6 +178,21 @@ def _запреты() -> list[dict[str, Any]]:
     ]
 
 
+def _без_eshop(записи: list[dict]) -> list[dict]:
+    """Выдача при выключенном eShop: игр eShop нет (и с парой в Steam, найденной позже), у игр
+    Steam с парой — ни пары, ни её цен, магазин один Steam. Хранилище не меняется: включение
+    возвращает всё как было."""
+    итог = []
+    for з in записи:
+        if з.get("магазин") == "eshop":
+            continue
+        if з.get("пара") is not None:
+            з = {к: з_ for к, з_ in з.items() if к != "пара" and not к.startswith("пара_")}
+            з["магазины"] = ["steam"]
+        итог.append(з)
+    return итог
+
+
 def _с_оценкой(записи: list[dict]) -> list[dict]:
     """Оценка SteamDB числом и порядок по ней: лучшие первыми, без отзывов — в конце."""
     for з in записи:
@@ -224,6 +239,8 @@ async def состояние(request: Request) -> Response:
     тайны = secrets_store.загрузить()
     с = games_db.открыть()
     try:
+        eshop = games_db.eshop_включён(с)
+        выдача = (lambda з: з) if eshop else _без_eshop
         данные = {
             "настройка": {
                 "вошёл": bool(тайны.steamid),
@@ -234,6 +251,7 @@ async def состояние(request: Request) -> Response:
                     "itad": bool(тайны.itad_ключ),
                 },
                 "ollama": await _ollama(),
+                "eshop": eshop,
             },
             "опрос_пройден": taste.опрос_пройден(каталог()),
             "мастер_пройден": bool(games_db.отметка(с, "мастер_пройден")),
@@ -244,9 +262,9 @@ async def состояние(request: Request) -> Response:
             "сверка_нужна": _сверка_нужна(с),
             "вкус": _вкус(),
             "запреты": _запреты(),
-            "предложения": _с_оценкой(games_db.предложения(с, только_без_оценки=True)),
-            "желаемое": _с_оценкой(games_db.желаемое(с)),
-            "календарь": games_db.календарь(с),
+            "предложения": _с_оценкой(выдача(games_db.предложения(с, только_без_оценки=True))),
+            "желаемое": _с_оценкой(выдача(games_db.желаемое(с))),
+            "календарь": выдача(games_db.календарь(с)),
             "библиотека": games_db.библиотека(с),
             "лента": games_db.лента(с),
             # Идут — и из кнопки веба, и по расписанию в службе: служба видна по замку задания.
@@ -455,6 +473,25 @@ async def мастер_готов(request: Request) -> Response:
     finally:
         с.close()
     return JSONResponse({"итог": "настройка пройдена"})
+
+
+async def магазины(request: Request) -> Response:
+    """Выключатель eShop из мастера и «Настроек»: выключение ничего не удаляет."""
+    try:
+        тело = await _тело(request)
+    except ValueError as exc:
+        return _ошибка(str(exc))
+    вкл = тело.get("eshop")
+    if not isinstance(вкл, bool):
+        return _ошибка("eshop — true или false")
+    с = games_db.открыть()
+    try:
+        games_db.включить_eshop(с, вкл)
+    finally:
+        с.close()
+    # Разрешения советника — по выключателю: `eshop_find` есть, только пока eShop включён.
+    advisor.подготовить_каталог(каталог())
+    return JSONResponse({"итог": "eShop включён" if вкл else "eShop выключен"})
 
 
 async def выйти_из_steam(request: Request) -> Response:
@@ -822,7 +859,8 @@ def календарь_ics(записи: list[dict[str, Any]], сейчас: dat
 async def ics(request: Request) -> Response:
     с = games_db.открыть()
     try:
-        текст = календарь_ics(games_db.календарь(с))
+        записи = games_db.календарь(с)
+        текст = календарь_ics(записи if games_db.eshop_включён(с) else _без_eshop(записи))
     finally:
         с.close()
     return Response(текст, media_type="text/calendar; charset=utf-8")
@@ -868,8 +906,9 @@ async def срок_жизни(app):
     каталог().mkdir(parents=True, exist_ok=True)
     # Каталог данных — только владельцу: в нём SteamID, библиотека, вкус и разговор.
     os.chmod(каталог(), 0o700)
-    advisor.подготовить_каталог(каталог())
+    # Переход схемы хранилища — до разрешений советника: они читают выключатель eShop.
     games_db.открыть().close()
+    advisor.подготовить_каталог(каталог())
     задача = asyncio.create_task(_поднять_при_старте())
     ПРИЛОЖЕНИЕ.задачи.add(задача)
     задача.add_done_callback(ПРИЛОЖЕНИЕ.задачи.discard)
@@ -888,6 +927,7 @@ app = Starlette(
         Route("/api/models/choose", модель_выбрать, methods=["POST"]),
         Route("/api/logout", выйти_из_steam, methods=["POST"]),
         Route("/api/setup/done", мастер_готов, methods=["POST"]),
+        Route("/api/stores", магазины, methods=["POST"]),
         Route("/api/intro/draft", черновик_знакомства, methods=["POST"]),
         Route("/api/taste/confirm", вкус_подтвердить, methods=["POST"]),
         Route("/api/ask", вопрос, methods=["POST"]),
